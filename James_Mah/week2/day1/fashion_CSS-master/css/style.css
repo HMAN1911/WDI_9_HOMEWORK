@@ -1,0 +1,158 @@
+body {
+  background-color: white;
+  margin: 0 auto;
+  width: 810px;
+  font-family: arial;
+  color: black;
+  font-size: 80%;
+  line-height: 150%
+}
+
+h1 {
+  display: inline-block;
+  margin: 0px;
+  color: red;
+  font-family: arial;
+  font-size: 50px;
+  font-weight: normal;
+  padding: 70px 0 20px 0;
+}
+
+h2 {
+  display: inline-block;
+  margin: 0px;
+  color: grey;
+  font-family: arial;
+  margin-left: 30px;
+  font-weight: normal;
+}
+
+.post img {
+  width: 100%;
+}
+
+nav {
+  width: 100%;
+  background-color: black;
+  margin-bottom: 0px;
+}
+
+nav ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  float: left;
+  width: calc(100% / 6);
+  border-style: solid;
+  border-width: 1px;
+  border-color: grey;
+  box-sizing: border-box;
+}
+
+nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 14px 0 14px 0;
+    text-decoration: none;
+    font-size: 140%;
+    color: grey;
+}
+
+nav ul li a:hover {
+    background-color: grey;
+    color: black;
+}
+
+h3, h4 {
+  font-size: 30px;
+  font-weight: normal;
+  margin: 0;
+  padding: 10px 0 10px 0;
+}
+
+h3 {
+  color: grey;
+}
+
+h4 {
+  color: black;
+  padding-bottom: 20px;
+}
+
+.huge {
+  font-size: 80px;
+  float: left;
+  padding-right: 5px;
+  color: grey;
+  margin: 25px 0 15px 0;
+}
+
+.post {
+  padding: 40px 0 20px 0;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+  border-bottom-width: 2px;
+}
+
+.linkToRight {
+  text-align: right;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+article {
+  background-color: white;
+  display: inline-block;
+  width: 540px;
+}
+
+aside {
+  background-color: white;
+  display: inline-block;
+  float: right;
+  vertical-align: top;
+  width: 237px;
+  padding-top: 80px;
+  color: grey;
+}
+
+#ad {
+  text-align: center;
+  margin: 20px 0 20px 0;
+  padding: 20px 0 20px 0;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 2px;
+  border-color: grey;
+}
+
+aside ul {
+  padding-left: 25px;
+}
+
+footer {
+  padding: 25px 0 25px 0;
+}
+
+footer ul {
+  padding: 0 0 10px 0;
+}
+
+footer ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 0 0 3px;
+  margin: 0;
+  line-height: 100%;
+}
+
+footer ul li ~ li { 
+  border-left: 1px solid grey;
+}
