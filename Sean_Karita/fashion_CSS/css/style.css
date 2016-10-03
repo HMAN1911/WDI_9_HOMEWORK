@@ -1,1 +1,114 @@
-/* here be awesome css */
+body {
+  padding: 40px;
+  font-family: Helvetica, sans-serif;
+}
+
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 60px;
+}
+
+header a {
+  color: white;
+}
+
+h1 {
+  color: #e50000;
+  font-size: 2.4em;
+  margin-bottom: 0;
+  display: inline-block;
+  font-weight: lighter;
+}
+h2 {
+  display: inline-block;
+  color: grey;
+  font-weight: lighter;;
+  margin-left: 30px;
+}
+h3 {
+  font-size: 1.5em;
+}
+
+nav ul li {
+  width: 100px;
+  color: white;
+  background-color: black;
+  padding: 20px;
+  margin-right: 1px;
+  float: left;
+  list-style: none;
+}
+
+footer {
+  clear: both;
+}
+
+section {
+  width: 600px;
+  float: left;
+  margin-right: 30px;
+  box-sizing: border-box;
+}
+
+aside {
+  width: 300px;
+  float: left;
+  text-align: justify;
+  box-sizing: border-box;
+}
+article footer {
+  text-align: right;
+  padding: 20px;
+}
+
+aside {
+  color: grey;
+  padding-top: 50px;
+}
+article img {
+  width: 580px;
+}
+aside img {
+  display: block;
+  padding-bottom: 30px;
+  border-bottom: 1px solid black;
+}
+a {
+  text-align: right;
+  color: red;
+  display: block;
+}
+section article p::first-letter {
+  float: left;
+  font-size: 4em;
+  padding: 0 10px 10px 0;
+  color: grey;
+}
+
+footer nav ul li {
+  text-decoration: none;
+  color: red;
+  background: white;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin 10px 0;
+}
+
+footer li {
+  display: inline-block;
+  margin: 0;
+  padding: 2px;
+}
+footer p {
+  color: grey;
+  clear: both;
+}
+aside li {
+  color: red;
+}
