@@ -1,0 +1,227 @@
+/* here be awesome css */
+
+
+html {
+	border-left: 6px solid gray;
+}
+
+header{
+	width: 100%;
+}
+
+
+header h1 {
+  display: inline;
+  font-size: 200%;
+  font-weight: normal;
+  color: red;
+  font-family: arial;
+  margin-left: 40px;
+  float:left;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+header h2 {
+  display: inline:
+  font-size: 60%;
+  font-weight: normal;
+  color: gray;
+  font-family: arial;
+  text-align: center;
+  float: center;
+  margin-bottom: 0;
+  margin-top: 0;
+
+}
+
+
+header nav {
+  	width: 100%;
+  	margin: 0 10px;
+    background-color: black;
+}
+
+header nav ul{
+  	padding:0;
+  	margin:0;
+  	list-style: none;
+    background-color: black;
+}
+
+header nav .box {
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  font-weight: 100;
+  font-size: 100%;
+  border-right-color: white;
+  border-style: solid;
+  border-width: 1px;
+
+  margin-left: 0px;
+  margin-right: 0px;
+  width: auto;
+}
+
+header nav ul li {
+  	float: left;
+  	display: inline-block;
+  	background-color: black;
+  	padding: 0;
+  	margin:0 auto;
+  	list-style: none;
+  	text-align: center;
+    font-family: arial;
+}
+
+header nav ul li a {
+  	display: inline-block;
+  	background-color: gray;
+  	padding: 20px;
+  	text-align: center;
+}
+
+/* Left Column Wrapper */
+
+.leftColumn {
+  float: left;
+  max-width: 60%;
+  margin-right: 50px;
+  margin-left: 50px;
+  font-family: arial;
+}
+
+.leftColumn h2 {
+font-size: 150%;
+font-weight: normal;
+color: gray;
+font-family: arial;
+}
+
+.blogHeading {
+  font-family: arial;
+  font-size: 150%;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.largeLeadCharacter {
+  display: inline;
+  font-family: arial;
+  font-weight: 100;
+  font-size: 400%;
+  float: left;
+  float: top;
+  color: gray;
+  padding: 0px;
+  margin-top: 20px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  text-decoration: none;
+}
+
+.blogTextContent {
+  font-family: arial;
+  font-size: 110%;
+  color: darkgray;
+  margin-top: 20px;
+  line-height: 1.5em;
+}
+
+article {
+	padding-bottom: 60px;
+	border-bottom: 1px solid gray;
+}
+
+/*article img{
+	max-width: 100%;
+}*/
+
+.moreInfoLink {
+	float: right;
+  font-family: arial;
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+/* Right Column Wrapper */
+
+.rightColumn {
+  float: left;
+  max-width: 15%;
+  margin-top: 100px;
+  margin-left: 10px;
+  font-family: arial;
+}
+
+h3 {
+  font-family: arial;
+  font-size: 100%;
+  font-weight: bold;
+  color: gray;
+}
+
+.aboutUsContent {
+  font-family: arial;
+  font-size: 90%;
+  color: gray;
+  font-weight: normal;
+  padding-bottom: 50px;
+  line-height: 1.5em;
+}
+
+.ad {
+  text-align: center;
+	border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  margin-top: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.postsList {
+  font-size: 80%;
+  font-weight: normal;
+  color: red;
+  line-height: 1.5em;
+}
+
+
+footer{
+	float: left;
+	width: 100%;
+}
+
+footer nav {
+  	width: 100%;
+  	float: left;
+}
+
+footer nav ul{
+  	width: 100%;
+  	float: left;
+    color: gray;
+}
+
+footer nav ul li {
+  	display: inline-block;
+    text-decoration: none;
+}
+
+footer nav ul li a {
+  	display: inline-block;
+  	float: left;
+    font-family: arial;
+    color: red;
+    text-decoration: none:
+}
+
+.copyrightMessage {
+  font-family: arial;
+  margin-left: 40px;
+  font-size: 80%;
+  color: lightgray;
+}
