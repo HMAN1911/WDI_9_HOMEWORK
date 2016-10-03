@@ -133,13 +133,14 @@ article footer a {
   font-weight: bold;
 }
 
+aside {
+  color: grey;
+  padding-top: 50px;
+}
+
 aside ul {
   padding-left: 20px;
   list-style: none;
-}
-
-aside {
-  color: grey;
 }
 
 aside li:before {
