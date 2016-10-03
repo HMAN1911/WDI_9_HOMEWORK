@@ -98,6 +98,7 @@ a {
 }
 
 .read_more {
+  display: block;
   text-align: right;
   margin: 20px 0;
   font-family: 'Roboto',sans-serif;
