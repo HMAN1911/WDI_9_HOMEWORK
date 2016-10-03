@@ -1,0 +1,133 @@
+#main-heading {
+  color: red;
+  display: inline-block;
+  padding-right: 12px;
+  font-weight: normal;
+
+}
+#sub1-heading {
+  color: grey;
+  display: inline-block;
+  font-weight: normal;
+}
+#nav {
+  width: 100%;
+	float: left;
+	margin: 0;
+	padding: 0;
+	background-color: black;
+  }
+#nav ul {
+	list-style: none;
+	width: 800px;
+	margin: 0 ;
+	padding: 0; }
+#nav li {
+	float: left;
+  width:auto;
+ }
+#nav li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	color: white;
+	border-right: 1px solid white;
+}
+.date {
+  color: grey;
+  font-weight: normal;
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+.title {
+  color:black;
+  font-weight: normal;
+  margin-top: 5px;
+
+}
+
+
+.done4line {
+  padding-bottom: 50px;
+  border-bottom: 1px solid grey;
+}
+.image-part footer {
+  color:red;
+  float:right;
+  font-weight:bold;
+
+}
+.image-part img {
+  width: 680px;
+}
+.image-part {
+  display: inline-block;
+  width: 680px;
+}
+aside {
+
+  display: inline-block;
+  width: 280px;
+  margin-left: 50px;
+  vertical-align:top;
+  box-sizing: border-box;
+  padding-top: 60px;
+
+}
+aside > h3{
+  color: grey;
+  font-weight: bold;
+}
+
+.done4line > footer{
+  color:red;
+  float:right;
+  font-weight:bold;
+}
+.done4line a {
+  color:red}
+}
+
+#list li a{
+  color:red;
+}
+#list li {
+  color: red;
+}
+
+.first-letter {
+  float:left;
+  font-size: 70px;
+  line-height: 50px;
+  color: grey;
+}
+
+#advertisement {
+  margin-top: 40px;
+}
+body {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#refooter {
+  width: 100%;
+	float: left;
+	margin-top: 20px;
+	padding-top: 30px;
+	background-color: white;
+  }
+#redfooter ul {
+	list-style: none;
+	width: 800px;
+	margin-top: : 30px ;
+	padding: 0; }
+#redfooter li {
+	float: left; }
+#redfooter li a {
+	display: block;
+	padding: 1px 18px;
+	text-decoration: none;
+	color: red;
+	border-right: 1px solid grey;
+}
