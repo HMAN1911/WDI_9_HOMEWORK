@@ -1,0 +1,116 @@
+/*Styling the headers*/
+h1 {
+  color: red;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  display: inline;
+  margin: 50px 10px 5px 40px;
+  padding-top: 100px;
+}
+
+
+
+h3 {
+  color: lightgrey;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 100;
+  display: inline;
+  padding-left: 15px;
+  margin:auto;
+}
+
+h4 {
+  color: lightgrey;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/*Styling the nav bar*/
+#topnav ul li {
+  display: inline-block;
+  color: white;
+  background-color: black;
+  padding: 15px 40px;
+  font-weight: 100;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+}
+
+#topnav ul {
+  margin-top: 5px;
+}
+
+#botnav ul li {
+  display: inline-block;
+  padding: 0px 4px;
+  font-weight: 100;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  border-right: 1px solid grey;
+}
+
+#botnav ul {
+    text-align: left;
+    padding-left: 0;
+}
+
+/*layouts*/
+#wrap {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.clear {
+  clear: both;
+}
+
+.leftlay {
+  float: left;
+  max-width: 60%;
+  margin-left: 40px;
+}
+
+.rightlay {
+  float: left;
+  max-width: 20%;
+  margin-left: 50px;
+}
+
+.bimage img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+footer {
+  margin-left: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: red;
+}
+
+span {
+  font-weight: bold;
+}
+
+.para1 p span, .para2 p span {
+  text-align: right;
+}
+
+.AD {
+  color: grey;
+  font-size: 50px;
+  background-color: lightgrey;
+  text-align: center;
+  padding: 30px 40px;
+  font-weight: bold;
+}
+
+.rightlay article {
+  margin-top: 50px;
+  border-bottom: 1px solid lightgrey;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  color: grey;
+}
