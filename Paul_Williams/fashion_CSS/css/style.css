@@ -60,11 +60,12 @@ img {
   width: 100%;
 }
 
-span {
+p::first-letter {
   font-size: 4em;
   color: #cccccc;
   float: left;
   margin-right: .25em;
+  line-height: 1;
 }
 
 main a, aside > a {
@@ -99,7 +100,7 @@ div {
   margin: .4em 0;
   height: 250px;
   font-size: 5em;
-  padding-top: 1em;
+  line-height: 250px;
   box-sizing: border-box;
 }
 
