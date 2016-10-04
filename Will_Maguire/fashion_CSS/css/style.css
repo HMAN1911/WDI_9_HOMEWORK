@@ -1,0 +1,68 @@
+/* MUST SLEEP... more to come */
+#wrapper {
+  display: block;
+  margin: 0 auto;
+  width: 960px;
+  border-left: solid 2px #a9a3a3;
+  padding-left: 30px
+}
+
+#nav-bar {
+	background-color: #FFFFFF;
+	font-family: 'Raleway', sans-serif;
+}
+#header li {
+  list-style-type: none;
+  display: inline;
+}
+#header_1 {
+  font-family:'Raleway', sans-serif;
+  font-size: 42pt;
+  color: #f94444;
+}
+#header_2 {
+  font-family:'Raleway', sans-serif;
+  font-size: 20pt;
+  color: #a9a3a3;
+}
+.nav_box {
+	background-color: #000000;
+	color: white;
+	text-decoration: none;
+	display: block;
+	float: left;
+	padding: 20px;
+  border: 1px solid #FFFFFF;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18pt;
+}
+#nav-bar:after {
+	visibility: hidden;
+	display: block;
+  justify-content: center;
+	content: "";
+	clear: both;
+	height: 0;
+	font-size: 0;
+}
+#date {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24pt;
+  color: #a9a3a3;
+}
+#titleOne {
+  font-family: 'Raleway', sans-serif;
+  font-size: 24pt;
+}
+#C {
+  float: left;
+  font-size: 52pt;
+  color: #a9a3a3;
+  padding: 2px 4px 4px 2px;
+  }
+
+p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 10pt;
+  float:left;
+}
