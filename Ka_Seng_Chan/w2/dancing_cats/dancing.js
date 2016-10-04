@@ -1,10 +1,9 @@
-console.log('its working');
 
 var movePixels = 10;
 var delayMs = 50;
 var catTimer = null;
-var catDirection = 1; // 1 -> moves right, 0 --> moves left
-var catDance = 0;
+var catDirection = 1; // cat movement direction indicator 1 -> moves right, 0 --> moves left
+var catDance = 0; // Flag to mark if cat has already performed dance
 
 function catWalk() {
   var img = document.getElementsByTagName('img')[0];
@@ -15,21 +14,22 @@ function catWalk() {
   } else {
     img.style.left = (currentLeft - movePixels) + 'px';
   }
-  // If reached rightmost, moves left
+  // If reaches rightmost of window, moves left
   if (currentLeft > (window.innerWidth-img.width)) {
-    img.style.transform = 'scaleX(-1)';
-    catDirection = 0;
-    catDance = 0;
+    img.style.transform = 'scaleX(-1)'; // Flip image
+    catDirection = 0; // Change cat's movement direction to left
+    catDance = 0; // Reset flag for dancing cat
   }
-  // If reached leftmost, moves right
+  // If reaches leftmost window, moves right
   if (currentLeft < 0) {
-    catDirection = 1;
-    img.style.transform = 'scaleX(1)';
-    catDance = 0;
+    img.style.transform = 'scaleX(1)'; // Flip image
+    catDirection = 1; // Change cat's movement to right
+    catDance = 0; // Reset flag for dancing cat
   }
 
-  if (currentLeft >= (window.innerWidth-img.width)/2 - 5 && currentLeft <= (window.innerWidth-img.width)/2 + 5) {
-    // console.log('middle');
+  // If reaches middle of window, switch to dancing cat for 2 seconds
+  if (currentLeft >= (window.innerWidth-img.width)/2 - 10 && currentLeft <= (window.innerWidth-img.width)/2 + 10) {
+    // If dancing cat has not appear
     if (!catDance) {
       stopCatWalk();
       img.src = 'http://www.clipartkid.com/images/594/animation-bundle-animated-cats-jumping-playing-and-running-around-see-xL5d9E-clipart.gif';
@@ -37,10 +37,8 @@ function catWalk() {
         img.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
         restartCatWalk();
       },2000);
-      catDance = 1;
+      catDance = 1; // Set flag for dancing cat
     }
-    //img.src = 'http://www.anniemation.com/clip_art/images/cat-walk.gif';
-    //startCatWalk();
   }
 }
 
