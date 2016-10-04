@@ -1,4 +1,5 @@
 /* here be awesome css */
+/* must always add to 100%*/
 
 
 html {
@@ -153,7 +154,7 @@ article {
   float: left;
   max-width: 15%;
   margin-top: 100px;
-  margin-left: 10px;
+  margin-left: 40px;
   font-family: arial;
 }
 
