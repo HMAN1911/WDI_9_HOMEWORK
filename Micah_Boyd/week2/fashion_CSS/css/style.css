@@ -1,0 +1,127 @@
+/* here be awesome css */
+* {
+  box-sizing: border-box;
+}
+
+.mainColumn {
+  display: inline-block;
+  width: 700px;
+  background-color: white;
+  padding: 10px;
+}
+
+.sideColumn {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+  padding: 10px;
+  background-color: white;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.fashion {
+  display: block;
+  width: 700px;
+}
+
+body {
+}
+
+.adBox {
+  width: 200px;
+  height: 200px;
+  background-color: grey;
+  padding: 30px;
+}
+
+ul {
+  color: red;
+}
+
+.topBar {
+  display: block;
+
+}
+
+.topbarbutton {
+  display: inline-block;
+  margin: 10px .5px 10px .5px;
+  padding: 0px 12px;
+  background-color: black;
+  color: white;
+  font-size: 100%;
+}
+
+h1 {
+  display: inline;
+  color: red;
+  margin: 10px 20px 10px 0;
+}
+
+h2 {
+  display: inline;
+  color: grey;
+  margin: 10px 0;
+
+}
+
+h3 {
+  font-size: 200%;
+  margin: 15px 0;
+}
+
+h4 {
+  font-size: 150%;
+  margin: 20px;
+}
+
+h5 {
+  margin: 15px 0;
+  font-size: 120%;
+}
+
+p {
+  color: grey;
+}
+
+.bottomLinksBar {
+  display: block;
+  color: grey;
+}
+
+.bottomLinks {
+  color: red;
+}
+
+.continue {
+  text-align: left;
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  color: grey;
+}
+
+li p {
+  color: red;
+}
+
+span {
+  float: left;
+  font-size: 300%;
+  padding-right: 10px;
+  line-height: 1;
+}
+
+.navbar {
+
+}
