@@ -1,0 +1,90 @@
+/* here be awesome css */
+
+.wrapper{
+font-family: ariel sans-serif;
+font-stretch: expanded;
+
+}
+h1{
+  font-size: 46px;
+  display: block;
+
+}
+.menu{
+  display: block;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  font-size: 22px;
+  margin: auto;
+  padding: 35px;
+}
+h2{
+  color: grey;
+  display: inline-block;
+  padding: 25px;
+}
+.title{
+  display: inline-block;
+  font-weight: bold;
+  color: red;
+}
+.contin{
+  float: right;
+  font-weight: bold;
+  color: red;
+}
+.adbox{
+background-color: lightgrey;
+padding: 30px;
+margin: 40px;
+width: 250px;
+height: 120px;
+color: darkgrey;
+}
+.more{
+  float: right;
+  font-weight: bold;
+  color: red;
+}
+.posts{
+  color: red;
+  font-weight: bold;
+}
+.bottomnav{
+  display: inline-block;
+  float: left;
+  text-decoration: none;
+  color: red;
+
+}
+a{
+    border-right: 1px solid red;
+    padding: 10px
+}
+.date{
+  color: grey;
+}
+article{
+  max-width: 900px;
+  display: inline;
+  float: left;
+   border-bottom:1px solid black;
+}
+.firstaside{
+  border-bottom: 1px solid black;
+}
+aside{
+  max-width: 260px;
+  display: inline;
+  float: left;
+  padding: 10px;
+}
+.foot{
+  color: grey;
+  padding: 10px;
+  margin: 20px;
+}
+footer{
+  display: inline-block;
+}
