@@ -1,0 +1,23 @@
+span {
+  float: left;
+  font-size: 4em;
+  padding-right: 5px;
+  line-height: 1;
+}
+
+ul {
+  padding: 0;
+  overflow: hidden
+  /*font-size: 0;*/
+}
+
+li {
+  /*font-size: 16px;*/
+  box-sizing: border-box;
+  width: calc(100% / 6);
+  /*display: inline-block;*/
+  float: left;
+  border: 1px solid red;
+  list-style: none;
+  text-align: center;
+}

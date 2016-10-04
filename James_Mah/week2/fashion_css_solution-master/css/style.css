@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:700');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1, h3 {
+  display: inline-block;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 52px;
+  color: #D00;
+}
+
+h2.title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+h3.tagline {
+  font-size: 30px;
+  color: #888;
+  margin-left: 25px;
+}
+
+h4.date {
+  color: #bbb;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+
+header nav {
+  font-size: 0;
+}
+
+header nav a {
+  display: inline-block;
+  width: 159px;
+  margin-right: 1px;
+  padding: 15px 0px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+
+section#blog, aside#sidebar {
+  float: left;
+}
+
+section#blog, section#blog img {
+  width: 640px;
+}
+
+aside#sidebar {
+  margin-top: 75px;
+  margin-left: 40px;
+  width: 280px;
+}
+
+aside#sidebar h3 {
+  font-weight: bold;
+}
+
+aside#sidebar h3, aside#sidebar p {
+  color: #888;
+}
+
+article {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 50px;
+}
+
+article#ad {
+  font-size: 30px;
+  text-align: center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
+article#ad article {
+  padding: 80px 0;
+  font-family: 'Droid Serif', serif;
+  font-weight: bold;
+  font-size: 77px;
+  color: #888;
+  background-color: #ccc;
+}
+
+article#popular-posts {
+  border-bottom: none;
+}
+
+article a {
+  color: #D00;
+  font-weight: bold;
+  float: right;
+}
+
+article ul {
+  color: #888;
+}
+
+article ul a {
+  font-weight: normal;
+  float: none;
+}
+
+footer nav {
+  margin: 45px 0 25px 0;
+}
+
+footer nav a {
+  display: inline-block;
+  padding-right: 5px;
+  color: #D00;
+}
+
+footer nav a:not(:last-child) {
+  border-right: 1px solid #ccc;
+}
+
+footer #copyright {
+  color: #888;
+}
+
+a {
+  text-decoration: none;
+}
+
+p.capital-letter {
+  float: left;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 80px;
+  margin: 0 10px 0 0;
+  color: #ddd;
+  line-height: 106px;
+}
+
+p {
+  font-family: Lato, sans-serif;
+  color: #444;
+  line-height: 25px;
+}
+
+.clear {
+  clear: both;
+}
