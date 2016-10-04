@@ -1,4 +1,4 @@
-var movePixels = 5;
+var movePixels = 10;
 var delayMs =  50;
 var catTimer = null;
 var walkDirection = 1;
@@ -9,43 +9,37 @@ function catWalk() {
 
  var currentLeft = parseInt(img.style.left);
  img.style.left = (currentLeft + (movePixels * walkDirection)) + 'px';
- if (currentLeft > (window.innerWidth-img.width)/2  && change == true ) {
+ //if image is in the middle of the page, call catDance function
+ if (currentLeft > (window.innerWidth-img.width)/2 -10 &&
+     currentLeft < (window.innerWidth-img.width)/2 +10 && change == true ) {
 
+   stopCatWalk();
    catDance();
-   setTimeout(startCatWalk(),3000);
-
+   setTimeout(startCatWalk,3000);
   change = false;
  }
- if (currentLeft > (window.innerWidth-img.width)) {
-   walkDirection = -1;
-   img.src = "cat-walkBack.gif";
+ if (currentLeft > (window.innerWidth-img.width)) { //If image is at the right edge
+   walkDirection = -1;                              // change for flipped image
+   img.style.transform = 'scaleX(-1)'             // and make ready to change again
+   change = true;                                 // to cat dance image
 
-  } else if (currentLeft < 0) {
-    walkDirection = 1;
-    img.src = "cat-walk.gif";
-    change = true;
+ } else if (currentLeft < 0) {          // if image is at the left edge
+    walkDirection = 1;                  // change for flipped image
+    img.style.transform = 'scaleX(1)'  // and make ready to change again
+    change = true;                      // to cat dance image
   }
 }
 
-
-
 function startCatWalk() {
-  // if (catTimer == null) {
-  //   catTimer = window.setInterval(catWalk, delayMs);
-  // }else {
     clearInterval(catTimer);
     catTimer = 0;
     movePixels = 5;
     catTimer = window.setInterval(catWalk, delayMs);
-  //}
 }
 
 function stopCatWalk() {
-  // movePixels = 0;
-  // catTimer = window.setInterval(catWalk, delayMs);
   movePixels = 0;
   clearInterval(catTimer);
-
 }
 
 function speedCatWalk() {
@@ -64,5 +58,3 @@ document.getElementById('stop-button').addEventListener('click',function(){
     stopCatWalk();} );
 document.getElementById('speed-button').addEventListener('click',function(){
     speedCatWalk();} );
-// document.getElementById('dance-button').addEventListener('click',function(){
-//     catDance();} );
