@@ -43,10 +43,6 @@ nav ul li {
   list-style: none;
 }
 
-footer {
-  clear: both;
-}
-
 section {
   width: 600px;
   float: left;
@@ -89,6 +85,10 @@ section article p::first-letter {
   color: grey;
 }
 
+footer {
+  clear: both;
+}
+
 footer nav ul li {
   text-decoration: none;
   color: red;
@@ -103,7 +103,7 @@ footer ul {
 footer li {
   display: inline-block;
   margin: 0;
-  padding: 2px;
+  padding: 0;
 }
 footer p {
   color: grey;
