@@ -13,9 +13,17 @@ h1 {
   color: red;
 }
 
-span {
+header span {
   font-size: 0.5em;
   color:grey
+}
+
+main span {
+  float:left;
+  font-size: 3em;
+  color:grey;
+  line-height: 1;
+  padding-right: 5px;
 }
 header {
   padding: 0 020px;
