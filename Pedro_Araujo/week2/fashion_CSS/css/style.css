@@ -34,7 +34,7 @@ nav ul li {
   float: left;
   text-align: center;
   border-right: 1px solid white;
-  width: 16.6667%;
+  width: 16.666667%;
   padding: 20px 0 20px 0;
   box-sizing: border-box;
   font-size: 1.3em;
@@ -68,15 +68,18 @@ nav ul li {
   font-family: verdana;
   float: left;
   margin-right: 15px;
+  line-height: 1;
 }
 .textContent {
   color: #444444;
 }
 .moreContent {
- color: #F30000;
+  clear: both;
+  display: block;
+  color: #F30000;
  float: right;
  margin-bottom: 20px;
- font-weight: bolder;
+ font-weight: 900;
 }
 .ads {
   height: 280px;
@@ -109,6 +112,9 @@ hr{
 .clear {
   clear: both;
 }
+article{
+  border-bottom: 1px solid silver;
+}
 footer{
   float: left;
 }
@@ -133,7 +139,8 @@ footer li:last-child{
   color: #888888;
 }
 #popularPosts {
-  color: #888888;
+  color: red;
+  list-style: grey;
 }
 #popularPosts ul {
   margin-left: -25px;
