@@ -54,7 +54,7 @@ header h2 {
   margin-left: 30px;
 }
 
-header ul {
+header nav ul {
   padding: 0;
   overflow: auto;
   margin: 0;
@@ -65,7 +65,7 @@ footer {
 }
 
 
-header li {
+header nav li {
   float: left;
   list-style: none;
   background: black;
@@ -118,7 +118,7 @@ section article p::first-letter {
   padding: 0 5px 5px 0;
   float: left;
   font-weight: 100;
-  line-height: 80px;
+  line-height: 1;
   color: grey;
 }
 
