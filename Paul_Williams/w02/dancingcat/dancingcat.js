@@ -1,7 +1,7 @@
 console.log('test');
 
-var movePixels = 10;
-var delayMs = 50;
+var movePixels = 2;
+var delayMs = 10;
 var catTimer = null;
 var img = document.getElementsByTagName('img')[0];
 var switched = false;
@@ -9,6 +9,10 @@ var switched = false;
 var startButton = document.getElementById('start-button');
 var speedButton = document.getElementById('speed-button');
 var stopButton = document.getElementById('stop-button');
+
+startButton.addEventListener('click', startCatWalk);
+stopButton.addEventListener('click', stopCatWalk);
+speedButton.addEventListener('click', speedUp);
 
 function catWalk() {
 
@@ -19,13 +23,13 @@ function catWalk() {
     pauseCatWalk();
     img.src = "http://rs384.pbsrc.com/albums/oo282/carlymadeline/5174033d6d8d2b84aa2f223bf798513c.gif~c200";
     switched = true;
-    setTimeout(startCatWalk, 5000);
+    setTimeout(startCatWalk, (5000 - (Math.abs(movePixels) * 200)));
   }
   if (currentLeft < ((window.innerWidth / 2) - (img.width / 2)) && !switched && movePixels < 0) {
     pauseCatWalk();
     img.src = "http://rs384.pbsrc.com/albums/oo282/carlymadeline/5174033d6d8d2b84aa2f223bf798513c.gif~c200";
     switched = true;
-    setTimeout(startCatWalk, 5000);
+    setTimeout(startCatWalk, (5000 - (Math.abs(movePixels) * 200)));
   }
 
   if (currentLeft > (window.innerWidth - img.width)) {
@@ -40,7 +44,7 @@ function catWalk() {
     img.style.transform = '';
     switched = false;
   }
-  
+
 }
 
 function startCatWalk() {
@@ -51,12 +55,13 @@ function startCatWalk() {
 }
 
 function stopCatWalk() {
+  img.src = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
   clearInterval(catTimer);
   catTimer = null;
   if (movePixels > 0) {
-    movePixels = 10;
+    movePixels = 2;
   } else {
-    movePixels = -10;
+    movePixels = -2;
   }
 }
 
@@ -69,14 +74,10 @@ function speedUp() {
   if (catTimer !== null) {
     pauseCatWalk();
     if (movePixels > 0) {
-      movePixels += 10;
+      movePixels += 2;
     } else {
-      movePixels -= 10;
+      movePixels -= 2;
     }
     startCatWalk();
   }
 }
-
-startButton.addEventListener('click', startCatWalk);
-stopButton.addEventListener('click', stopCatWalk);
-speedButton.addEventListener('click', speedUp);
