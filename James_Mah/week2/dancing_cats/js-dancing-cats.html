@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Cat Walk</title>
+ </head>
+ <body>
+  
+  <button id="start-button">Start</button>
+  <button id="speed-button">Go Faster!</button>
+  <button id="stop-button">Stop</button>
+  <div id="info"></div>
+  
+  <img id="catImage" style="position:absolute; left: 0px; top: 200px; width: 100px" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+  <img id="catImage2" style="position:absolute; left: 100px; top: 500px; width: 100px" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+
+  <script>
+var movePixels = 5;
+var delayMsInitial = 20;
+var delayMs = delayMsInitial;
+var catTimer = null;
+var originalCat = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
+var dancingCat = "CatDance.gif";
+var yDirection = ['forwards', 'forwards'];
+var xDirection = ['up', 'down'];
+
+function catWalk() {
+  for (var i = 0; i < 2; i++) {
+    var img = document.getElementsByTagName('img')[i];
+    var currentLeft = parseInt(img.style.left);
+    var currentTop = parseInt(img.style.top);
+
+    if (yDirection[i] === 'forwards') {
+      img.style.left = (currentLeft + movePixels) + 'px';
+      if (currentLeft >= (window.innerWidth-img.width) || checkCollisionX(i) ) {
+        yDirection[i] = 'backwards';
+      }
+    }
+    else {
+      img.style.left = (currentLeft - movePixels) + 'px';
+      if (currentLeft <= 0 || checkCollisionX(i) ) {
+        yDirection[i] = 'forwards';
+      }
+    }
+
+    if (xDirection[i] === 'up') {
+      img.style.top = (currentTop - movePixels) + 'px';
+      if (currentTop <= 0 || checkCollisionY(i) ) {
+        xDirection[i] = 'down';
+      }
+    }
+    else {
+      img.style.top = (currentTop + movePixels) + 'px';
+      if (currentTop >= (window.innerHeight-img.height) || checkCollisionY(i)) {
+        xDirection[i] = 'up';
+      }
+    }
+
+    if (Math.abs(currentLeft + img.width/2 - window.innerWidth/2) < 10) {
+      img.src = dancingCat;
+      setTimeout(function(){
+        for (var j = 0; j < 2; j++) {
+          document.getElementsByTagName('img')[j].src = originalCat;
+        }
+      }, 300);
+    } 
+  }
+}
+
+function startCatWalk() {
+  window.clearInterval(catTimer);
+  catTimer = window.setInterval(catWalk, delayMs);
+}
+
+function fasterCat() {
+  if (catTimer !== null) {
+    delayMs = delayMs*.5;
+    window.clearInterval(catTimer);
+    catTimer = window.setInterval(catWalk, delayMs);
+  }
+}
+
+function stopCatWalk() {
+  delayMs = delayMsInitial;
+  window.clearInterval(catTimer);
+  catTimer = null;
+}
+
+function checkCollisionX(catNumber) {
+  var imgOrig = document.getElementsByTagName('img')[catNumber];
+  var currentLeftOrig = parseInt(imgOrig.style.left);
+  var currentTopOrig = parseInt(imgOrig.style.top);
+  for (var i = 0; i < 2; i++) {
+    if (i === catNumber) {continue;}
+    var imgCheck = document.getElementsByTagName('img')[i];
+    var currentLeftCheck = parseInt(imgCheck.style.left);
+    var currentTopCheck = parseInt(imgCheck.style.top);
+    if ( Math.abs( (currentLeftOrig+imgOrig.width/2) - (currentLeftCheck+imgCheck.width/2) ) <= imgOrig.height/1.5 )
+      if ( Math.abs(currentTopOrig - currentTopCheck) <= imgCheck.width/1.5 ) {
+        return true;
+      }
+  }
+  return false;
+}
+
+function checkCollisionY(catNumber) {
+  var imgOrig = document.getElementsByTagName('img')[catNumber];
+  var currentLeftOrig = parseInt(imgOrig.style.left);
+  var currentTopOrig = parseInt(imgOrig.style.top);
+  for (var i = 0; i < 2; i++) {
+    if (i === catNumber) {continue;}
+    var imgCheck = document.getElementsByTagName('img')[i];
+    var currentLeftCheck = parseInt(imgCheck.style.left);
+    var currentTopCheck = parseInt(imgCheck.style.top);
+    if ( Math.abs( (currentTopOrig+imgOrig.height/2) - (currentTopCheck+imgCheck.height/2) ) <= imgOrig.height/1.5 )
+      if ( Math.abs(currentLeftOrig - currentLeftCheck) <= imgCheck.width/1.5 ) {
+        return true;
+      }
+  }
+  return false;
+}
+
+document.getElementById('start-button').addEventListener('click', startCatWalk);
+document.getElementById('speed-button').addEventListener('click', fasterCat);
+document.getElementById('stop-button').addEventListener('click', stopCatWalk);
+
+  </script>
+
+<!--   <article>
+<p>Move the above code into a separate JS file!
+<p>Add an event listener to the start button, so that the cat starts moving across the screen when its clicked.
+<p>Add an event listener to the stop button, so that the cat stops moving when clicked.
+<p>Add an event listener to the speed button, so that the cat moves faster when it's clicked. 
+<p>When the cat reaches the edge of the screen, have her walk back to the start. Repeat forever.
+<p>Make sure your code works even when the screen is resized (you will need to find the window width with Javascript.
+<p>BONUS: When the cat reaches half way, have her stop and replace the image with a dancing cat gif for a moment, then resume.
+  </article> -->
+
+ </body>
+</html>
