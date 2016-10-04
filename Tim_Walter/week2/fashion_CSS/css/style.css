@@ -22,24 +22,30 @@ aside {
   vertical-align: top;
 }
 
+.title {
+  color: red;
+  font-size: 2em;
+}
+
 article {
   border-bottom: 1px solid #bbbbbb;
   padding-bottom: 10px;
 }
 
-
-
-nav ul
-{
-margin: 0;
-padding: 1em 2em 1em 2em;
-list-style-type: none;
-text-align: center;
-font-size: 1.3em;
-background-color: black;
+.article1stLetter {
+  float: left;
+  font-size: 6em;
+  color: #cccccc;
+  padding-right: 6px;
+  line-height: 1;
 }
 
-nav ul li { display: inline; }
+
+
+/*nav ul li {
+  display: inline-block;
+  padding: 0;
+}
 
 nav ul li a
 {
@@ -49,60 +55,93 @@ color: #ffffff;
 background-color: black;
 border-left: 2px solid white;
 border-right: : 2px solid white;
+width: 16.666666667%
 }
 
 nav ul li a:hover
 {
 color: #ffffff;
 background-color: red;
+}*/
+
+/*nav ul
+{
+  margin: 0;
+  padding: 1em 2em 1em 2em;
+  list-style-type: none;
+  text-align: center;
+  font-size: 1.3em;
+  background-color: black;
+}*/
+
+
+
+nav ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 2;
+}
+
+nav li a {
+  width: 16.666666667%;
+  font-size: 16px;
+  padding: 1em 2em 1em 2em;
+  color: #ffffff;
+  background-color: black;
+  border-left: 2px solid white;
+  border-right: : 2px solid white;
+  float: left;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #ffffff;
+  background-color: red;
 }
 
 
-.popPosts ul
-{
-margin: 0;
-padding: 1em;
+.popPosts ul {
+  margin: 0;
+  padding: 0;
+  text-decoration:none;
+  list-style: none;
+  text-align: left;
+  line-height: 2;
 }
 
-.popPosts ul li a
-{
-text-decoration: none;
-padding: .2em 1em;
-color: red;
+.popPosts ul li a {
+  color: red;
 }
 
 .popPosts ul li a:hover
 {
-color: #ffffff;
-background-color: red;
+  color: #ffffff;
+  background-color: red;
 }
 
 .linkToMore {
   color: red;
 }
 
-footer ul
-{
-margin: 0;
-padding: 1em;
-list-style-type: none;
-text-align: center;
+footer ul {
+  margin: 0;
+  padding: 1em;
+  list-style-type: none;
+  text-align: center;
 }
 
 footer ul li { display: inline; }
 
-footer ul li a
-{
-text-decoration: none;
-padding: .2em 1em;
-color: red;
-
+footer ul li a {
+  text-decoration: none;
+  padding: .2em 1em;
+  color: red;
 }
 
-footer ul li a:hover
-{
-color: #ffffff;
-background-color: red;
+footer ul li a:hover {
+  color: #ffffff;
+  background-color: red;
 }
 
 img {
