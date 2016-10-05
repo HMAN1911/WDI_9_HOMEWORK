@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+header {
+  text-align: center;
+}
+
+header img {
+  width: 100px;
+  height: auto;
+}
+
+header img,
+header h1 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+main {
+  margin: auto;
+  width: 80%;
+}
+
+.alert {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+#success-alert {
+   background-color: #9F9;
+}
+
+#error-alert {
+  background-color: #F99;
+}
+
+.account {
+  border: 1px solid #888;
+  text-transform: uppercase;
+  display: inline-block;
+  width: 45%;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.account h2 {
+  margin: 0;
+  padding: 0.5em;
+  color: #FFF;
+}
+
+.account input {
+  background-color: #006655;
+  color: #FFF;
+  border: 0px solid transparent;
+  padding: 10px;
+  width: 100%;
+  font-family: monospace;
+  font-size: 1.5em;
+}
+
+.balance::before {
+  content: '$ ';
+}
+
+.savings-account {
+  float: left;
+}
+
+.savings-account h2 {
+  background-color: #FF9900;
+}
+
+.cheque-account {
+  float: right;
+}
+
+.cheque-account h2 {
+  background-color: #336699;
+}
+
+.account-details {
+  padding: 10px 20px;
+}
+
+.account-actions {
+  padding: 10px 20px;
+}
+
+.account-actions button {
+  padding: 5px 10px;
+  color: #FFF;
+  background-color: #555;
+  border: 1px solid transparent;
+}
+
+@media (max-width: 960px) {
+  .account {
+    display: block;
+    float: none;
+    width: auto;
+  }
+}

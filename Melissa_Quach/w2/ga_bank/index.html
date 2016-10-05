@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GA Bank</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1><img src="https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png" alt="logo" /> Online Bank</h1>
+    </header>
+    <main>
+      <div class="alert" id="error-alert"></div>
+      <div class="alert" id="success-alert"></div>
+      <section class="account savings-account">
+        <h2>Savings</h2>
+        <div class="account-details">
+          Account balance
+          <div id="savings-balance" class="balance"></div>
+        </div>
+        <div>
+          <input id="savings-input" type="text" placeholder="Enter amount" />
+        </div>
+        <div class="account-actions">
+          <button id="savings-withdraw-btn" type="button">Withdraw</button>
+          <button id="savings-deposit-btn" type="button">Deposit</button>
+        </div>
+      </section>
+      <section class="account cheque-account">
+        <h2>Checking</h2>
+        <div class="account-details">
+          Account balance
+          <div id="cheque-balance" class="balance"></div>
+        </div>
+        <div>
+          <input id="cheque-input" type="text" placeholder="Enter amount" />
+        </div>
+        <div class="account-actions">
+          <button id="cheque-withdraw-btn" type="button">Withdraw</button>
+          <button id="cheque-deposit-btn" type="button">Deposit</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="ga-bank.js"></script>
+  </body>
+</html>
