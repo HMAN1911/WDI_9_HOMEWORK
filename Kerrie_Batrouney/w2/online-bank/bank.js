@@ -37,26 +37,27 @@ document.getElementsByTagName('img')[1].style.display="none";
 
 //function to get deposit amount and add it to balance
 var deposit =function () {
-  if((amountT.value) !== "") {
-    transAccBal = parseFloat(amountT.value)+transAccBal;
+  if(amountT.value !== "") {
+    transAccBal = transAccBal + parseFloat(amountT.value);
     document.getElementsByClassName("bal")[1].innerHTML = transAccBal.toFixed(2);
-} else if ((amountS.value) != "") {
+} else if (amountS.value !== "") {
     savAccBal = savAccBal + parseFloat(amountS.value);
     document.getElementsByClassName("bal")[0].innerHTML = savAccBal.toFixed(2);
 }
   // amountT.value = "";
   // amountS.value = "";
-  // document.getElementById('input').value = null;
-  // document.getElementById('input2').value = null;
+   document.getElementById('input').value = "";
+   document.getElementById('input2').value = "";
   // return;
 }
+
 // function to withdraw
 var withdraw = function () {
   // if insufficient funds flash a red NO
   if (transAccBal > parseFloat(amountT.value)) {
     transAccBal = transAccBal - parseFloat(amountT.value);
     document.getElementsByClassName("bal")[1].innerHTML = transAccBal.toFixed(2);
-    document.getElementById('input').value = null;
+    document.getElementById('input').value = "";
     return;
   }
   // NO
@@ -68,7 +69,7 @@ var withdraw2 = function () {
   if (savAccBal > parseFloat(amountS.value)) {
     savAccBal = savAccBal - parseFloat(amountS.value);
     document.getElementsByClassName("bal")[0].innerHTML = savAccBal.toFixed(2);
-    document.getElementById('input2').value = null;
+    document.getElementById('input2').value = "";
     return;
   }
   // NO
@@ -79,15 +80,15 @@ var withdraw2 = function () {
 // function to clear image and input box
 var reset = function() {
   img.style.display="none";
-  document.getElementById('input').value = null;
-  document.getElementById('input2').value = null;
+  document.getElementById('input').value = "";
+  document.getElementById('input2').value = "";
 
 }
 
 // add event listeners
 wdSBtn.addEventListener("click", withdraw2);
 depSBtn.addEventListener("click", deposit);
-depTBtn.addEventListener("click", withdraw);
+wdTBtn.addEventListener("click", withdraw);
 depTBtn.addEventListener("click", deposit);
 againTBtn.addEventListener("click", reset);
 againSBtn.addEventListener("click", reset);
