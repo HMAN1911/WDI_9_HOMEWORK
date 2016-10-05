@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="master.css">
+  </head>
+  <body>
+
+      <div class="navbar">
+
+        <img src="https://yourbanksite.com/images/logo.png" alt="Your Bank"/>
+
+      </div>
+
+      <div class="mainColumn">
+
+        <div class="account">
+
+          <h2>Savings Balance:</h2>
+          <h3>$<span id="savings">0</span>.00</h3>
+
+          <div class="input">
+            <input id='savingsInput' type="text">
+            <button id='withdrawSavings' type="button">withdraw</button>
+            <button id='depositSavings' type="button">deposit</button>
+          </div>
+
+        </div>
+
+        <div class="account">
+
+          <h2>Checking Balance:</h2>
+          <h3>$<span id='checking'>0</span>.00</h3>
+
+          <div class="input">
+            <input id='checkingInput' type="text">
+            <button id='withdrawChecking' type="button">withdraw</button>
+            <button id='depositChecking' type="button">deposit</button>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <script src='script.js'></script>
+  </body>
+</html>

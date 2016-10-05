@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+
+button {
+  display: inline-block;
+  color: red;
+}
+
+.account {
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+  border: 2px solid black;
+  padding: 20px;
+  background-color: #b5e4f3;
+  width: 50%;
+}
+
+.mainColumn {
+  margin: auto;
+  width: 50%;
+}
+
+.input {
+  display: inline-block;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.navbar{
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2em;
+}
