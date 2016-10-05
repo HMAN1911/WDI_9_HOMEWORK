@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 960px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  text-transform: uppercase;
+}
+
+section {
+  padding-top: 200px;
+
+}
+
+.logo {
+  width: 200px;
+  height: 70px;
+  background: red;
+  line-height: 4;
+  text-align: center;
+  border: 1px solid black;
+  float: left;
+}
+
+h1  {
+  float: left;
+  padding-left: 100px;
+}
+
+input {
+  height: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#deposit-checking,
+#deposit-savings {
+  margin-left: 25px;
+}
+
+.checking,
+.savings {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.savings {
+  background: orange;
+  float: left;
+  margin: 0 200px 0 100px;
+}
+
+.checking {
+  background: yellow;
+  float: left;
+}
