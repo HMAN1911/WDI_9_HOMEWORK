@@ -1,0 +1,32 @@
+
+img {
+  width: 250px;
+  text-align: center;
+}
+
+input {
+  display: block;
+}
+
+.subtitle {
+  color: mediumseagreen;
+  font-size: 1.5em;
+}
+
+#savings {
+  display: inline-block;
+  width: 40%;
+  float: left;
+}
+
+#checking {
+  display: inline-block;
+  width: 40%;
+  float: left;
+}
+
+#wrapper {
+  display: block;
+  width: 960px;
+  margin: 0 auto;
+}
