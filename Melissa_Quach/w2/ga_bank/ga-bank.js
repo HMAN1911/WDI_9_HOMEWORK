@@ -16,6 +16,7 @@ var customer = {
     savings: 0,
     cheque: 0
   },
+  // Return total balance across customer's accounts
   getTotalBalance: function() {
     var accountNames = Object.keys(this.accounts);
     var total = 0;
@@ -24,6 +25,7 @@ var customer = {
     }
     return total;
   },
+  // Attempt to deposit amount in selected account
   deposit: function(accountName, amount) {
     if (typeof this.accounts[accountName] === 'undefined') {
       return false;
@@ -31,19 +33,25 @@ var customer = {
     this.accounts[accountName] += amount;
     return true;
   },
+  // Attempt to withdraw input amount from selected account
   withdraw: function(accountName, amount) {
     if (typeof this.accounts[accountName] === 'undefined') {
       return false;
     }
 
-    // If withdraw amount exceeds amount in selected account
-    // try to withdraw remainder from other accounts
+    // If insufficient funds in selected account, check if
+    // withdrawal amount can be deducted from other accounts
     if (this.accounts[accountName] < amount) {
       if (this.getTotalBalance() < amount) {
         return false;
       }
       else {
+        // Move selected account to front of processing queue
         var accountNames = Object.keys(this.accounts);
+        accountNames.splice(accountNames.indexOf(accountName), 1);
+        accountNames.unshift(accountName);
+
+        // Deduct remaining withdrawal amount from other accounts
         for (var i = 0; i < accountNames.length; i++) {
           var account = accountNames[i];
           if (this.accounts[account] >= amount) {
@@ -58,6 +66,7 @@ var customer = {
         return true;
       }
     }
+    // Deduct withdrawal amount from selected account
     else {
       this.accounts[accountName] -= amount;
     }
