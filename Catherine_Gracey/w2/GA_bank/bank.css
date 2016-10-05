@@ -1,0 +1,60 @@
+body {
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  margin: auto;
+  padding: 5vw;
+  font-size: 2.5rem;
+}
+
+.logo {
+  text-align: center;
+  height: 50px;
+  width: 50px;
+  background-color: darkorchid;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-weight: bold;
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+input {
+  width: 80%;
+}
+
+.savings, .checking {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 2.5%;
+}
+
+.savings {
+  background-color: palegreen;
+}
+
+.checking {
+  background-color: paleturquoise;
+}
+
+.empty, .funds {
+  padding: 5%;
+  font-size: 1.5rem;
+}
+
+.empty {
+  background-color: red;
+}
+
+.funds {
+  background-color: grey;
+}
