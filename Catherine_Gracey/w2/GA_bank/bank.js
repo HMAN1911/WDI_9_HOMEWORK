@@ -68,29 +68,19 @@ function withdraw(){
     return;
   }
   var overdraft = 0;
-  if (acc === "checking"){
-    if (amt > balances.checking){
-      overdraft = Math.abs(amt - balances.checking);
-    }
-  } else {
-    if (amt > balances.savings){
-      overdraft = Math.abs(amt - balances.savings);
-    }
+  if (amt > balances[acc]){
+    overdraft = Math.abs(amt - balances[acc]);
   }
-  if (acc === "checking"){
-    if (overdraft){
+  if (overdraft){
+    if (acc === "checking"){
       balances.savings -= overdraft;
       balances.checking = 0;
     } else {
-      balances.checking -= amt;
-    }
-  } else {
-    if (overdraft){
       balances.checking -= overdraft;
       balances.savings = 0;
-    } else {
-      balances.savings -= amt;
     }
+  } else {
+    balances[acc] -= amt;
   }
   clearValue(acc + "-amt");
   displayBalances();
