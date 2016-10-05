@@ -1,0 +1,68 @@
+body {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+}
+.container {
+  background-color: white;
+  width: 85%;
+  min-width: 625px;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 10%;
+}
+.logo {
+  width:130px;
+  height:130px;
+  background-image: url('logo.jpg');
+  background-size: contain;
+  display: inline-block;
+}
+.title {
+  width: 80%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.title h1 {
+  display: inline-block;
+  position: relative;
+  left: 1%;
+}
+.container2 {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  margin-bottom: 150px;
+}
+.account {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  text-align: center;
+  margin: 0 20px 0 20px; ;
+}
+.account p {
+  margin-bottom: 0;
+}
+#savingsBox {
+
+}
+#checkingBox {
+
+}
+span {
+  margin-top: 0;
+  display: block;
+  font-size: 2em;
+}
+input {
+  text-align: center;
+  width: 90px;
+  height: 25px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  font-size: 16px;
+
+}
