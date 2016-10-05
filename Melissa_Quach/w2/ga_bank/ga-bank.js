@@ -8,16 +8,8 @@ var savingsInput = $.querySelector('#savings-input');
 var checkingInput = $.querySelector('#cheque-input');
 var savingsBalance = $.querySelector('#savings-balance');
 var checkingBalance = $.querySelector('#cheque-balance');
-
-var clearAlerts = function() {
-  errorAlert.innerHTML = '';
-  successAlert.innerHTML = '';
-}
-
-var updateUI = function() {
-  savingsBalance.innerHTML = customer.accounts.savings;
-  checkingBalance.innerHTML = customer.accounts.cheque;
-};
+var savingsDetails = $.querySelector('.savings-account .account-details');
+var chequeDetails = $.querySelector('.cheque-account .account-details');
 
 var customer = {
   accounts: {
@@ -72,6 +64,31 @@ var customer = {
     return true;
   }
 };
+
+var updateUI = function() {
+  savingsBalance.innerHTML = customer.accounts.savings;
+  checkingBalance.innerHTML = customer.accounts.cheque;
+
+  // Set background color of account details
+  if (customer.accounts.savings === 0) {
+    savingsDetails.style.background = '#F99';
+  }
+  else {
+    savingsDetails.style.background = '#DDD';
+  }
+
+  if (customer.accounts.cheque === 0) {
+    chequeDetails.style.background = '#F99';
+  }
+  else {
+    chequeDetails.style.background = '#DDD';
+  }
+};
+
+var clearAlerts = function() {
+  errorAlert.innerHTML = '';
+  successAlert.innerHTML = '';
+}
 
 // Register event handlers
 $.querySelector('#savings-withdraw-btn').addEventListener('click', function() {

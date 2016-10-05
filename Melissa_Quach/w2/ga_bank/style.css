@@ -69,6 +69,10 @@ main {
   content: '$ ';
 }
 
+.account-details {
+  background: #DDD;
+}
+
 .savings-account {
   float: left;
 }
