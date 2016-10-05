@@ -13,19 +13,21 @@
   
   <img id="catImage" style="position:absolute; left: 0px; top: 200px; width: 100px" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
   <img id="catImage2" style="position:absolute; left: 100px; top: 500px; width: 100px" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
+   <img id="catImage3" style="position:absolute; left: 400px; top: 500px; width: 100px" src="http://www.anniemation.com/clip_art/images/cat-walk.gif">
 
   <script>
-var movePixels = 5;
-var delayMsInitial = 20;
+var movePixels = 2;
+var delayMsInitial = 10;
 var delayMs = delayMsInitial;
 var catTimer = null;
 var originalCat = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
 var dancingCat = "CatDance.gif";
-var yDirection = ['forwards', 'forwards'];
-var xDirection = ['up', 'down'];
+var numCats = 3;
+var yDirection = ['forwards', 'forwards', 'forwards'];
+var xDirection = ['up', 'down', 'up'];
 
 function catWalk() {
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < numCats; i++) {
     var img = document.getElementsByTagName('img')[i];
     var currentLeft = parseInt(img.style.left);
     var currentTop = parseInt(img.style.top);
@@ -56,13 +58,13 @@ function catWalk() {
       }
     }
 
-    if (Math.abs(currentLeft + img.width/2 - window.innerWidth/2) < 10) {
+    if (Math.abs(currentLeft + img.width/2 - window.innerWidth/2) < 2) {
       img.src = dancingCat;
       setTimeout(function(){
-        for (var j = 0; j < 2; j++) {
+        for (var j = 0; j < numCats; j++) {
           document.getElementsByTagName('img')[j].src = originalCat;
         }
-      }, 300);
+      }, 1000);
     } 
   }
 }
@@ -90,7 +92,7 @@ function checkCollisionX(catNumber) {
   var imgOrig = document.getElementsByTagName('img')[catNumber];
   var currentLeftOrig = parseInt(imgOrig.style.left);
   var currentTopOrig = parseInt(imgOrig.style.top);
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < numCats; i++) {
     if (i === catNumber) {continue;}
     var imgCheck = document.getElementsByTagName('img')[i];
     var currentLeftCheck = parseInt(imgCheck.style.left);
@@ -107,7 +109,7 @@ function checkCollisionY(catNumber) {
   var imgOrig = document.getElementsByTagName('img')[catNumber];
   var currentLeftOrig = parseInt(imgOrig.style.left);
   var currentTopOrig = parseInt(imgOrig.style.top);
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < numCats; i++) {
     if (i === catNumber) {continue;}
     var imgCheck = document.getElementsByTagName('img')[i];
     var currentLeftCheck = parseInt(imgCheck.style.left);
