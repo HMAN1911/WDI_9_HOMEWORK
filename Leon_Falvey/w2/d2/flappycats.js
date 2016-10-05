@@ -1,14 +1,31 @@
 // Constants and variables. Because it is clearer if I put them at the top.
 // I think.
 var gap = 100; // Gap between top block and bottm block
-var accel = 1; //Current acceleration of Nyan Cat
-var vertSpeed = 0; //vertical speed of Nyan Cat
-var blockSpeed = -20; // Horizontal 'speed' of blocks
+var accel = 0.075; //Current acceleration of Nyan Cat
+var vertSpeed = 0.0; //vertical speed of Nyan Cat
+var blockSpeed = -2; // Horizontal 'speed' of blocks
 
 var minHeight = 50; // Minimum Height of blocks
 
 var running = false;
 var main = null;
+var blockInterval = null;
+
+function isRunning() {
+  return running;
+}
+
+function startJump() {
+  if (isRunning()) {
+    vertSpeed = -3.5;
+} else {
+    running = true;
+    main = setInterval(move,10);
+    blockInterval = setInterval(newBlocks, 1000);
+    cat.style.top = '130px';
+    vertSpeed = 0;
+  }
+}
 
 // The screen is immoral. There are one, two, three, one
 // two! Two problems with it. It must be converted because it is immoral!
@@ -20,20 +37,19 @@ scr.style.height = '400px';
 scr.style.border = '2px solid black';
 scr.style.margin = '0 auto';
 scr.style.position = 'absolute';
-scr.addEventListener('click',function() {
-  if (running) {
-  vertSpeed=-20;}}); // makes nyan cat fly up;
+scr.addEventListener('click',startJump); // makes nyan cat fly up;
 document.body.appendChild(scr);
 
 // A hack to hide new block items when they are created
 // and creates that nice sliding in effect.
 var curt = document.createElement("div");
-curt.style.backgroundColor = "green";
+curt.style.backgroundColor = "white";
 curt.style.zIndex = 2;
 curt.style.left = '600px'
-curt.style.width = '50px';
-curt.style.height = '400px';
-curt.style.border = 'none';
+curt.style.top = "-2px"
+curt.style.width = '52px';
+curt.style.height = '404px';
+curt.style.borderLeft = '2px solid black';
 curt.style.position = 'absolute';
 scr.appendChild(curt);
 
@@ -65,7 +81,7 @@ function newBlocks() {
   topBlocks[topBlocks.length-1].style.top="0px";
   topBlocks[topBlocks.length-1].style.width="50px";
   topBlocks[topBlocks.length-1].style.backgroundImage="url('rainbow.png')";
-  topBlocks[topBlocks.length-1].style.backgroundRepeat="repeat-x";
+  topBlocks[topBlocks.length-1].style.backgroundRepeat="repeat-7";
   topBlocks[topBlocks.length-1].style.height=(minHeight+extraHeightTop)+"px";
   scr.appendChild(topBlocks[topBlocks.length-1]);
 
@@ -96,41 +112,60 @@ function blockArea(block) {
 }
 //checks true if there is a collision between a block and nyan cat.
 function touchCat(block) {
-  var blockArea = blockArea(block);
+  var bArea = blockArea(block);
   var catTailtoHead = [parseInt(cat.style.top)+7,parseInt(cat.style.left),
     parseInt(cat.style.height)-12,parseInt(cat.style.width)];
   var catBody = [parseInt(cat.style.top),parseInt(cat.style.left)+10,
     parseInt(cat.style.height),parseInt(cat.style.width)-20];
 
-  if (blockArea[0] > catTailtoHead[0] + catTailtoHead[2] &&
-      blockArea[1] > catTailtoHead[1] + catTailtoHead[3] &&
-      catTailtoHead[0] > blockArea[0] + blockArea[2] &&
-      catTailtoHead[1] > blockArea[1] + blockArea[3] ||
-      blockArea[0] > catBody[0] + catBody[2] &&
-      blockArea[1] > catBody[1] + catBody[3] &&
-      catBody[0] > blockArea[0] + blockArea[2] &&
-      catBody[1] > blockArea[1] + blockArea[3]) {
+  if (bArea[0] > catTailtoHead[0] + catTailtoHead[2] &&
+      bArea[1] > catTailtoHead[1] + catTailtoHead[3] &&
+      catTailtoHead[0] > bArea[0] + bArea[2] &&
+      catTailtoHead[1] > bArea[1] + bArea[3] ||
+      bArea[0] > catBody[0] + catBody[2] &&
+      bArea[1] > catBody[1] + catBody[3] &&
+      catBody[0] > bArea[0] + bArea[2] &&
+      catBody[1] > bArea[1] + bArea[3]) {
     return true;
   }
   return false;
 }
 
 function catOut() {
-  var nyan = catBody = [parseInt(cat.style.top),parseInt(cat.style.left),
-    parseInt(cat.style.height),parseInt(cat.style.width)];
-  if ()
+  var nyan = [parseInt(cat.style.top),
+    parseInt(cat.style.height)];
+  if (nyan[0]<0||nyan[0]+nyan[1]>400) {
+    return true;
+  }
+  return false;
 }
 
 //Moves everything and performs all the necessary checks
 function move() {
+  vertSpeed+=accel;
   cat.style.top=(parseInt(cat.style.top)+vertSpeed)+"px"; // Nyan Cat makes its move.
-  for (var i=0;i<topBlocks.length;i++) { /*could use botBlocks. Doesn't matter as they have same length
+  if (catOut()) {
+    clearInterval(main);
+    running = false;
+  }
+  for (var i=topBlocks.length-1;i>=0;i--) { /*could use botBlocks. Doesn't matter as they have same length
     Technically, I shouldn't be able loop through a queue, but in JS it's just an array treated in a special way */
-    topBlocks[i].style.left=(parseInt(topBlocks[i].style.left)+blockSpeed)+"px";
-    botBlocks[i].style.left=(parseInt(topBlocks[i].style.left)+blockSpeed)+"px";
-    if (touchCat(blockArea(topBlocks[i]))||touchCat(blockArea(botBlocks[i]))) {
-      main = null;
-      running = false;
+    if (!(typeof topBlocks[0]==="undefined")&&!(typeof botBlocks[0]==="undefined")) {
+      topBlocks[i].style.left=(parseInt(topBlocks[i].style.left)+blockSpeed)+"px";
+      botBlocks[i].style.left=(parseInt(topBlocks[i].style.left)+blockSpeed)+"px";
+      if (touchCat(blockArea(topBlocks[i]))||touchCat(blockArea(botBlocks[i]))) {
+        clearInterval(main);
+        clearInterval(blockInterval);
+        running = false;
+      }
+    }
+  }
+  if (!(typeof topBlocks[0]==="undefined")&&!(typeof botBlocks[0]==="undefined")) {
+    if (!inScreen(topBlocks[0])) {
+      scr.removeChild(topBlocks.shift());
+    }
+    if (!inScreen(botBlocks[0])) {
+      scr.removeChild(botBlocks.shift());
     }
   }
 }
