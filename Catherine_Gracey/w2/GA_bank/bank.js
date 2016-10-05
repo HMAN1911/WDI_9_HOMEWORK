@@ -14,21 +14,22 @@
 // What happens when the user wants to withdraw more money from the checking account than is in the account? These accounts have overdraft protection, so if a withdrawal can be covered by the balances in both accounts, take the checking balance down to $0 and take the rest of the withdrawal from the savings account. If the withdrawal amount is more than the combined account balance, ignore it.
 // Make sure there is overdraft protection going both ways.
 // Are there ways to refactor your code to make it DRYer
-
-var checkingBalance = 0;
-var savingsBalance = 0;
+var balances = {};
+balances.checking = 0;
+balances.savings = 0;
+var bankingHistory = [];
 
 function displayBalances(){
   var savingsBal = document.getElementById("savings-bal");
-  savingsBal.textContent = "$" + savingsBalance.toFixed(2);
-  if (savingsBalance > 0){
+  savingsBal.textContent = "$" + balances.savings.toFixed(2);
+  if (balances.savings > 0){
     savingsBal.className = "funds";
   } else {
     savingsBal.className = "empty";
   }
   var checkingBal = document.getElementById("checking-bal")
-  checkingBal.textContent = "$" + checkingBalance.toFixed(2);
-  if (checkingBalance > 0){
+  checkingBal.textContent = "$" + balances.checking.toFixed(2);
+  if (balances.checking > 0){
     checkingBal.className = "funds";
   } else {
     checkingBal.className = "empty";
@@ -39,55 +40,59 @@ function clearValue(elem){
   document.getElementById(elem).value = "";
 }
 
+function getAccount(elemID){
+  var acc = elemID.split("-");
+  return acc[0];
+}
+
 function deposit(){
-  if (this.id === "checking-deposit"){
-    checkingBalance += parseFloat(document.getElementById("checking-amt").value);
-    clearValue("checking-amt");
+  var acc = getAccount(this.id);
+  var amt = parseFloat(document.getElementById(acc + "-amt").value);
+  clearValue(acc + "-amt");
+  if (acc === "checking"){
+    balances.checking += amt;
   } else {
-    savingsBalance += parseFloat(document.getElementById("savings-amt").value);
-    clearValue("savings-amt");
+    balances.savings += amt;
   }
+  bankingHistory.push({account: acc, amt: amt, outcome: "deposited", checking: balances.checking, savings: balances.savings});
   displayBalances();
 }
 
 function withdraw(){
-  var acc = this.id;
-  var amt = 0, overdraft = 0;
-  if (acc === "checking-withdraw"){
-    amt = parseFloat(document.getElementById("checking-amt").value);
-    if (amt > checkingBalance){
-      overdraft = Math.abs(amt - checkingBalance);
-    }
-    //clearValue("checking-amt");
-  } else {
-    amt = parseFloat(document.getElementById("savings-amt").value);
-    if (amt > savingsBalance){
-      overdraft = Math.abs(amt - savingsBalance);
-    }
-    //clearValue("savings-amt");
-  }
+  var acc = getAccount(this.id);
+  var amt = parseFloat(document.getElementById(acc + "-amt").value);
   //Check that there is enough money in combined accounts. If not, ignore transaction
-  var total = checkingBalance + savingsBalance;
+  var total = balances.checking + balances.savings;
   if (amt > total){
+    bankingHistory.push({account: acc, amt: amt, outcome: "withdrawal rejected", checking: balances.checking, savings: balances.savings});
     return;
   }
-  if (acc === "checking-withdraw"){
-    if (overdraft){
-      savingsBalance -= overdraft;
-      checkingBalance = 0;
-    } else {
-      checkingBalance -= amt;
+  var overdraft = 0;
+  if (acc === "checking"){
+    if (amt > balances.checking){
+      overdraft = Math.abs(amt - balances.checking);
     }
-    clearValue("checking-amt");
+  } else {
+    if (amt > balances.savings){
+      overdraft = Math.abs(amt - balances.savings);
+    }
+  }
+  if (acc === "checking"){
+    if (overdraft){
+      balances.savings -= overdraft;
+      balances.checking = 0;
+    } else {
+      balances.checking -= amt;
+    }
   } else {
     if (overdraft){
-      checkingBalance -= overdraft;
-      savingsBalance = 0;
+      balances.checking -= overdraft;
+      balances.savings = 0;
     } else {
-      savingsBalance -= amt;
+      balances.savings -= amt;
     }
-    clearValue("savings-amt");
   }
+  clearValue(acc + "-amt");
   displayBalances();
 }
 
