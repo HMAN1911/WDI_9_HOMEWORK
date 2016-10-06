@@ -66,3 +66,27 @@ input {
   font-size: 16px;
 
 }
+@media (max-width: 760px) {
+  .container{
+    width: 100%;
+
+  }
+  .container2 {
+    margin: 0;
+    float: left;
+  }
+
+  .account{
+    display: block;
+    margin: 0 auto;
+
+  }
+  .logo{
+    display: block;
+    margin: 0 auto;
+  }
+  .title {
+    display: block;
+    margin: 0;
+  }
+}

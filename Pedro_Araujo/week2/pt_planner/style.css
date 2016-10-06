@@ -1,0 +1,88 @@
+body {
+  background-image: url(bodyBkg.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.container {
+  width: 70%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  background-color:rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  margin-top: 100px;
+  min-width: 276px;
+
+}
+.choices{
+  box-sizing: border-box;
+  display: inline;
+  width: 90%;
+  overflow: hidden;
+
+
+}
+.results{
+
+  color: black;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 55%;
+  text-align: left;
+  margin-top: 10px;
+  border-radius: 10px;
+
+}
+.dropdown {
+  display: inline-block;
+  width: 45%;
+  margin: 10px;
+
+}
+
+.dropdown dropdown{
+  font-size: 2em;
+}
+.button {
+  margin-top: 10px;
+}
+
+#origin{
+  background-color: rgba(255,255,255,0.5);
+  padding-bottom: 12px;
+  padding-top: 1px;
+  margin-top: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 1.5 em;
+}
+#destination{
+  background-color: rgba(255,255,255,0.5);
+  padding-bottom: 12px;
+  padding-top: 1px;
+  margin-top: 5px;
+  border-radius: 10px;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 1.5 em;
+
+}
+#btnFinder{
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .results {
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+    border-radius: 10px;
+  }
+  .dropdown {
+    width: 100%;
+    margin: 0;
+  }
+}

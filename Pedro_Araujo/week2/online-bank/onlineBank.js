@@ -12,11 +12,11 @@ var savingsAccount = {
 //_____________________________________FUNCTION WITHDRAW______________________
 function withdraw(account,ammount) {
   if (account.name === 'savings'){    // Check if Savings is the selected account
-    if (savingsAccount.balance > ammount) { // IF founds are enough, take the money from it
+    if (savingsAccount.balance >= ammount) { // IF founds are enough, take the money from it
       savingsAccount.balance -=  ammount;
       spanSavings.textContent = '$' + savingsAccount.balance.toFixed(2) ;
       checkColors();
-    }else if (savingsAccount.balance + checkingAccount.balance > ammount) { // IF NOT,
+    }else if (savingsAccount.balance + checkingAccount.balance >= ammount) { // IF NOT,
       var excedent = ammount - savingsAccount.balance;     // Take the rest from other account
       savingsAccount.balance -= (ammount - excedent);
       checkingAccount.balance -= excedent;
@@ -31,7 +31,7 @@ function withdraw(account,ammount) {
       checkingAccount.balance -=  ammount;
       spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2) ;
       checkColors();// check if balance is zero, then change background to red
-    }else if (checkingAccount.balance + savingsAccount.balance > ammount) {  // IF NOT,
+    }else if (checkingAccount.balance + savingsAccount.balance >= ammount) {  // IF NOT,
       var excedent = ammount - checkingAccount.balance;         // Take the rest from other account
       checkingAccount.balance -= (ammount - excedent);
       savingsAccount.balance -= excedent;
@@ -50,7 +50,7 @@ function deposit(account,ammount) {
     checkColors();// check if balance is zero, then change background to red
   }
   if (account.name === 'checking') { // CHECKING deposit
-    checkingAccount.balance += checkingAccount.balance + ammount;
+    checkingAccount.balance +=  ammount;
     spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2);
     checkColors();// check if balance is zero, then change background to red
   }
@@ -97,20 +97,29 @@ checkColors();
 var btnWdChecking = document.getElementById('withdrawChecking'); // Button that calls
     btnWdChecking.addEventListener('click', function () {       //  withdraw on Checking Account
         var inputValue = inputChecking();
-        withdraw(checkingAccount, inputValue);
+        if (inputValue > 0) {
+          withdraw(checkingAccount, inputValue);
+        }
+
     });
 var btnWdSavings = document.getElementById('withdrawSavings');  // Button that calls
     btnWdSavings.addEventListener('click',function () {         //  withdraw on Savings Account
         var inputValue = inputSavings();
-        withdraw(savingsAccount, inputValue);
+        if (inputValue > 0) {
+          withdraw(savingsAccount, inputValue);
+        }
     });
 var btnDepChecking = document.getElementById('depositChecking');  // Button that calls
     btnDepChecking.addEventListener('click',function () {         // deposit on Checking Account
         var inputValue = inputChecking();
-        deposit(checkingAccount, inputValue);
+        if (inputValue > 0) {
+          deposit(checkingAccount, inputValue);
+        }
     });
 var btnDepSavings = document.getElementById('depositSavings');  // Button that calls
     btnDepSavings.addEventListener('click',function () {        // deposit on Savings Account
         var inputValue = inputSavings();
-        deposit(savingsAccount, inputValue);
+        if (inputValue > 0) {
+          deposit(savingsAccount, inputValue);
+        }
     });

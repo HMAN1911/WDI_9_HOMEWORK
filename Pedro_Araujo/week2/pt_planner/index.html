@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+    <meta charset="utf-8">
+    <title>Train Planner</title>
+  </head>
+  <body>
+    <div class="container">
+<!-- ___________________Choices____________________ -->
+      <div class="choices">
+        <!-- ___________Origin_________________ -->
+        <div id="origin" class="dropdown">
+          <p>Station of origin:</p>
+          <select id="station-origin"></select>
+        </div>
+        <!-- _______________Destination___________-->
+        <div id="destination" class="dropdown">
+          <p>Station of destination:</p>
+          <select id="station-destination"></select>
+        </div>
+      </div>
+      <div class="button">
+        <button type="button" id='btnFinder' name="button">Find Journey</button>
+      </div>
+<!-- ____________________Results____________________ -->
+      <span class="results">
+        <ul id="journeyResult">
+
+        </ul>
+      </span>
+    </div>
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
