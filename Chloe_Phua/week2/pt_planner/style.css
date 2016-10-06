@@ -1,0 +1,45 @@
+body {
+  background-image: url('http://vignette3.wikia.nocookie.net/ttte/images/4/4e/ThomasandtheBreakdownTrain20.jpg/revision/latest?cb=20100701120727');
+  background-size: 100%;
+  background-position:center;
+  background-repeat: repeat;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  cursor:url(http://www.rw-designer.com/cursor-view/31546.gif), auto;
+  background-color: black;
+  color: black;
+  font-family: san-serif;
+}
+
+header {
+  background-color: white;
+  padding: 20px;
+}
+
+h1 {
+  color: black;
+  font-family: "Tinos";
+}
+
+h2 {
+  font-size: 0.8em;
+}
+
+p {
+  font-size: 0.5em;
+}
+
+.journey {
+  visibility: hidden;
+}
+
+
+.planner, .journey {
+  width: 60%;
+  background-color: rgba(211, 211, 211, 0.8);
+  margin: 0 auto;
+  margin-top: 10%;
+  padding: 10px;
+  border: 2px;
+}
