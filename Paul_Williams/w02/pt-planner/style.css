@@ -1,0 +1,116 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  background: linear-gradient(darkslategrey, grey) no-repeat fixed;
+}
+
+h1 {
+  margin: 0;
+  padding-top: .5em;
+}
+
+img {
+  display: none;
+}
+
+h2 {
+  border-bottom: 1px solid grey;
+  margin: 0;
+  padding: .5em 0;
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+.btn {
+  font-size: 1.5em;
+  padding: .5em 0;
+  border-bottom: 1px solid grey;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.route {
+  line-height: 1.5em;
+  margin: 1em 0;
+  font-size: 1.25em;
+}
+
+input {
+  width: 100%;
+  padding: .5em 0;
+  border: none;
+  text-align: center;
+  border-bottom: 1px solid grey;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  outline: none;
+}
+
+@media (min-width: 650px) {
+  main {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  input {
+    padding: 1em 0;
+  }
+
+  .inputs {
+    width: 40%;
+    border-top: 1px solid grey;
+  }
+
+  h1 {
+    margin-bottom: 1em;
+  }
+
+  h2 {
+    padding: 1em 0;
+  }
+
+  .btn {
+    padding: 1em 0;
+  }
+
+  .route {
+    border: 1px solid grey;
+    width: 60%;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  img {
+    display: inline;
+    max-height: 20%;
+    padding-top: 2em;
+  }
+}
+
+@media (min-width: 950px) {
+  main {
+    width: 950px;
+    margin: 0 auto;
+    border-left: 1px solid grey;
+  }
+}
