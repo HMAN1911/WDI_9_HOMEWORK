@@ -61,7 +61,7 @@ function makeRed() {
 }
 
 function makeBlue() {
-  document.getElementsByClassName('wrapper')[0].style.backgroundColor = '#8d8dab'
+  document.getElementsByClassName('wrapper')[0].style.backgroundColor = 'white'
 }
 
 function getBankBalance() {
