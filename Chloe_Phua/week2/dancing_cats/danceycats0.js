@@ -5,73 +5,69 @@ var catStop = false;
 var goRight = true;
 var currentLeft;
 
-var cat = [document.getElementsByIdName('original')[0],document.getElementsByIdName('cat2')[0]]
+var twoCats = [document.getElementById('cat1'),document.getElementById('cat2')]
 
 function catWalk() {
-  for (var i = 0; i < cat.length; i++) {
-    currentLeft = parseInt(cat[i].style.left);
+  for (var i = 0; i < twoCats.length; i++) {
+
+    currentLeft = parseInt(twoCats[i].style.left);
 
     var moveRight = (currentLeft + movePixels) + 'px';
     var moveLeft = (currentLeft - movePixels) + 'px';
 
     console.log(currentLeft);
 
-    if (currentLeft <= (window.innerWidth-cat[i].width) && goRight == true) {
+    if (currentLeft <= (window.innerWidth-twoCats[i].width) && goRight == true) {
       goRight = true;
-    } else if (currentLeft > (window.innerWidth-cat[i].width)) {
+    } else if (currentLeft > (window.innerWidth-twoCats[i].width)) {
       goRight = false;
     } else if (currentLeft <= 0) {
       goRight = true;
     }
 
     if (goRight) {
-       cat[i].style.left = moveRight;
+       twoCats[i].style.left = moveRight;
      } else {
-       cat[i].style.left = moveLeft;
+       twoCats[i].style.left = moveLeft;
      }
 
-     if (currentLeft < ((window.innerWidth-cat[i].width)/2)) {
+     if (currentLeft < ((window.innerWidth-twoCats[i].width)/2)) {
        var isLeftSide = true;
      } else {
        var isLeftSide = false;
      }
 
-     if (isLeftSide && currentLeft + 10 > ((window.innerWidth-cat[i].width)/2) ) {
-       document.getElementById('original').src='http://3.bp.blogspot.com/-hEPXEJ1DUmE/T6DQD5bBcmI/AAAAAAAAANk/R02Yj1y7x-g/s1600/catface.png';
-       document.getElementById('original').width='500';
-     } else if(!isLeftSide && currentLeft - 10 < ((window.innerWidth-cat[i].width)/2)) {
-       document.getElementById('original').src='http://3.bp.blogspot.com/-hEPXEJ1DUmE/T6DQD5bBcmI/AAAAAAAAANk/R02Yj1y7x-g/s1600/catface.png';
-       document.getElementById('original').width='500';
+     if (isLeftSide && currentLeft + 10 > ((window.innerWidth-twoCats[i].width)/2) ) {
+       document.getElementById('cat1').src='http://3.bp.blogspot.com/-hEPXEJ1DUmE/T6DQD5bBcmI/AAAAAAAAANk/R02Yj1y7x-g/s1600/catface.png';
+       document.getElementById('cat1').width='500';
+     } else if(!isLeftSide && currentLeft - 10 < ((window.innerWidth-twoCats[i].width)/2)) {
+       document.getElementById('cat1').src='http://3.bp.blogspot.com/-hEPXEJ1DUmE/T6DQD5bBcmI/AAAAAAAAANk/R02Yj1y7x-g/s1600/catface.png';
+       document.getElementById('cat1').width='500';
      } else {
-       document.getElementById('original').src='http://rs791.pbsrc.com/albums/yy191/Aloux/vibrating_cat.gif~c200';
-       document.getElementById('original').width='300';
-
-     }
-
-   }
- }
-
-   //movement
-
-
-  function fasterCatWalk() {
-    window.clearInterval(catTimer);
-    catTimer = window.setInterval(catWalk, delayMs-=10);
+       document.getElementById('cat1').src='http://rs791.pbsrc.com/albums/yy191/Aloux/vibrating_cat.gif~c200';
+       document.getElementById('cat1').width='300';
+    }
   }
+}
 
-  function startCatWalk() {
-    window.clearInterval(catTimer);
-    catTimer = window.setInterval(catWalk, delayMs);
-  }
+function fasterCatWalk() {
+  window.clearInterval(catTimer);
+  catTimer = window.setInterval(catWalk, delayMs-=10);
+}
 
-  function stopCatWalk() {
-    window.clearInterval(catTimer)
-  }
+function startCatWalk() {
+  window.clearInterval(catTimer);
+  catTimer = window.setInterval(catWalk, delayMs);
+}
 
-  var startBtn = document.getElementById('start-button');
-  var stopBtn = document.getElementById('stop-button');
-  var speedBtn = document.getElementById('speed-button');
+function stopCatWalk() {
+  window.clearInterval(catTimer)
+}
 
-  startBtn.addEventListener('click',startCatWalk);
-  stopBtn.addEventListener('click',stopCatWalk);
-  speedBtn.addEventListener('click',fasterCatWalk);
+var startBtn = document.getElementById('start-button');
+var stopBtn = document.getElementById('stop-button');
+var speedBtn = document.getElementById('speed-button');
+
+startBtn.addEventListener('click',startCatWalk);
+stopBtn.addEventListener('click',stopCatWalk);
+speedBtn.addEventListener('click',fasterCatWalk);

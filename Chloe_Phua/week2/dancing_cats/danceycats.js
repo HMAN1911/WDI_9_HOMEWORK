@@ -50,7 +50,6 @@ function catWalk() {
 
  }
 
-
 function fasterCatWalk() {
   window.clearInterval(catTimer);
   catTimer = window.setInterval(catWalk, delayMs-=10);
