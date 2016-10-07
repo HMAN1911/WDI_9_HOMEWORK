@@ -55,8 +55,14 @@ function calculateJourney(origin, destination) {
     changeOver: false
   };
 
-  originLine = getLine(origin);
-  destinationLine = getLine(destination);
+  if (origin === "Richmond") {
+    destinationLine = getLine(destination);
+    originLine = destinationLine;
+  }
+  else {
+    originLine = getLine(origin);
+    destinationLine = getLine(destination);  
+  }
 
   result.startingLine = originLine.name;
 
