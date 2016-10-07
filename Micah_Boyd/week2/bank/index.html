@@ -7,23 +7,28 @@
   </head>
   <body>
 
-      <div class="navbar">
+    <div class="wrapper">
+
+      <nav>
 
         <img src="https://yourbanksite.com/images/logo.png" alt="Your Bank"/>
 
-      </div>
+      </nav>
 
       <div class="mainColumn">
 
         <div class="account">
 
           <h2>Savings Balance:</h2>
+
           <h3>$<span id="savings">0</span>.00</h3>
 
           <div class="input">
             <input id='savingsInput' type="text">
-            <button id='withdrawSavings' type="button">withdraw</button>
-            <button id='depositSavings' type="button">deposit</button>
+              <div class="buttons">
+                <button id='withdrawSavings' type="button">withdraw</button>
+                <button id='depositSavings' type="button">deposit</button>
+              </div>
           </div>
 
         </div>
@@ -31,17 +36,24 @@
         <div class="account">
 
           <h2>Checking Balance:</h2>
+
           <h3>$<span id='checking'>0</span>.00</h3>
 
           <div class="input">
             <input id='checkingInput' type="text">
-            <button id='withdrawChecking' type="button">withdraw</button>
-            <button id='depositChecking' type="button">deposit</button>
+              <div class="buttons">
+                <button id='withdrawChecking' type="button">withdraw</button>
+                <button id='depositChecking' type="button">deposit</button>
+              </div>
+
           </div>
 
         </div>
 
       </div>
+    </div>
+
+
 
 
 

@@ -35,11 +35,14 @@ function catWalk() {
 
   if (currentLeft >= (window.innerWidth-img.width)) {
     movePixels = -10;
-    document.getElementsByTagName('img')[0].src="http://flipapicture.com/uploaded_images/044540_cat-walk.gif";
+    img.style.transform = 'scalex(-1)';
+    // document.getElementsByTagName('img')[0].src="http://flipapicture.com/uploaded_images/044540_cat-walk.gif";
   }
   if (img.style.left <= '0px') {
     movePixels = 10;
-    document.getElementsByTagName('img')[0].src="http://www.anniemation.com/clip_art/images/cat-walk.gif";
+    img.style.transform = 'scalex(1)';
+
+    // document.getElementsByTagName('img')[0].src="http://www.anniemation.com/clip_art/images/cat-walk.gif";
   }
 
   // if (movePixels > 0) {
