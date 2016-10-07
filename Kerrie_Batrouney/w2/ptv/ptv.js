@@ -87,7 +87,7 @@ if (leg1[0]=== "Richmond") {
     }
 
 } else {
-    var leg2 = desLine.slice(desLine.indexOf("Richmond"), destLocIndex);
+    var leg2 = desLine.slice(desLine.indexOf("Richmond"), destLocIndex+1);
 }
   //join the 2 bits
   var routeArray = leg1.concat(leg2);
@@ -99,10 +99,10 @@ if (leg1[0]=== "Richmond") {
 // if on different lines, flag to change at Richmond
 
 // print a simple journey
-function printRoute1(routeArray){
+function printRoute1(routeArray) {
   // console.log('origin: ' + routeArray[0]);
   // console.log('destination: ' + routeArray[routeArray.length-1]);
-  document.getElementById('route').value = routeArray.join('---->');
+  document.getElementById('route').innerHTML = routeArray.join('---->');
   console.log(routeArray.join(' ----> '));
   console.log('number of stops - ' + (routeArray.length-1));
   // document.getElementById('stops').value = routeArray.length-1;
@@ -115,13 +115,11 @@ function printRoute1(routeArray){
 function printRoute2(routeArray) {
   console.log('origin: ' + routeArray[0]);
   console.log('destination: ' + routeArray[routeArray.length]);
-
-
   console.log('Change at Richmond');
   console.log(routeArray.join(' ----> '));
   console.log('number of stops - ' + (routeArray.length-1));
-document.getElementById('route').value = routeArray.join('---->');
-document.getElementById('stops').value = (route[routeArray.length]-1 + " Please change at Richmond")
+document.getElementById('route').innerHTML = routeArray.join('---->');
+document.getElementById('stops').innerHTML = routeArray.length-1 + "   -- Please change at Richmond";
 }
 
 
