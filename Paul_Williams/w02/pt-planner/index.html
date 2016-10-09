@@ -9,27 +9,34 @@
 </head>
 
 <body>
-
-  <h1>PT Planner</h1>
-
-  <main>
+  <div class="wrapper">
+    <h1>PT Planner</h1>
 
     <div class="inputs">
       <h2>Origin</h2>
-      <input type="text" placeholder="Enter station">
-      <h2>Destination</h2>
-      <input type="text" placeholder="Enter station">
-      <div class="btn">Plan route</div>
+      <select name="origin line">
+        <option selected disabled>Select Line</option>
+      </select>
+      <select name="origin station">
+        <option selected disabled>Select Station</option>
+      </select>
     </div>
 
-    <div class="route"></div>
+    <div class="inputs last">
+      <h2>Destination</h2>
+      <select name="dest line">
+        <option selected disabled>Select Line</option>
+      </select>
+      <select name="dest station">
+        <option selected disabled>Select Station</option>
+      </select>
+    </div>
 
-  </main>
+    <button>Plan Route</button>
 
-  <img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/14-512.png" alt="train icon">
-
+    <div class="output"></div>
+  </div>
   <script src="planner.js"></script>
-
 </body>
 
 </html>

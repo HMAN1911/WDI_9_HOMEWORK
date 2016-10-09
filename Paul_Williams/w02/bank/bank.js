@@ -70,3 +70,22 @@ checkingWithdrawBtn.addEventListener('click', function() {
   }
   updateDisplays();
 });
+
+
+// Notes from DT:
+
+var makeAccount = function() { // <-- factory function (module pattern).
+
+  var balance = 0; // <-- this variable will be copied and accessible separately by any object created by the factory function (closure).
+
+  return {
+    deposit: function(amount) {
+      balance += amount;
+    },
+    getBalance: function() {
+      return balance;
+    }
+  }
+}
+
+var accountBalance = 0; // <-- this is bad, prefer local variables.
