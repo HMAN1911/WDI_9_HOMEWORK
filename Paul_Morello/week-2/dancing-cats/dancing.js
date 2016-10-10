@@ -20,6 +20,7 @@ function catWalk() {
   img.style.left = (currentLeft + (movePixels * direction)) + 'px';
   if (currentLeft > (window.innerWidth-img.width)) {
     direction = -1;
+    // style.img.transform = scaleX(-1);
  } else if (currentLeft < 0) {
    direction = 1;
  }
