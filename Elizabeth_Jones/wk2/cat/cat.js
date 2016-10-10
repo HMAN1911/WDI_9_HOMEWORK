@@ -1,7 +1,7 @@
-var movePixels = 1; //bigger the number the larger the steps
+var movePixels = 5; //bigger the number the larger the steps
 var delayMs = 25;  //higher the number the slower it is
-var speed = 15
-var catTimer = null;
+var speed = 15;
+var catTimer = null; //same as zero  or undefined
 var cat = document.getElementsByTagName('img')[0]; //gets the cat image
 
 function catWalk() {
@@ -40,30 +40,34 @@ function catWalk() {
 // }
 
 function startCatWalk() {
-  delayMs = 25;
-  movePixels = 5;
+  clearInterval(catTimer);
   catTimer = window.setInterval(catWalk, delayMs);
   console.log('working');
 }
 
 function speedUp(){
-  catTimer = window.setInterval(catWalk, speed);
+  movePixels += 10;
   console.log('working');
 }
 
 function stopCatWalk(){
-  movePixels = 0; //bigger the number the larger the steps
-  delayMs = 0;
+  clearInterval(catTimer);
   console.log('working');
 }
 
 function walkBack(){
+    clearInterval(catTimer);
     catTimer = window.setInterval(back, delayMs);
 }
 
 function back(){
     var position = parseInt(cat.style.left);
     cat.style.left = (position - movePixels) + 'px';
+    if (position <= 0 ) {
+      // cat.style.left = '1034px';
+      startCatWalk();
+      flop();
+    }
     console.log('im coming back');
 }
 
@@ -96,3 +100,11 @@ stopButton.addEventListener('click', stopCatWalk);
 //   }
 //
 // dance();
+
+
+//make a function
+//that clears the interval
+//start timer 
+//find when cat reaches the middle 
+//do dance 
+//start cat walking function 

@@ -1,40 +1,127 @@
-h1{
-  font-family:"Lucida Console";
-  text-align: center;
-  padding:10px;
-  border-bottom: 3px crimson dotted;
-  display:inline-block;
+    h1{
+      font-family:"arial";
+      text-align: center;
+      font-weight:normal;
+      padding:10px;
+      border-bottom: 2px black solid;
+      display:inline-block;
+    }
+
+    .wrapper{
+      text-align: center;
+      margin:0 auto;
+      max-width:1080px;
+    }
+
+    body{
+      background-color: #b8b9ba;
+    }
+
+    .header{
+      background-color: gold ;
+      text-align: center;
+      margin:0;
+    }
+
+    #savings, #checking{
+      background-color:lightgray;
+      width:300px;
+      height:240px;
+      text-align: center;
+      padding:30px;
+      margin:5px;
+      color:black;
+      font-family:"arial";
+      display:inline-block;
+      font-size:20px;
+      border:4px solid gold;
+      box-shadow: 5px 5 px 5px #888888;
+    }
+
+    button{
+      padding:15px;
+      font-size: 15px;
+      font-family:"Lucida Console";
+    }
+
+    input{
+      margin-top: 10px;
+      margin-bottom: 15px;
+      padding:10px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 50em){
+      body{
+        background-color:lightgray;
+        width:100%;
+        margin:0px;
+      }
+
+      .wrapper{
+        text-align: center;
+        margin:0;
+      }
+
+      .header{
+        background-color: gold ;
+        text-align: center;
+        margin:0;
+        border-bottom:2px black solid;
+      }
+
+      h1{
+        font-family:"arial";
+        text-align: center;
+        font-weight:normal;
+        padding:10px;
+        border-bottom: 0px black solid;
+        display:inline-block;
+      }
+
+
+      #savings, #checking{
+        background-color:white;
+        width:100%;
+        height:240px;
+        text-align: center;
+        padding:0px;
+        padding-bottom: 35px;
+        color:black;
+        font-family:"arial";
+        display:inline-block;
+        font-size:20px;
+        border:0px solid gold;
+        border-bottom:4px solid gold;
+        box-shadow: 0px;
+        margin:0px;
+      }
+
+    }
+
+/*------ANIMATION -------*/
+
+.face{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
-.wrapper{
-  text-align: center;
-  margin:0 auto;
-  max-width:1080px;
-}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
 
-#savings, #checking{
-  background-color:crimson;
-  width:300px;
-  height:240px;
-  text-align: center;
-  padding:30px;
-  margin:5px;
-  color:black;
-  font-family:"Lucida Console";
-  display:inline-block;
-  font-size:20px;
-  border:4px solid gold;
-}
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
 
-button{
-  padding:15px;
-  font-size: 15px;
-  font-family:"Lucida Console";
-}
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
 
-input{
-  margin-top: 10px;
-  margin-bottom: 15px;
-  padding:10px;
-  border-radius: 2px;
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
