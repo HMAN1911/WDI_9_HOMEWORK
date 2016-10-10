@@ -1,76 +1,105 @@
-var checkingAccount = {
-  name : 'checking',
-  balance : 0,
-  span : null
-}
-var savingsAccount = {
-  name: 'savings',
-  balance : 0,
-  span : null
-}
+var makeAccount = function(accountName){
+  var balance = 0;
+  var name = accountName;
+  var span = null;
+  return {
+    getBalance: function(){
+      return balance;
+    },
+    deposit: function(amount){
+      balance += amount;
+    },
+    withdraw: function(amount){
+      balance -= amount
+    },
+    getSpan: function(){
+      return span;
+    },
+    setSpan: function(spanValue){
+      span = spanValue;
+    },
+    getName: function(){
+      return name;
+    }
+  }
+};
+var checkingAccount = makeAccount('checking');
+var savingsAccount = makeAccount('savings');
+
+//
+// var checkingAccount = {
+//   name : 'checking',
+//   balance : 0,
+//   span : null
+// }
+// var savingsAccount = {
+//   name: 'savings',
+//   balance : 0,
+//   span : null
+// }
 
 //_____________________________________FUNCTION WITHDRAW______________________
-function withdraw(account,ammount) {
-  if (account.name === 'savings'){    // Check if Savings is the selected account
-    if (savingsAccount.balance >= ammount) { // IF founds are enough, take the money from it
-      savingsAccount.balance -=  ammount;
-      spanSavings.textContent = '$' + savingsAccount.balance.toFixed(2) ;
+function withdraw(account,amount) {
+  if (account.getName() === 'savings'){    // Check if Savings is the selected account
+    if (savingsAccount.getBalance() >= amount) { // IF founds are enough, take the money from it
+      savingsAccount.withdraw(amount);
+      spanSavings.textContent = '$' + savingsAccount.getBalance().toFixed(2) ;
       checkColors();
-    }else if (savingsAccount.balance + checkingAccount.balance >= ammount) { // IF NOT,
-      var excedent = ammount - savingsAccount.balance;     // Take the rest from other account
-      savingsAccount.balance -= (ammount - excedent);
-      checkingAccount.balance -= excedent;
-      spanSavings.textContent = '$' + savingsAccount.balance.toFixed(2) ;
-      spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2) ;
+    }else if (savingsAccount.getBalance() + checkingAccount.getBalance() >= amount) { // IF NOT,
+      var excedent = amount - savingsAccount.getBalance();     // Take the rest from other account
+      savingsAccount.setBalance() -= (amount - excedent);
+      checkingAccount.setBalance() -= excedent;
+      spanSavings.textContent = '$' + savingsAccount.getBalance().toFixed(2) ;
+      spanChecking.textContent = '$' + checkingAccount.getBalance().toFixed(2) ;
       checkColors();// check if balance is zero, then change background to red
       }
     }
 
-  if (account.name === 'checking') {  // Check if Checking is the selected account
-    if (checkingAccount.balance >= ammount) { // IF founds are enough, take the money from it
-      checkingAccount.balance -=  ammount;
-      spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2) ;
+  if (account.getName() === 'checking') {  // Check if Checking is the selected account
+    if (checkingAccount.getBalance() >= amount) { // IF founds are enough, take the money from it
+      checkingAccount.withdraw(amount);
+      spanChecking.textContent = '$' + checkingAccount.getBalance().toFixed(2) ;
       checkColors();// check if balance is zero, then change background to red
-    }else if (checkingAccount.balance + savingsAccount.balance >= ammount) {  // IF NOT,
-      var excedent = ammount - checkingAccount.balance;         // Take the rest from other account
-      checkingAccount.balance -= (ammount - excedent);
-      savingsAccount.balance -= excedent;
-      spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2) ;
-      spanSavings.textContent = '$' + savingsAccount.balance.toFixed(2) ;
+    }else if (checkingAccount.getBalance() + savingsAccount.getBalance() >= amount) {  // IF NOT,
+      var excedent = amount - checkingAccount.getBalance();         // Take the rest from other account
+      checkingAccount.setBalance() -= (amount - excedent);
+      savingsAccount.setBalance() -= excedent;
+      spanChecking.textContent = '$' + checkingAccount.getBalance().toFixed(2) ;
+      spanSavings.textContent = '$' + savingsAccount.getBalance().toFixed(2) ;
       checkColors();// check if balance is zero, then change background to red
     }
   }
 }
 
 // ____________________________________FUNCTION DEPOSIT_____________________
-function deposit(account,ammount) {
-  if (account.name === 'savings'){ // SAVINGS deposit
-    savingsAccount.balance +=  ammount;
-    spanSavings.textContent = '$' + savingsAccount.balance.toFixed(2);
+function deposit(account,amount) {
+  if (account.getName() === 'savings'){ // SAVINGS deposit
+    savingsAccount.deposit(amount);
+    spanSavings.textContent = '$' + savingsAccount.getBalance().toFixed(2);
     checkColors();// check if balance is zero, then change background to red
   }
-  if (account.name === 'checking') { // CHECKING deposit
-    checkingAccount.balance +=  ammount;
-    spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2);
+  if (account.getName() === 'checking') { // CHECKING deposit
+    checkingAccount.deposit(amount);
+    spanChecking.textContent = '$' + checkingAccount.getBalance().toFixed(2);
     checkColors();// check if balance is zero, then change background to red
   }
 }
 //_______________________________SPANS TO SHOW BALANCE ________________________
 var spanSavings = document.getElementById('spanSavings');
-    spanSavings.textContent = '$' + savingsAccount.balance.toFixed(2); // Show Saving account balance
+    spanSavings.textContent = '$' + savingsAccount.getBalance().toFixed(2); // Show Saving account balance
 var spanChecking = document.getElementById('spanChecking');
-    spanChecking.textContent = '$' + checkingAccount.balance.toFixed(2); // Show Checking account balance
+    spanChecking.textContent = '$' + checkingAccount.getBalance().toFixed(2); // Show Checking account balance
 
 //______________________________CHECK INPUT VALUE ____________________________
 var inputChecking = function() { // Return the value of the input at the checking box
-  var temp = document.getElementById('inputChecking');
-  temp = parseFloat(temp.value);
-  return temp;
+  var input = document.getElementById('inputChecking');
+  input = parseFloat(input.value);
+  return input;
 }
 var inputSavings = function() {// Return the value of the input at the saving box
-  var temp = document.getElementById('inputSavings');
-  temp = parseFloat(temp.value);
-  return temp;
+  var input = document.getElementById('inputSavings');
+  input = parseFloat(input.value);
+  return input;
 }
 
 //________________________________CHANGE BACKGROUND COLORS_____________________
@@ -81,12 +110,12 @@ function balancePositive(box) {
   document.getElementById(box).style.backgroundColor = 'silver';
 }
 function checkColors() {
-  if (savingsAccount.balance === 0){// check if balance is zero, then change background to red
+  if (savingsAccount.getBalance() === 0){// check if balance is zero, then change background to red
     balanceZero('savingsBox');
   }else{
     balancePositive('savingsBox');
   }
-  if (checkingAccount.balance === 0){// check if balance is zero, then change background to red
+  if (checkingAccount.getBalance() === 0){// check if balance is zero, then change background to red
     balanceZero('checkingBox');
   }else {
     balancePositive('checkingBox');

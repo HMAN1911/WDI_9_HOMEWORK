@@ -48,85 +48,62 @@ var destinationData = { lineIndex: null,
  }
  findLine(origin,originData);             //Find the lines of the stations selected
  findLine(destination,destinationData); //Find the lines of the stations selected
+//-----------------------------------------------------------------------------
+
+//                 FUNCTION that adds every (1) station at a time
+function addResult(i , value , message , totalStops){ // for loop i - origin/destination - message to change or not
+  journeyResult = document.getElementById('journeyResult');
+  journeyStep = document.createElement('li');
+  journeyStep.innerHTML = lines[value.lineIndex].stations[i] + message;
+  journeyResult.appendChild(journeyStep);
+  console.log(lines[value.lineIndex].stations[i] + '<i> (Change platform) </i>');
+  return totalStops + 1;
+}
+
 
 //_____________________________________Main Function____________________________
     function printStations(value,value2){ // originData , destinationData
+      journeyResult = document.getElementById('journeyResult');
+      journeyResult.innerHTML = ''; // Remove any previous data from span journeyResult.
       var totalStops = 0;
+      message = ['','<b><i><u>(Change platform)<u></b></i>'] // message if needs to change platform.
+      
       // print value 1 (Origin Line)
       if (value.stationIndex > value.connectionIndex){// if index of origin > connection
         for (var i = value.stationIndex; i >= value.connectionIndex; i--) {
+
           if (i === value.connectionIndex) { // if it is time to change platform
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value.lineIndex].stations[i] + ' <b><i><u>(Change platform)<u></b></i>';
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value.lineIndex].stations[i] + '<i> (Change platform) </i>');
-            totalStops++;
+            totalStops = addResult(i,value,message[1],totalStops);
           }else { // do not need to change platform
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value.lineIndex].stations[i] ;
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value.lineIndex].stations[i] + ' --> ');
-            totalStops++;
+            totalStops = addResult(i,value,message[0],totalStops);
           }
         }
       }else{ // index of origin < connection
         for (var i = value.stationIndex; i <= value.connectionIndex; i++) {
 
           if (i === value.connectionIndex) { // if it is time to change platform
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value.lineIndex].stations[i] + '<b><i><u>(Change platform)<u></b></i>';
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value.lineIndex].stations[i] + ' ***(Change platform)**-> ');
-            totalStops++;
+            totalStops = addResult(i,value,message[1],totalStops);
           }else { // do not need to change platform
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value.lineIndex].stations[i] ;
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value.lineIndex].stations[i] + ' --> ');
-            totalStops++;
+            totalStops = addResult(i,value,message[0],totalStops);
           }
         }
       }
 
       // print value 2 (Destination Line)
       if (value2.connectionIndex < value2.stationIndex){ // if index of connection < destination
-        for (var w = value2.connectionIndex + 1; w <= value2.stationIndex; w++) {
-          if (w === value2.stationIndex) { // if it is the last station
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value2.lineIndex].stations[w] ;
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value2.lineIndex].stations[w]);
-            totalStops++;
+        for (var i = value2.connectionIndex + 1; i <= value2.stationIndex; i++) {
+          if (i === value2.stationIndex) { // if it is the last station
+            totalStops = addResult(i,value2,message[0],totalStops);
           }else { // not the last station
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value2.lineIndex].stations[w] ;
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value2.lineIndex].stations[w] + ' --> ');
-            totalStops++;
+            totalStops = addResult(i,value2,message[0],totalStops);
           }
         }
       }else{ //index of connection > destination
-        for (var w = value2.connectionIndex -1; w > value2.stationIndex; w--) {
-          if (w === value2.stationIndex) { // if it is the last station
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value2.lineIndex].stations[w];
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value2.lineIndex].stations[w]);
-            totalStops++;
+        for (var i = value2.connectionIndex -1; i > value2.stationIndex; i--) {
+          if (i === value2.stationIndex) { // if it is the last station
+            totalStops = addResult(i,value2,message[0],totalStops);
           }else { // not the last station
-            journeyResult = document.getElementById('journeyResult');
-            journeyStep = document.createElement('li');
-            journeyStep.innerHTML = lines[value2.lineIndex].stations[w] ;
-            journeyResult.appendChild(journeyStep);
-            console.log(lines[value2.lineIndex].stations[w] + ' --> ');
-            totalStops++;
+            totalStops = addResult(i,value2,message[1],totalStops);
           }
         }
       }
