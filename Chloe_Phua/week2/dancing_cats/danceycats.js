@@ -17,7 +17,7 @@ function catWalk() {
 
 
   if (currentLeft <= (window.innerWidth-img.width) && goRight == true) {
-    goRight = true;
+    goRight = true; /*this may not be necessary */
   } else if (currentLeft > (window.innerWidth-img.width)) {
     goRight = false;
   } else if (currentLeft <= 0) {
