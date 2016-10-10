@@ -1,9 +1,9 @@
-* {
+/** {
   box-sizing: border-box;
 }
 
 body {
-  width: 960px;
+  width: 90%;
   margin: 0 auto;
   background: white;
   padding: 50px;
@@ -13,6 +13,12 @@ body {
 section {
   padding-top: 200px;
 
+}
+
+section:after {
+  content: '';
+  display:block;
+  clear: both;
 }
 
 .logo {
@@ -53,10 +59,54 @@ input {
 .savings {
   background: orange;
   float: left;
-  margin: 0 200px 0 100px;
+  margin-left: 20%;
 }
 
 .checking {
   background: yellow;
   float: left;
+  margin-left: 20%;
+}
+
+
+@media (max-width: 50em) {
+
+  section {
+    text-align: center;
+  }
+
+  .savings, .checking {
+    display: block;
+    margin: 0 0 30px 0;
+  }
+
+  h1 {
+    padding: 0;
+  }
+
+  header {
+    text-align: center;
+  }
+}*/
+
+body {
+  font: normal 16px Helvetica;
+}
+
+header {
+  text-align: center;
+}
+
+section {
+
+}
+
+.logo {
+  height: 250px;
+  background: url('logo.png');
+  background-size: cover;
+}
+
+.savings, .checking {
+  width: 200px;
 }

@@ -41,36 +41,82 @@ var depositCheckingBtn = document.getElementById('deposit-checking');
 var savingsTotalDisplay = document.getElementById("savings-total");
 var checkingTotalDisplay = document.getElementById("checking-total");
 
-var Account = {
-  balance: 0,
-  deposit: function(amount) {
-    this.balance += amount;
-  },
-  withdraw: function(amount) {
-    if (this.balance - amount < 0) {
-      if (this.getCombinedBalance() - amount < 0) {
-        return;
+// var Account = {
+//   balance: 0,
+//   deposit: function(amount) {
+//     this.balance += amount;
+//   },
+//   withdraw: function(amount) {
+//     if (this.balance - amount < 0) {
+//       if (this.getCombinedBalance() - amount < 0) {
+//         return;
+//       }
+//       else {
+//         this.linkedAccount.withdraw(amount - this.balance);
+//         this.balance = 0;
+//       }
+//     }
+//     else {
+//       this.balance -= amount;
+//     }
+//   },
+//   getCombinedBalance: function() {
+//     return this.balance + this.linkedAccount.balance;
+//   },
+//   linkedAccount: null
+// }
+
+function Account() {
+  var balance = 0;
+  var linkedAccount = null;
+
+  function getLinkedAccount() {
+    return linkedAccount;
+  }
+
+  function getCombinedBalance() {
+    return balance + getLinkedAccount().getBalance();
+  }
+
+  return {
+    deposit: function(amount) {
+      balance += amount;
+    },
+    getBalance: function() {
+      return balance;
+    },
+    withdraw: function(amount) {
+      if (balance - amount < 0) {
+        if (getCombinedBalance() - amount < 0) {
+          return;
+        }
+        else {
+          getLinkedAccount().withdraw(amount - balance);
+          balance = 0;
+        }
       }
       else {
-        this.linkedAccount.withdraw(amount - this.balance);
-        this.balance = 0;
+        balance -= amount;
       }
+    },
+    linkAccount: function(account) {
+      linkedAccount = account;
     }
-    else {
-      this.balance -= amount;
-    }
-  },
-  getCombinedBalance: function() {
-    return this.balance + this.linkedAccount.balance;
-  },
-  linkedAccount: null
+  }
 }
 
-var savingsAccount = Object.create(Account);
-var checkingAccount = Object.create(Account);
 
-savingsAccount.linkedAccount = checkingAccount;
-checkingAccount.linkedAccount = savingsAccount;
+// var savingsAccount = Object.create(Account);
+// var checkingAccount = Object.create(Account);
+
+var savingsAccount = Account();
+var checkingAccount = Account();
+
+savingsAccount.linkAccount(checkingAccount);
+checkingAccount.linkAccount(savingsAccount);
+
+// savingsAccount.linkedAccount = checkingAccount;
+// checkingAccount.linkedAccount = savingsAccount;
 
 bindEvents();
 updateDisplays();
@@ -81,9 +127,9 @@ function updateDisplays() {
 }
 
 function updateSavingsDisplay() {
-  savingsTotalDisplay.innerHTML = savingsAccount.balance.toFixed(2);
+  savingsTotalDisplay.innerHTML = savingsAccount.getBalance().toFixed(2);
 
-  if (savingsAccount.balance === 0) {
+  if (savingsAccount.getBalance() === 0) {
     savingsBox.style.background = "red";
   }
   else {
@@ -92,9 +138,9 @@ function updateSavingsDisplay() {
 }
 
 function updateCheckingDisplay() {
-  checkingTotalDisplay.innerHTML = checkingAccount.balance.toFixed(2);
+  checkingTotalDisplay.innerHTML = checkingAccount.getBalance().toFixed(2);
 
-  if (checkingAccount.balance === 0) {
+  if (checkingAccount.getBalance() === 0) {
     checkingBox.style.background = "red";
   }
   else {
