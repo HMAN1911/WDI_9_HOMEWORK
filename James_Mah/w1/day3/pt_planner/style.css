@@ -11,13 +11,11 @@ header {
   margin: 20px auto;
   display: inline-block;
   background-color: rgba(255, 255, 255, 0.8);
-  border: solid black;
-  border-radius: 25px;
 }
 
 section {
   padding: 10px;
-  margin: 10px;
+  margin: 0;
 }
 
 h1 {
@@ -31,14 +29,11 @@ h2 {
 h3 {
   margin: 5px;
   padding: 2px;
-  /*background-color: rgba(255, 255, 255, 0.8);*/
+  background-color: rgba(255, 255, 255, 0.8);
   display: inline-block;
 }
 
 section#trainlines {
-  background-color: rgba(50, 150, 255, .95);
-  border: solid black;
-  border-radius: 25px;
 }
 
 section#trainlines div {
@@ -58,19 +53,16 @@ section#trainlines div ul li {
   height: 35px;
   padding: 2px;
   border: solid black 1px;
-  border-radius: 15px;
   background-color: rgba(255, 255, 255, .95);
 }
 
 section#trainlines div ul li.richmond {
-  /*background-color: rgba(255, 150, 150, .95);*/
+  background-color: rgba(255, 150, 150, .95);
 }
 
 section#inputboxes {
   background-color: rgba(255, 255, 255, 0.8);
   display: inline-block;
-  border: solid black;
-  border-radius: 25px;
 }
 
 section#inputboxes div {
@@ -93,17 +85,11 @@ section#inputboxes button#journeybutton {
   display: block;
   font-family: times;
   font-size: 20px;
-  width: 200px;
-  border-radius: 15px;
-  background-color: white;
 }
 
 section#outputdisplay {
   margin-top: 10px;
-  min-height: 50px;
-  background-color: rgba(255, 255, 0, .95);
-  border: solid black;
-  border-radius: 25px;
+  min-height: 200px;
 }
 
 section#outputdisplay ul {
@@ -118,22 +104,18 @@ section#outputdisplay ul li {
   width: 15%;
   height: 35px;
   padding: 2px;
-  margin-right: 5px;
   border: solid black 1px;
-  border-radius: 15px;
-  background-color: rgba(255, 255, 255, .95);
+  margin-right: 5px;
+  background-color: rgba(255, 255, 50, 0.95);
 }
 
 section#outputdisplay ul li.arrow {
   width: 5%;
-  background-color: rgba(255, 255, 255, .8);
 }
 
 section#outputdisplay div {
   margin: 5px;
   display: inline-block;
-  border: solid black 1px;
-  border-radius: 15px;
   background-color: rgba(100, 200, 255, 0.95);
 }
 section#outputdisplay div p {
@@ -159,14 +141,6 @@ section#outputdisplay div p {
   section#outputdisplay ul li.arrow {
     width: auto;
   }
-
-  section#outputdisplay div {
-    display: block;
-    width: auto;
-    height: auto;
-    margin-left: 0;
-  }
-
   section#outputdisplay {
     display: block;
   } 

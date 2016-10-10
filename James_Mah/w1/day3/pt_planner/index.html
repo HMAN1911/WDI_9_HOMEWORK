@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <header>
+      <h1>PT PLANNER</h1>
+      <h2>Melbourne Public Transport Journey Planner</h2>
+    </header>
+    
+    <section id="trainlines">
+      <div id="alamein">
+        <h3>Alamein Line</h3>
+        <ul>
+          <li>Flinder Street</li>
+          <li class="richmond">Richmond</li>
+          <li>East Richmond</li>
+          <li>Burnley</li>
+          <li>Hawthorn</li>
+          <li>Glenferrie</li>
+        </ul>
+      </div>
+
+      <div id="glenwaverley">
+        <h3>Glen Waverley Line</h3>
+        <ul>
+          <li>Flagstaff</li>
+          <li>Melbourne Central</li>
+          <li>Parliament</li>
+          <li class="richmond">Richmond</li>
+          <li>Kooyong</li>
+          <li>Tooronga</li>
+        </ul>
+      </div>
+
+      <div id="sandringham">
+        <h3>Sandringham Line</h3>
+        <ul>
+          <li>Southern Cross</li>
+          <li class="richmond">Richmond</li>
+          <li>South Yarra</li>
+          <li>Prahran</li>
+          <li>Windsor</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <section id="inputboxes">
+      <div>
+          <span>Origin:</span>
+          <input id="origininput" type="text">
+      </div>
+      <div>
+        <span>Destination:</span>
+        <input id="destinationinput" type="text">
+      </div>
+      <button id="journeybutton">Create Journey</button>
+    </section>
+
+    <section id="outputdisplay">
+      <ul id="display1"></ul>
+      <div id="display2"></div>
+      <ul id="display3"></ul>
+      <div id="display4"></div>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>
