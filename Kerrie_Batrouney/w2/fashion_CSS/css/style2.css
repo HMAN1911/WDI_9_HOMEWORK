@@ -8,49 +8,7 @@ so set at the base (body) the reset it at the actual use point */
 body{
 font-size: 16px;
 }
-h1{
-font-size: 3em;
-font-family: sans-serif;
-color: red;
-}
-h1 span{
-font-size: 0.5em;
-color: darkgrey;
-}
-ul {
-  padding: o;
-  /*this overflowsolves the float
-  clear problem to position
-  the following text properly*/
-  overflow: hidden;
-  font-size: 2em;
-}
-li{
-  /*display: inline-block;*/
-  width: 16.66666667%;
-  /*box-sizing: border-box;*/
-  float: left;
-  color: white;
-  background-color: black;
-  border: 1px solid red;
-  list-style: none;
-  text-align: center;
-}
-.pagecont{
-
-}
-.leftbox{
-
-}
-article{
-
-}
-
-h2{
-  color: grey;
-  display: inline-block;
-  padding: 25px;
-}.wrapper{
+.wrapper{
 font-family: sans-serif;
 font-stretch: expanded;
 
@@ -69,7 +27,28 @@ h1{
   margin: auto;
   padding: 35px;
 }
-
+ul {
+  padding: o;
+  /*this overflowsolves the float
+  clear problem to position
+  the following text properly*/
+  overflow: hidden;
+  font-size: 2em;
+}
+li{
+  /*display: inline-block;*/
+  width: 16.66666667%;
+  /*box-sizing: border-box;*/
+  float: left;
+  border: 1px solid red;
+  list-style: none;
+  text-align: center;
+}
+h2{
+  color: grey;
+  display: inline-block;
+  padding: 25px;
+}
 .title{
   display: inline-block;
   font-weight: bold;
