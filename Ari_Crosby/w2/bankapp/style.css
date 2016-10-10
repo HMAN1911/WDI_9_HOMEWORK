@@ -1,0 +1,107 @@
+body {
+  margin: 0 auto;
+  background-color: white;
+  width: 80%;
+  height: 30em;
+  font-family: fantasy;
+
+}
+
+#honestbank {
+  text-align: center;
+  font-size: 3em;
+  color: SlateGray;
+  font-family: fantasy;
+}
+#wrapper {
+  background-color: SlateGray;
+  width: 100%;
+  height: 100%;
+}
+
+#topnav {
+  list-style: none;
+  height: 4em;
+  text-align: center;
+  background-color: darkorange;
+  width: 100%;
+}
+
+#savbox {
+  width: 40%;
+  margin: 5%;
+  background-color: MediumSeaGreen;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#chebox {
+  width: 40%;
+  margin: 5%;
+  background-color: tomato;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#savwithbtn, #chewithbtn {
+  font-size: 1em;
+  background-color: firebrick;
+  color: cornsilk;
+  font-family: fantasy;
+  padding: .5em;
+}
+
+#chedepbtn, #savdepbtn {
+  font-size: 1em;
+  background-color: darkgreen;
+  color: cornsilk;
+  font-family: fantasy;
+  padding: .5em;
+}
+
+#savebal, #checkbal {
+  font-size: 2em;
+}
+
+#dol1, #dol2 {
+  font-size: 2em;
+}
+
+
+h5 {
+  text-align: center;
+  font-size: 1.5em;
+  color: black;
+}
+
+h6 {
+  text-align: center;
+  font-size: 1em;
+  color: black;
+}
+
+.inputboxes {
+  height: 2em;
+}
+
+.spacer {
+  height: 50%;
+  width: 10%;
+  background-color: red;
+}
+
+@media (max-width: 50em) {
+    body {
+      width: 100%;
+      height: 100%;
+    }
+    #chebox, #savbox {
+      display: block;
+      width: 80%;
+      padding: 5%;
+    }
+    #wrapper {
+
+    }

@@ -2,6 +2,7 @@
 var movePixels = 10; //10
 var delayMs = 50; //50
 var catTimer = null;
+var goRight = true; // for it to go right.
 
 // Start
 function catWalk() {
@@ -9,13 +10,24 @@ function catWalk() {
 
   var currentLeft = parseInt(img.style.left); //converts para to an integer
 
+if (goRight) { // add this, to make it go back also.
   img.style.left = (currentLeft + movePixels) + 'px'; //position of img on the page
+} else {
+    img.style.left = (currentLeft - movePixels) + 'px';
+  }
+
+//    img.style.left = '0px'; starting point, no longer required as it will not be resetting.
 
   if (currentLeft > (window.innerWidth-img.width)) {
-    img.style.left = '0px';
+ // flip cat
+     img.style.transform = 'scaleX(-1)';
+     goRight = false;
+  } else if (currentLeft < 0 ) {
+      img.style.transform = 'scaleX(1)';
+      goRight = true;
   }
 }
-
+  
 function startCatWalk() {
   catTimer = window.setInterval(catWalk, delayMs); // timed function para's
 }
