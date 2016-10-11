@@ -1,0 +1,143 @@
+
+
+h1 {
+  font-size: 2em;
+  font-weight: normal;
+  text-align: center;
+  color: white;
+  margin-left: 0px;
+  background-color: blue;
+  border-style: solid;
+  border-width: thin;
+  border-color: darkblue;
+  font-family: arial;
+  width:100%;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: green;
+  margin-left: 50px;
+  font-family: arial;
+}
+
+.wrapperSavings {
+  float: left;
+  display:inline-block;
+  width: 45%;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 0px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: orange;
+}
+
+.savingsSign {
+  background-color: lightgray;
+  font-family: arial;
+  text-align: center;
+  font-weight: light;
+  font-size:  2em;
+  width: 100%;
+  padding: 0px;
+  float: center;
+}
+
+.savingsATM {
+  background-color: transparent;
+  border-style: none;
+  font-family: arial;
+  width: 100%;
+  text-align: center;
+}
+
+.balanceDisplaySavings {
+  background-color: transparent;
+  font-family: arial;
+  font-size: 2em;
+  color: black;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+
+.savingsInput {
+  background-color: white;
+  font-size: 1em;
+  width: 60%;
+  line-height: 2em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+
+
+
+.wrapperChecking {
+  float: left;
+  display:inline-block;
+  width: 45%;
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  padding: 0px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: yellow;
+}
+
+.checkingSign {
+  background-color: lightgray;
+  font-family: arial;
+  text-align: center;
+  font-weight: light;
+  font-size:  2em;
+  width: 100%;
+  padding: 0px;
+}
+
+.checkingATM {
+  background-color: transparent;
+  border-style: none;
+  font-family: arial;
+  width: 100%;
+  text-align: center;
+}
+
+.balanceDisplayChecking {
+  background-color: transparent;
+  font-family: arial;
+  font-size: 2em;
+  color: black;
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+
+
+}
+
+.checkingInput {
+  background-color: white;
+  font-size: 1em;
+  width: 60%;
+  line-height: 2em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+button {
+  font-size: 1em;
+  text-align: center;
+  width: 40%;
+  background-color: mintgreen;
+  font-family: arial;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
