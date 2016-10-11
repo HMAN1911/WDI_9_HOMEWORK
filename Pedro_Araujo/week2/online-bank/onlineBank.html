@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="onlineBank.css" media="screen" title="no title">
+    <title>Online Bank</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="title">
+        <div class="logo"></div>
+        <h1>ONLINE BANK</h1>
+      </div>
+      <div class="container2">
+        <div class="account" id="savingsBox">
+          <h2>Savings</h2>
+          <p>
+            Your balance is...
+          </p>
+          <span id="spanSavings"></span>
+          <input type="number" id="inputSavings">
+          <button type="button" id="withdrawSavings">Withdraw</button>
+          <button type="button" id="depositSavings">Deposit</button>
+        </div>
+
+        <div class="account" id="checkingBox">
+          <h2>Checking</h2>
+          <p>Your balance is...</p>
+          <span id="spanChecking"></span>
+          <input type="number" id="inputChecking">
+          <button type="button" id="withdrawChecking">Withdraw</button>
+          <button type="button" id="depositChecking">Deposit</button>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="onlineBank.js" charset="utf-8"></script>
+  </body>
+</html>
