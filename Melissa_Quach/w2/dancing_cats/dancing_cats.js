@@ -9,12 +9,12 @@ function catWalk() {
   var currentLeft = parseInt(img.style.left);
 
   // Change direction if cat at edge of screen
-  if (currentLeft > (window.innerWidth-img.width)) {
+  if (direction === 'right' && currentLeft > (window.innerWidth-img.width)) {
     direction = 'left';
     img.style.transform = '';
     idled = false;
   }
-  else if (currentLeft === 0 && direction === 'left') {
+  else if (direction === 'left' && currentLeft <= 0) {
     direction = 'right';
     img.style.transform = 'rotateY(180deg)';
     idled = false;
@@ -47,13 +47,14 @@ function showDancingCat(img) {
 
 // Check if center of cat image has passed midway point
 function passedMiddle(img, direction) {
-  var xPos = parseInt(img.style.left);
-  var middle = window.innerWidth / 2;
+  var imageCenter = parseInt(img.style.left) + img.width / 2;
+  var windowCenter = window.innerWidth / 2;
+
   if (direction === 'right') {
-    return xPos + img.width / 2 > middle;
+    return imageCenter > windowCenter;
   }
   else {
-    return xPos +  img.width / 2 < middle;
+    return imageCenter < windowCenter;
   }
 }
 
