@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+    
+    </head>
+    <body>
+        <main>
+        
+            <h1 style="text-align: center; padding: 5%; margin: 0; border: 0;" >Online Bank</h1>
+        
+          <div class="div-checking" id="box-savings">
+                <h3>Savings</h3>
+                <h4>Your balance is...</h4>
+                <input type="" id="display-balance-savings" value="0">
+                <input type="" id="input-deposit-savings" value="0" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"> 
+                <button type="" id=button-withdraw-savings>Withdraw</button>
+                <button type="" id="button-deposit-savings">Deposit</button>
+            </div>
+
+            <div class="div-checking" id="box-checking">
+                <h3>Checking</h3>
+                <h4>Your balance is...</h4>
+                <input type="" id="display-balance-checking" value="0">
+                <input type="" id="input-deposit-checking" value="0" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"> 
+                <button type="" id=button-withdraw-checking>Withdraw</button>
+                <button type="" id="button-deposit-checking">Deposit</button>
+            </div>
+        </main>
+        <script src="bank.js"> </script>
+    </body>
+</html>
