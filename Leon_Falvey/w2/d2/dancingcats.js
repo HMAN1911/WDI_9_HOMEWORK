@@ -3,9 +3,14 @@ var delayMs = 50;
 var catTimer = null;
 var isDirectionLeft = true;
 var passedMiddle = false;
+
+var isMoving = false;
+
 function catWalk() {
   var img = document.getElementsByTagName('img')[0];
   var currentLeft = parseInt(img.style.left);
+
+
   if (isDirectionLeft) {
     img.style.left = (currentLeft + movePixels) + 'px';
   } else {
@@ -32,14 +37,20 @@ function startCatWalk() {
 }
 
 var startBtn = document.getElementById('start-button');
-startBtn.addEventListener('click',startCatWalk);
+startBtn.addEventListener('click',function() {
+  startCatWalk();
+  isMoving=true;
+});
 
 var speedBtn = document.getElementById('speed-button');
 speedBtn.addEventListener('click',function() {
-  movePixels+=2.5;
+  if (isMoving) {
+    movePixels+=2.5;
+  }
 });
 
 var stopBtn = document.getElementById('stop-button');
 stopBtn.addEventListener('click',function() {
   clearInterval(catTimer);
+  isMoving=false;
 });
