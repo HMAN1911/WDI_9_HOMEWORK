@@ -1,0 +1,112 @@
+/** {
+  box-sizing: border-box;
+}
+
+body {
+  width: 90%;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  text-transform: uppercase;
+}
+
+section {
+  padding-top: 200px;
+
+}
+
+section:after {
+  content: '';
+  display:block;
+  clear: both;
+}
+
+.logo {
+  width: 200px;
+  height: 70px;
+  background: red;
+  line-height: 4;
+  text-align: center;
+  border: 1px solid black;
+  float: left;
+}
+
+h1  {
+  float: left;
+  padding-left: 100px;
+}
+
+input {
+  height: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#deposit-checking,
+#deposit-savings {
+  margin-left: 25px;
+}
+
+.checking,
+.savings {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  border: 1px solid black;
+  padding-bottom: 5px;
+}
+
+.savings {
+  background: orange;
+  float: left;
+  margin-left: 20%;
+}
+
+.checking {
+  background: yellow;
+  float: left;
+  margin-left: 20%;
+}
+
+
+@media (max-width: 50em) {
+
+  section {
+    text-align: center;
+  }
+
+  .savings, .checking {
+    display: block;
+    margin: 0 0 30px 0;
+  }
+
+  h1 {
+    padding: 0;
+  }
+
+  header {
+    text-align: center;
+  }
+}*/
+
+body {
+  font: normal 16px Helvetica;
+}
+
+header {
+  text-align: center;
+}
+
+section {
+
+}
+
+.logo {
+  height: 250px;
+  background: url('logo.png');
+  background-size: cover;
+}
+
+.savings, .checking {
+  width: 200px;
+}

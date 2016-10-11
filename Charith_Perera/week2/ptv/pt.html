@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <header>
+      <img src="logo.png" alt="logo">
+      <h1>Journey Planner</h1>
+    </header>
+    <section>
+      <select placeholder="test" name="origin">
+        <option value="" disabled selected>Select Origin</option>
+        <option value="Flinders Street">Flinders Street</option>
+        <option value="Richmond">Richmond*</option>
+        <option value="East Richmond">East Richmond</option>
+        <option value="Burnley">Burnley</option>
+        <option value="Hawthorne">Hawthorne</option>
+        <option value="Flagstaff">Flagstaff</option>
+        <option value="Melbourne Central">Melourne Central</option>
+        <option value="Parliament">Parliament</option>
+        <option value="Kooyong">Kooyong</option>
+        <option value="Southern Cross">Southen Cross</option>
+        <option value="South Yarra">South Yarra</option>
+        <option value="Prahran">Prahran</option>
+        <option value="Windsor">Windsor</option>
+      </select>
+      <button class="swap">Switch</button>
+      <select placeholder="test" name="origin">
+        <option value="" disabled selected>Select Destination</option>
+        <option value="Flinders Street">Flinders Street</option>
+        <option value="Richmond">Richmond*</option>
+        <option value="East Richmond">East Richmond</option>
+        <option value="Burnley">Burnley</option>
+        <option value="Hawthorne">Hawthorne</option>
+        <option value="Flagstaff">Flagstaff</option>
+        <option value="Melbourne Central">Melourne Central</option>
+        <option value="Parliament">Parliament</option>
+        <option value="Kooyong">Kooyong</option>
+        <option value="Southern Cross">Southen Cross</option>
+        <option value="South Yarra">South Yarra</option>
+        <option value="Prahran">Prahran</option>
+        <option value="Windsor">Windsor</option>
+      </select>
+      <button class="find">Find</button>
+      <p>Input not valid. Fix It!</p>
+    </section>
+    <section class="results">
+      <h3>Starting Line: <span id="starting-line"></span></h3>
+      <h3>Change To Line: <span id="ending-line"></span></h3>
+      <small>* Please note: All line changes at <span>Richmond</span></small>
+      <ol id="stops">
+
+      </ol>
+    </section>
+    <script type="text/javascript" src="pt.js"></script>
+  </body>
+</html>
