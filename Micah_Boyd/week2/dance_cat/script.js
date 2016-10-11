@@ -2,24 +2,56 @@ var movePixels = 10;
 var delayMs = 50;
 var catTimer = null;
 
+var img = document.getElementsByTagName('img')[0];
+
+var halfWay = function() {
+  return (window.innerWidth-img.width)*0.5;
+}
+var go = function(){
+  return movePixels = 10;
+}
+// var goBack = function(){
+//   return movePixels = -10;
+// }
+
 function catWalk() {
 
-  var img = document.getElementsByTagName('img')[0];
   var currentLeft = parseInt(img.style.left);
   img.style.left = (currentLeft + movePixels) + 'px';
 
-  if (currentLeft > (window.innerWidth-img.width)) {
+  // if (currentLeft > halfWay() && currentLeft < (halfWay()+20) ) {
+  //   console.log('dance!');
+  //   movePixels = 0;
+  //   setTimeout(go, 2000);
+  //   document.getElementsByTagName('img')[0].src="https://media.giphy.com/media/fH352dW1DbGXm/giphy.gif";
+  // }
+
+  // if (currentLeft < halfWay()) {
+  //   console.log('dance!');
+  //   movePixels = 0;
+  //   setTimeout(goBack, 2000);
+  //   // var img = document.getElementsByTagName('img')[0].src="https://media.giphy.com/media/fH352dW1DbGXm/giphy.gif";
+  // }
+
+  if (currentLeft >= (window.innerWidth-img.width)) {
     movePixels = -10;
+    img.style.transform = 'scalex(-1)';
+    // document.getElementsByTagName('img')[0].src="http://flipapicture.com/uploaded_images/044540_cat-walk.gif";
   }
   if (img.style.left <= '0px') {
     movePixels = 10;
+    img.style.transform = 'scalex(1)';
+
+    // document.getElementsByTagName('img')[0].src="http://www.anniemation.com/clip_art/images/cat-walk.gif";
   }
-  // var halfWay = function() {
-  //   (window.innerWidth-img.width)*0.5;
+
+  // if (movePixels > 0) {
+  //   document.getElementsByTagName('img')[0].src="http://www.anniemation.com/clip_art/images/cat-walk.gif";
   // }
-  // if (currentLeft > halfWay) {
-  //   var img = document.getElementsByTagName('img')[0].src="https://media.giphy.com/media/fH352dW1DbGXm/giphy.gif";
+  // if (movePixels < 0) {
+  //   document.getElementsByTagName('img')[0].src="http://flipapicture.com/uploaded_images/044540_cat-walk.gif";
   // }
+
 }
 
 function startCatWalk() {
@@ -41,6 +73,7 @@ speedBtn.addEventListener('click', startCatSpeed);
 
 function stopCat() {
     movePixels = 0;
+    document.getElementsByTagName('img')[0].src="cat-walk.gif";
 }
 
 var stopBtn = document.getElementById('stop-button');
