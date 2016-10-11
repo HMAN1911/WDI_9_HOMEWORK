@@ -1,0 +1,16 @@
+body {
+    background-color: orange;
+    height: 100%;
+    width: 100%;
+}
+main {
+    background-color: blue;
+    height: 500px;
+    width: 500px;
+}
+
+div {
+    background-color: yellow;
+    height: 100%;
+    width: 100%;
+}
