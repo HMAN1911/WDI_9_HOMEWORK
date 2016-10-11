@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="bank.js"></script>
+  <link href="bank.css" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <div class="logo">GA Bank</div>
+    <h1>Online Bank</h1>
+  </header>
+  <main>
+    <div class="savings">
+      <h2>Savings</h2>
+      <p>Your balance is...</p>
+      <p class="empty" id="savings-bal">$0.00</p>
+      <input type="number" id="savings-amt">
+      <button id="savings-withdraw">Withdraw</button>
+      <button id="savings-deposit">Deposit</button>
+    </div>
+    <div class="checking">
+      <h2>Checking</h2>
+      <p>Your balance is...</p>
+      <p class="empty" id="checking-bal">$0.00</p>
+      <input type="number" id="checking-amt">
+      <button id="checking-withdraw">Withdraw</button>
+      <button id="checking-deposit">Deposit</button>
+    </div>
+  </main>
+</body>
+</html>
