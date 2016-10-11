@@ -1,0 +1,146 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  background: url("images/bg-image.jpg") center/cover fixed;
+}
+
+.wrapper {
+  background: rgba(255, 255, 255, .9);
+  margin: 1em;
+  border-radius: 1em;
+}
+
+h1 {
+  margin: 0;
+  padding-top: .5em;
+}
+
+.inputs {
+  margin-top: .75em;
+}
+
+h2 {
+  margin: 0;
+  font-weight: normal;
+}
+
+select {
+  border: none;
+  background: none;
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1em;
+  padding-top: .3em;
+}
+
+button {
+  border: none;
+  background: none;
+  width: 90%;
+  margin: 0 5%;
+  font-size: 1.5em;
+  margin-top: .75em;
+  padding: .25em 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, .75);
+}
+
+.output {
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+  padding: .8em;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.output div {
+  padding-top: .3em;
+}
+
+.output div::before {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+}
+
+.origin-station::before {
+  content: '';
+  background: url('images/station-icon.png') center/cover;
+  margin-right: 1em;
+}
+
+.origin-line::before {
+  content: '';
+  margin-right: 1em;
+}
+
+.stop {
+  margin-left: 2em;
+}
+
+.stop::before {
+  content: '•';
+  text-align: center;
+}
+
+.dest-line::before {
+  content: '';
+  background: url('images/change-icon.png') center/cover;
+  margin-right: 1em;
+}
+
+.dest-station::before {
+  content: '';
+  background: url('images/station-icon.png') center/cover;
+  margin-right: 1em;
+}
+
+.output div:last-child {
+  text-align: center;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  margin: .5em 0 .25em 0;
+  padding-bottom: .3em;
+}
+
+@media (min-width: 550px) {
+  .inputs {
+    width: 45%;
+    display: inline-block;
+    padding: 0 1em;
+  }
+
+  .last {
+    border-left: 1px solid grey;
+  }
+}
+
+@media (min-width: 950px) {
+  body {
+    font-size: 1.2em;
+  }
+  .wrapper {
+    width: 900px;
+    display: inline-block;
+  }
+}

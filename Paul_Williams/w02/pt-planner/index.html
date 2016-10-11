@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PT Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>PT Planner</h1>
+
+    <div class="inputs">
+      <h2>Origin</h2>
+      <select name="origin line">
+        <option selected disabled>Select Line</option>
+      </select>
+      <select name="origin station">
+        <option selected disabled>Select Station</option>
+      </select>
+    </div>
+
+    <div class="inputs last">
+      <h2>Destination</h2>
+      <select name="dest line">
+        <option selected disabled>Select Line</option>
+      </select>
+      <select name="dest station">
+        <option selected disabled>Select Station</option>
+      </select>
+    </div>
+
+    <button>Plan Route</button>
+
+    <div class="output"></div>
+  </div>
+  <script src="planner.js"></script>
+</body>
+
+</html>
