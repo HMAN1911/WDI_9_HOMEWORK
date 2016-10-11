@@ -1,8 +1,7 @@
 var movePixels = 10;
 var delayMs = 50;
 var catTimer = null;
-// image moves from left to right
-var walkForward = true;
+
 
 // declared the buttons to call the respective functions when clicked.
 var start = document.getElementById('start-button').addEventListener('click', startCatWalk);
@@ -13,6 +12,9 @@ function catWalk() {
   var img = document.getElementsByTagName('img')[0];
   var currentLeft = parseInt(img.style.left);
   img.style.left = '0px';
+  // image moves from left to right
+  var walkForward = true;
+
 // image reached end of screen on right hand side
   if (walkForward && (currentLeft > (window.innerWidth-img.width))) {
     walkForward = false;
