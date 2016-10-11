@@ -11,6 +11,11 @@ function catWalk() {
   var img = document.getElementsByTagName('img')[0];
   currentLeft = parseInt(img.style.left);
   console.log(currentLeft);
+  if (direction>0) {
+    img.style.transform = 'scaleX(1)';
+  } else {
+    img.style.transform = 'scaleX(-1)';
+  }
   img.style.left = (currentLeft + (movePixels*direction)) + 'px';
   if (window.innerWidth / currentLeft > 2.4 && window.innerWidth / currentLeft < 2.45 ) {
     movePixels = 0;
@@ -47,5 +52,12 @@ document.getElementById('stop-button').addEventListener('click', function() {
 function catDance() {
   clearInterval(catTimer);
   document.getElementById('cat').src = "http://rs791.pbsrc.com/albums/yy191/Aloux/vibrating_cat.gif~c200";
-  danceTime = window.setTimeout(startCatWalk, 2000);
+  setTimeout(danceTime, 2000)
+}
+
+function danceTime () {
+  document.getElementById('cat').src = "http://www.anniemation.com/clip_art/images/cat-walk.gif";
+  clearInterval(catTimer);
+  movePixels = 10;
+  startCatWalk();
 }
