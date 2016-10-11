@@ -1,0 +1,42 @@
+body {
+  color: white;
+  background-color: black;
+  font-family: sans-serif;
+}
+
+.guessed-box {
+  display: inline-block;
+  width: 75%;
+  height: 10em;
+}
+
+.turns-box {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+}
+
+.word {
+  text-align: center;
+}
+
+.letter {
+  display: inline-block;
+  font-size: 4em;
+  width: 0.8em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+span {
+  padding-left: 0.5em;
+}
+
+#guessed-letters {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+#reset-button {
+
+}

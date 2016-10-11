@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+  </head>
+  <body>
+
+    <div class="bank_window">
+
+      <h1>Online Bank</h1>
+
+      <div class="account" id="sav_account">
+        <h3>Savings</h3>
+        <p>Your balance is...</p>
+        <p class="balance">$<span id="sav_balance">00.00</span></p>
+        <input id="sav_input" type="number" placeholder="enter amount here">
+        <button class="withdraw" id="sav_withdraw_btn">withdraw</button>
+        <button class="deposit" id="sav_deposit_btn">deposit</button>
+      </div>
+
+      <div class="account" id="chk_account">
+        <h3>Checking</h3>
+        <p>Your balance is...</p>
+        <p class="balance">$<span id="chk_balance">00.00</span></p>
+        <input id="chk_input" type="number" placeholder="enter amount here">
+        <button class="withdraw" id="chk_withdraw_btn">withdraw</button>
+        <button class="deposit" id="chk_deposit_btn">deposit</button>
+      </div>
+
+    </div>
+
+    <script src="ga_bank_atm.js"></script>
+  </body>
+</html>
