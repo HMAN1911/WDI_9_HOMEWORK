@@ -1,0 +1,1 @@
+A matchstick scratched its head and died.

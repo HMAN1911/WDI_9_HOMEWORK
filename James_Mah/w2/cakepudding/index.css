@@ -1,0 +1,65 @@
+body {
+  margin: auto;
+  font-family: Verdana;
+  background: black;
+}
+
+div#wrapper {
+  margin: auto;
+  text-align: center;
+  max-width: 600px;
+  min-height: 500px;
+  background: black;
+  padding: 50px;
+}
+
+header {
+  color: white;
+  font-size: 12px
+}
+
+header div {
+  float: left;
+}
+
+header div#turnsleft {
+  float: right;
+  width: 115px;
+  text-align: left;
+}
+
+section#lettersguessed {
+  padding: 30px 0 0 0;
+  text-align: left;
+  min-height: 50px;
+}
+
+section#lettersguessed div {
+  display: inline-block;
+  text-align: center;
+  width: 40px;
+  color: white;
+  font-size: 40px;
+}
+
+section#word {
+  padding: 130px 0 0 0;
+}
+
+section#word div {
+  display: inline-block;
+  width: 50px;
+  color: white;
+  font-size: 50px;
+}
+
+section#win {
+  padding: 130px 0 0 0;
+}
+
+section#win div {
+  display: inline-block;
+  width: 300px;
+  color: white;
+  font-size: 50px;
+}

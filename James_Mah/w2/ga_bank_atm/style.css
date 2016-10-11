@@ -1,0 +1,25 @@
+body {
+  /*color: brown;*/
+  font-family: Courier;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#logo {
+  display: inline-block;
+  border-style: solid;
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  display: inline-block;
+}
+
+section#savings, #checking {
+  border-style: solid;
+  padding: 10px;
+  text-align: center;
+  display: inline-block;
+  background-color: red;
+}
