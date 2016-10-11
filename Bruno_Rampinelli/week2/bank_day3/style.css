@@ -1,34 +1,36 @@
-header > img {
-  width: 200px;
-  display:inline-block;
-}
+<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 
-header {
-  display: inline-block;
-  padding: 130px;
-}
-
-#title {
-  display:inline-block;
-  text-align: center;
-}
-.sav-block {
-  display:inline-block;
-  padding: 50px;
-  background-color: orange;
-  border: 4px solid black;
-  text-align:center;
-  margin-left: 50px;
-}
-.chk-block {
-  display: inline-block;
-  vertical-align: inherit;
-  padding: 50px;
-  background-color: yellow;
-  border: 5px solid black;
-  text-align:center;
-}
 body{
-  text-align: center;
-  
+  width:600px;
+  margin: 0 auto;
+}
+
+.banner{
+  background-color: #b3b4b6;
+  width:100%;
+  padding:5%;
+}
+
+.slogan{
+  color:white;
+  font-family:'Slabo 27px', serif;
+  font-size: 30px;
+}
+
+.nav{
+  min-height: 40px;
+  float:left;
+  margin-right: 20px;
+  width: 130px;
+  background-color:#fc0;
+
+}
+.nav ul {
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+  display: inline-block;
+}
+.nav li{
+  float:left;
 }
