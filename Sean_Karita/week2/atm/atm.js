@@ -1,5 +1,5 @@
-var savingsBalance = 1000;
-var checkingBalance = 1000;
+var savingsBalance = 0;
+var checkingBalance = 0;
 
 var inputS = document.getElementsByClassName('savingsInput');
 var savingsBalance = document.getElementsByClassName('savingsBalance');

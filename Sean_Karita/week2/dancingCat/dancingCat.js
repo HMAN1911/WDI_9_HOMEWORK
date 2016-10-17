@@ -29,9 +29,16 @@ function catWalk() {
     img.style.left = (currentLeft - movePixels) + 'px';//img moves right to left
   }
 }
+// flip cat
+// img.style.transform = 'scaleX(-1)'
+// img.style.transform = 'scaleX(1)'
+
+
 // Calls the catWalk function every 50ms and moves image by 10px.
 function startCatWalk() {
+
   catTimer = window.setInterval(catWalk, delayMs);
+
 }
 // stops the catWalk function from been called.
 function stopCatWalk() {
