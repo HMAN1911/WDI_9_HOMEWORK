@@ -12,7 +12,7 @@ var savInput = document.getElementById('sav_input');
 var chkInput = document.getElementById('chk_input');
 
 var deposit = function(account,amount) {
-  if (amount) {
+  if (amount>=0) {
     if (account === 'savings') {
       savBalance += amount;
     }
@@ -23,7 +23,7 @@ var deposit = function(account,amount) {
 }
 
 var withdraw = function(account,amount) {
-  if (amount) {
+  if (amount >= 0) {
     if (account === 'savings') {
       if ((savBalance + chkBalance - amount) >= 0) {
         if (savBalance - amount >= 0) {
@@ -85,3 +85,27 @@ document.getElementById('chk_withdraw_btn').addEventListener('click', function()
 
 // Initialize the display
 updateDisplay();
+
+// var savingsAccount = {
+//   balance: 0,
+//   deposit: function() {
+//
+//   }
+// }
+//
+// // module pattern or factory function
+// var makeAccount = function(accountName,startingBalance) {
+//   var name = accountName;
+//   var balance = startingBalance;
+//   return {
+//     deposit: function(amount) {
+//       balance += amount;
+//     }
+//     getBalance: function() {
+//       return balance;
+//     }
+//     getName: function() {
+//       return name;
+//     }
+//   }
+// }
