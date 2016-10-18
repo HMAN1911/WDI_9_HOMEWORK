@@ -46,7 +46,7 @@ var makeHobbits = function () {
       // (which is the second article tag on the page)
    // give each hobbit a class of `hobbit`
    var $ul = $("<ul>"); //create and empty ul
-   var $theShire = $("article").eq(0);  // use EQ instead on [] notation
+   var $theShire = $("article").eq(0);  // location use EQ instead on [] notation
    for (var i=0; i<hobbits.length; i++) {
      var $li = $("<li>").text(hobbits[i]).addClass("hobbit");
      $ul.append($li);
