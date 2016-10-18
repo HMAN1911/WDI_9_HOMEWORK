@@ -51,7 +51,7 @@ var makeHobbits = function () {
    }
    $('article:contains("The Shire")').append($hobbitsUL);
 };
-// makeHobbits();
+makeHobbits();
 
 
 // Part 3
@@ -63,7 +63,7 @@ var keepItSecretKeepItSafe = function () {
    // add the ring as a child of `Frodo`
    $('li:contains("Frodo Baggins")').append(ring);
 };
-// keepItSecretKeepItSafe();
+keepItSecretKeepItSafe();
 
 
 // Part 4
@@ -80,7 +80,7 @@ var makeBuddies = function () {
    // insert your aside as a child element of `rivendell`
    $('article:contains("Rivendell")').append($aside);
 };
-// makeBuddies();
+makeBuddies();
 
 
 // Part 5
@@ -88,15 +88,15 @@ var beautifulStranger = function () {
    // change the `'Strider'` text to `'Aragorn'`
    $('li:contains("Strider")').text('Aragorn');
 };
-// beautifulStranger();
+beautifulStranger();
 
 
 // Part 6
 var leaveTheShire = function () {
    // assemble the `hobbits` and move them to `rivendell`
-   $('.hobbit').appendTo('article:contains("Rivendell") aside ul');
+   $('article:contains("Rivendell") aside ul').append($('.hobbit'));
 };
-// leaveTheShire();
+leaveTheShire();
 
 
 // Part 7
@@ -108,12 +108,12 @@ var forgeTheFellowShip = function () {
    $('li').each(function(index,element){
      $('#the-fellowship ul').append(element);
     //  console.log($(element).text());
-     alert($(element).text() + 'has joined your party');
+     alert($(element).text() + ' has joined your party');
    })
    // add each `hobbit` and `buddy` one at a time to `'the-fellowship'`
    // after each character is added make an alert that they // have joined your party
 };
-// forgeTheFellowShip();
+forgeTheFellowShip();
 
 // Part 8
 var theBalrog = function () {
@@ -123,7 +123,7 @@ var theBalrog = function () {
    $gandalfLI.css({'background':'white','border':'1px grey solid'})
    // apply the following style to the element, make the // background 'white', add a grey border
 };
-// theBalrog();
+theBalrog();
 
 // Part 9
 var hornOfGondor = function () {
@@ -134,7 +134,7 @@ var hornOfGondor = function () {
    // Remove `Boromir` from the Fellowship
    $('li:contains("Boromir")').remove();
 };
-// hornOfGondor();
+hornOfGondor();
 
 // Part 10
 var itsDangerousToGoAlone = function (){
@@ -142,10 +142,10 @@ var itsDangerousToGoAlone = function (){
    // add a div with an id of `'mount-doom'` to `Mordor`
    $('article:contains("Mordor")').append('<div id="mount-doom">')
    $('#mount-doom').append('<ul>');
-   $('li:contains("Frodo")').appendTo('#mount-doom ul');
-   $('li:contains("Sam")').appendTo('#mount-doom ul');
+   $('#mount-doom ul').append($('li:contains("Frodo")'));
+   $('#mount-doom ul').append($('li:contains("Sam")'))
 };
-// itsDangerousToGoAlone();
+itsDangerousToGoAlone();
 
 // Part 11
 var weWantsIt = function () {
@@ -154,10 +154,10 @@ var weWantsIt = function () {
   // Move Gollum into Mount Doom
   var $gollum = $('<div>').attr('id','gollum');
   $('article:contains("Mordor")').append($gollum);
-  $('#the-ring').appendTo($gollum);
+  $('#gollum').append($('#the-ring'));
   $('#mount-doom').append($gollum);
 };
-// weWantsIt();
+weWantsIt();
 
 // Part 12
 var thereAndBackAgain = function () {
