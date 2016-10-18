@@ -47,16 +47,16 @@ class Blender
   def blend(ingredients)
     if @power == 'on'
       blended = ingredients.keys.join.gsub(' ','').split("").shuffle.join
-    p "Here is your #{@name} smoothie"
-    p blended
+    return "Here is your #{@name} #{blended}"
+
     else
-      p "Power is off. Turn on power to blend"
+      return "Power is off. Turn on power to blend"
     end
   end
 
   def power(power)
     @power = power
-    return puts "Blender is #{@power}"
+    return  "Blender is #{@power}"
   end
 
 
