@@ -21,6 +21,7 @@ body {
   background-image:url(../images/middle-earth.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  min-width: 960px;
   font-family: BilboBold, Copperplate, "Copperplate Gothic Light", fantasy;
   text-transform: lowercase;
   color: white;
