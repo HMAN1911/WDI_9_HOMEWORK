@@ -1,3 +1,5 @@
+require('pry')
+
 # Every Morning I make a smoothie with the follow ingredients:
 smoothie_ingredients = {
   'flax seeds' => '1 tbsp',
@@ -54,17 +56,18 @@ class Blender
   end
 
   def blend(smoothie_ingredients)
-    if @switch_on do
+    if @switch_on
       ingredients = smoothie_ingredients.keys.join(" ")
       ingredients.delete!(" ")
       blended = ""
       for i in 0...ingredients.length
         blended.insert(rand(blended.length+1), ingredients[i])
       end
-      return blended
     else
-      "You forgot to turn the blender on."
+      blended =  "You forgot to turn the blender on."
     end
+
+    return blended
   end
 
   def turn_on
@@ -73,5 +76,12 @@ class Blender
 
   def turn_off
     @switch_on = false
+  end
+
+  def toggle
+    @switch_on=!@switch_on
+  end
 
 end
+
+binding.pry
