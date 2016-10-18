@@ -1,11 +1,19 @@
+.heading {
+  text-align: center;
+}
 
 img {
-  width: 250px;
-  text-align: center;
+  width: 25%;
+}
+
+h4 {
+  font-size: 2em;
+  font-family: 'Cinzel', serif;
 }
 
 input {
   display: block;
+  margin: 0 auto;
 }
 
 .subtitle {
@@ -16,17 +24,41 @@ input {
 #savings {
   display: inline-block;
   width: 40%;
-  float: left;
+  /*float: left;*/
+  border: 3px solid #00688f;
+  margin: 40px;
+  text-align: center;
+  padding-bottom: 50px;
 }
 
 #checking {
   display: inline-block;
   width: 40%;
-  float: left;
+  /*float: left;*/
+  border: 3px solid #00688f;
+  text-align: center;
+  padding-bottom: 50px;
+  margin: 40px;
 }
 
 #wrapper {
   display: block;
-  width: 960px;
+  width: 80%;
   margin: 0 auto;
+}
+
+@media (max-width: 70em) {
+
+  #savings {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
+  #checking {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+
 }
