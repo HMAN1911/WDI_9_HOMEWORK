@@ -63,6 +63,10 @@ class Blender
       @status = false
     end
   end
-
 end
+
+magicBullet = Blender.new()
+magicBullet.switch    #switch on
+magicBullet.blend_all(smoothie_ingredients) #makes the smoothie
+magicBullet.switch    #switch off
 binding.pry
