@@ -31,10 +31,14 @@ smoothie_ingredients = {
 # Be sure to remove the spaces, as we don't want any air bubbles in our smoothie!
 
 def blend(ingredients)
+#---------------Mine's-----------------------
   output = ''
   ingredients.each {|key,val| output.concat(key)}
   output = output.gsub(/\s+/, "").split("").shuffle.join
   return output
+
+#---------DT's------------
+  # ingredients.keys.join('').chars.shuffle.gsub('', '')
 end
 
 
@@ -50,19 +54,25 @@ class Blender
   end
 
   def blend_all(ingredients)
-    if @status == true
+    if switched_on?
       smoothie = blend(ingredients)
       return smoothie
     end
   end
 
-  def switch
-    if @status == false
-      @status = true
-    else
-      @status = false
-    end
+  def switched_on?  #Check if it's true or false ()
+    @status
   end
+
+  def switch      #change status
+    # if @status == false
+    #   @status = true
+    # else
+    #   @status = false
+    # end
+    @status = !@status
+  end
+
 end
 
 magicBullet = Blender.new()
