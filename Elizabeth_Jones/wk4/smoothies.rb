@@ -37,6 +37,10 @@ def blend(smoothie_ingredients)
   puts scrambled
 end
 
+
+
+
+
 blend(smoothie_ingredients)
 
 # Create a class called Blender
