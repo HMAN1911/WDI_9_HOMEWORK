@@ -26,6 +26,7 @@ def display_clients(shelter)
     puts "Name: #{client.get_name}"
     puts "Children: #{client.get_no_of_children}"
     puts "Age: #{client.get_age}"
+    # Display pets owned by client
     puts "Pets:"
     client.get_pets.each do |pet|
       puts "    * #{pet.get_name}"
@@ -38,6 +39,7 @@ end
 # Prompt user for animal details and
 # add new animal to shelter
 def add_animal(shelter)
+  # Get details for new animal
   print "Animal name: "
   name = gets.chomp
   print "Age: "
@@ -46,6 +48,8 @@ def add_animal(shelter)
   gender = gets.chomp
   print "Species: "
   species = gets.chomp
+
+  # Add animal to shelter
   animal = Animal.new(name, age, gender, species)
   shelter.add_animal(animal)
 
@@ -55,12 +59,15 @@ end
 # Prompt user for client details and
 # add new client to shelter
 def add_client(shelter)
+  # Get details for new client
   print "Client name: "
   name = gets.chomp
   print "No. of children: "
   children = gets.chomp.to_i
   print "Age: "
   age = gets.chomp.to_i
+
+  # Add client to shelter
   client = Client.new(name, children, age)
   shelter.add_client(client)
 
@@ -69,48 +76,62 @@ end
 
 # Assign selected pet to selected client
 def assign_client_pet(shelter)
+  # Get client details
   print "Client name: "
   client_name = gets.chomp
-  client = shelter.get_clients.select { |client|
-    client.get_name.downcase == client_name.downcase
-  }.first
+  client = shelter.find_client(client_name)
+  # Show error if client not found
   if client == nil
     puts "Client not found"
     return
   end
 
+  # Get animal details
   print "Animal name: "
   animal_name = gets.chomp
-  animal = shelter.get_animals.select { |animal|
-    animal.get_name.downcase == animal_name.downcase
-  }.first
+  animal = shelter.find_animal(animal_name)
+  # Show error if animal not found
   if animal == nil
     puts "Animal not found"
   else
-    client.adopt_pet(animal)
-    puts "#{client.get_name} has adopted #{animal.get_name}"
+    # Check if pet already adopted
+    # If adopted, show error
+    isAdopted = shelter.get_clients.select { |client|
+      client.get_pets.index(animal) != nil
+    }.length > 0
+    if isAdopted
+      puts "Pet has already been adopted"
+    # Else, assign pet to client
+    else
+      client.adopt_pet(animal)
+      puts "#{client.get_name} has adopted #{animal.get_name}"
+    end
   end
 end
 
 # Remove selected pet from client
 def remove_client_pet(shelter)
+  # Get client details
   print "Client name: "
   client_name = gets.chomp
-  client = shelter.get_clients.select { |client|
-    client.get_name.downcase == client_name.downcase
-  }.first
+  client = shelter.find_client(client_name)
+  # Show error if client not found
   if client == nil
     puts "Client not found"
     return
   end
 
+  # Get animal details
   print "Animal name: "
   animal_name = gets.chomp
-  animal = shelter.get_animals.select { |animal|
-    animal.get_name.downcase == animal_name.downcase
-  }.first
+  animal = shelter.find_animal(animal_name)
+  # Show error if animal not found
   if animal == nil
     puts "Animal not found"
+  # Show error if client does not own pet
+  elsif client.get_pets.index(animal) == nil
+    puts "#{client.get_name} does not own #{animal.get_name}"
+  # Else, remove pet from client's pets
   else
     client.remove_pet(animal)
     puts "#{client.get_name} has put #{animal.get_name} up for adoption"
@@ -135,6 +156,7 @@ loop do
   option = gets.chomp
   puts ""
 
+  # Perform selected option
   case option
     when "1"
       puts "Display all animals"
