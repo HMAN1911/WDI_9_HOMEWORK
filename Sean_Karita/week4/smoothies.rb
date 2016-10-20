@@ -34,6 +34,11 @@ def blend(smoothie_ingredients)
   return smoothie_ingredients.keys.join.split('').shuffle.join.gsub(/ /, '')
 end
 
+# Solution
+# def blend(ingredients)
+#   ingredients.keys.join('').chars.shuffle.gsub(' ', '')
+# end
+
 # create a class called Blender
 # It should have a method that takes an array of ingredients and returns a mixed string of characters.
 # Give the blender an on and off switch and only allow the blender to function when it's on.
@@ -61,5 +66,28 @@ end
 
 # b1 = Blender.new
 # b1.blend(smoothie_ingredients)
+
+# Solution
+class Blender
+
+  def initialize
+    @on = false
+  end
+
+  def switched_on?
+    @on
+  end
+
+  def toggle
+    @on = !@on
+  end
+
+  def blend(ingredients)
+    if switched_on?
+      ingredients.keys.join('').chars.shuffle.gsub(' ', '')
+    end
+  end
+
+end
 
 binding.pry
