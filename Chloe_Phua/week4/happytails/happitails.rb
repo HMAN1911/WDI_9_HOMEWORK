@@ -58,7 +58,6 @@ case user_ans
     if $clients.has_key?(ur_name)
       p "Who do u want to dump"
       ur_dump = gets.chomp
-      binding.pry
       if $clients[ur_name][:pets_data].include?(ur_dump)
         $clients[ur_name][:pets_data].delete(ur_dump)
         p "Please give us ur animals' details so that ur animal may be adopted"
