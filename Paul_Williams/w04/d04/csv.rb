@@ -3,7 +3,9 @@ require 'sinatra/reloader'
 require 'csv'
 require 'pry'
 
+
 get '/' do
+  leads = CSV.read('leads.csv')
   erb :index
 end
 
