@@ -3,18 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Leads</title>
+    <link rel="stylesheet" href="/css/master.css" media="screen" title="no title">
   </head>
   <body>
     <h1>Leads</h1>
     <table>
-      <% @leads.each do |lead|%>
-        <tr>
-          <td><%= lead[0]%></td>
-          <td><%= lead[1]%></td>
-          <td><%= lead[2]%></td>
-          <td><%= lead[3]%></td>
-        </tr>
-      <% end %>
+      <tbody>
+        <% @leads.each do |lead|%>
+          <tr>
+            <td><%= lead[0]%></td>
+            <td><%= lead[1]%></td>
+            <td><%= lead[2]%></td>
+            <td><%= lead[3]%></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </body>
 </html>
