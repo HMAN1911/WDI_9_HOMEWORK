@@ -5,8 +5,10 @@ require 'pry'
 
 get '/' do
 
+  data = IO.read("leads.csv").split "\n"
+  leads = []
+  data.each { |x| leads.push x.split "," }
   @content = ""
-  data = IO.read "leads.csv"
   binding.pry
 
 end
