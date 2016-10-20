@@ -8,19 +8,19 @@
 class Animal
 
   def initialize name, age, gender, species
-    @animal_name = name
-    @animal_age = age
+    @name = name
+    @age = age
     @gender = gender
     @species = species
     @toys = []
   end
 
-  def get_animal_for_adoption
-    "Name: #{@animal_name} is available for adoption"
+  def name
+    @name
   end
 
-  def get_animal_age
-    @get_animal_age
+  def age
+    @age
   end
 
   def add_toys new_toy
