@@ -40,7 +40,7 @@ class Animal
     puts "    Age: ... #{@age}"
     puts " Gender: ... #{@gender}"
     puts "Species: ... #{@species}"
-    puts "   Toys: ... #{@toys.to_s}"
+    puts "   Toys: ... #{@toys.join(', ')}"
     puts ''
   end
 
