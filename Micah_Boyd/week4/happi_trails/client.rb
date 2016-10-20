@@ -38,7 +38,7 @@ class Client
     puts "     Name: ... #{@name}"
     puts " Children: ... #{@children}"
     puts "      Age: ... #{@age}"
-    puts "     Pets: ... #{@pets}"
+    puts "     Pets: ... #{@pets.join(', ')}"
     puts ''
   end
 

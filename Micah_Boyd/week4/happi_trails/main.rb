@@ -28,10 +28,10 @@ loop do
 
   if menu_response == '1'
 
-    if $animals.count > 1
+    if $animals.count >= 1
 
       $animals.each do |animal|
-        puts animal.animal_overview
+        animal.animal_overview
       end
 
     end
@@ -44,7 +44,7 @@ loop do
 
   if menu_response == '2'
 
-    if $clients.count > 1
+    if $clients.count >= 1
 
       $clients.each do |client|
         puts client.client_overview
@@ -179,34 +179,27 @@ loop do
 
             puts 'Which client would like to adopt?'
             adopter = gets.chomp
+
             adopter_found = nil
             adopter_pet_list = nil
             adoptee_found = nil
             adoptee_removal = nil
 
-            i = 0
-            loop do
-              if $clients[i].client_name == adopter
-                adopter_found = $clients[i].client_name
-                adopter_pet_list = $clients[i].pets
-                break # <--- there is a poblem if I dont add break here
+            $clients.each do |client|
+              if client.client_name == adopter
+                adopter_found = client.client_name
+                adopter_pet_list = client.pets
               end
-              i = i + 1
-              break if i > $clients.count
             end
 
             puts "Which animal would #{adopter_found} like to adopt?"
             adoptee = gets.chomp
 
-            i = 0
-            loop do
-              if $animals[i].animal_name == adoptee
-                adoptee_found = $animals[i].animal_name
-                adoptee_removal = $animals[i]
-                break # <--- there is a poblem if I dont add break here
+            $animals.each do |animal|
+              if animal.animal_name == adoptee
+                adoptee_found = animal.animal_name
+                adoptee_removal = animal
               end
-              i = i + 1
-              break if i > $animals.count
             end
 
             puts "#{adopter_found} to adopt #{adoptee_found}? Confirm y/n"
@@ -242,7 +235,99 @@ loop do
   end
 
   if menu_response == '6'
-    puts 'under construction'
+
+    if $clients.count == 0
+      puts 'No clients listed. Please add clients to adopt animals'
+      break
+    end
+
+    loop do
+
+      puts 'Which client would like to put a pet up for adoption?'
+      client_adopter = gets.chomp
+
+      client_adopter_found = nil
+      client_pet_list = nil
+      client_adopter_found = nil
+      pet_remove = nil
+
+      $clients.each do |client|
+        if client.client_name == client_adopter
+          client_adopter_found = client.client_name
+          client_pet_list = client.pets
+        end
+      end
+
+      if client_pet_list.count == 0
+        puts "#{client_adopter_found} has no pets to adopt!"
+        break
+      end
+
+      if client_pet_list.count > 0
+        puts "Which animal would #{client_adopter_found} like to put up for adoption:"
+        puts "#{client_pet_list.join(', ')}?"
+        chosen_pet = gets.chomp
+
+        client_pet_list.each do |pet|
+          if chosen_pet == pet
+            pet_remove = pet
+          end
+
+          puts "Put #{pet_remove.to_s} up for adoption? y/n"
+          add_pet = gets.chomp
+
+          if add_pet == 'n'
+            puts '--- Adoption cancelled ---'
+            break
+          end
+
+          if add_pet == 'y'
+            animal_to_shelter = Animal.new(pet_remove)
+
+            puts "Provide some information about #{pet_remove}."
+
+            puts 'Age:'
+            age = gets.chomp
+            animal_to_shelter.animal_age(age)
+
+            puts 'Gender:'
+            gender = gets.chomp
+            animal_to_shelter.animal_gender(gender)
+
+            puts 'Species:'
+            species = gets.chomp
+            animal_to_shelter.animal_species(species)
+
+            puts 'Toys:'
+            toys = gets.chomp
+            animal_to_shelter.animal_toys(toys)
+
+            puts animal_to_shelter.animal_overview
+            puts 'Is this correct? y/n'
+            confimation = gets.chomp
+
+            if confimation == 'y'
+              $animals.push(animal_to_shelter)
+              client_pet_list.delete(pet_remove)
+              break
+
+            end
+
+          end
+
+        end
+
+      end
+
+      puts 'Add another animal? y/n'
+      another_animal = gets.chomp
+
+      if another_animal == 'n'
+        break
+      end
+
+    end
+
   end
 
   if menu_response == 'm'
@@ -257,4 +342,4 @@ loop do
 
 end
 
-binding.pry
+# binding.pry
