@@ -25,6 +25,8 @@ class Client
       return @pets
   end
 
-
+  def add_pets(pets)
+    @pets += pets
+  end
 
 end
