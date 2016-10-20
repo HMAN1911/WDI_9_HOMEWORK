@@ -5,6 +5,16 @@
     <title>Leads</title>
   </head>
   <body>
-    
+    <h1>Leads</h1>
+    <table>
+      <% @leads.each do |lead|%>
+        <tr>
+          <td><%= lead[0]%></td>
+          <td><%= lead[1]%></td>
+          <td><%= lead[2]%></td>
+          <td><%= lead[3]%></td>
+        </tr>
+      <% end %>
+    </table>
   </body>
 </html>
