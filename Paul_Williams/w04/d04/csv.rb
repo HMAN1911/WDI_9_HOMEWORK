@@ -1,6 +1,19 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'csv'
+require 'pry'
+
+get '/' do
+
+  @content = ""
+  data = IO.read "leads.csv"
+  binding.pry
+
+end
+
+=begin
+
+SOLUTION WITH CSV LIBRARY
 
 get '/' do
   @content = ""
@@ -9,6 +22,7 @@ get '/' do
   end
   erb :index
 end
+=end
 
 =begin
 # CSV App
