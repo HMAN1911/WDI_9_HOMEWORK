@@ -2,22 +2,11 @@ require 'pry'
 require_relative('animal')
 require_relative('client')
 
-# shelter = {
-#   "animals": [cat, dog, sheep]
-#   "clients": [bob, sue, billy]
-# }
-#
-# shelter = {}
-#
-# shelter["animals"] = []
-# shelter["animals"].push(animal)
 
-# Empty Object
-
-menu = ['1. display all animals', '2. display all clients', '3. create an animal', '4. create an client', '5. Adopt an animal', '6. Put an animal up for adoption']
+menu = ['1. Display all animals', '2. Display all clients', '3. Create an animal', '4. Create an client', '5. Adopt an animal', '6. Put an animal up for adoption']
 
 shelter = {
-  "animals": ['Max'],
+  "animals": [],
   "clients": []
 }
 
@@ -26,16 +15,23 @@ shelter = {
 
 loop do
 
+  puts " "
+  puts ' -- Menu -- '
+  puts " "
   puts menu
   puts ' '
   puts 'How can we help?'
   answer = gets.chomp
+  puts " "
 
   if answer == '1'
 
     puts 'Here are the current animals in the shelter'
     puts " "
-    puts shelter[:animals]
+    shelter[:animals].each_with_index do |animal, index|
+      puts animal.name + ' , ' +  animal.age + ' , ' + animal.species
+    end
+    puts " "
 
   end
 
@@ -43,7 +39,10 @@ loop do
 
     puts 'Here are the current clients in the shelter'
     puts " "
-    puts shelter[:clients]
+    shelter[:clients].each_with_index do |client, index|
+      puts client.name + ' , ' + client.age + ' , ' + client.pets.to_s
+    end
+    puts " "
 
   end
 
@@ -66,8 +65,6 @@ loop do
       puts "Does #{name} have a toy? (y/n)"
       toy = gets.chomp.downcase
 
-  binding.pry
-
       if toy == 'y'
         loop do
           puts 'What is it?'
@@ -86,8 +83,6 @@ loop do
     end
   end
 
-binding.pry
-
   if answer == '4'
 
     loop do
@@ -103,8 +98,6 @@ binding.pry
       shelter[:clients].push(new_client)
       puts "Does #{client_name} have a pet? (y/n)"
       pet = gets.chomp.downcase
-
-      binding.pry
 
       if pet == 'y'
         loop do
@@ -127,61 +120,83 @@ binding.pry
 
   if answer == '5'
 
-    puts 'Which animal would you like to adopt?'
+    loop do
 
-    puts shelter[:animals]
+        puts 'Which client would like to adopt'
+        client = gets.chomp
+        find_client = shelter[:clients].find {|client| client }
+        puts " "
 
-    adopt_animal = gets.chomp
-    if shelter[:animals].include? adopt_animal
-      shelter[:animals].delete(adopt_animal)
-      puts "Thank you for adopting #{adopt_animal}"
+        puts 'Which animal would you like to adopt?'
+        shelter[:animals].each_with_index do |animal, index|
+          puts animal.name + animal.age + animal.species
+        end
+
+        puts " "
+        adopt_animal = gets.chomp
+        find_animal = shelter[:animals].find {adopt_animal}
+
+        binding.pry
+
+        if adopt_animal == find_animal.name && client == find_client.name
+          shelter[:animals].delete find_animal
+          find_client.add_pets adopt_animal
+          puts "Thank you for adopting #{adopt_animal}"
+        end
+
+        if adopt_animal == nil
+          puts 'That animal does not exist'
+        end
+
+        puts 'Would you like to adopt another animal? (y/n)'
+        another = gets.chomp.downcase
+        break if ['n'].include? another
+
     end
+
+  end
 
   if answer == '6'
 
-    puts 'Which pet would you like to put up for adoption?'
-    animal_for_adoption = gets.chomp
-    shelter[:animals].push animal_for_adoption
+    loop do
+
+        puts 'Which client would like to put a pet up for adoption?'
+        client = gets.chomp
+
+        puts " "
+        find_client = shelter[:clients].find {|client| client.name }
+
+        puts 'Which pet would you like to put up for adoption?'
+        puts find_client.pets
+
+        name = gets.chomp
+        puts "What is #{name}'s age?"
+        age = gets.chomp
+        puts "What is #{name}'s gender?"
+        gender = gets.chomp
+        puts "What is #{name}'s species?"
+        species = gets.chomp
+        new_animal = Animal.new name, age, gender, species
+        shelter[:animals].push new_animal
+        find_client.remove_pet name
+
+        binding.pry
+
+        puts " "
+        puts "#{name} is now up for adoption"
+        puts " "
+        puts 'Do you need to place another pet up for adoption? (y/n)'
+        another = gets.chomp.downcase
+        break if ['n'].include? another
+
+    end
+
+    binding.pry
 
   end
-
-  end
-
-binding.pry
 
   puts 'Do you need help with anything else? (y/n)'
   another = gets.chomp.downcase
   break if ['n'].include? another
 
 end
-
-# puts 'What is your name?'
-# name = gets.chomp
-# if shelter[:clients].include? name
-# puts 'Are you already a client? Enter your name below'
-# client_name = gets.chomp
-# shelter[:clients].each { |name| puts shelter[:clients].to_s.split('')}
-# if client_name == @client_name
-#   puts 'Which animal would you like to adopt?'
-#   puts shelter[:animals]
-#   adopt_pet = gets.chomp
-#   if adopt_pet == new_animal.get_animal_name
-#     shelter[:animals].delete(adopt_pet)
-#   end
-#
-# else
-#   puts 'Your not a client yet'
-#
-# end
-#
-
-# Phase 4
-#
-# At start, the user is prompted with a menu of options:
-# display all animals
-# display all clients
-# create an animal
-# create an client
-# facilitate client adopts an animal
-# facilitate client puts an animal up for adoption
-# After selecting from the menu the task the user is prompted through the entire process

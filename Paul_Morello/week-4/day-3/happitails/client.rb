@@ -8,22 +8,22 @@
 class Client
 
   def initialize name, children, age
-    @client_name = name
+    @name = name
     @children = children
-    @client_age = age
+    @age = age
     @pets = []
   end
 
-  def number_of_children
+  def children
     @children
   end
 
-  def get_client_name
-    @client_name
+  def name
+    @name
   end
 
-  def get_age
-    @client_age
+  def age
+    @age
   end
 
   def add_pets add_pet
@@ -34,5 +34,9 @@ class Client
     if @pets.include? remove_pet
       @pets.delete(remove_pet)
     end
+  end
+
+  def pets
+    @pets
   end
 end
