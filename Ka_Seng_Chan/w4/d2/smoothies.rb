@@ -33,10 +33,11 @@ smoothie_ingredients = {
 
 def blend(smoothie_ingredients)
   smoothie = ''
-  smoothie_ingredients.each do |ingredient, ammount|
+  smoothie_ingredients.each do |ingredient, ammount| # or use smoothie_ingredients.keys
     smoothie.concat(ingredient.gsub(' ',''))
   end
   return smoothie.split('').shuffle.join
+  # ingredients.keys.join('').chars.shuffle.gsub(' ','')
 end
 
 # create a class called Blender
