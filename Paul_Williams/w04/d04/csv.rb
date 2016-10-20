@@ -3,9 +3,9 @@ require 'sinatra/reloader'
 require 'csv'
 
 get '/' do
-  data = IO.read("leads.csv").split "\n"
+  data = IO.read("leads.csv").gsub("\"", "").split("\n")
   leads = []
-  data.each { |x| leads.push x.split "," }
+  data.each { |x| leads.push(x.split(/,(?!\s)/)) }
   @content = ""
   leads.each { |x| @content += "<tr><td>#{x[0]}</td><td>#{x[2]}</td></tr>" }
   erb :index
