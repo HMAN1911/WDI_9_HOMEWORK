@@ -1,16 +1,14 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'csv'
-require 'pry'
 
 get '/' do
-
   data = IO.read("leads.csv").split "\n"
   leads = []
   data.each { |x| leads.push x.split "," }
   @content = ""
-  binding.pry
-
+  leads.each { |x| @content += "<tr><td>#{x[0]}</td><td>#{x[2]}</td></tr>" }
+  erb :index
 end
 
 =begin
