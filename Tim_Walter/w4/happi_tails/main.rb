@@ -23,10 +23,7 @@ require_relative 'shelter'
 
 
 # On start
-
 def on_start
-
-
   loop do
     p 'WELCOME TO THE ANIMAL SHELTER'
     p '============================='
@@ -67,14 +64,12 @@ def on_start
     else
       p 'Not a valid option, choose again'
     end
-
+    p 'ENTER to return to menu'
+    continue = gets
   end
 
 
 end
-
-
-
 
 # create animal. Add to shelter
 def add_animal
@@ -90,8 +85,6 @@ def add_animal
   return "Animal called #{animal_name} added."
 end
 
-
-
 # create client. Add to shelter
 def add_client
   p 'Enter client name:'
@@ -104,42 +97,41 @@ def add_client
   return "Client #{client_name} added."
 end
 
-
-
 # list all clients
 def client_list
-  all_clients = []
-  @shelter[:clients].each do |client|
-    all_clients.push(client.get_name)
+  @shelter[:clients].each_with_index do |client, index|
+    p "[#{index + 1}] #{client.get_name}"
   end
-  p all_clients
 end
-
 
 # list all animals
 def animal_list
-  all_animals = []
-  @shelter[:animals].each do |animal|
-    all_animals.push(animal.get_name)
+  @shelter[:animals].each_with_index do |animal, index|
+    p "[#{index + 1}] #{animal.get_name}"
   end
-  p all_animals
 end
 
 def adopt_animal
   p 'Which client will be adpoting an animal'
   client_list
-  client = gets.chomp
+  client = gets.chomp.to_i
+
+  if animal_list.length == 0
+    p "No animals left in the shelter"
+    return
+  end
   p 'Which animal would you like to adopt'
   animal_list
-  animal = gets.chomp
-  # find index of animal & client in lists
-  client =  client_list.index(client)
-  animal =  animal_list.index(animal)
+  animal = gets.chomp.to_i
+  # adjust input to array index
+  client -= 1
+  animal -= 1
 
   # add pet to client
   @shelter[:clients][client].add_pet(@shelter[:animals][animal])
 
-  p "#{client_list[client]} has adopted #{animal_list[animal]}"
+  # # display result
+  puts "#{@shelter[:clients][client].get_name} has adopted  #{@shelter[:animals][animal].get_name}"
 
   # remove animal from shelter
   @shelter[:animals].delete_at(animal)
@@ -150,22 +142,29 @@ end
 def return_animal
     p 'Which client will be returning an animal?'
     client_list
-    client = gets.chomp
+    client = gets.chomp.to_i
+    client -= 1
+
+    if @shelter[:clients][client].list_pets.length == 0
+      p "No pets to return"
+      return
+    end
 
     p 'Which pet will you be returning?'
-    # index of client
-    pet_list = @shelter[:clients][client_list.index(client)].list_pets
-    p pet_list
-    pet = gets.chomp
+    @shelter[:clients][client].list_pets.each_with_index do |animal, index|
+      p "[#{index+1}] #{animal.get_name}"
+    end
 
-    # find index of client pet
-    pet_to_return = pet_list.index(pet)
+    pet = gets.chomp.to_i
+    pet -= 1
 
     # remove pet from client. sends index of pet to return
-    @shelter[:clients][client].remove_pet(pet_to_return)
+    pet_returned = @shelter[:clients][client].return_pet(pet)
 
     # Add pet to shelter
-    @shelter[:animals].push.(pet_list[pet_to_return])
+    @shelter[:animals].push(pet_returned)
+
+    p "#{@shelter[:clients][client].get_name} returned #{@shelter[:animals][pet-1].get_name}."
 end
 
 on_start
