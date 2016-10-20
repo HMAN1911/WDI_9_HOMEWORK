@@ -23,6 +23,10 @@ class Animal
     @age
   end
 
+  def species
+    @species
+  end
+
   def add_toys new_toy
     @toys.push new_toy
   end
