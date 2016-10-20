@@ -29,6 +29,9 @@ class Client
 
   def list_pets
     @pets
+    # @pets.each_with_index do |pet, index|
+    #   p "[#{index + 1}] #{pet}"
+    # end
   end
 
 
