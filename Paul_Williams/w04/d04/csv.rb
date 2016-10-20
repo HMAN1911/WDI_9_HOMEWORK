@@ -1,15 +1,15 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'csv'
-require 'pry'
-
 
 get '/' do
   leads = CSV.read('leads.csv')
+  @content = ""
+  leads.each do |x|
+    @content += "<tr><td>#{x[0]}</td><td>#{x[2]}</td></tr>"
+  end
   erb :index
 end
-
-binding.pry
 
 =begin
 # CSV App
