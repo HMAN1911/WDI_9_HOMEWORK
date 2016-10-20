@@ -1,0 +1,22 @@
+body {
+    background-color: #eee;
+}
+
+h1 {
+    text-align: center;
+}
+
+tbody tr:first-child {
+    font-weight: bold;
+}
+
+table {
+     border-collapse: collapse;
+     margin: 0 auto;
+     background-color: white;
+ }
+
+td {
+     border: 1px solid black;
+     padding: .5em;
+}
