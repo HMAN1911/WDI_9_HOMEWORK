@@ -10,8 +10,12 @@
 
 require 'sinatra'
 require 'sinatra/reloader'
+require 'csv'
 require 'pry'
 
+binding.pry
+
 get '/' do
+  @leads = CSV.read("leads.csv")
   erb :leads
 end
