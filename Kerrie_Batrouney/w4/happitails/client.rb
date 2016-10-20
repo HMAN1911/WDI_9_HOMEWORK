@@ -29,4 +29,6 @@ class Client
     @pets += pets
   end
 
-end
+  def remove_pets(pets)
+    @pets -= pets
+  end

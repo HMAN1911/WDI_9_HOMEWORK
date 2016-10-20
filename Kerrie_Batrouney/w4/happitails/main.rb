@@ -138,20 +138,25 @@ option = gets.chomp.to_i
       adopter = gets.chomp
       for i in 0..shelter[:clients].length-1
         if  shelter[:clients][i].get_client_name == adopter
-          binding.pry
           shelter[:clients][i].add_pets(1)
+          puts "#{shelter[:clients][i].get_client_name} now has #{shelter[:clients][i].get_client_pets.to_s} pets!"
           break
         end
       end
 
 
-        # cid = shelter[:clients].index(adopter)
-        # shelter[:clients][cid].get_client_pets +=1
-        # binding.pry
-
-
   elsif option == 6
     #6 for surrender, remove animal from client, add it to shelter
+    puts "Name of client surrendering animal?"
+    dumper = gets.chomp
+    for i in 0..shelter[:clients].length-1
+      if  shelter[:clients][i].get_client_name == dumper
+        shelter[:clients][i].remove_pets(1)
+        puts "#{shelter[:clients][i].get_client_name} now has #{shelter[:clients][i].get_client_pets.to_s} pets!"
+        break
+      end
+    end
+
 
   elsif option ==7
     break
