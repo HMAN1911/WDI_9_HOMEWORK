@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+  width: 400px;
+  table-layout: fixed;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+tr:first-child {
+  font-weight: bold;
+}
+
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 3px;
+}
