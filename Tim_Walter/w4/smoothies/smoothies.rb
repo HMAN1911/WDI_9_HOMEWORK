@@ -35,7 +35,7 @@ end
 #  A class is a way to take a grouping of functions and data and place them inside a container so you can access them with the . (dot) operator.
 class Blender
   def initialize (name, power = "off")
-    @power = power
+    @power = power #could use true/false here only 2 states
     @name = name
   end
 
