@@ -3,9 +3,8 @@ require 'sinatra/reloader'
 require 'csv'
 
 get '/' do
-  leads = CSV.read('leads.csv')
   @content = ""
-  leads.each do |x|
+  CSV.foreach 'leads.csv' do |x|
     @content += "<tr><td>#{x[0]}</td><td>#{x[2]}</td></tr>"
   end
   erb :index
