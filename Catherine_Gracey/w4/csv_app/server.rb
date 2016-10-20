@@ -13,7 +13,7 @@ require 'sinatra/reloader'
 require 'csv'
 require 'pry'
 
-binding.pry
+# binding.pry
 
 get '/' do
   @leads = CSV.read("leads.csv")
