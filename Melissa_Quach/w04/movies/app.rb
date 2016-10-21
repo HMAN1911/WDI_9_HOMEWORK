@@ -12,10 +12,15 @@ get '/' do
 
   if @title != nil
     @movie = get_movie_data(@title)
-    erb :about
+    if (@movie["Response"] == "True")
+      erb :about
+    else
+      @error = @movie["Error"]
+      erb :error
+    end
   else
     erb :index
   end
 end
 
-binding.pry
+# binding.pry
