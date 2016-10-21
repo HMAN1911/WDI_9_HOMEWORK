@@ -1,0 +1,47 @@
+body {
+    border-width: 5em 1em;
+    border-color: black;
+    border-style: dotted solid;
+}
+
+nav {
+    padding-top: 2rem;
+    text-align: center;
+}
+
+a {
+    padding: 5px 25px;
+    color: red;
+}
+
+input, button {
+    margin: 5px auto;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+input {
+    background-color: #ffe;
+    border-width: 1em .2em;
+    border-color: black;
+    border-style: dotted solid;
+    padding: .5em;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.movie {
+    margin: 5%;
+    overflow: auto;
+}
+
+form {
+    text-align: center;
+}
+
+img {
+    float: left;
+    margin: 0em 2em 2em 0em;
+}
