@@ -56,6 +56,8 @@ new_client = Client.new('Emily', 5, 33, 3)
 shelter[:clients].push(new_client)
 
 loop do
+  puts
+  puts
   puts 'Welcome to HappiTails animal shelter, how can we help you today?'
   puts 'select'
   puts '1. See all animals available for adoption'
@@ -65,6 +67,7 @@ loop do
   puts '5. Adopt an animal'
   puts '6. Surrender an animal to the shelter'
   puts '7. Exit'
+  puts
 
 #loop to wait for next choice not working
 # do while option != 7
@@ -84,6 +87,7 @@ option = gets.chomp.to_i
   #2 print out clients
   for i in 0..shelter[:clients].length-1
     puts "#{shelter[:clients][i].get_client_name}, #{shelter[:clients][i].get_client_age.to_s}, has #{shelter[:clients][i].get_client_kids.to_s} kids and #{shelter[:clients][i].get_client_pets.to_s} pets"
+    puts
   end
 
   elsif option == 3
@@ -105,6 +109,7 @@ option = gets.chomp.to_i
     new_animal = Animal.new(name, age, gender, species, toys)
     shelter[:animals].push(new_animal)
 
+    puts "#{name}(#{gender}), age #{age} a #{species}, with #{toys}"
 
   elsif option == 4
   #4 add client to shelter
@@ -122,8 +127,6 @@ option = gets.chomp.to_i
     new_client = Client.new(client, kids, c_age, pets)
     shelter[:clients].push(new_client)
 
-
-# not working yet
   elsif option == 5
   #5 for adoption, remove animal from shelter and add it to client
     puts "Name of animal you wish to adopt?"
@@ -140,7 +143,7 @@ option = gets.chomp.to_i
         if  shelter[:clients][i].get_client_name == adopter
           shelter[:clients][i].add_pets(1)
           puts "#{shelter[:clients][i].get_client_name} now has #{shelter[:clients][i].get_client_pets.to_s} pets!"
-          break
+           break
         end
       end
 
@@ -152,11 +155,26 @@ option = gets.chomp.to_i
     for i in 0..shelter[:clients].length-1
       if  shelter[:clients][i].get_client_name == dumper
         shelter[:clients][i].remove_pets(1)
-        puts "#{shelter[:clients][i].get_client_name} now has #{shelter[:clients][i].get_client_pets.to_s} pets!"
-        break
+        puts "pet removed"
       end
     end
+    puts "Animal's name?"
+      name = gets.chomp.downcase
+    puts "#{name}'s age?"
+      age = gets.chomp
+    puts "#{name}'s gender m or f?"
+      gender = gets.chomp.downcase
+    puts "We only accept dogs, cats or reptiles, what species is #{name}?"
+      species = gets.chomp.downcase
 
+    puts "Did #{name} bring any toys? Type list of toys eg 'bone, teddy, ball'  or enter"
+      toys = gets.chomp.downcase
+      toys = toys.split(",")
+
+    new_animal = Animal.new(name, age, gender, species, toys)
+    shelter[:animals].push(new_animal)
+
+    puts "#{name}(#{gender}), age #{age} a #{species}, with #{toys}"
 
   elsif option ==7
     break
@@ -166,20 +184,4 @@ option = gets.chomp.to_i
 end
 
 
-
-#
-#
-#
-
-binding.pry
-
-
-
-#
-# puts "Hello, do you want to adapt or surrender d/s?"
-#
-# if gets.chomp.downcase == 'd'
-#
-#
-#
-# elsif gets.chomp.downcase == 's'
+# binding.pry

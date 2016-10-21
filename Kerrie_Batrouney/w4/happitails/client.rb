@@ -32,3 +32,4 @@ class Client
   def remove_pets(pets)
     @pets -= pets
   end
+end
