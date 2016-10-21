@@ -18,3 +18,17 @@
   <p>IMDb Rating: <%= @info["imdbRating"] %></p>
 
 </section>
+
+<script>
+
+  section = document.getElementsByTagName('section')[0];
+  params = "<%= @params[:title] %>";
+  info = "<%= @info["Response"] %>";
+
+  if (params.length === 0) {
+    section.innerHTML = "";
+  } else if (info === "False") {
+    section.innerHTML = "<p>Movie not found</p>";
+  }
+
+</script>
