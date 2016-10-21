@@ -4,8 +4,8 @@ require 'httparty'
 require 'pry'
 
 get '/' do
-  info = HTTParty.get "http://omdbapi.com/?t=#{params[:title]}"
-  binding.pry
+  @info = HTTParty.get "http://omdbapi.com/?t=#{params[:title]}"
+  # binding.pry
   erb :index
 end
 
