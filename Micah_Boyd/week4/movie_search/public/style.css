@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: grey;
+}
+
+p {
+  color: black;
+}
+
+.movie-box {
+  display: float-left
+  float: left;
+  width: 15em;
+  height: 15em;
+  text-align: center;
+  margin-top: 2em;
+  margin: 0 auto;
+  border: .3em solid black;
+  padding: 1em;
+  background-color: snow;
+
+}
+
+.movie-box2 {
+  margin: 2em;
+  margin: 0 auto;
+  border: .3em solid black;
+  padding: 1em;
+  background-color: snow;
+
+}
+
+.movie-description {
+  float: left;
+  display: block;
+  /*margin: 0 auto;*/
+  border: .1em solid black;
+  padding: 1em;
+}
+
+img {
+  float: left;
+  display: block;
+  padding-right: 2em;
+  padding-bottom: 2em;
+}

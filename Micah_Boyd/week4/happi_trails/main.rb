@@ -13,7 +13,10 @@ require_relative 'client.rb'
 #     - facilitate client puts an animal up for adoption
 # - After selecting from the menu the task the user is prompted through the entire process
 
+system "clear"
+
 loop do
+  puts ''
   puts 'Menu Options:'
   puts '1 --- Display all animals'
   puts '2 --- Display all clients'
@@ -64,6 +67,7 @@ loop do
 
       loop do
 
+        system "clear"
         puts 'Animal info:'
 
         puts 'Name'
@@ -86,6 +90,8 @@ loop do
         toys = gets.chomp
         new_animal.animal_toys(toys)
 
+        system "clear"
+
         puts new_animal.animal_overview
         puts 'Is this correct? y/n'
         confimation = gets.chomp
@@ -101,6 +107,7 @@ loop do
       another_animal = gets.chomp
 
       if another_animal == 'n'
+        system "clear"
         break
       end
 
@@ -114,6 +121,7 @@ loop do
 
       loop do
 
+        system "clear"
         puts 'Client info:'
 
         puts 'Name'
@@ -132,6 +140,8 @@ loop do
         pets = gets.chomp
         new_client.client_pets(pets)
 
+        system "clear"
+
         puts new_client.client_overview
         puts 'Is this correct? y/n'
         confimation = gets.chomp
@@ -148,6 +158,7 @@ loop do
 
       if another_client == 'n'
         break
+        system "clear"
       end
 
     end
@@ -176,6 +187,8 @@ loop do
         if $clients.count > 0 && $animals.count > 0
 
           loop do # Make adoption loop
+
+            system "clear"
 
             puts 'Which client would like to adopt?'
             adopter = gets.chomp
@@ -226,6 +239,7 @@ loop do
         another_adoption = gets.chomp
 
         if another_adoption == 'n'
+          system "clear"
           break
         end
 
@@ -310,7 +324,6 @@ loop do
               $animals.push(animal_to_shelter)
               client_pet_list.delete(pet_remove)
               break
-
             end
 
           end
@@ -338,7 +351,6 @@ loop do
     puts 'Goodbye'
     break
   end
-
 
 end
 
