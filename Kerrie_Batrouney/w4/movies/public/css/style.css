@@ -1,0 +1,16 @@
+section {
+  height 600px;
+  border: 2px solid black;
+
+}
+body {
+  width: 80%;
+}
+h2 {
+  color: pink;
+}
+img{
+  max-width: 20%;
+  max-height: 20%;
+
+}
