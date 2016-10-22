@@ -1,98 +1,32 @@
 
-<div class="movie-box2">
+<div class="result-box" class="clearfix">
 
   <div class="poster">
-    <!-- <img src="<%= @result['Poster'] %>"/> -->
-    <img src="/Users/micahboyd/wdi/homework/poster.jpg"/>
 
+    <h2><%= @result['Title'] %></h2>
+    <img src="<%= @result['Poster'] %>"/>
+    <h3><%="Metascore: #{@result['Metascore']}"%></h3>
+    <h3><%="IMDB Rating: #{@result['imdbRating']}"%></h3>
   </div>
-
 
   <div class="movie-description">
 
-    <!-- <% @result.each do |key, value| %>
+    <% @result.each do |key, value| %>
 
       <% if key.downcase == 'title'%>
-        <h2><%= value %></h2>
       <% elsif key.downcase == 'poster'%>
+      <% elsif key.downcase == 'imdbid'%>
+      <% elsif key.downcase == 'type'%>
+      <% elsif key.downcase == 'response'%>
+      <% elsif key.downcase == 'imdbvotes'%>
+      <% elsif key.downcase == 'metascore'%>
+      <% elsif key.downcase == 'imdbrating'%>
+
       <% else %>
         <p><b><%= key.to_s%></b>: <%= value%></p>
       <% end %>
 
-    <% end %> -->
-    <h1>The Dark Knight</h1>
-
-    <p>
-      Year: 2008
-    </p>
-
-    <p>
-      Rated: PG-13
-    </p>
-
-    <p>
-      Released: 18 Jul 2008
-    </p>
-
-    <p>
-      Runtime: 152 min
-    </p>
-
-    <p>
-      Genre: Action, Crime, Drama
-    </p>
-
-    <p>
-      Director: Christopher Nolan
-    </p>
-
-    <p>
-      Writer: Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)
-    </p>
-
-    <p>
-      Actors: Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine
-    </p>
-
-    <p>
-      Plot: When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.
-    </p>
-
-    <p>
-      Language: English, Mandarin
-    </p>
-
-    <p>
-      Country: USA, UK
-    </p>
-
-    <p>
-      Awards: Won 2 Oscars. Another 146 wins & 142 nominations.
-    </p>
-
-    <p>
-      Metascore: 82
-    </p>
-
-    <p>
-      imdbRating: 9.0
-    </p>
-
-    <p>
-      imdbVotes: 1,699,835
-    </p>
-
-    <p>
-      imdbID: tt0468569
-    </p>
-
-    <p>
-      Type: movie
-    </p>
-
-    <p>
-      Response: True
-    </p>
+    <% end %>
 
   </div>
 
