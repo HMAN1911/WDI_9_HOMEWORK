@@ -7,7 +7,7 @@
     <img src="<%= @result['Poster'] %>"/>
     <h3><%="Metascore: #{@result['Metascore']}"%></h3>
 
-    <% if @meta_score != nil %>
+    <% if @meta_score != nil && @meta_score.to_s != 'N/A'%>
 
       <% if @meta_score >= 70 %>
         <img class='thumb' src="<%= @meta_thumb%>"/>
@@ -27,7 +27,7 @@
         <% end %>
       <% end %>
 
-      <!-- <% if @meta_score <= 60 %>
+      <% if @meta_score <= 60 %>
         <img class='thumb' src="<%= @meta_thumb%>"/>
       <% end %>
 
@@ -41,14 +41,14 @@
 
       <% if @meta_score <= 20 %>
           <img class='thumb' src="<%= @meta_thumb%>"/>
-      <% end %> -->
+      <% end %>
 
 
     <% end %>
 
     <h3><%="IMDB Rating: #{@result['imdbRating']}"%></h3>
 
-    <% if @imdb_score != nil %>
+    <% if @imdb_score != nil && @meta_score.to_s != 'N/A'%>
 
       <% if @imdb_score >= 7 %>
         <img class='thumb' src="<%= @imdb_thumb%>"/>
@@ -68,7 +68,7 @@
         <% end %>
       <% end %>
 
-      <!-- <% if @meta_score <= 60 %>
+      <% if @meta_score <= 60 %>
         <img class='thumb' src="<%= @imdb_thumb%>"/>
       <% end %>
 
@@ -82,7 +82,7 @@
 
       <% if @meta_score <= 20 %>
           <img class='thumb' src="<%= @imdb_thumb%>"/>
-      <% end %> -->
+      <% end %>
 
 
     <% end %>

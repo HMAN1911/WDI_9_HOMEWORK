@@ -16,7 +16,7 @@ get '/result' do
 @meta_score = @result['Metascore'].to_i
 @imdb_score = @result['imdbRating'].to_f
 @thumb_up = 'Hands-Thumb-Up-icon.png'
-@thumb_down = 'Hands-Thumb-Up-icon.png'
+@thumb_down = 'Hands-Thumb-Down-icon.png'
 
 if @meta_score >= 70
   @meta_thumb = @thumb_up.to_s
