@@ -1,12 +1,93 @@
 
-<div class="result-box" class="clearfix">
+<div class="result-box" class="clearfix" id="shadow">
 
   <div class="poster">
 
     <h2><%= @result['Title'] %></h2>
     <img src="<%= @result['Poster'] %>"/>
     <h3><%="Metascore: #{@result['Metascore']}"%></h3>
+
+    <% if @meta_score != nil %>
+
+      <% if @meta_score >= 70 %>
+        <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score >= 80%>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score >= 90 %>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score == 100 %>
+        <% 4.times do%>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+        <% end %>
+      <% end %>
+
+      <!-- <% if @meta_score <= 60 %>
+        <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score <= 50%>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score <= 40 %>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score <= 20 %>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %> -->
+
+
+    <% end %>
+
     <h3><%="IMDB Rating: #{@result['imdbRating']}"%></h3>
+
+    <% if @imdb_score != nil %>
+
+      <% if @imdb_score >= 7 %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @imdb_score >= 8 %>
+          <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @imdb_score >= 9 %>
+          <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @imdb_score == 10 %>
+        <% 4.times do%>
+          <img class='thumb' src="<%= @imdb_thumb%>"/>
+        <% end %>
+      <% end %>
+
+      <!-- <% if @meta_score <= 60 %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score <= 50%>
+          <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score <= 40 %>
+          <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score <= 20 %>
+          <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %> -->
+
+
+    <% end %>
+
+
   </div>
 
   <div class="movie-description">
