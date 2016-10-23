@@ -25,8 +25,8 @@ class Animal
     @species = species
   end
 
-  def toys(toys)
-    @toys = toys
+  def add_toy(toy)
+    @toys.push(toy)
   end
 
 end

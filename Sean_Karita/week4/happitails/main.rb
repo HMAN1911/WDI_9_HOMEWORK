@@ -62,13 +62,12 @@ animal_species = gets.chomp
 animal1 = Animal.new(animal_name, animal_age, animal_gender, animal_species)
 p animal1
 
-# toy_name = ['ball', 'stick']
-# loop do
-#   puts 'Enter toy name, or "n" if there are no more toys to enter'
-#   toy_name = gets.chomp
-#   break if name == 'n'
-#   toys[toy_name] = [toys]
-# end
+loop do
+  puts 'Enter toy name, or "n" if there are no more toys to enter'
+  toy_name = gets.chomp
+  break if toy_name == 'n'
+  toys[toy_name] = [toys]
+end
 
 puts 'Enter your name'
 client_name = gets.chomp
@@ -84,5 +83,16 @@ client_age = gets.chomp
 
 client1 = Client.new(client_name, children_number, client_age)
 p client1
+
+# Phase 4
+def all_animals(shelter)
+  animals = shelter.animals
+  animals.each do |animal|
+    puts "Animal name: #{animal.name}"
+    puts "Animal Age: #{animal.age}"
+    puts "Animal Gender: #{animal.gender}"
+    puts "Species: #{animal.species}"
+
+
 
 binding.pry
