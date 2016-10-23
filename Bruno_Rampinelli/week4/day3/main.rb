@@ -58,26 +58,56 @@ require_relative 'clients'
 
 # list of Animals
 
-a1 = Animal.new('Andy',10,'male','dog','ball')
-a2 = Animal.new('Byron',1,'female','cat','tennis_ball')
+a1 = Animal.new('Andy',10,'male','dog',['ball', 'bone'])
+a2 = Animal.new('Byron',1,'female','cat',['tennis_ball'])
 a3 = Animal.new('Caty',14,'female','cat','cat_house')
-a4 = Animal.new('Doggy',7,'male','dog','dog_house')
-a5 = Animal.new('Elphy',25,'male','mouse','cheese')
-a6 = Animal.new('Funny',12,'female','horse','saddle')
+a4 = Animal.new('Doggy',7,'male','dog',['dog_house'])
+a5 = Animal.new('Elphy',25,'male','mouse',['cheese'])
+a6 = Animal.new('Funny',12,'female','horse',['saddle'])
 
 all_animals = [a1,a2,a3,a4,a5,a6]
 
 #List of clients
 
-c1 = Client.new('Adam',35,2,'cat')
-c2 = Client.new('Bruno',27,0,'dog')
-c3 = Client.new('Charlotte',80,4,'')
+c1 = Client.new('Adam',35,2)
+c2 = Client.new('Bruno',27,0)
+c3 = Client.new('Charlotte',80,4)
 # c4 = Client.new ('Danny',51,1,'cat')
 
 all_clients =[c1,c2,c3]
 
-shelter = {}
-shelter = [all_animals, all_clients]
+shelter = {
+  caty: a3,
+  andy: a1
+}
+
+# hash method
+
+shelter = {
+  clients: {
+
+  },
+  animals: {
+
+  }
+}
+
+# ARRAY METHOD
+# shelter = {
+#   clients: [],
+#   animals: []
+# }
+
+shelter[:andy]
+
+new_animal = Animal.new('harry', 1, 'male', 'giraffe', [])
+
+shelter[:animals][new_animal.get_name] = new_animal
+
+# ARRAY METHOD
+# shelter[:animals] << new_animal
+
+# shelter = [all_animals, all_clients]
 
 
 # OPERATION TO BE DONE
@@ -122,9 +152,15 @@ loop do
       species = gets.chomp
       puts "toy:"
 
+      # just a string
       toys = gets.chomp
 
-      all_animals.push(Animal.new(name, animal_age,gender,species,toys))
+      new_animal = Animal.new(name, animal_age, gender, species, [toys])
+      shelter[new_animal.get_name] = new_animal
+
+      # for in loop to loop over the keys in a hash.
+
+      # all_animals.push(Animal.new(name, animal_age,gender,species,[]))
 
        puts "Add one more animal?"
        answer = gets.chomp
@@ -143,9 +179,8 @@ loop do
       puts "number of children:"
       children = gets.chomp
 
-      puts "pets:"
-      pets = gets.chomp
-      all_clients.push(Client.new(client_name,age,children,pets))
+
+      all_clients.push(Client.new(client_name,age,children))
 
       puts "Add one more animal?"
       answer = gets.chomp
@@ -157,29 +192,35 @@ loop do
     p shelter
 
   elsif user_answer == 'adopt'
-    puts 'Ok, at the momement we have the following species:'
-    # p Animal.get_species
-    client_species_choice = gets.chomp
-    species_client_wants = ''
-    if client_species_choice =='dog'
-      all_animals.each do |animal|
-      animal.get_species== 'dog'
-      species_client_wants == animal
+    animal_adopted = []
+    puts 'Ok, at the momement we have the following animals:'
+    all_animals.each_with_index do |animal, index|
+      puts "choose from:
+      #{index} - #{animal.get_name} - #{animal.get_species}"
     end
 
-  elsif client_species_choice =='cat'
+      animal_name = gets.chomp
+
       all_animals.each do |animal|
-        if animal.get_species== 'cat'
-          species_client_wants == animal
+        if animal.get_name == animal_name
+          animal_adopted = animal
         end
+      end
+
+      p animal_adopted
+
+      animal_for_client = all_animals.delete(animal_adopted)
+
+      c1.add_pet(animal_for_client)
 
 
-    end
-  end
-  puts 'We have:'
-  p species_client_wants
+
+
+
+
+
+
 end
-
 end
 
 
