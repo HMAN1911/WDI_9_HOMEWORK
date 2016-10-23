@@ -6,7 +6,7 @@ class Client
     @name = name
     @age = age
     @pets = []
-    puts 'Saved new client'
+    puts "Saved new client '#{@name}'"
   end
 
   def set_name(name)

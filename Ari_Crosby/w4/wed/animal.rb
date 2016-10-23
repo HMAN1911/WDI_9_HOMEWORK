@@ -6,7 +6,7 @@ class Animal
     @gender = gender
     @toys = []
     #new.Animal.home
-    puts 'Saved new animal'
+    puts "Saved new animal '#{@name}'"
   end
 
   def set_species(species)
@@ -25,12 +25,16 @@ class Animal
     @gender = gender
   end
 
-  def set_toys(toy) #*p
+  def set_toys(toys)
     @toys.push(toy)
   end
 
+  # def home(home) #can I push it into the sheler when created?
+  #   $shelter.push(self)
+  # end
+
   def set_home(home) #can I push it into the sheler when created?
-    #$shelter.push(Animal.new)
+    $shelter.push(self)
   end
 
 end
