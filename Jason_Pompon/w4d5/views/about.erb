@@ -1,0 +1,27 @@
+<h1>Search any movie</h1>
+<form action="/about" method='get'>
+  <input placeholder="type a movie name" name='movie' type="text">
+  <button>Search</button>
+</form>
+<section id='result'>
+  <div class="alt1">- Title: <%= @title %> <img src="<%= @poster %>"></div>
+  <div class="alt2">- Year: <%= @year %></div>
+  <div class="alt1">- Rated: <%= @rated %></div>
+  <div class="alt2">- Released: <%= @released %></div>
+  <div class="alt1">- Runtime: <%= @runtime %></div>
+  <div class="alt2">- Genre: <%= @genre %></div>
+  <div class="alt1">- Director: <%= @director %></div>
+  <div class="alt2">- Writer: <%= @writer %></div>
+  <div class="alt1">- Actors: <%= @actors %></div>
+  <div class="alt2">- Plot: <%= @plot %></div>
+  <div class="alt1">- Language: <%= @language %></div>
+  <div class="alt2">- Country: <%= @country %></div>
+  <div class="alt1">- Awards: <%= @awards %></div>
+  <div class="alt2">- Metascore: <%= @metascore %></div>
+  <div class="alt1">- imdbRating: <%= @imdbRating %></div>
+  <div class="alt2">- imdbVotes: <%= @imdbVotes %></div>
+  <div class="alt1">- imdbID: <%= @imdbID %></div>
+  <div class="alt2">- Type: <%= @type %></div>
+</section>
+<!-- <div><img src="<%= @poster %>"></div> -->
+<!-- need to add image -->
