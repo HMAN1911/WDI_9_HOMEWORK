@@ -1,0 +1,33 @@
+<!-- <h2>about</h2> -->
+
+<form action="/about" method="get">
+  <div class="search-box">
+    <input name="movie" type="text" placeholder="Search movie title">
+    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+  </div>
+</form>
+
+<div class="movie-box">
+  <img class="poster" src="<%= @movie_data['Poster'] %>" alt="">
+
+  <div class="movie-info">
+    <div class="title-block">
+      <h3><%= "#{@movie_data['Title']}"%> <span class="year">(<%= "#{@movie_data['Year']}"%>)</span></h3>
+      <p class="subtext"><%= @movie_data['Rated'] %> |
+        <%= @movie_data['Runtime'] %> |
+        <%= @movie_data['Genre'] %> |
+        <%= @movie_data['Released'] %></p>
+    </div>
+
+    <div class="movie-details">
+      <p><%= @movie_data['Plot'] %></p>
+      <p><span class="key">Director:</span> <%= @movie_data['Director'] %></p>
+      <p><span class="key">Writer:</span> <%= @movie_data['Writer'] %></p>
+      <p><span class="key">Actors:</span> <%= @movie_data['Actors'] %></p>
+      <p><span class="key">Language:</span> <%= @movie_data['Language'] %></p>
+      <p><span class="key">Country:</span> <%= @movie_data['Country'] %></p>
+      <p><span class="key">Awards:</span> <%= @movie_data['Awards'] %></p>
+    </div>
+
+  </div>
+</div>
