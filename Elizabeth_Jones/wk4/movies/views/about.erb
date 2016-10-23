@@ -1,0 +1,17 @@
+
+<!--Film Result Page -->
+
+<!-- Message -->
+  <p id="message"><%= @message %></p>
+
+<!-- Image -->
+  <img src="<%= @movie_poster %>" alt="" />
+
+<!-- Movie Info -->
+  <% @movie_array.each do |movie| %>
+    <p><%= movie %></p>
+  <%  end %>
+
+
+  <!-- Back Button -->
+  <a href="/index"> BACK </a>

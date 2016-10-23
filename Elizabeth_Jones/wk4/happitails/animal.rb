@@ -41,6 +41,10 @@ class Animal
     return @toys
   end
 
+  def display_animal_names
+    return "#{@animal_name}"
+  end
+
   def profile
     return "#{@animal_name} is a #{@animal_age} year old #{@gender} #{@species} with #{@toys} toys."
   end
