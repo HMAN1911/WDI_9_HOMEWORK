@@ -6,6 +6,7 @@ class Animal
     @gender = gender
     @species = species
     @toys = toys
+    @owner = ''
   end
   def show_name
     @name
@@ -18,6 +19,12 @@ class Animal
   end
   def show_toys
     @toys
+  end
+  def show_owner
+    @owner
+  end
+  def change_owner(owner)
+    @owner = owner
   end
 end
 
