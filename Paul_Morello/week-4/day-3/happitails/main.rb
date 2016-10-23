@@ -124,7 +124,8 @@ loop do
 
         puts 'Which client would like to adopt'
         client = gets.chomp
-        find_client = shelter[:clients].find {|client| client }
+        find_client = shelter[:clients].find_all {|i| i.name == client }
+        adopt_client = find_client.find {client}
         puts " "
 
         puts 'Which animal would you like to adopt?'
@@ -133,18 +134,19 @@ loop do
         end
 
         puts " "
-        adopt_animal = gets.chomp
-        find_animal = shelter[:animals].find {adopt_animal}
+        animal = gets.chomp
+        find_animal = shelter[:animals].find_all {|i| i.name == animal}
+        adopt_animal = find_animal.find {animal}
 
         binding.pry
 
-        if adopt_animal == find_animal.name && client == find_client.name
+        if adopt_animal.name == animal && adopt_client.name == client
           shelter[:animals].delete find_animal
-          find_client.add_pets adopt_animal
-          puts "Thank you for adopting #{adopt_animal}"
+          adopt_client.add_pets adopt_animal
+          puts "Thank you for adopting #{animal}"
         end
 
-        if adopt_animal == nil
+        if adopt_animal.name == nil
           puts 'That animal does not exist'
         end
 
@@ -164,10 +166,11 @@ loop do
         client = gets.chomp
 
         puts " "
-        find_client = shelter[:clients].find {|client| client.name }
+        find_client = shelter[:clients].find_all {|i| i.name == client}
+        adoption_client = find_client.find {client}
 
         puts 'Which pet would you like to put up for adoption?'
-        puts find_client.pets
+        puts adoption_client.pets
 
         name = gets.chomp
         puts "What is #{name}'s age?"
@@ -177,8 +180,8 @@ loop do
         puts "What is #{name}'s species?"
         species = gets.chomp
         new_animal = Animal.new name, age, gender, species
-        shelter[:animals].push new_animal
-        find_client.remove_pet name
+        shelter[:animals].push(new_animal)
+        adoption_client.remove_pet name
 
         binding.pry
 

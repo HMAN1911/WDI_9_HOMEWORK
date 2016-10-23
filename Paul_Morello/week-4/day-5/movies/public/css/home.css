@@ -1,0 +1,14 @@
+html {
+  background-image: url('https://s-media-cache-ak0.pinimg.com/originals/c1/83/15/c18315cfdb398cf4386e05b6a7593981.jpg');
+  background-size: cover;
+}
+
+body {
+  height: 650px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.home-block {
+  position: relative;
+  top: 20%;
+}
