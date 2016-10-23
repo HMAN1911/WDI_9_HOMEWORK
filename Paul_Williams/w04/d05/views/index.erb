@@ -8,10 +8,13 @@
 <section>
 
   <h2><%= @info["Title"] %> <span>(<%= @info["Year"] %>)</span></h2>
+
   <div class="main-info">
+
     <div class="image-wrapper">
       <img src="<%= @info["Poster"] %>" alt="">
     </div>
+
     <div class="icon-wrapper">
       <div class="stupid-centering-wrapper">
         <p class="rating"><%= @info["imdbRating"] %></p>
@@ -20,11 +23,15 @@
         <p class="runtime"><%= @info["Runtime"] %></p>
       </div>
     </div>
+
   </div>
-  <p>Genre: <%= @info["Genre"] %></p>
-  <p>Director: <%= @info["Director"] %></p>
-  <p>Starring: <%= @info["Actors"] %></p>
-  <p>Plot: <%= @info["Plot"] %></p>
+
+  <div class="sub-info">
+    <p><span>Genre:</span> <%= @info["Genre"] %></p>
+    <p><span>Director:</span> <%= @info["Director"] %></p>
+    <p><span>Starring:</span> <%= @info["Actors"] %></p>
+    <p><span>Plot:</span> <%= @info["Plot"] %></p>
+  </div>
 
 </section>
 

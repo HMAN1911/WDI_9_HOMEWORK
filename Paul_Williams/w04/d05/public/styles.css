@@ -16,6 +16,7 @@ body {
   color: #333745;
 }
 
+/*Heading & Nav styles*/
 h1 {
   margin: 0;
   background: #FE5F55;
@@ -72,6 +73,7 @@ button:hover {
   background: #9ebea4;
 }
 
+/*Main Info styles*/
 h2 {
   text-align: center;
   margin: 2em 5% .75em 5%;
@@ -140,4 +142,19 @@ img {
 
 .stupid-centering-wrapper:first-of-type::after {
   background: no-repeat center/60% url("http://iconshow.me/media/images/ui/ios7-icons/png/512/star_2.png");
+}
+
+/*Sub Info styles*/
+.sub-info {
+  width: 90%;
+  margin: 2.5em 5%;
+  font-size: .9em;
+  border-top: 1px solid #333745;
+  border-bottom: 1px solid #333745;
+  clear: both;
+}
+
+.sub-info span {
+  font-size: 1em;
+  font-weight: bold;
 }
