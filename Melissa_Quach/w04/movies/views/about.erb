@@ -1,0 +1,31 @@
+<h2 class="title"><%= @movie["Title"] %></h2>
+<img class="poster" src="<%= @movie["Poster"] %>" alt="poster" />
+<h3>Details</h3>
+<dl>
+  <dt>Released</dt>
+  <dd><%= @movie["Released"] %></dd>
+  <dt>Genre</dt>
+  <dd><%= @movie["Genre"] %></dd>
+  <dt>Runtime</dt>
+  <dd><%= @movie["Runtime"] %></dd>
+  <dt>Plot</dt>
+  <dd><%= @movie["Plot"] %></dd>
+</dl>
+<h3>Crew</h3>
+<dl>
+  <dt>Directed by</dt>
+  <dd><%= @movie["Director"] %></dd>
+  <dt>Writers</dt>
+  <dd><%= @movie["Writer"] %></dd>
+  <dt>Actors</dt>
+  <dd><%= @movie["Actors"] %></dd>
+</dl>
+<h3>Critical reception</h3>
+<dl>
+  <dt>Awards</dt>
+  <dd><%= @movie["Awards"] %></dd>
+  <dt>Metascore</dt>
+  <dd><%= @movie["Metascore"] %></dd>
+  <dt>IMDb rating</dt>
+  <dd><%= "#{@movie["imdbRating"]} (#{@movie["imdbVotes"]} votes)"%></dd>
+</dl>
