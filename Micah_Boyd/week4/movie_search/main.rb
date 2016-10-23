@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+require 'pry'
 
 get '/' do
   erb :search
@@ -10,9 +11,10 @@ get '/result' do
 
 @search_result = params[:search_input].downcase
 @result = HTTParty.get("http://omdbapi.com/?t=#{@search_result}")
+
 @poster = @result['Poster']
-@meta_thumb = nil
-@imdb_thumb = nil
+@meta_thumb = false
+@imdb_thumb = false
 @meta_score = @result['Metascore'].to_i
 @imdb_score = @result['imdbRating'].to_f
 @thumb_up = 'Hands-Thumb-Up-icon.png'
@@ -32,6 +34,14 @@ if @imdb_score < 6
   @imdb_thumb = @thumb_down.to_s
 end
 
+if @meta_score == 0
+  @meta_score = false
+end
 
+if @imdb_score == 0
+  @imdb_score = false
+end
+
+# binding.pry
   erb :result
 end
