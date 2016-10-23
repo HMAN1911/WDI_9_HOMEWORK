@@ -5,12 +5,13 @@ require_relative ('client')
 
 @pet_list = []
 @client_list = []
-@shelter = [{pets: @pet_list , clients: @client_list}]
+@shelter = {:pet => []}
 
 def new_pet
   system('clear')
   toys = []
   puts "______________ REGISTER PET ________________"
+
   puts "What is the name of the animal?"
   name = gets.chomp
   puts "What is it's AGE ?"
@@ -21,7 +22,9 @@ def new_pet
   species = gets.chomp
   puts "Does it have a toy? ( y/n )"
   have_toy = yesno
+
   if have_toy == true
+
     loop do
       puts "What is the toy?"
       toy = gets.chomp
@@ -30,7 +33,9 @@ def new_pet
       have_toy = yesno
       break if have_toy == false
     end
+
   end
+
   animal = Animal.new(name,age,gender,species,toys)
   @pet_list << animal
   puts "Pet successfully registered"
@@ -41,6 +46,7 @@ def new_client
   system('clear')
   puts "______________ REGISTER CLIENT ________________"
   list_pets = []
+
   puts "What is the name of the client?"
   name = gets.chomp
   puts "What is #{name}'s AGE ?"
@@ -48,24 +54,34 @@ def new_client
   puts "How many children #{name} have?"
   children = gets.chomp
   puts "Does #{name} have a pet? ( y/n )"
+
   have_pet = yesno
+
   if have_pet == true
-    display_pets
     loop do
-      puts "What is the pet?"
-      pet = gets.chomp
-      found = false
-      @pet_list.each do |item|
-        if pet.downcase == item.show_name.downcase
-          index_pet = @pet_list.index(item)
-          puts 'Pet found!'
-          list_pets << item
-          found = true
-          break
+      puts "Is the pet registered? ( y/n )"
+      if yesno === true
+        display_pets()
+        puts "What is the pet?"
+        pet = gets.chomp
+
+        found = false   #pre defined
+        @pet_list.each do |item_pet|
+          if pet.downcase == item_pet.show_name.downcase
+            index_pet = @pet_list.index(item_pet)
+            puts 'Pet found!'
+            item_pet.change_owner(name)
+            list_pets << item_pet
+            found = true
+            break
+          end
         end
-      end
-      if found == false
-        puts "Pet NOT found!"
+
+        if found == false
+          puts "Pet NOT found!"
+        end
+      else
+        new_pet()
       end
       puts "Is there any other pet? ( y/n )"
       have_pet = yesno
@@ -90,13 +106,14 @@ end
 def display_pets
   system('clear')
   puts '_________________ALL PETS___________________'
-  p " #{'NAME'.ljust(15)} #{'AGE'.ljust(8)} #{'SPECIES'.ljust(10)} #{'TOYS'.ljust(30)} "
+  p " #{'NAME'.ljust(15)} #{'AGE'.ljust(8)} #{'SPECIES'.ljust(10)} #{'OWNER'.ljust(15)} #{'TOYS'.ljust(30)} "
   @pet_list.each do |item|
     pet_name = item.show_name
     pet_age = item.show_age
     pet_species = item.show_species
+    pet_owner = item.show_owner
     pet_toys = item.show_toys
-    p " #{pet_name.ljust(15)} #{pet_age.ljust(8)} #{pet_species.ljust(10)}  #{pet_toys.join(',')}"
+    p " #{pet_name.ljust(15)} #{pet_age.ljust(8)} #{pet_species.ljust(10)} #{pet_owner.ljust(15)} #{pet_toys.join(',')}"
   end
 end
 
@@ -104,28 +121,32 @@ def display_clients
   system('clear')
   puts '_________________ALL CLIENTS___________________'
   p " #{'NAME'.ljust(15)} #{'AGE'.ljust(8)} #{'CHILDREN'.ljust(10)} #{'PETS'.ljust(30)} "
+
   @client_list.each do |item|
     name = item.show_name
     age = item.show_age
     children = item.show_children
     length_pets = item.show_pets.length
     pets = []
+
     for i in 0..length_pets - 1
       pets_names = item.show_pets[i].show_name
       pets << pets_names
     end
 
-    p " #{name.ljust(15)} #{age.ljust(8)} #{children.ljust(10)}  #{pets.join(',')} "
+    p " #{name.ljust(15)} #{age.ljust(8)} #{children.ljust(10)}  #{pets.join(', ')} "
   end
 end
 
 def client_adopt
   index_client = -1
   index_pet = -1
+
   system('clear')
   puts '_________________ADOPT A PET___________________'
   puts "\nWhat is the name of the client?"
   selected_client = gets.chomp
+
   @client_list.each do |item|
     if selected_client.downcase == item.show_name.downcase
       index_client = @client_list.index(item)
@@ -133,8 +154,10 @@ def client_adopt
       break
     end
   end
+
   puts "\nWhat is the name of the pet?"
   selected_pet = gets.chomp
+
   @pet_list.each do |item|
     if selected_pet.downcase == item.show_name.downcase
       index_pet = @pet_list.index(item)
@@ -142,6 +165,7 @@ def client_adopt
       break
     end
   end
+
   if index_pet > -1 && index_client > -1
     puts "\nConfirm adoption of #{selected_pet} by client #{selected_client} ? (y/n)"
     conf = yesno
@@ -152,7 +176,6 @@ def client_adopt
       puts 'Adoption cancelled'
     end
   end
-
 end
 
 def for_adoption
@@ -160,53 +183,94 @@ def for_adoption
   puts '_________________PET TO BE AVAILABLE FOR ADOPTION___________________'
   puts "\nWhat is the name of the client?"
   selected_client = gets.chomp
+
   @client_list.each do |item|
     if selected_client.downcase == item.show_name.downcase
-      index_client = @client_list.index(item)
-      puts "Client found! \n"
-      puts "Name: #{item.show_name} , Age: #{item.show_age}"
+      puts "Client found! "
+      puts "\nName: #{item.show_name} , Age: #{item.show_age}"
       puts "Number of Children: #{item.show_children}"
-
+      index_client = @client_list.index(item)
       length_pets = item.show_pets.length
-      for i in 0..length_pets - 1
-        puts "****** Pet #{i+1} ******"
-        puts "Name: #{item.show_pets[i].show_name}"
-        puts "Age: #{item.show_pets[i].show_age}"
-        puts "Species: #{item.show_pets[i].show_species}"
-        puts "Toys: #{item.show_pets[i].show_toys.join(',')}"
-        puts "************************"
-      end
-      puts "\nType the name of the Pet to be left for adoption:"
-      left_pet = gets.chomp
-      obj_pet = nil
-      @pet_list.each do |item2|
-        if left_pet.downcase == item2.show_name.downcase
-          puts 'Pet found!'
-          puts "\nLeave #{left_pet} for adoption? ( y/n )"
-          conf = yesno
-          if conf == true
-              item.leave_for_adoption(item2)
-              puts " #{left_pet} is now available for adoption"
-          end
-          break
+
+
+      loop do
+        for i in 0..length_pets - 1
+          puts "******** Pet #{i+1} ********"
+          puts "Name: #{item.show_pets[i].show_name}"
+          puts "Age: #{item.show_pets[i].show_age}"
+          puts "Species: #{item.show_pets[i].show_species}"
+          puts "Toys: #{item.show_pets[i].show_toys.join(',')}"
+          puts "************************"
         end
+
+
+      # @pet_list.each do |item2|
+      #   if left_pet.downcase == item2.show_name.downcase
+      #     puts 'Pet found!'
+      #     puts "\nLeave #{left_pet} for adoption? ( y/n )"
+      #     conf = yesno
+      #     if conf == true
+      #         item.leave_for_adoption(item2)
+      #         puts " #{left_pet} is now available for adoption"
+      #     end
+      #     break
+      #   end
+      # end
+        puts "\nType the name of the Pet to be left for adoption:"
+        left_pet = gets.chomp
+        obj_pet = nil
+        item.show_pets.each do |client_pet|
+          if left_pet.downcase == client_pet.show_name.downcase
+            puts 'Pet found!'
+            puts "\nLeave #{left_pet} for adoption? ( y/n )"
+            conf = yesno
+            if conf == true
+                item.leave_for_adoption(client_pet)
+                @shelter[:pet] << client_pet
+                puts " #{left_pet} is now available for adoption"
+                @leave_adoption_loop = true
+            end
+          end
+        end
+        break if @leave_adoption_loop == true
+        puts "Pet not found! Try again"
       end
-      puts "Pet not found!"
 
     end
   end
+
   puts "Client not found!"
+end
+
+def shelter
+  system('clear')
+  puts '_________________SHELTER___________________'
+  p " #{'NAME'.ljust(15)} #{'AGE'.ljust(8)} #{'SPECIES'.ljust(10)} #{'OWNER'.ljust(15)} #{'TOYS'.ljust(30)} "
+  @shelter[:pet].each do |item|
+    pet_name = item.show_name
+    pet_age = item.show_age
+    pet_species = item.show_species
+    pet_owner = item.show_owner
+    pet_toys = item.show_toys
+    p " #{pet_name.ljust(15)} #{pet_age.ljust(8)} #{pet_species.ljust(10)}  #{pet_owner.ljust(15)} #{pet_toys.join(',')}"
+  end
+end
+
+def move_to_shelter  #behind the scenes
+  @pet_list.each do |pet|
+    @shelter[:pet] << pet
+  end
 end
 
 def menu
   system('clear')
-  options = ["1 - Display all pets","2 - Display all clients","3 - Register a pet","4 - Register a client","5 - Facilitate client adopts an animal", "6 - facilitate client puts an animal up for adoption"]
+  options = ["1 - Display all pets","2 - Display all clients","3 - Register a pet","4 - Register a client","5 - Facilitate client adopts an animal", "6 - facilitate client puts an animal up for adoption", "7 - Display Shelter"]
   puts "Select an option:"
   selected = 0
   loop do
     puts options
     selected = gets.chomp.to_i
-    break if selected > 0 && selected < 7
+    break if selected > 0 && selected < 8
     puts 'INVALID option. Please select a valid option:'
   end
 
@@ -217,6 +281,7 @@ def menu
     when 4 then new_client
     when 5 then client_adopt
     when 6 then for_adoption
+    when 7 then shelter
 
   end
 end
@@ -228,6 +293,9 @@ end
 @pet_list.push(Animal.new("Buddy" ,"0","male","dog",['toy1','toy2']) )
 @pet_list.push(Animal.new("Daisy" ,"2","female","dog",['toy1','toy2']) )
 @pet_list.push(Animal.new("Rocky" ,"7","male","cat",['toy1','toy2']) )
+move_to_shelter()
+
+
 
 @client_list.push(Client.new("Aaron" ,"31"  , '1', []) )
 @client_list.push(Client.new("Burke" ,"23"  , '0', []) )
@@ -240,10 +308,6 @@ loop do
   menu
   puts "\nPress Enter to continue..."
   gets
-
+binding.pry
 
 end
-
-
-
-binding.pry
