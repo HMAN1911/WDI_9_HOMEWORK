@@ -1,0 +1,33 @@
+
+
+
+<form action="/search" method="get">
+
+  <input name="movie" type="text" placeholder="Search..">
+  <button>Search</button>
+
+</form>
+
+<div id="info-box">
+
+  <img src="<%= @poster %>" alt="">
+
+  <div class="title-box">
+    <h2> <%= @title %> / <span class="rating"><%= @rating %>/10</span> </h2>
+    <h3 class="rating"> <%= @year %> </h3>
+
+  </div>
+
+  <div class="cast">
+    <h3> <%= @cast %> </h3>
+  </div>
+
+  <ul>
+    <li class="display">Released: <%= @released %></li>
+    <li class="display">Genre: <%= @genre %></li>
+    <li class="display">Director: <%= @director %></li>
+  </ul>
+
+  <p> <%= @plot %> </p>
+
+</div>
