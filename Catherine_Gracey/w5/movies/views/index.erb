@@ -1,0 +1,39 @@
+<form action="/" method="get">
+  <input type="text" name="search" placeholder="Type your movie here">
+  <button>Find It</button>
+</form>
+<% if @result %>
+  <div class="movie">
+    <% if @result["Response"] == "True" %>
+      <% if @result["totalResults"].to_i > 1 %>
+        <!-- Multiple movies have been found, so display the search options. -->
+        <form action="/" method="get">
+        <% @result["Search"].each do |movie| %>
+
+        <label class="search-result" for=<%= movie["imdbID"] %>>
+          <% unless movie["Poster"] == "N/A"%>
+            <img src= <%= movie["Poster"]%> class="thumbnail">
+          <% end %>
+            <h2><input type="radio" name="title" value=<%= movie["imdbID"] %> id=<%= movie["imdbID"] %>> <%= movie["Title"]%></h2>
+            <p>Year: <%= movie["Year"]%></p>
+            <p>Type: <%= movie["Type"]%></p>
+          </label>
+        <% end %>
+        <button>Details</button>
+      </form>
+      <% else %>
+        <!-- A single movie has been found, so display the entire entry -->
+        <h2><%= @result["Title"]%></h2>
+        <img src= <%= @result["Poster"]%> >
+        <p>Released <%= @result["Released"]%> and rated <%= @result["Rated"]%>, <%= @result["Title"]%> is an <%= @result["Genre"].downcase%> that tells the story of <%= @result["Plot"]%></p>
+
+        <p>This <%= @result["Type"]%> runs for <%= @result["Runtime"]%> and is written in <%= @result["Language"]%>. Directed in <%= @result["Country"]%> by <%= @result["Director"]%> and written by <%= @result["Writer"]%>, it starred <%= @result["Actors"]%> and <%= @result["Awards"]%></p>
+
+        <p>IMdb gives this movie a score of <%= @result["imdbRating"]%> based on <%= @result["imdbVotes"]%> votes. It has a meta score of <%= @result["Metascore"]%>.</p>
+      <% end %>
+    <% else %>
+      <!-- No movies have been found, so display the error message -->
+      <p><%= @result["Error"]%></p>
+    <% end %>
+  </div>
+<% end %>
