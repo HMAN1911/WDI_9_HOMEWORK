@@ -8,6 +8,7 @@ get '/' do
 end
 
 post '/result' do
+  File.open("search_history.txt", 'a') { |f| f << "#{params[:title]}," }
   @search = HTTParty.get "http://omdbapi.com/?s=#{params[:title]}"
   if @search["Error"]
     erb :not_found
@@ -27,6 +28,11 @@ end
 
 get '/about' do
   erb :about
+end
+
+get '/history' do
+  @history = File.read("search_history.txt").split ","
+  erb :history
 end
 
 =begin
