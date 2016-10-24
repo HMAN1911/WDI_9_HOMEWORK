@@ -20,6 +20,11 @@ post '/result' do
   end
 end
 
+get '/movie_info' do
+  @info = HTTParty.get "http://omdbapi.com/?i=#{params[:id]}"
+  erb :movie_info
+end
+
 get '/about' do
   erb :about
 end

@@ -1,5 +1,9 @@
 <section>
   <% @results.each do |result|%>
-    <p><%= result["Title"] %> <span>(<%= result["Year"]%>)</span></p>
+    <p class="result">
+      <a href="/movie_info?id=<%= result["imdbID"] %>">
+        <%= result["Title"] %> <span>(<%= result["Year"]%>)</span>
+      </a>
+    </p>
   <% end %>
 </section>
