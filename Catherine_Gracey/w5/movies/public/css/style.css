@@ -49,3 +49,11 @@ img {
     float: left;
     margin: 0em 2em 2em 0em;
 }
+
+.search-result {
+    clear: both;
+}
+
+.thumbnail {
+    max-width: 100px;
+}
