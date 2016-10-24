@@ -1,0 +1,20 @@
+
+<form action="/find" method="get">
+  <div class="search-box">
+    <input name="movie" type="text" placeholder="Search movie title">
+    <button><i class="fa fa-search" aria-hidden="true"></i></button>
+  </div>
+</form>
+
+<div class="search-results-box">
+  <p>Results for "<%= @movie %>"</p>
+
+  <% if @results['Response'] == 'True' %>
+    <% @results['Search'].each do |result| %>
+      <p><a href="<%= "/about?movie=#{result['Title']}" %>"><%= result['Title'] %></a> (<%= result['Year']%>)</p>
+    <% end %>
+    <% elsif @results['Response'] == 'False' %>
+      <p><%= "#{@results['Error']}"%></p>
+  <% end %>
+
+</div>
