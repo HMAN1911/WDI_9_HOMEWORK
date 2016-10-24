@@ -57,3 +57,11 @@ img {
 .thumbnail {
     max-width: 100px;
 }
+
+.movie input {
+    width: 5%;
+}
+
+.movie label {
+    margin-left: 100px;
+}

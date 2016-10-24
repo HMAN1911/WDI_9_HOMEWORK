@@ -7,14 +7,20 @@
     <% if @result["Response"] == "True" %>
       <% if @result["totalResults"].to_i > 1 %>
         <!-- Multiple movies have been found, so display the search options. -->
+        <form action="/" method="get">
         <% @result["Search"].each do |movie| %>
-          <div class="search-result">
+
+        <label class="search-result" for=<%= movie["imdbID"] %>>
+          <% unless movie["Poster"] == "N/A"%>
             <img src= <%= movie["Poster"]%> class="thumbnail">
-            <h2><%= movie["Title"]%></h2>
+          <% end %>
+            <h2><input type="radio" name="title" value=<%= movie["imdbID"] %> id=<%= movie["imdbID"] %>> <%= movie["Title"]%></h2>
             <p>Year: <%= movie["Year"]%></p>
             <p>Type: <%= movie["Type"]%></p>
-          </div>
+          </label>
         <% end %>
+        <button>Details</button>
+      </form>
       <% else %>
         <!-- A single movie has been found, so display the entire entry -->
         <h2><%= @result["Title"]%></h2>

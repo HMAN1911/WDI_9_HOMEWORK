@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'httparty'
 
 get '/' do
+  p params
   if params.length > 0
     if params[:search]
       search = "http://omdbapi.com/?s=#{params[:search]}"
