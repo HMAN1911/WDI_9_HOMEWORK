@@ -4,10 +4,18 @@ require 'httparty'
 require 'pry'
 
 get '/' do
-  @params = params
-  @info = HTTParty.get "http://omdbapi.com/?t=#{params[:title]}"
-  # binding.pry
   erb :index
+end
+
+post '/result' do
+  @params = params
+  @info = HTTParty.get "http://omdbapi.com/?s=#{params[:title]}"
+  binding.pry
+  if @info["Error"]
+    erb :not_found
+  else
+    erb :movie_info
+  end
 end
 
 get '/about' do
