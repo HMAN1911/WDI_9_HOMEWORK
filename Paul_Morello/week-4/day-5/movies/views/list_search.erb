@@ -1,0 +1,11 @@
+
+<h1>Select a Movie</h1>
+
+<% @list_search.each do |movie| %>
+
+  <div class="list">
+    <a href=" /search?movie=<%=movie["Title"]%> "> <%= "#{movie["Title"]} / #{movie["Year"]}" %></a>
+    <img src=" <%= movie["Poster"] %> " alt="">
+  </div>
+
+<% end %>
