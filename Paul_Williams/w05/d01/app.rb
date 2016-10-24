@@ -8,13 +8,14 @@ get '/' do
 end
 
 post '/result' do
-  @params = params
-  @info = HTTParty.get "http://omdbapi.com/?s=#{params[:title]}"
-  binding.pry
-  if @info["Error"]
+  @search = HTTParty.get "http://omdbapi.com/?s=#{params[:title]}"
+  if @search["Error"]
     erb :not_found
-  else
+  elsif @search["Search"].length == 1
+    @info = HTTParty.get "http://omdbapi.com/?i=#{@search["Search"][0]["imdbID"]}"
     erb :movie_info
+  else
+    
   end
 end
 
