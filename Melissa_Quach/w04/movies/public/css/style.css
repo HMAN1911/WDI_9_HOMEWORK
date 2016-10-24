@@ -61,6 +61,16 @@ dd {
   float: right;
 }
 
+.search-result {
+  padding: 10px 5px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 1px;
+}
+
+.search-result a {
+  display: block;
+}
+
 @media (max-width: 720px) {
   main {
     padding: 0;

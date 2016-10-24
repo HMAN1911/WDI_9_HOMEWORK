@@ -1,26 +1,37 @@
 require 'sinatra'
+require 'sinatra/reloader'
 require 'httparty'
 require 'pry'
 
-# Retrieve movie data from OMDB API
-def get_movie_data(title)
-  HTTParty.get("http://omdbapi.com/?t=#{title}")
-end
-
 get '/' do
-  @title = params[:title]
+  @query = params[:query]
 
-  if @title != nil
-    @movie = get_movie_data(@title)
-    if (@movie["Response"] == "True")
-      erb :about
+  if @query != nil
+    results = HTTParty.get("http://omdbapi.com/?s=#{@query}")
+    if (results["Response"] == "True")
+      # If only one result found, redirect to
+      # info page
+      if results["totalResults"].to_i == 1
+        movie_title = results["Search"].first["Title"]
+        redirect to "/info?title=#{movie_title}"
+      # Else, print result list
+      else
+        @movies = results["Search"]
+        erb :index
+      end
     else
-      @error = @movie["Error"]
+      @error = results["Error"]
       erb :error
     end
   else
     erb :index
   end
+end
+
+get '/info' do
+  @query = params[:title]
+  @movie = HTTParty.get("http://omdbapi.com/?t=#{@query}")
+  erb :about
 end
 
 # binding.pry
