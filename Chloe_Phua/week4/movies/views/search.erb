@@ -7,17 +7,17 @@
 
 <div class="about">
 
-  <img src="<%= @poster %>">
-
-  <table>
-
-    <% @info.each do |key, value| %>
-      <% if key != "Poster" %>
+  <h2>The following titles exist for your searched entry:</h2>
+  <br><br>
+  <ol>
+    <% @all_results.each do |result| %>
       <tr>
-        <th><%= key %><s/th><br>
-        <td><%= value %></td>
+        <td>
+          <li>
+            <a href="/about?title=<%= result %>"><%= result %></a>
+          </li>
+        </td>
       </tr>
       <% end %>
-    <% end %>
-  </table>
+  </ol>
 </div>

@@ -5,6 +5,10 @@ body {
   margin: 0 auto;
 }
 
+form {
+  display: inline-block;
+}
+
 th {
   text-align: left;
   text-transform: uppercase;
@@ -69,7 +73,21 @@ button {
   margin-left: 5px;
 }
 
+h2, ol {
+  margin: 0 auto;
+  text-align: left;
+  display: block;
 
+}
+
+a, ol, li {
+  text-align: left;
+  margin: 0 auto;
+}
+
+h2 {
+  height: 5%;
+}
 
 .slideUp{
 	animation-name: slideUp;
@@ -130,10 +148,9 @@ button {
 @media screen and (max-width: 900px) {
   .about {
     background: none;
-    padding: 5% 0;
+    padding: 5% 5%;
     display: -webkit-inline-flex;
     flex-wrap: nowrap;
-
   }
 
   table {
