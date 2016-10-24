@@ -1,0 +1,6 @@
+<h2>Search history</h2>
+<% @history.each do |history| %>
+  <div>
+    <%= "#{history['time']}:#{history['query']}" %>
+  </div>
+<% end %>
