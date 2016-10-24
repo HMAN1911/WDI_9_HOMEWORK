@@ -8,17 +8,21 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <main>
-      <h1>Movie Database</h1>
-      <form action="/">
-        <label for="title">Title</label>
-        <input id="title" name="query" type="text" value="<%= @query %>">
-        <button>Search</button>
-      </form>
-      <%= yield %>
+    <div class="container">
+      <header>
+        <h1><a href="/">Movie Database</a></h1>
+        <form action="/">
+          <label for="title">Title</label>
+          <input id="title" name="query" type="text" value="<%= @query %>">
+          <button>Search</button>
+        </form>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
       <footer>
         Made using <a href="http://www.omdbapi.com/" target="_blank">OMDb API</a>
       </footer>
-    </main>
+    </div>
   </body>
 </html>
