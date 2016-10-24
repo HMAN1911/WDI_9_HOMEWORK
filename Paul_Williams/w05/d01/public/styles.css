@@ -76,6 +76,19 @@ button:hover {
 /*Results Page styles*/
 p a:last-of-type {
   border: none;
+  color: #333745;
+}
+
+.result {
+  margin-left: 5%;
+}
+
+.result:first-of-type {
+  margin-top: 3em;
+}
+
+#not-found {
+  margin: 3em 5%;
 }
 
 /*Main Info styles*/
