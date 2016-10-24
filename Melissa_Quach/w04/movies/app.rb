@@ -46,17 +46,19 @@ end
 
 get '/history' do
   @history = []
-  File.open(HISTFILE) do |file|
-    file.readlines.each do |line|
-      line = line.chomp.split(',')
+  if File.exists?(HISTFILE)
+    File.open(HISTFILE) do |file|
+      file.readlines.each do |line|
+        line = line.chomp.split(',')
 
-      @history.push({
-        "time" => line[0],
-        "query" => line[1]
-      })
+        @history.push({
+          "time" => line[0],
+          "query" => line[1]
+        })
+      end
     end
   end
-  
+
   erb :history
 end
 
