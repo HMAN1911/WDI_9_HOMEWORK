@@ -23,10 +23,10 @@ client2 = Client.new('sam', 29, 1) #created new client object
 # $shelter[:animals][animal_index]
 
 #SHELTER
-# $shelter = {
-#   :animals => [animal1, animal2], #list of animals created
-#   :clients => [client2] # list of clients created #could be another hash
-# }
+$shelter = {
+  :animals => [animal1, animal2], #list of animals created
+  :clients => [client2] # list of clients created #could be another hash
+}
 
 #######################
 #
