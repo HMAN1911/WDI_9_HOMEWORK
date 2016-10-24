@@ -1,0 +1,23 @@
+<div class="list_results">
+  <form class="" action="/find" method="get">
+
+
+    <p>
+      <% @movie_requested['Search'].each do |movie| %>
+        <% @movie_to_show = movie['imdbID'] %>
+        <% @link = "/show?imdbID=#{@movie_to_show}"  %>
+
+        <p><a href="<%= "#{@link}" %>"><%= movie['Title'] %></a>
+          Year: <%= movie['Year'] %>
+          IMDB: <%= movie['imdbID'] %>
+        </p>
+
+        <hr>
+      <% end %>
+
+    </p>
+  </form>
+
+
+
+</div>

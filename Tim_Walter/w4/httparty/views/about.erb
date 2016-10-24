@@ -1,7 +1,4 @@
 
-<form class="" action="/find" method="get">
-    <input type="input" name="title"  placeholder="search"   autofocus>
-</form>
 
 <div class="movie_image">
   <img src="<%= @poster %>" alt="" />
@@ -33,3 +30,11 @@
    <p><%= @writer %></p>
 
 </div>
+
+<footer>
+
+  <p>
+    <a href="<%= @return = request.referer  %>">Back to search results...</a>
+  </p>
+
+</footer>

@@ -9,7 +9,15 @@
   <body>
     <div class="wrapper">
       <div class="header">
-        <h1>TMDB</h1>
+        <div class="logo">
+          <h1><a href="/">TMDB Movie Finder</a></h1>
+        </div>
+
+        <form class="search" action="/list" method="get">
+
+          <input type="input" name="title"  placeholder="search" autofocus>
+          <!-- <button name="button">Find Movie</button> -->
+        </form>
       </div>
 
       <%= yield %>
