@@ -1,0 +1,12 @@
+<div>
+  <h2>Search Result</h2>
+</div>
+<div class="">
+  <% i = 0 %>
+  <% @list.each do |result| %>
+  <% i = i + 1 %>
+  <%= i %>
+  <a href="/about?movie=<%= result["Title"]%>"><%= result["Title"]%> <%= result["Year"]%></a>
+  <hr>
+  <% end %>
+</div>
