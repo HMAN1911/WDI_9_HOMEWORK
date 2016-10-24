@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background: #EEF5DB;
+  font-family: 'Lato', sans-serif;
+  color: #333745;
+}
+
+/*Heading & Nav styles*/
+h1 {
+  margin: 0;
+  background: #FE5F55;
+  padding: .5rem 5%;
+  border-bottom: 1px solid #333745;
+}
+
+a {
+  width: 50%;
+  display: block;
+  float: left;
+  text-align: center;
+  padding: .25em 0;
+  text-decoration: none;
+  color: #333745;
+  background: #C1C1C1;
+  border-bottom: 1px solid #333745;
+}
+
+a:hover {
+  background: #acacac;
+}
+
+a:last-of-type {
+  border-left: 1px solid #333745;
+}
+
+input {
+  display: block;
+  width: 90%;
+  margin: .25rem 5%;
+  border: none;
+  border-bottom: 1px solid #333745;
+  font-size: 1.5em;
+  color: #333745;
+  background: #EEF5DB;
+  text-align: center;
+  margin-top: 5em;
+  outline: none;
+}
+
+button {
+  width: 90%;
+  margin: .75em 5%;
+  border: none;
+  background: #C7EFCF;
+  border-radius: .5em;
+  padding: 1em;
+  color: #333745;
+  outline: none;
+}
+
+button:hover {
+  background: #9ebea4;
+}
+
+/*Main Info styles*/
+h2 {
+  text-align: center;
+  margin: 2em 5% .75em 5%;
+}
+
+span {
+  font-size: .66em;
+  font-weight: normal;
+}
+
+.main-info {
+  width: 90%;
+  margin: 0 5%;
+  font-size: 0;
+  position: relative;
+}
+
+.image-wrapper {
+  width: 50%;
+  display: inline-block;
+}
+
+img {
+  width: 100%;
+}
+
+.icon-wrapper {
+  width: 50%;
+  display: inline-block;
+  font-size: 1.75rem;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+}
+
+.icon-wrapper p {
+  display: inline-block;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.stupid-centering-wrapper {
+  height: 50%;
+  position: relative;
+  margin-left: 1rem;
+}
+
+.stupid-centering-wrapper:first-of-type{
+  border-bottom: 1px solid #333745;
+}
+
+.stupid-centering-wrapper::after {
+    content: "";
+    background: no-repeat center/60% url("http://simpleicon.com/wp-content/uploads/stopwatch-2.png");
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .1;
+    transform: translateX(-50%);
+}
+
+.stupid-centering-wrapper:first-of-type::after {
+  background: no-repeat center/60% url("http://iconshow.me/media/images/ui/ios7-icons/png/512/star_2.png");
+}
+
+/*Sub Info styles*/
+.sub-info {
+  width: 90%;
+  margin: 2.5em 5%;
+  font-size: .9em;
+  border-top: 1px solid #333745;
+  border-bottom: 1px solid #333745;
+  clear: both;
+}
+
+.sub-info span {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+/*Responsive layout*/
+@media (min-width: 550px) {
+
+  main {
+    width: 495px;
+    margin: 0 auto;
+  }
+
+  header {
+    font-size: 0;
+    position: relative
+  }
+
+  h1 {
+    display: inline-block;
+    width: 80%;
+    font-size: 2rem;
+  }
+
+  a {
+    display: inline-block;
+    width: 10%;
+    font-size: 1rem;
+    height: 100%;
+    line-height: 3rem;
+    position: absolute;
+  }
+
+  a:last-of-type {
+    right: 0;
+  }
+
+  h2 {
+    font-size: 2.1em;
+  }
+
+  .icon-wrapper {
+    font-size: 2.5rem;
+  }
+
+  .sub-info {
+    font-size: 1.25em;
+  }
+}

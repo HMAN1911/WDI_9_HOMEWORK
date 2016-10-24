@@ -1,0 +1,53 @@
+<form action="/">
+
+  <input name="title" type="text" placeholder="Enter movie title">
+  <button>press here to get the info</button>
+
+</form>
+
+<section>
+
+  <h2><%= @info["Title"] %> <span>(<%= @info["Year"] %>)</span></h2>
+
+  <div class="main-info">
+
+    <div class="image-wrapper">
+      <img src="<%= @info["Poster"] %>" alt="">
+    </div>
+
+    <div class="icon-wrapper">
+      <div class="stupid-centering-wrapper">
+        <p class="rating"><%= @info["imdbRating"] %></p>
+      </div>
+      <div class="stupid-centering-wrapper">
+        <p class="runtime"><%= @info["Runtime"] %></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sub-info">
+    <p><span>Genre:</span> <%= @info["Genre"] %></p>
+    <p><span>Director:</span> <%= @info["Director"] %></p>
+    <p><span>Starring:</span> <%= @info["Actors"] %></p>
+    <p><span>Plot:</span> <%= @info["Plot"] %></p>
+  </div>
+
+</section>
+
+<script>
+
+  form = document.getElementsByTagName('form')[0];
+  section = document.getElementsByTagName('section')[0];
+  params = "<%= @params[:title] %>";
+  info = "<%= @info["Response"] %>";
+
+  if (params.length === 0) {
+    section.innerHTML = "";
+  } else if (info === "False") {
+    section.innerHTML = "<p>Movie not found</p>";
+  } else {
+    form.innerHTML = "";
+  }
+
+</script>
