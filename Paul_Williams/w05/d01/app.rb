@@ -35,6 +35,11 @@ get '/history' do
   erb :history
 end
 
+get '/clear' do
+  File.open("search_history.txt", 'w') { |f| f << "" }
+  redirect "/history"
+end
+
 =begin
 ### Movies_2
 * A more advanced version of the Movies Sinatra App
