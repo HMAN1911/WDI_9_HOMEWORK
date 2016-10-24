@@ -1,0 +1,16 @@
+<div class="result-box" class="clearfix" id="shadow">
+
+  <h1>Films:</h1>
+
+  <% @movies.each do |movie|   %>
+
+    <p>
+      <a href='/detail?imdbID=<%=movie['imdbID']
+      %>' title="<%= movie['imdbID'] %>">
+        <%= movie['Title']%></a>
+        (<%= movie['Year']%>)
+    </p>
+  <%end%>
+
+
+</div>
