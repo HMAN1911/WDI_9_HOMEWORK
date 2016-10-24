@@ -1,0 +1,44 @@
+<div> </div>
+
+<div class = 'title'><%= @title %></div>
+<h3>directed by</h3>
+<div class = 'director'><%= @director %></div>
+
+<div class = "wrapper">
+
+<div class = "posterContainer">
+  <img class = "poster" src= <%= @poster %> alt="poster for movie">
+  </div>
+  <div> </div>
+
+  <div class = 'container' class = 'rows' >
+
+    <div class = 'row'>Year: <%= @year %>  Rated: <%= @rated %>  Genre: <%= @genre %></div>
+    <div class = 'row'> Runtime: <%= @runtime %></div>
+    <div class = 'row'>Starring: <br> <%= @actors %></div>
+    <div class = 'row'>Awards:  <br> <%= @awards %></div>
+    <div class = 'row'>Written by:  <br> <%= @writer %></div>
+    <div class = 'row'>Language: <%= @language %> Country: <%= @country %>  Released: <%= @released %></div>
+    <div class = 'row'>imdb rating: <%= @imdbRating %>  Metascore: <%= @metascore %>  imdb ID: <%= @imdbID %></div>
+    <div class = 'row'>The Plot:  <br> <%= @plot %></div>
+
+  </div>
+</div>
+
+
+<div class="about">
+
+  <h2>Is that the right movie? </h2>
+  <h3>If not, you can search again, or it may be listed below as a similar title:</h3>
+  <ol>
+    <% @all_results.each do |result| %>
+      <tr>
+        <td>
+          <li>
+            <a href="/about?title=<%= result %>"><%= result %></a>
+          </li>
+        </td>
+      </tr>
+      <% end %>
+  </ol>
+</div>
