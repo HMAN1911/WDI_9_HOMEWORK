@@ -1,0 +1,79 @@
+
+
+<div class="result-box" class="clearfix" id="shadow">
+
+  <div class="poster">
+
+    <h2><%= @detail['Title'] %></h2>
+    <img src="<%= @detail['Poster'] %>"/>
+    <h3><%="Metascore: #{@detail['Metascore']}"%></h3>
+
+    <% if @meta_score != false %>
+
+      <% if @meta_score >= 70 || @meta_score <= 60 %>
+        <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score >= 80 || @meta_score <= 50 %>
+        <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score >= 90 || @meta_score <= 40 %>
+        <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+      <% if @meta_score > 99 || @meta_score <= 20%>
+        <img class='thumb' src="<%= @meta_thumb%>"/>
+      <% end %>
+
+    <% end %>
+
+    <h3><%="IMDB Rating: #{@detail['imdbRating']}"%></h3>
+
+    <% if @imdb_score != false %>
+
+      <% if @imdb_score >= 7.0 || @imdb_score <= 6.0 %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @imdb_score >= 8.0 || @imdb_score <= 5.0 %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @imdb_score >= 9.0 || @imdb_score <= 4.0 %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+      <% if @imdb_score > 9.9 || @imdb_score <= 2.0 %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+
+    <% end %>
+
+
+  </div>
+
+  <div class="movie-description">
+
+    <% @detail.each do |key, value| %>
+
+      <% if key.downcase == 'title'%>
+      <% elsif key.downcase == 'poster'%>
+      <% elsif key.downcase == 'imdbid'%>
+      <% elsif key.downcase == 'type'%>
+      <% elsif key.downcase == 'response'%>
+      <% elsif key.downcase == 'imdbvotes'%>
+      <% elsif key.downcase == 'metascore'%>
+      <% elsif key.downcase == 'imdbrating'%>
+
+      <% else %>
+        <p><b><%= key.to_s%></b>: <%= value%></p>
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+
+
+</div>
