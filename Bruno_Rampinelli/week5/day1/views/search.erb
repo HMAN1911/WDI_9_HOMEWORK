@@ -1,0 +1,6 @@
+<ul>
+  <% @all_movies.each do |movie| %>
+    <li id ="movies_list"> <%= movie %></li>
+    <a href="/result?title=<%= movie %>">movie</a>
+  <% end %>
+</ul>
