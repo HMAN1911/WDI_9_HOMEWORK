@@ -4,5 +4,8 @@
   <a href="<%= @post['image_url'] %>"><img src="<%= @post['image_url'] %>" alt="<%= @post['caption'] %>" /></a>
 </div>
 <div>
-  <a href="/posts/<%= @post['id'] %>/edit">Edit</a>
+  <a href="/posts/<%= @post['id'] %>/edit">Edit</a> |
+  <form action="/posts/<%= @post['id'] %>/delete" method="post">
+    <button>Delete post</button>
+  </form>
 </div>

@@ -70,3 +70,12 @@ post '/posts/:id' do
   ")
   redirect to "/posts/#{params[:id]}"
 end
+
+# delete post
+post '/posts/:id/delete' do
+  run_sql("
+    DELETE FROM posts
+    WHERE id = #{params[:id]}
+  ")
+  redirect to '/'
+end
