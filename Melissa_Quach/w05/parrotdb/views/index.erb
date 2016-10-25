@@ -1,0 +1,7 @@
+<h2>All submissions</h2>
+<% @gifs.each do |gif| %>
+  <div class="post">
+    <img src="<%= gif['image_url'] %>" alt="<%= gif['caption']%>" />
+    <div class="caption"><%= gif['caption'] %></div>
+  </div>
+<% end %>
