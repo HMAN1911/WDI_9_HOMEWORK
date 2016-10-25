@@ -1,0 +1,8 @@
+<section class="history">
+  <h2>Your naughty search history</h2>
+  <ul>
+    <% @search_history.each do |record| %>
+        <li><%= record['search'] %></li>
+    <% end %>
+  </ul>
+</section>

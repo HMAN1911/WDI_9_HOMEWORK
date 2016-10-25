@@ -1,0 +1,222 @@
+body {
+  background: black;
+  color:white;
+  font: normal 16px Helvetica
+}
+
+header {
+  padding: 10px;
+}
+
+.history-link, .my-movies-link {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  font-size: 16px;
+}
+
+.history-link {
+  top: 60px;
+}
+
+form {
+  text-align: left;
+  width: 500px;
+  margin: 0 auto;
+}
+
+form ul li:last-child {
+  text-align: right;
+}
+
+form li input, .search input {
+  width: 100%;
+  display: block;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 24px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white;
+  border: 3px solid white;
+}
+
+.search input {
+  text-align: center;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+select {
+  margin-left:10px;
+  border: none;
+  width: 50px;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+}
+label {
+  font-size: 24px;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+footer {
+  height: 50px;
+  line-height: 3;
+  text-align: center;
+}
+
+table {
+  table-layout: fixed;
+  width: 500px;
+  /*margin: 0 auto;*/
+  /*padding-left: 50px;*/
+  text-align: left;
+  margin-left: 250px;
+}
+
+td {
+  word-wrap: break-word;
+  padding-bottom: 10px;
+}
+
+img {
+  border-radius: 10px;
+  border: 3px solid white;
+}
+
+.results img {
+  margin-bottom: 30px;
+  width: 300px;
+  height: 450px;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+/*.results, .list, .history, my {
+  margin: 50px 0;
+}*/
+
+.first-col {
+  width: 20%;
+}
+
+.second-col {
+  width: 80%;
+}
+
+.results {
+  padding-top: 30px;
+  width: 800px;
+  margin: 0 auto;
+  display: none;
+}
+
+.add-button {
+  font-size: 16px;
+}
+
+.search {
+  margin-bottom: 50px;
+}
+
+header input[type="text"] {
+  font-size: 24px;
+  background: none;
+  color: white;
+  border: none;
+  /*border-bottom: 2px solid white;*/
+  text-align: center;
+  letter-spacing: 3px;
+  width: 100%;
+  text-align: center;
+  /*padding-bottom: 20px;*/
+}
+
+input[type="text"]:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  display: none;
+}
+
+button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 24px;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+figure {
+  text-align: center;
+}
+
+ul p {
+  text-align: center;
+}
+
+.all-movies li {
+  display: inline-block;
+}
+
+.all-movies img {
+  width: 200px;
+  height: 300px;
+}
+
+.my-movies {
+  text-align: left;
+}
+
+.delete-btn {
+  color: red;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+   color: white;
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;
+   text-align: center;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+   text-align: center;
+}
+
+:-ms-input-placeholder {
+   color: white;
+   text-align: center;
+}
