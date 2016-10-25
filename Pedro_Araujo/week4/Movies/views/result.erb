@@ -1,0 +1,20 @@
+<div class="col-2"></div>
+<div class="col-3 col-m-4 side-poster">
+  <img class="img-poster"src="<%= @movie['Poster'] %>" alt="" />
+</div>
+
+<div class="col-5 col-m-7 movie-data">
+  <h3  class="movie-title"><%= @movie["Title"] %></h3>
+  <p>
+    <%= "<b>Type:</b> #{@movie['Type']}" %> <br>
+    <%= "<b>Year</b>: #{@movie['Year']}" %> <br>
+    <%= "<b>Genre</b>: #{@movie['Genre']}" %> <br>
+    <%= "<b>Director</b>: #{@movie['Director']}" %> <br>
+    <%= "<b>imdbRating</b>: #{@movie['imbdRating']}" %> <br>
+  </p>
+  <p>
+    <i><%= @movie['Plot'] %></i>
+  </p>
+</div>
+
+<div class="col-2 "></div>
