@@ -19,6 +19,7 @@ get '/' do
   @posts = run_sql("
     SELECT *
     FROM posts
+    ORDER BY id
   ")
 
   erb :index
@@ -47,4 +48,25 @@ get '/posts/:id' do
     WHERE id = #{params[:id]}
   ").first
   erb :post_show
+end
+
+# display edit form
+get '/posts/:id/edit' do
+  @post = run_sql("
+    SELECT *
+    FROM posts
+    WHERE id = #{params[:id]}
+  ").first
+  erb :post_edit
+end
+
+# save changes to post
+post '/posts/:id' do
+  run_sql("
+    UPDATE posts
+    SET image_url = '#{params[:image_url]}',
+      caption = '#{params[:caption]}'
+    WHERE id = #{params[:id]}
+  ")
+  redirect to "/posts/#{params[:id]}"
 end
