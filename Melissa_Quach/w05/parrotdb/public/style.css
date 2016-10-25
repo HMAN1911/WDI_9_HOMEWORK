@@ -33,6 +33,10 @@ main {
   padding: 10px 20px;
 }
 
+img {
+  max-width: 100%;
+}
+
 .post {
   width: 25%;
   display: inline-block;
@@ -61,7 +65,6 @@ main {
 }
 
 .post img {
-  width: 100%;
   margin-bottom: -5px;
 }
 

@@ -38,3 +38,13 @@ post '/posts' do
   ")
   redirect to '/'
 end
+
+# display post
+get '/posts/:id' do
+  @post = run_sql("
+    SELECT *
+    FROM posts
+    WHERE id = #{params[:id]}
+  ").first
+  erb :post_show
+end
