@@ -1,0 +1,9 @@
+<%= @landmark['name'] %>
+
+<img src="<%= @landmark['image_url'] %>">
+
+<a href="/landmarks/<%= @landmark['id'] %>/edit">edit</a>
+
+<form action="/landmarks/<%= @landmark['id'] %>/delete" method="post">
+  <button>delete</button>
+</form>

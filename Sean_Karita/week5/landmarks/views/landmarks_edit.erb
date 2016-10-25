@@ -1,0 +1,10 @@
+<h2>edit wall</h2>
+
+<form action="/landmarks/<%= @landmark['id'] %>" method="post">
+  <label for="">landmark name</label>
+  <input name="name" type="text" value="<%= @landmark['name'] %>">
+
+  <label for="">image url</label>
+  <textarea name="image_url" id="" cols="30" rows="10"><%= @landmark['image_url'] %></textarea>
+  <button>save</button>
+</form>
