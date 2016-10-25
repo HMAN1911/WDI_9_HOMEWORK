@@ -1,0 +1,9 @@
+<h2><%= @character['name']%></h2>
+<p>Gender: <%= @character['gender']%></p>
+<p>Age: <%= @character['age']%></p>
+
+<a href="/characters/<%= @character['id']%>/edit">Edit</a>
+
+<form action="/characters/<%= @character['id']%>/delete" method="post">
+  <button>Delete</button>
+</form>
