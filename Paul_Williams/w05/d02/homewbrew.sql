@@ -9,10 +9,10 @@ CREATE TABLE recipes (
   mash_time INT,
   hop_additions TEXT,
   ferment_temp INT,
-  OSG REAL,
-  FSG REAL,
-  ABV VARCHAR(5),
+  osg REAL,
+  fsg REAL,
+  abv VARCHAR(5),
   comments TEXT
 );
 
-INSERT INTO recipes (name, style, grain_bill, mash_temp, mash_time, hop_additions, ferment_temp, OSG, FSG, ABV) VALUES ('Brunswick Pale', 'American Pale Ale', 'Maris Otter Pilsner - 1kg, Crystal - 200g', 67, 60, '15g Cascade @ 60min, 15g Cascade @ 30min, 10g Citra @ 0min', 19, 1.023, 1.010, '5.0%');
+INSERT INTO recipes (name, style, grain_bill, mash_temp, mash_time, hop_additions, ferment_temp, osg, fsg, abv) VALUES ('Brunswick Pale', 'American Pale Ale', 'Maris Otter Pilsner - 1kg, Crystal - 200g', 67, 60, '15g Cascade @ 60min, 15g Cascade @ 30min, 10g Citra @ 0min', 19, 1.023, 1.010, '5.0%');
