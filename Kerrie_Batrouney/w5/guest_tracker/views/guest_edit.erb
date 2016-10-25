@@ -1,0 +1,27 @@
+<h2>Edit guest scores</h2>
+
+<form  action="/guests/<%= @guest['id']%>" method="post">
+  <label for="">Guest name</label>
+  <input type="text" name="name" value="<%= @guest['name'] %>">
+
+  <label for="">Phone number</label>
+  <input type="text" name="phone" value="<%= @guest['phone'] %>">
+
+  <label for="">Rating</label>
+  <input type="number" name="name" value="<%= @guest['rating'] %>">
+
+  <label for="">Group size</label>
+  <input type="number" name="name" value="<%= @guest['group_size'] %>">
+
+  <label for="">Cleanliness</label>
+  <input type="number" name="name" value="<%= @guest['cleanliness'] %>">
+
+  <label for="">Review_by_me</label>
+  <input type="number" name="name" value="<%= @guest['review_by_me'] %>">
+
+  <label for="">Review of house</label>
+  <input type="number" name="name" value="<%= @guest['review_of_house'] %>">
+
+
+  <button>save</button>
+</form>

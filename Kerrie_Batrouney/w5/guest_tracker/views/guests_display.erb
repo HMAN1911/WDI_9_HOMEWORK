@@ -1,0 +1,20 @@
+<p><%= @guest['name'] %><br>
+Phone number   : <%= @guest['phone'] %><br>
+Rating   :  <%= @guest['rating'] %><br>
+Group size    :  <%= @guest['group_size'] %><br>
+Cleanliness    :  <%= @guest['cleanliness'] %><br>
+
+
+
+
+
+
+
+
+
+
+<a href="/guests/<%= @guest['id'] %>/edit">edit</a>
+
+<form class="" action="/guests/<%= @guest['id']%>/delete" method="post">
+  <button>delete</button>
+</form>

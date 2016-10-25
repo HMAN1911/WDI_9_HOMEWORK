@@ -1,0 +1,5 @@
+<h2>All guests</h2>
+
+<% @guests.each do |guest| %>
+  <p> <a href="guests/<%= guest['id'] %>"> <%= guest['name'] %> </a>    Phone :   <%= guest['phone'] %>    Current rating :   <%= guest['rating'] %> </p>
+<%end%>
