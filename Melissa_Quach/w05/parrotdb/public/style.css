@@ -19,6 +19,15 @@ header {
   color: #FFF;
 }
 
+a {
+  color: #386110;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #71b62e;
+}
+
 header,
 main {
   padding: 10px 20px;

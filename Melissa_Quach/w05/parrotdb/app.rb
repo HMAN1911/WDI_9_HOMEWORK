@@ -12,11 +12,13 @@ def run_sql(sql)
   return result
 end
 
+# display all submissions
+# GET /
 get '/' do
   # Fetch gifs from DB
   @gifs = run_sql("
     SELECT *
-    FROM gifs
+    FROM posts
   ")
 
   erb :index
