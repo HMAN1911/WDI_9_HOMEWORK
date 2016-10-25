@@ -75,3 +75,8 @@ patch '/edit/:id' do
   WHERE id = #{ params[:id] };"
   redirect to "/recipe/#{ params[:id] }"
 end
+
+delete '/delete/:id' do
+  run_sql "DELETE FROM recipes WHERE id = '#{ params[:id] }';"
+  redirect to "/"
+end

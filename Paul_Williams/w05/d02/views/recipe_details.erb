@@ -12,3 +12,7 @@
 <p>Comments - <%= @recipe["comments"] %></p>
 
 <p><a href="/edit/<%= @recipe["id"] %>">edit</a></p>
+<form action="/delete/<%= @recipe["id"] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>delete</button>
+</form>
