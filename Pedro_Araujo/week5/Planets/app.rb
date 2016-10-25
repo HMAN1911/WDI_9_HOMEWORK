@@ -16,9 +16,14 @@ get '/' do
   erb :index
 end
 
+get '/new' do
+
+  erb :new_planet
+end
+
 get '/planets' do
   run_sql("INSERT INTO planets (name,moons,image_url,description) VALUES ('#{params[:name]}',#{params[:moons]} ,'#{params[:image_url]}','#{params[:description]}')")
-  erb :planets
+  redirect to '/'
 end
 
 get '/planet/:id' do
@@ -26,9 +31,14 @@ get '/planet/:id' do
   erb :planet
 end
 
-get '/new' do
+get '/planets/:id/edit' do
+  @planet = run_sql("SELECT * FROM planets WHERE id = #{params[:id]}")[0]
+  erb :edit_planet
+end
 
-  erb :new_planet
+post '/planets/:id/edit' do
+  run_sql("UPDATE planets SET name = '#{params[:name]}', image_url = '#{params[:image_url]}', moons = #{params[:moons]}, description = '#{params[:description]}' WHERE id = #{params[:id]} ;")
+  redirect to "/planet/#{params[:id]}"
 end
 
 post '/planets/:id/delete' do

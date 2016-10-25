@@ -1,9 +1,13 @@
 <div class="subtitle">
   <h2>List of Planets</h2>
 </div>
-binding.pry
+<div class="">
+
+
 <% @planets.each do |planet| %>
-  <div class="planet-div">
+
+
+  <div class="planet-div col-6 col-m-6">
     <h3><%= planet["name"] %></h3>
     <a href="/planet/<%= planet['id'] %>"><img  class="planet" src="<%= planet['image_url'] %>" alt="" /></a>
     <p>
@@ -11,4 +15,7 @@ binding.pry
       Moons: <%= planet["moons"] %>
     </p>
   </div>
+
+
 <% end %>
+</div>

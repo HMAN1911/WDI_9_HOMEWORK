@@ -1,12 +1,24 @@
-* {
-    box-sizing: border-box;
+body {
+  background-image: url("../images/background.jpg");
+  background-size: initial;
+  color: white;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 .header {
-  text-align: center; 
+  text-align: center;
 }
 
 .subtitle {
+  text-align: center;
+}
 
+.planet-div{
+  text-align: center;
+  float: left;
 }
 
 .planet {
@@ -14,9 +26,24 @@
   width: 400px;
   height: 400px;
 }
+
 .button-div {
   display: inline-block;
+}
 
+.new-edit-form {
+  width: auto;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.form-div {
+  text-align: center;
+}
+
+.form-item {
+  display: block;
+  text-align: left;
 }
 
 
