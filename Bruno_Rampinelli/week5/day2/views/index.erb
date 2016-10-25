@@ -1,0 +1,15 @@
+<h2>Players</h2>
+
+<% @players.each do |player| %>
+
+<h3> <%= player['name'] %> </h3>
+
+<img src="<%= player['image_url'] %>"
+
+<p>
+
+  <%= player['position'] %>
+  <%= player['nationality'] %>
+</p>
+
+<% end %>
