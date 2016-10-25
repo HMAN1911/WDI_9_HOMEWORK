@@ -7,6 +7,6 @@ CREATE TABLE gifs (
 );
 
 INSERT INTO gifs (image_url, caption) VALUES
-  ('http://i.imgur.com/Wg2BX6E.gifv', 'Got that swagger'),
-  ('http://i.imgur.com/zoTgDB7.gifv', 'Bunny parrot'),
-  ('http://i.imgur.com/sfvPq9R.gifv', 'Decaf parrot');
+  ('http://i.imgur.com/Wg2BX6E.gif', 'Got that swagger'),
+  ('http://i.imgur.com/zoTgDB7.gif', 'Bunny parrot'),
+  ('http://i.imgur.com/sfvPq9R.gif', 'Decaf parrot');
