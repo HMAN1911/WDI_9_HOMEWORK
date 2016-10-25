@@ -1,6 +1,7 @@
 <h2>edit recipe</h2>
 
-<form action="/edit/<%= @recipe["id"] %>" method="patch">
+<form action="/edit/<%= @recipe["id"] %>" method="post">
+  <input type="hidden" name="_method" value="patch">
   <p>Name</p><input name="name" type="text" value="<%= @recipe["name"] %>">
   <p>Style</p><input name="style" type="text" value="<%= @recipe["style"] %>">
   <p>Grain Bill</p><input name="grain_bill" type="text" value="<%= @recipe["grain_bill"] %>">
