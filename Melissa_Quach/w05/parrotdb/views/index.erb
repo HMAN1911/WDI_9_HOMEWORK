@@ -1,10 +1,10 @@
 <h2>All submissions</h2>
 <div>
-  <a href="/gifs/new">Create new post</a>
+  <a href="/posts/new">Create new post</a>
 </div>
-<% @gifs.each do |gif| %>
+<% @posts.each do |post| %>
   <div class="post">
-    <img src="<%= gif['image_url'] %>" alt="<%= gif['caption']%>" />
-    <div class="caption"><%= gif['caption'] %></div>
+    <img src="<%= post['image_url'] %>" alt="<%= post['caption']%>" />
+    <div class="caption"><%= post['caption'] %></div>
   </div>
 <% end %>

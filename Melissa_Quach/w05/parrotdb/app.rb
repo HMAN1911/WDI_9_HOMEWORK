@@ -15,11 +15,26 @@ end
 # display all submissions
 # GET /
 get '/' do
-  # Fetch gifs from DB
-  @gifs = run_sql("
+  # Fetch posts from DB
+  @posts = run_sql("
     SELECT *
     FROM posts
   ")
 
   erb :index
+end
+
+# display submission form
+# GET /gifs/new
+get '/posts/new' do
+  erb :post_new
+end
+
+# create new post
+post '/posts' do
+  run_sql("
+    INSERT INTO posts (image_url, caption)
+    VALUES ('#{params[:image_url]}', '#{params[:caption]}')
+  ")
+  redirect to '/'
 end
