@@ -9,3 +9,18 @@
     <button>Delete post</button>
   </form>
 </div>
+
+<script>
+  var $form = $('form');
+  $form.submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: '/posts/<%= @post['id'] %>',
+      method: 'DELETE'
+    })
+    .done(function(res) {
+      // Client side redirect to home
+      window.location.href = '/';
+    })
+  });
+</script>

@@ -61,7 +61,7 @@ get '/posts/:id/edit' do
 end
 
 # save changes to post
-post '/posts/:id' do
+put '/posts/:id' do
   run_sql("
     UPDATE posts
     SET image_url = '#{params[:image_url]}',
@@ -72,7 +72,7 @@ post '/posts/:id' do
 end
 
 # delete post
-post '/posts/:id/delete' do
+delete '/posts/:id' do
   run_sql("
     DELETE FROM posts
     WHERE id = #{params[:id]}

@@ -6,3 +6,22 @@
   <input name="caption" type="text" value="<%= @post['caption'] %>">
   <button>Save changes</button>
 </form>
+
+<script>
+  var $form = $('form');
+  $form.submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      url: '/posts/<%= @post['id'] %>',
+      method: 'PUT',
+      data: {
+        image_url: $('textarea').val(),
+        caption: $('input[name="caption"]').val()
+      }
+    })
+    .done(function(res) {
+      // Client side redirect to home
+      window.location.href = '/posts/<%= @post['id'] %>';
+    });
+  });
+</script>
