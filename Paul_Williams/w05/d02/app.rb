@@ -11,6 +11,11 @@ def run_sql sql
 end
 
 get '/' do
-  @recipes = run_sql "SELECT name, style, abv FROM recipes;"
+  @recipes = run_sql "SELECT name, style, abv, id FROM recipes;"
   erb :index
+end
+
+get '/:id' do
+  @recipe = run_sql("SELECT * FROM recipes WHERE id = #{ params[:id] };")[0]
+  erb :recipe_details
 end
