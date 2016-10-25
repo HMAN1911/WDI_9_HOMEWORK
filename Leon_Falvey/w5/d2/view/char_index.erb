@@ -1,0 +1,10 @@
+<h2>All Characters</h2>
+
+<hr>
+<% @all_char.each do |char| %>
+<h3>Name: <%= char['name'] %></h3>
+<p>Race: <%= char['race'] %></p>
+<p>Class: <%= char['class'] %></p>
+<p>Favourite Hat: <%= char['fav_hat'] %></p>
+<hr>
+<% end %>
