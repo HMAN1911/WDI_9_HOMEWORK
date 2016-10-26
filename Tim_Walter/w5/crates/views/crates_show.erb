@@ -1,0 +1,23 @@
+<h2>YOUR SELECTION</h2>
+
+<div class="the-record">
+  <h3 class="fade"><span>
+  <!-- <a href="/crates/<%= @record['id'] %>/edit"> <%= @record['name'] %></a> </span></h3> -->
+  <a href="/"> <%= @record['artist'] %></a>
+
+  <a href="/"> <%= @record['title'] %></a>
+
+  </span></h3>
+
+  <img src="<%= @record['image_url'] %>" alt="" />
+
+
+</div>
+
+<form class="" action="/crates/<%= @record['id'] %>/delete" method="post">
+  <button id="delete">DELETE</button>
+</form>
+
+<form class="" action="/crates/<%= @record['id'] %>/edit" method="get">
+      <button>EDIT</button>
+</form>
