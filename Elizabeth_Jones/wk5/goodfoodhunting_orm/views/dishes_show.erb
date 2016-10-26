@@ -1,0 +1,9 @@
+<%= @dish.name %>
+
+<img src="<%= @dish.image_url %>" alt="" />
+
+<a href="/dishes/<%= @dish.id %>/edit">Edit</a>
+
+<form action="/dishes/<%= @dish.id %>/delete" method="post">
+  <button>delete</button>
+</form>
