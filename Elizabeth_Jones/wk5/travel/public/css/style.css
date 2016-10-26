@@ -1,0 +1,113 @@
+/*
+font-family: 'Inconsolata', monospace;
+font-family: 'Oxygen', sans-serif;
+font-family: 'Varela Round', sans-serif;
+font-family: 'Pacifico', cursive;
+font-family: 'Maven Pro', sans-serif;
+font-family: 'Lobster Two', cursive;
+font-family: 'Covered By Your Grace', cursive;
+font-family: 'Didact Gothic', sans-serif;
+*/
+
+
+body{
+  max-width: 100%;
+  background: rgba(37,65,107,1);
+  background: -moz-linear-gradient(top, rgba(37,65,107,1) 0%, rgba(252,238,171,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(37,65,107,1)), color-stop(100%, rgba(252,238,171,1)));
+  background: -webkit-linear-gradient(top, rgba(37,65,107,1) 0%, rgba(252,238,171,1) 100%);
+  background: -o-linear-gradient(top, rgba(37,65,107,1) 0%, rgba(252,238,171,1) 100%);
+  background: -ms-linear-gradient(top, rgba(37,65,107,1) 0%, rgba(252,238,171,1) 100%);
+  background: linear-gradient(to bottom, rgba(37,65,107,1) 0%, rgba(252,238,171,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25416b', endColorstr='#fceeab', GradientType=0 );
+  font-family: arial;
+}
+
+html, body {
+  margin:0;
+  padding:0;
+}
+
+nav{
+  text-align:left;
+  background-color: white;
+  font-family: 'Covered By Your Grace', cursive;
+  font-size: 30px;
+  position:fixed;
+  width:100%;
+  margin:0;
+  padding:15px;
+}
+
+h1{
+  margin:0;
+  margin-bottom: -15px;
+  margin-left: 30px;
+}
+
+.menu{
+  display: inline-block;
+}
+
+nav a{
+  font-family: 'Covered By Your Grace', cursive;
+  font-size:18px;
+  text-align: right;
+  margin-left: 190px;
+
+}
+
+.spacer
+{
+    width: 100%;
+    height: 160px;
+}
+
+label{
+  display:block;
+}
+
+img{
+  border-radius: 20px
+}
+
+/*INDEX PAGE*/
+
+.index-wrapper{
+  max-width: 100%;
+  margin:0 auto;
+  text-align: center;
+  margin-bottom: 200px;
+}
+
+.post{
+  background-color: white;
+  padding:20px;
+  display:inline-block;
+  -webkit-box-shadow: 4px 4px 14px 0px rgba(50, 50, 50, 0.47);
+  -moz-box-shadow:    4px 4px 14px 0px rgba(50, 50, 50, 0.47);
+  box-shadow:         4px 4px 14px 0px rgba(50, 50, 50, 0.47);
+  border-radius: 2px;
+}
+
+.image{
+  max-width: 600px;
+  min-height: 480px;
+}
+
+#location{
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Covered By Your Grace', cursive;
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+/*ADD ENTRY PAGE*/
+
+.new-entry{
+  
+}
