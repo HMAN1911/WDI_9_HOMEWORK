@@ -187,6 +187,11 @@ ul p {
 .all-movies img {
   width: 200px;
   height: 300px;
+  transition: all .2s ease-in-out;
+}
+
+.all-movies img:hover {
+  transform: scale(1.1);
 }
 
 .my-movies {

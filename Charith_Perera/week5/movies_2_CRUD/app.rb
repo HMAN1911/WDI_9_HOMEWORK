@@ -11,6 +11,14 @@ def run_sql(sql)
   results
 end
 
+def get_movie(search)
+  movie_search = search
+  movie_title = movie_search[0..movie_search.length-5]
+  movie_year =  movie_search[movie_search.length-4..-1]
+  safeURI = URI.escape("http://omdbapi.com/?t=#{movie_title}&y=#{movie_year}")
+  result = HTTParty.get(safeURI)
+end
+
 get '/' do
   @placeholder = "<Find New Movie>"
   redirect to '/my-movies'
@@ -31,12 +39,8 @@ get '/search' do
 end
 
 get '/movie/:title' do
-  movie_search = params[:title]
-  movie_title = movie_search[0..movie_search.length-5]
-  movie_year =  movie_search[movie_search.length-4..-1]
-  @placeholder = movie_title
-  safeURI = URI.escape("http://omdbapi.com/?t=#{movie_title}&y=#{movie_year}")
-  @result = HTTParty.get(safeURI)
+  @placeholder = "<Find New Movie>"
+  @result = get_movie(params[:title])
   if @result["Response"] == "False"
     redirect to "/"
   else
@@ -60,11 +64,7 @@ end
 
 get '/add-movie/:title' do
   @placeholder = "<Find New Movie>"
-  movie_search = params[:title]
-  movie_title = movie_search[0..movie_search.length-5]
-  movie_year =  movie_search[movie_search.length-4..-1]
-  safeURI = URI.escape("http://omdbapi.com/?t=#{movie_title}&y=#{movie_year}")
-  @result = HTTParty.get(safeURI)
+  @result = get_movie(params[:title])
   posterUrl = @result["Poster"]
   posterUrl == "N/A" ? @posterSrc = "https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97450&w=300&h=450" : @posterSrc = posterUrl
   erb :add_movie

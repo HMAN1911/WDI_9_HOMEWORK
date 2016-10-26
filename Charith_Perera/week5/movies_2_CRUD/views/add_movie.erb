@@ -11,18 +11,16 @@
         <label for="">
           Review
           <!-- <textarea name="review" id="" cols="30" rows="5">Your review here..</textarea> -->
-          <input type="text" name="review" maxlength="35">
+          <input type="text" name="review" maxlength="40">
         </label>
       </li>
       <li>
         <label for="">
           Rating
           <select name="stars" id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <% 1.upto(5) do |count|  %>
+            <option value="<%= count %>"><%= count %></option>
+            <% end %>
           </select>
         </label>
       </li>

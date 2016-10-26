@@ -1,3 +1,5 @@
+<h1><%= @result['Title'] %></h1>
+<h2><%= @result['Year'] %></h2>
 <button class="add-button"><a href="/add-movie/<%= @result['Title'] %><%= @result['Year'] %>">Add to Movies</a></button>
 <section class="results">
   <img src="<%= @posterSrc %>" alt="">
