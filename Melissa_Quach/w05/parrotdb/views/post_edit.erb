@@ -1,27 +1,9 @@
 <h2>Edit post</h2>
 <form action="/posts/<%= @post['id'] %>" method="post">
+  <input type="hidden" name="_method" value="put" />
   <label for="">Image URL</label>
   <textarea name="image_url" id="" cols="30" rows="5"><%= @post['image_url'] %></textarea>
   <label for="">Caption</label>
   <input name="caption" type="text" value="<%= @post['caption'] %>">
   <button>Save changes</button>
 </form>
-
-<script>
-  var $form = $('form');
-  $form.submit(function(e) {
-    e.preventDefault();
-    $.ajax({
-      url: '/posts/<%= @post['id'] %>',
-      method: 'PUT',
-      data: {
-        image_url: $('textarea').val(),
-        caption: $('input[name="caption"]').val()
-      }
-    })
-    .done(function(res) {
-      // Client side redirect to home
-      window.location.href = '/posts/<%= @post['id'] %>';
-    });
-  });
-</script>
