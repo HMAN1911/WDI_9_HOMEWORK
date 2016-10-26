@@ -46,8 +46,31 @@ post '/guests/:id' do
   # sql statement
   # params.inspect
   # return params[:name], params[:phone]
-  run_sql("UPDATE guests SET (name = '#{params[:name]}', phone = '#{params[:phone]}', rating = #{params[:rating]}, group_size = #{params[:group_size]}, cleanliness = #{params[:cleanliness]}, review_by_me = #{params[:review_by_me]}, review_of_house = #{params[:review_of_house]} WHERE id = #{params[:id]}); ")
+
+  #
+  # query = "UPDATE guests SET "
+  #   + "name = '#{params[:name]}', "
+  #   + "phone = '#{params[:phone]}', "
+  #   + "rating = #{params[:rating]}, "
+  #   + "group_size = #{params[:group_size]}, "
+  #   + "cleanliness = #{params[:cleanliness]}, "
+  #   + "review_by_me = #{params[:review_by_me]}, "
+  #   + "review_of_house = #{params[:review_of_house]}, "
+  #   + "comments = '#{params[:comments]}' "
+  #   + "WHERE id = #{params[:id]}; "
+  #
+  #   run_sql(query)
+
+  run_sql("UPDATE guests SET name = '#{params[:name]}', phone = '#{params[:phone]}', rating = #{params[:rating]}, group_size = #{params[:group_size]}, cleanliness = #{params[:cleanliness]}, review_by_me = #{params[:review_by_me]}, review_of_house = #{params[:review_of_house]}, comments = '#{params[:comments]}' WHERE id = #{params[:id]}; ")
+  
   redirect to "/guests/#{params[:id]}"
+
+  # "update guests set name='harry', phone='44124',group_size='34',cleanliness='5',review_by_me='5',review_of_house='4',comments='yes' where id='1';"
+
+
+
+
+
 end
 
 # delete an existing guest

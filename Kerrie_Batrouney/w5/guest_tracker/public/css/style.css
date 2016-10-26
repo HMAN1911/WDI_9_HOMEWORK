@@ -1,0 +1,45 @@
+html {
+  background-color: black;
+  color: white;
+
+}
+body{
+  width:80%;
+}
+h1{
+  font-size: 30px;
+}
+
+h2{
+  font-size: 25px;
+}
+label {
+font-size: 18px; 
+}
+
+input {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+}
+
+.name_input {
+  width:200px;
+  height: 30px;
+
+}
+
+.pnum_input{
+  width:120px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.num_input {
+  width: 50px;
+  height: 30px;
+
+}
+.comm_input {
+
+}

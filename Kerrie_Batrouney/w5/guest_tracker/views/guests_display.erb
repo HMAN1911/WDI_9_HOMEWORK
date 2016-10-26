@@ -3,17 +3,12 @@ Phone number   : <%= @guest['phone'] %><br>
 Rating   :  <%= @guest['rating'] %><br>
 Group size    :  <%= @guest['group_size'] %><br>
 Cleanliness    :  <%= @guest['cleanliness'] %><br>
+Review on Airbnb by me    :  <%= @guest['review_by_me'] %><br>
+review on Airbnb of house    :  <%= @guest['review_of_house'] %><br>
+Comment    :  <%= @guest['comment'] %></p><br><br>
 
 
-
-
-
-
-
-
-
-
-<a href="/guests/<%= @guest['id'] %>/edit">edit</a>
+<a href="/guests/<%= @guest['id'] %>/edit">edit</a><br><br>
 
 <form class="" action="/guests/<%= @guest['id']%>/delete" method="post">
   <button>delete</button>
