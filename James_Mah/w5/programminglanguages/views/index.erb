@@ -1,0 +1,7 @@
+<h2><a href="/new">Add New</a></h2>
+<% @programminglanguages.each do |programminglanguage| %>
+  <a href="/<%= programminglanguage['name'] %>"><div class="minibox">
+    <img src="<%= programminglanguage['icon_url'] %>" alt="">
+    <p><%= programminglanguage['name'] %></p>
+  </div></a>
+<% end %>
