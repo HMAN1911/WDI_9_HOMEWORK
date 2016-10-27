@@ -1,37 +1,37 @@
-<h2 class="title"><%= @movie["Title"] %></h2>
+<h2 class="title"><%= @movie.title %></h2>
 <section class="details">
   <h3>Details</h3>
   <dl>
     <dt>Plot</dt>
-    <dd><%= @movie["Plot"] %></dd>
+    <dd><%= @movie.plot %></dd>
   </dl>
   <h3>Crew</h3>
   <dl>
     <dt>Directed by</dt>
-    <dd><%= @movie["Director"] %></dd>
+    <dd><%= @movie.director %></dd>
     <dt>Writers</dt>
-    <dd><%= @movie["Writer"] %></dd>
+    <dd><%= @movie.writer %></dd>
     <dt>Actors</dt>
-    <dd><%= @movie["Actors"] %></dd>
+    <dd><%= @movie.actor %></dd>
   </dl>
   <h3>Critical reception</h3>
   <dl>
     <dt>Awards</dt>
-    <dd><%= @movie["Awards"] %></dd>
+    <dd><%= @movie.awards %></dd>
     <dt>Metascore</dt>
-    <dd><%= @movie["Metascore"] %></dd>
+    <dd><%= @movie.metascore %></dd>
     <dt>IMDb rating</dt>
-    <dd><%= "#{@movie["imdbRating"]} (#{@movie["imdbVotes"]} votes)"%></dd>
+    <dd><%= "#{@movie.imdb_rating}"%></dd>
   </dl>
 </section>
 <section class="stub">
-  <img src="<%= @movie["Poster"] %>" alt="poster" />
+  <img src="<%= @movie.poster %>" alt="poster" />
   <dl>
     <dt>Released</dt>
-    <dd><%= @movie["Released"] %></dd>
+    <dd><%= @movie.released %></dd>
     <dt>Genre</dt>
-    <dd><%= @movie["Genre"] %></dd>
+    <dd><%= @movie.genre %></dd>
     <dt>Runtime</dt>
-    <dd><%= @movie["Runtime"] %></dd>
+    <dd><%= @movie.runtime %></dd>
   </dl>
 </section>

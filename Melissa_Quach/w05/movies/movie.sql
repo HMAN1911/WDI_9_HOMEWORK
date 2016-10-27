@@ -11,8 +11,6 @@ CREATE TABLE movies (
   writer TEXT,
   actor TEXT,
   plot TEXT,
-  language TEXT,
-  country VARCHAR(255),
   awards VARCHAR(255),
   poster VARCHAR(255),
   metascore DECIMAL,

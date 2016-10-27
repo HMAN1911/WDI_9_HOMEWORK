@@ -42,7 +42,28 @@ end
 
 get '/info' do
   @query = params[:title]
-  @movie = HTTParty.get("http://omdbapi.com/?t=#{@query}")
+  # Load movie data from local DB if exists
+  @movie = Movie.find_by(title: params[:title])
+  # If movie not found, load OMDB API data
+  # and save to local database
+  if !@movie
+    result = HTTParty.get("http://omdbapi.com/?t=#{@query}")
+    @movie = Movie.new
+    @movie.title = result['Title']
+    @movie.plot = result['Plot']
+    @movie.director = result['Director']
+    @movie.writer = result['Writer']
+    @movie.actor = result['Actors']
+    @movie.awards = result['Awards']
+    @movie.metascore = result['Metascore']
+    @movie.imdb_rating = result['imdbRating']
+    @movie.poster = result['Poster']
+    @movie.released = result['Released']
+    @movie.genre = result['Genre']
+    @movie.runtime = result['Runtime']
+    @movie.save
+  end
+
   erb :about
 end
 
