@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+require 'PG'
 
 
 get '/' do
@@ -29,6 +30,17 @@ get '/about' do
     # end
   end
   erb :about
+end
+
+get '/details' do
+  @movie_name = params[:movie]
+  @result = HTTParty.get('http://omdbapi.com/?s=' + @movie_name)
+  @details = result["Search"]
+  if @details.length == 1
+    redirect to "/about?movie=#{@movie_name}"
+  else
+    erb :details
+  end
 end
 
 # get 'index' do

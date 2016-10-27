@@ -1,0 +1,6 @@
+<h2>all landmarks</h2>
+
+<% @landmarks.each do |landmark| %>
+  <p><a href="/landmarks/<%=landmark['id']%>"><%= landmark['name'] %></a></p>
+  <img src="<%= landmark['image_url'] %>" alt="">
+<% end %>

@@ -8,18 +8,17 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="wrapper">
-    <div class="header">
-      <h1>My Movie List</h1>
-    </div>
-
-      <form action="/about" method="get">
-        <input class="form" name="movie" type="text">
-        <button class="search">search movie</button>
-      </form>
-
-      <%= yield %>
-    <footer></footer>
+  <div class="header">
+    <h2>Search Matches</h2>
+  </div>
+  <div class="matches">
+    <% i = 0 %>
+    <% @details.each do |result| %>
+    <% i = i + 1 %>
+    <%= i %>
+    <a href="/about?movie<%= result["Title"]%>"><%=result["Title"]%><%=result["Year"]%></a>
+    <hr>
+    <% end %>
   </div>
 
 </body>
