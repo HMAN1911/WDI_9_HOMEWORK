@@ -20,7 +20,7 @@ CREATE TABLE titles (
   imdbRating VARCHAR(8),
   imdbVotes VARCHAR(10),
   imdbID VARCHAR(20),
-  Type VARCHAR(20),
+  filmtype VARCHAR(20),
   Response VARCHAR(10)
 );
 
