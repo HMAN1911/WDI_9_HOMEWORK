@@ -1,0 +1,12 @@
+<h2>All submissions</h2>
+<div>
+  <a href="/posts/new">Create new post</a>
+</div>
+<% @posts.each do |post| %>
+  <a href="/posts/<%= post['id'] %>">
+    <div class="post">
+      <img src="<%= post['image_url'] %>" alt="<%= post['caption']%>" />
+      <div class="caption"><%= post['caption'] %></div>
+    </div>
+  </a>
+<% end %>
