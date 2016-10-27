@@ -1,0 +1,24 @@
+<section class="search">
+  <form action="/find">
+    <input type="text" placeholder="<%= @result['Title'] %>" name="find-movie" autocomplete="off" required>
+    <!-- <input type="submit" value="Search"> -->
+  </form>
+</section>
+
+<section class="results">
+  <img src="<%= @posterSrc %>" alt="">
+  <table>
+    <thead>
+      <tr>
+        <th class="first-col"></th>
+        <th class="second-col"></th>
+      </tr>
+    </thead>
+    <% @result.each do |key,value| %>
+    <tr>
+      <td class="first-col"><%= key %></td>
+      <td class="second-col"><%= value %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>

@@ -1,0 +1,20 @@
+<h1><%= @result['Title'] %></h1>
+<h2><%= @result['Year'] %></h2>
+<button class="add-button"><a href="/add-movie/<%= @result['Title'] %><%= @result['Year'] %>">Add to Movies</a></button>
+<section class="results">
+  <img src="<%= @posterSrc %>" alt="">
+  <table>
+    <thead>
+      <tr>
+        <th class="first-col"></th>
+        <th class="second-col"></th>
+      </tr>
+    </thead>
+    <% @result.each do |key,value| %>
+    <tr>
+      <td class="first-col"><%= key %></td>
+      <td class="second-col"><%= value %></td>
+    </tr>
+    <% end %>
+  </table>
+</section>

@@ -1,0 +1,30 @@
+<section class="edit-movie">
+  <h1><%= @result['title'] %></h1>
+  <h2><%= @result['year'] %></h2>
+  <img src="<%= @result['image_url'] %>" alt="">
+  <form action="/edit-movie/<%= @result['id'] %>" method="post">
+    <ul>
+      <li>
+        <label for="">
+          Review
+          <!-- <textarea name="review" id="" cols="50" rows="5" maxlength="20"><%= @result['review'] %></textarea> -->
+          <input type="text" name="review" maxlength="40" value="<%= @result["review"] %>">
+        </label>
+      </li>
+      <li>
+        <label for="">
+          Rating
+          <select name="stars" id="">
+            <% 1.upto(5) do |count|  %>
+            <option value="<%= count %>"><%= count %></option>
+            <% end %>
+          </select>
+        </label>
+      </li>
+      <li>
+        <button class="delete-btn" formaction="/delete-movie/<%= @result['id'] %>">Delete</button>
+        <button>Update</button>
+      </li>
+    </ul>
+  </form>
+</section>
