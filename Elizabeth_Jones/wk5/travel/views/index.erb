@@ -1,0 +1,12 @@
+<div class="spacer">
+    &nbsp;
+</div>
+<div class="index-wrapper">
+<% @dishes.each do |dish| %>
+  <div class="post">
+    <img class="image" src="<%= dish['image_url'] %>" />
+    <p id="location"><a href="/trips/<%= dish['id'] %>"><%= dish['name'] %></a></p>
+  </div>
+<% end %>
+
+</div>

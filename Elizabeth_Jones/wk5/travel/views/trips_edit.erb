@@ -1,0 +1,10 @@
+<h2>edit trips</h2>
+
+
+<form action="/trips/<%= @dish2['id'] %>" method="post" >
+  <label for="">Name</label>
+  <input name="name" type="text" value="<%= @dish2['name'] %>">
+  <label for="">Image URL</label>
+  <textarea name="image_url" rows="8" cols="40"><%= @dish2['image_url'] %></textarea>
+  <button>Update</button>
+</form>
