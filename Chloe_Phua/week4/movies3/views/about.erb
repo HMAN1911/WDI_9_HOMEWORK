@@ -11,10 +11,10 @@
 
   <table>
 
-    <% @info.each do |key, value| %>
-      <% if key != "Poster" %>
+    @title = @info["Title"]
+
       <tr>
-        <th><%= key %><s/th><br>
+        <th><%= @info.keys[0] %><s/th><br>
         <td><%= value %></td>
       </tr>
       <% end %>

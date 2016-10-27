@@ -3,6 +3,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
 
+require_relative 'db_config'
+
 get '/' do
   erb :index
 end
@@ -11,7 +13,6 @@ post '/search' do
   @list = HTTParty.get('http://omdbapi.com/?s=' + params[:search])
 
   @all_results = [];
-
 
   @list["Search"].each_index do |result|
     @result = @list["Search"][result]
@@ -29,7 +30,6 @@ get '/about' do
   @info = HTTParty.get('http://omdbapi.com/?t=' + params[:title])
   @title = @info["Title"]
   @poster = @info["Poster"]
-
 
   open('search_history.txt', 'a') do |f|
     f.puts "#{@title}"
