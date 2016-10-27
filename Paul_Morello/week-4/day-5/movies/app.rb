@@ -14,16 +14,14 @@ end
 
 post '/movie' do
 
-  search = Movie.all
+  search = Movie.find_by(title: params[:movie])
 
   @movie = params['movie']
 
   result = HTTParty.get('http://omdbapi.com/?t=' + @movie)
 
-  search.each do |movie|
-    if movie.title == @movie
+  if search.title == @movie
       redirect to "/list_search?movie=#{@movie}"
-    end
   end
 
   binding.pry
@@ -62,30 +60,24 @@ end
 
 get '/search' do
 
-  search = Movie.all
-  binding.pry
-  search.each do |movie|
-    binding.pry
-    if movie.title == search[0].title
+  search_movie = Movie.find_by(title: params[:movie])
 
-      @title = search[0].title
-      @year = search[0].year
-      @released = search[0].released_year
-      @genre = search[0].genre
-      @director = search[0].director
-      @plot = search[0].plot
-      @poster = search[0].poster
-      @rating = search[0].rating
-      @cast = search[0].actors
+  if search_movie.title
+
+    @title = search_movie.title
+    @year = search_movie.year
+    @released = search_movie.released_year
+    @genre = search_movie.genre
+    @director = search_movie.director
+    @plot = search_movie.plot
+    @poster = search_movie.poster
+    @rating = search_movie.rating
+    @cast = search_movie.actors
 
     binding.pry
-      return
-    end
 
-  end
-
-  if movie.title != search[0].title
-
+  elsif search_movie.title == nil
+      binding.pry
     @movie = params['movie']
 
     result = HTTParty.get('http://omdbapi.com/?t=' + @movie)
