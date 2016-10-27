@@ -1,0 +1,13 @@
+
+  <% @list.each do |item| %>
+
+  <div class="col-2 col-m-4 list-item">
+
+    <a href="/result?search_id=<%=item['imdbID']%>"><img class=" small-poster" src="<%= item['Poster'] %>" alt="" /></a>
+    <p class="search-description"><%= item['Title'] %></p>
+
+  </div>
+
+  <% end %>
+
+  <div class="row"></div>

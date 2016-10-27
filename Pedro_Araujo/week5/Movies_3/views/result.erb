@@ -1,0 +1,21 @@
+
+<div class="col-2"></div>
+<div class="col-3 col-m-4 side-poster">
+  <img class="img-poster"src="<%= @movie.poster %>" alt="" />
+</div>
+
+<div class="col-5 col-m-7 movie-data">
+  <h3  class="movie-title"><%= @movie.title %></h3>
+  <p>
+    <%= "<b>Type:</b> #{@movie.type_}" %> <br>
+    <%= "<b>Year</b>: #{@movie.year}" %> <br>
+    <%= "<b>Genre</b>: #{@movie.genre}" %> <br>
+    <%= "<b>Director</b>: #{@movie.director}" %> <br>
+    <%= "<b>imdbRating</b>: #{@movie.imdbrating}" %> <br>
+  </p>
+  <p>
+    <i><%= @movie.plot %></i>
+  </p>
+</div>
+
+<div class="col-2 "></div>
