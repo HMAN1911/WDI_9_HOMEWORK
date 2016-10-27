@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #3a3e4d;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  text-align: center;
+}
+
+h1 {
+  margin: 1.5em 0;
+  font-size: 4em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+h2 {
+  padding-left: 0.8em;
+  font-size: 1.5em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+input {
+  padding: 5px 10px;
+  font-size: 1.7em;
+}
+
+select {
+  padding: 5px 10px;
+  font-size: 1.7em;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none; /* change later to have drop down arrow */
+}
+
+button {
+  padding: 5px 15px;
+  background-color: #7ccfaf;
+  border: none;
+  color: #fff;
+  font-size: 1.7em;
+  font-weight: 100;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+ul {
+  text-align: left;
+  padding: 0;
+}
+
+li {
+  padding: 0 1em;
+  border-right: 1px solid #fff;
+  display: inline-block;
+  list-style: none;
+  font-size: 1.2em;
+  font-weight: 100;
+}
+
+li:last-of-type {
+  border-right: none;
+}
+
+span {
+  font-weight: 400;
+}
+
+footer {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  /*text-align: center;*/
+}
+
+footer a {
+  color: #c99; /* check - not rendering */
+  font-weight: 300;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fc9; /* check - not rendering */
+}
+
+a:visited {
+  color: #fff; /* check - not rendering */
+}
+
+.test-text {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+}

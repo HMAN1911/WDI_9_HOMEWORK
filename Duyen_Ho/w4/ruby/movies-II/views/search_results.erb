@@ -1,0 +1,15 @@
+<form action="/about" method="post">
+
+  <% @result['Search'].each do |result| %>
+
+    <div>
+      <input type="hidden" name="result_link">
+      <p><%= result['Title'] %></p>
+      <p><%= result['Year'] %></p>
+    </div>
+    <button>Movie Details</button>
+  <% end %>
+
+</form>
+
+<%# Change title to a tags - how to use params with a tags? %>

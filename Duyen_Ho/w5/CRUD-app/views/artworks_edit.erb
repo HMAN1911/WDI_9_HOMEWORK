@@ -1,0 +1,14 @@
+<div class="center">
+  <h2>Edit Artwork</h2>
+  <form action="/artworks/<%= @artwork['id'] %>" method="post">
+    <label for="">Artwork</label>
+    <input name="title" type="text" value="<%= @artwork['title'] %>">
+    <label for="">Artwork</label>
+    <input name="artist" type="text" value="<%= @artwork['artist'] %>">
+    <label for="">Image URL</label>
+    <textarea name="image_url" rows="8" cols="40"><%= @artwork['image_url'] %></textarea>
+    <div>
+      <button>Save</button>
+    </div>
+  </form>
+</div>

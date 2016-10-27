@@ -1,0 +1,14 @@
+<h2>Feed</h2>
+
+<section class="artworks">
+  <% @artworks.each do |artwork| %>
+  <div class="image-blocks">
+    <img class="thumbnails" src="<%= artwork['image_url'] %>" alt="">
+    <p><a href="/artworks/<%= artwork['id'] %>"><%= artwork['title'] %> by <%= artwork['artist'] %></a></p>
+  </div>
+  <% end %>
+</section>
+
+<div class="add-btn">
+  <a class="add-btn-link" href="/artworks/new">Add Artworks</a>
+</div>
