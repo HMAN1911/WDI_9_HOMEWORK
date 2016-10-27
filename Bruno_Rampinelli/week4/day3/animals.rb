@@ -9,28 +9,32 @@
 
 class Animal
   def initialize name, animal_age, gender, species, toys
-  @name = name
-  @animal_age = animal_age
-  @gender = gender
-  @species  =species
-  @toys = toys
-end
+    @name = name
+    @animal_age = animal_age
+    @gender = gender
+    @species  = species
+    @toys = toys
+  end
 
-def get_name
-  @name
-end
+  def get_name
+    @name
+  end
 
-def get_animal_age
-  @animal_age
-end
+  def get_animal_age
+    @animal_age
+  end
 
-def get_gender
-  @gender
-end
-def get_species
-  @species
-end
-def get_toys(toys)
-  @toys
-end
+  def get_gender
+    @gender
+  end
+  def get_species
+    @species
+  end
+  def get_toys
+    @toys
+  end
+
+  def give_toy(toy)
+    @toys.push(toy)
+  end
 end
