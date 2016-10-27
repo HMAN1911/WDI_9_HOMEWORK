@@ -1,0 +1,14 @@
+<% if !@movies %>
+  <p>
+    Find movies using the form above
+  </p>
+<% else %>
+  <div>
+    <%= @movies.length %> movies
+  </div>
+  <% @movies.each do |movie| %>
+    <div class="search-result">
+      <a href="/info?title=<%= movie["Title"] %>"><%= movie["Title"] %></a>
+    </div>
+  <% end %>
+<% end %>
