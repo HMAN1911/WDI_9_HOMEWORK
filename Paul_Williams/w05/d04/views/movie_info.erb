@@ -1,0 +1,29 @@
+<section>
+
+  <h2><%= @info.title %> <span>(<%= @info.year %>)</span></h2>
+
+  <div class="main-info">
+
+    <div class="image-wrapper">
+      <img src="<%= @info.poster %>" alt="">
+    </div>
+
+    <div class="icon-wrapper">
+      <div class="stupid-centering-wrapper">
+        <p class="rating"><%= @info.imdb_rating %></p>
+      </div>
+      <div class="stupid-centering-wrapper">
+        <p class="runtime"><%= @info.runtime %>mins</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sub-info">
+    <p><span>Genre:</span> <%= @info.genre %></p>
+    <p><span>Director:</span> <%= @info.director %></p>
+    <p><span>Starring:</span> <%= @info.actors %></p>
+    <p><span>Plot:</span> <%= @info.plot %></p>
+  </div>
+
+</section>

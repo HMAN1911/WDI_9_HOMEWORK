@@ -1,0 +1,17 @@
+<h2>edit recipe</h2>
+
+<form action="/edit/<%= @recipe["id"] %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <p>Name</p><input name="name" type="text" value="<%= @recipe["name"] %>">
+  <p>Style</p><input name="style" type="text" value="<%= @recipe["style"] %>">
+  <p>Grain Bill</p><input name="grain_bill" type="text" value="<%= @recipe["grain_bill"] %>">
+  <p>Mash Temp</p><input name="mash_temp" type="text" value="<%= @recipe["mash_temp"] %>">
+  <p>Mash Time</p><input name="mash_time" type="text" value="<%= @recipe["mash_time"] %>">
+  <p>Hop Additions</p><input name="hop_additions" type="text" value="<%= @recipe["hop_additions"] %>">
+  <p>Ferment Temp</p><input name="ferment_temp" type="text" value="<%= @recipe["ferment_temp"] %>">
+  <p>Original Gravity</p><input name="osg" type="text" value="<%= @recipe["osg"] %>">
+  <p>Final Gravity</p><input name="fsg" type="text" value="<%= @recipe["fsg"] %>">
+  <p>ABV</p><input name="abv" type="text" value="<%= @recipe["abv"] %>">
+  <p>Comments</p><textarea name="comments" cols="30" rows="10"><%= @recipe["comments"] %></textarea>
+  <button>update</button>
+</form>
