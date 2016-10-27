@@ -62,26 +62,45 @@ end
 
 get '/search' do
 
-  @movie = params['movie']
-
-  result = HTTParty.get('http://omdbapi.com/?t=' + @movie)
-
+  search = Movie.all
+  binding.pry
   search.each do |movie|
-    if movie.title == @movie
-      @movies_displayed = Movie.find_by(id: params[:id])
+    binding.pry
+    if movie.title == search[0].title
+
+      @title = search[0].title
+      @year = search[0].year
+      @released = search[0].released_year
+      @genre = search[0].genre
+      @director = search[0].director
+      @plot = search[0].plot
+      @poster = search[0].poster
+      @rating = search[0].rating
+      @cast = search[0].actors
+
+    binding.pry
+      return
     end
 
-    elsif movie.title != @movie
+  end
 
-  @title = result["Title"]
-  @year = result["Year"]
-  @released = result["Released"]
-  @genre = result["Genre"]
-  @director = result["Director"]
-  @plot = result["Plot"]
-  @poster = result["Poster"]
-  @rating = result["imdbRating"]
-  @cast = result["Actors"]
+  if movie.title != search[0].title
+
+    @movie = params['movie']
+
+    result = HTTParty.get('http://omdbapi.com/?t=' + @movie)
+
+    @title = result["Title"]
+    @year = result["Year"]
+    @released = result["Released"]
+    @genre = result["Genre"]
+    @director = result["Director"]
+    @plot = result["Plot"]
+    @poster = result["Poster"]
+    @rating = result["imdbRating"]
+    @cast = result["Actors"]
+
+  end
 
   erb :search
 
