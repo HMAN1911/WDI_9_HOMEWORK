@@ -1,13 +1,13 @@
 <!-- <h2>about</h2> -->
 
-<form action="/about" method="get">
+<form action="/find" method="get">
   <div class="search-box">
     <input name="movie" type="text" placeholder="Search movie title">
     <button><i class="fa fa-search" aria-hidden="true"></i></button>
   </div>
 </form>
 
-<div class="movie-box">
+<!-- <div class="movie-box">
   <img class="poster" src="<%= @movie_data['Poster'] %>" alt="">
 
   <div class="movie-info">
@@ -27,6 +27,31 @@
       <p><span class="key">Language:</span> <%= @movie_data['Language'] %></p>
       <p><span class="key">Country:</span> <%= @movie_data['Country'] %></p>
       <p><span class="key">Awards:</span> <%= @movie_data['Awards'] %></p>
+    </div>
+
+  </div>
+</div> -->
+
+<div class="movie-box">
+  <img class="poster" src="<%= @movie_data.poster_url %>" alt="">
+
+  <div class="movie-info">
+    <div class="title-block">
+      <h3><%= "#{ @movie_data.title }" %> <span class="year">(<%= "#{ @movie_data.year }"%>)</span></h3>
+      <p class="subtext"><%= @movie_data.rated %> |
+        <%= @movie_data.runtime %> |
+        <%= @movie_data.genre %> |
+        <%= @movie_data.released %></p>
+    </div>
+
+    <div class="movie-details">
+      <p><%= @movie_data.plot %></p>
+      <p><span class="key">Director:</span> <%= @movie_data.director %></p>
+      <p><span class="key">Writer:</span> <%= @movie_data.writer %></p>
+      <p><span class="key">Actors:</span> <%= @movie_data.actors %></p>
+      <p><span class="key">Language:</span> <%= @movie_data.language %></p>
+      <p><span class="key">Country:</span> <%= @movie_data.country %></p>
+      <p><span class="key">Awards:</span> <%= @movie_data.awards %></p>
     </div>
 
   </div>

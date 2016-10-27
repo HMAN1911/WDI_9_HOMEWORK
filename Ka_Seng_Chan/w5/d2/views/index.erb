@@ -1,0 +1,9 @@
+
+<% @mountains.each do |mountain| %>
+  <p><a href="/mountains/<%= mountain['id'] %>"><%= mountain['name'] %></a></p>
+  <img src="<%= mountain['image_url'] %>" alt="">
+<% end %>
+
+<form action="/mountains/new">
+  <button>add new mountain</button>
+</form>

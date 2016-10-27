@@ -1,0 +1,12 @@
+
+<p><%= @mountain['name'] %></p>
+<img src="<%= @mountain['image_url']%>" alt="">
+
+<form action="/mountains/<%= @mountain['id'] %>/edit">
+  <button>edit</button>
+</form>
+
+<form action="/mountains/<%= @mountain['id'] %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button>delete</button>
+</form>
