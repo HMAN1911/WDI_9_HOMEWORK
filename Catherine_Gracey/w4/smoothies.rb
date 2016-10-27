@@ -79,6 +79,7 @@ class Blender
       ingredients = ingredients.join
       return ingredients
     end
+    #smoothie_ingredients.keys.join('').chars.shuffle.gsub(' ', '')
   end
 
   def flick_switch
@@ -87,6 +88,7 @@ class Blender
     else
       @switch = 'off'
     end
+    # @on = !@on
   end
 
 end

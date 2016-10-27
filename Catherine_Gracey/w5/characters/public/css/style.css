@@ -1,0 +1,9 @@
+.btn, button {
+    background-color: aqua;
+    padding: .5em;
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid black;
+    font-size: 1em;
+    margin:  .2em;
+}

@@ -20,19 +20,14 @@ balances.savings = 0;
 var bankingHistory = [];
 
 function displayBalances(){
-  var savingsBal = document.getElementById("savings-bal");
-  savingsBal.textContent = "$" + balances.savings.toFixed(2);
-  if (balances.savings > 0){
-    savingsBal.className = "funds";
-  } else {
-    savingsBal.className = "empty";
-  }
-  var checkingBal = document.getElementById("checking-bal")
-  checkingBal.textContent = "$" + balances.checking.toFixed(2);
-  if (balances.checking > 0){
-    checkingBal.className = "funds";
-  } else {
-    checkingBal.className = "empty";
+  for (var account in balances){
+    var elem = document.getElementById(account + "-bal")
+    elem.textContent = "$" + balances[account].toFixed(2);
+    if (balances[account] > 0){
+      elem.className = "funds";
+    } else {
+      elem.className = "empty";
+    }
   }
 }
 
@@ -45,16 +40,31 @@ function getAccount(elemID){
   return acc[0];
 }
 
+function saveTransaction(acc, amt, outcome){
+  var transaction = {
+    account: acc,
+    amount: amt,
+    outcome: outcome
+  };
+  for (var account in balances){
+    transaction[account] = balances[account];
+  }
+  bankingHistory.push(transaction);
+  showTransactions();
+}
+
+function showTransactions(){
+  var history = document.getElementById("history");
+  var transaction = document.createElement("div");
+  transaction.className = "transaction";
+}
+
 function deposit(){
   var acc = getAccount(this.id);
   var amt = parseFloat(document.getElementById(acc + "-amt").value);
   clearValue(acc + "-amt");
-  if (acc === "checking"){
-    balances.checking += amt;
-  } else {
-    balances.savings += amt;
-  }
-  bankingHistory.push({account: acc, amt: amt, outcome: "deposited", checking: balances.checking, savings: balances.savings});
+  balances[acc] += amt;
+  saveTransaction(acc, amt, "deposited");
   displayBalances();
 }
 
@@ -64,7 +74,7 @@ function withdraw(){
   //Check that there is enough money in combined accounts. If not, ignore transaction
   var total = balances.checking + balances.savings;
   if (amt > total){
-    bankingHistory.push({account: acc, amt: amt, outcome: "withdrawal rejected", checking: balances.checking, savings: balances.savings});
+    saveTransaction(acc, amt, "withdrawal rejected");
     return;
   }
   var overdraft = 0;
@@ -72,15 +82,20 @@ function withdraw(){
     overdraft = Math.abs(amt - balances[acc]);
   }
   if (overdraft){
-    if (acc === "checking"){
-      balances.savings -= overdraft;
-      balances.checking = 0;
-    } else {
-      balances.checking -= overdraft;
-      balances.savings = 0;
+    balances[acc] = 0;
+    for (var account in balances){
+      if (overdraft <= balances[account]){
+        balances[account] -= overdraft;
+        overdraft = 0;
+      } else {
+        overdraft -= balances[account];
+        balances[account] = 0;
+      }
     }
+    saveTransaction(acc, amt, "overdraft withdrawal");
   } else {
     balances[acc] -= amt;
+    saveTransaction(acc, amt, "withdrawal");
   }
   clearValue(acc + "-amt");
   displayBalances();

@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+require_relative 'db_config'
+require_relative 'models/title'
 
 get '/' do
   p params
