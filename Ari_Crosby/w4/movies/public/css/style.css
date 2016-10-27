@@ -1,9 +1,6 @@
 body {
   width: 100%;
-  /*background-color: mintcream;*/
   color: white;
-  background-repeat: no-repeat;
-  background-size: cover;
   background-color: black;
   margin: 0 auto;
   text-align: center;
@@ -14,15 +11,36 @@ body {
     -1px 1px 0 #000,
      1px 1px 0 #000;
 }
+#poster {
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+  filter: none;
+}
+
+#postersmall {
+  width: 150px;
+}
 
 #blur-div {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 100%;
+  -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+
+.postbg {
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*-webkit-filter: blur(3px);
+  filter: blur(3px);*/
 }
 
 h1 {
   font-size: 3em;
+
 }
 h1, h2, h3 {
   color: white;
@@ -33,6 +51,12 @@ h1, h2, h3 {
      1px 1px 0 #000;
 }
 
-#footer {
+#multisearch, #singlesearch {
+  padding: 1em;
+  font-size: 1em;
+}
+
+#foot {
+  padding: 2em;
   color: lightgrey;
 }

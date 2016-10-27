@@ -5,21 +5,20 @@
     <link rel="stylesheet" href="css/style.css" >
     <title></title>
   </head>
-    <body>
-<div id="blur-div">
-
-
-  <style media="screen">
-  body {
-  background-image: url("<%= @poster %>");
-}
-  </style>
+    <body><style media="screen">
+      .postbg {
+        background-image: url("<%= @poster %>");
+      }</style><div class="postbg">
+        <div
+      id="blur-div">
 
     <h1> RE-MDb </h1>
 
     <%= yield %>
 
-  <footer id="footer"> Please don't steal my code </footer>
+    <a href="/">HOME</a>
+<br>
+  <footer id="foot"> Please don't steal my code </footer></div>
   </div>
   </body>
 

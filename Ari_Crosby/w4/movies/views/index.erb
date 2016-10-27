@@ -1,7 +1,21 @@
-<form action="/about" method="get">
+<form id="multisearch" action="/search" method="get">
 
-  <input type="text" name="flicksearch"> <br>
+<h3>Search all Movies</h3>
+  <input type="text" name="flicksearch" value="Keyword"> <br>
+<br>
+  <button>Search for Flicks</button>
 
+</form>
+<br>
+<form id="singlesearch" action="/about" method="get">
+
+  <h3>Find a specific Movie</h3>
+  <input type="text" name="flicktitle" value="Movie Name">
+  <br>
+  <br>
+  <input type="text" name="flickyear" value="Year Released">
+  <br>
+  <br>
   <button>Get Flick</button>
-
+  
 </form>
