@@ -10,6 +10,7 @@ binding.pry
 def getMovie imdbID
   result = Title.find_by(imdbid: imdbID)
   if result == nil
+    puts "Looking up movie."
     search = "http://omdbapi.com/?i=#{imdbID}"
     result = HTTParty.get(search)
     title = Title.new
@@ -34,6 +35,7 @@ def getMovie imdbID
     title.filmtype = result["Type"]
     title.response = result["Response"]
     title.save
+    #id | title | year | rated | released | runtime | genre | director | writer | actors | plot | language | country | awards | poster | metascore | imdbrating | imdbvotes | imdbid | type | response
     return title
   end
   return result
