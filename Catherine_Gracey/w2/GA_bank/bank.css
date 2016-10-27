@@ -23,7 +23,7 @@ h1 {
   left: 1vw;
 }
 
-main {
+.accounts {
   display: flex;
   justify-content: space-around;
 }
