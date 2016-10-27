@@ -1,0 +1,8 @@
+
+<h1>Note App</h1>
+
+<% @notes.each do |note| %>
+  <p>Name: <a href="/notes/<%= note['id'] %>"><%= note['name'] %></a></p>
+  <p>Date: <%= note['date'] %></p>
+  <p>Details: <%= note['details'] %></p>
+<% end %>

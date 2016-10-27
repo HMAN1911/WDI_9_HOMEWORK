@@ -1,0 +1,15 @@
+<h2>Edit Note</h2>
+
+<form action="/notes/<%= @note['id'] %>" method="post">
+
+  <label for="">Note Name</label>
+  <input name="name" type="text" value="<%=@note['name']%>">
+
+  <label for="">Note Date</label>
+  <input name="date" type="text" value="<%=@note['date']%>">
+
+  <label for="">Note Details</label>
+  <textarea name="details" rows="8" cols="40"><%=@note['details']%></textarea>
+  <button>Save</button>
+
+</form>

@@ -1,0 +1,11 @@
+<p> <%= @note['name'] %> </p>
+
+<p> <%= @note['date'] %> </p>
+
+<p> <%= @note['details'] %> </p>
+
+<a href="/notes/<%= @note['id'] %>/edit">Edit</a>
+
+<form action="/notes/<%= @note['id']%>/delete" method="post">
+  <button>Delete</button>
+</form>
