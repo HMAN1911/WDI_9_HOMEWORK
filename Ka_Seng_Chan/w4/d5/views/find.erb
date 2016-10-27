@@ -11,7 +11,7 @@
 
   <% if @results['Response'] == 'True' %>
     <% @results['Search'].each do |result| %>
-      <p><a href="<%= "/about?movie=#{result['Title']}" %>"><%= result['Title'] %></a> (<%= result['Year']%>)</p>
+      <p><a href="<%= "/about?movie_id=#{result['imdbID']}" %>"><%= result['Title'] %></a> (<%= result['Year']%>)</p>
     <% end %>
     <% elsif @results['Response'] == 'False' %>
       <p><%= "#{@results['Error']}"%></p>
