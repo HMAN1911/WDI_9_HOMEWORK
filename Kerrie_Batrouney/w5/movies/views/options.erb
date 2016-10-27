@@ -1,0 +1,16 @@
+<h1>Several movies found, please select one</h1>
+
+<p id='options'>
+    <h1>Movies:</h1><br>
+
+    <% @movies.each do |movie| %>
+      <div>
+        <h2>
+          <%= '<a href="/get_movie?movie_name=' + movie['Title'] + '" >'%>
+            <%= movie['Title'] %>
+          </a>
+        </h2>
+      </div>
+    <% end %>
+
+</p>

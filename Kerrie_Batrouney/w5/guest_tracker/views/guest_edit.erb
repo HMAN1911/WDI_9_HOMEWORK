@@ -1,0 +1,29 @@
+<h2>Edit guest scores</h2>
+
+<form  action="/guests/<%= @guest['id']%>" method="post">
+  <label for="">Guest name</label>
+  <input class = "name_input" type="text" name="name" value="<%= @guest['name'] %>"><br>
+
+  <label for="">Phone number</label>
+  <input class = "pnum_input" type="text" name="phone" value="<%= @guest['phone'] %>"><br>
+
+  <label for="">Rating</label>
+  <input class="num_input" type="number" name="rating" value="<%= @guest['rating'] %>"><br>
+
+  <label for="">Group size</label>
+  <input class="num_input" type="number" name="group_size" value="<%= @guest['group_size'] %>"><br>
+
+  <label for="">Cleanliness</label>
+  <input class="num_input" type="number" name="cleanliness" value="<%= @guest['cleanliness'] %>"><br>
+
+  <label for="">Review by me</label>
+  <input class="num_input" type="number" name="review_by_me" value="<%= @guest['review_by_me'] %>"><br>
+
+  <label for="">Review of house</label>
+  <input class="num_input" type="number" name="review_of_house" value="<%= @guest['review_of_house'] %>"><br>
+
+  <label for="">Comments</label>
+  <textarea class="comm_input" type="text" name="comments" rows ='4' cols = '40' ><%= @guest['comments'] %></textarea><br>
+
+  <button>save</button>
+</form>
