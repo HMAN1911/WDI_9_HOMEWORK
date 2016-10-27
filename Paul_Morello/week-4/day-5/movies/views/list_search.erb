@@ -3,9 +3,10 @@
 
 <% @list_search.each do |movie| %>
 
+
   <div class="list">
     <a href=" /search?movie=<%=movie["Title"]%> "> <%= "#{movie["Title"]} / #{movie["Year"]}" %></a>
-    <img src=" <%= movie["Poster"] %> " alt="">
+    <img src=" <%= movie["Poster"] %> " alt=""></a>
   </div>
 
 <% end %>
