@@ -1,0 +1,17 @@
+<h2>edit programminglanguage</h2>
+
+<form action="/<%= params[:name] %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="">programminglanguage name</label>
+  <input name="name" type="text" value="<%= @programminglanguage['name'] %>">
+  <label for="">icon url</label>
+  <textarea name="icon_url" id="" cols="30" rows="10"><%= @programminglanguage['icon_url'] %></textarea>
+  <label for="">description</label>
+  <textarea name="description" id="" cols="30" rows="10"><%= @programminglanguage['description'] %></textarea>
+  <button>save</button>
+</form>
+
+<form action="/<%= params[:name] %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <button>delete</button>
+</form>
