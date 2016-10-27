@@ -14,7 +14,7 @@ post '/result' do
   if @search["Error"]
     erb :not_found
   elsif @search["Search"].length == 1
-    @info = HTTParty.get "http://omdbapi.com/?i=#{@search["Search"][0]["imdbID"]}"
+    @info = Movie.find_or_create_by imdb_id: @search["Search"][0]["imdbID"]
     erb :movie_info
   else
     @results = @search["Search"].delete_if { |x| x["Poster"] == "N/A" }
@@ -23,7 +23,7 @@ post '/result' do
 end
 
 get '/movie_info' do
-  @info = HTTParty.get "http://omdbapi.com/?i=#{params[:id]}"
+  @info = Movie.find_or_create_by imdb_id: params[:id]
   erb :movie_info
 end
 
