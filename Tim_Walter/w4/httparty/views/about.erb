@@ -1,0 +1,40 @@
+
+
+<div class="movie_image">
+  <img src="<%= @poster %>" alt="" />
+</div>
+
+<div class="basic_info">
+  <p>Title: <%= @name %></p>
+  <p>Year: <%= @year %></p>
+  <p>Duration: <%= @duration %></p>
+  <p>Genre: <%= @genre %></p>
+  <p>Director: <%= @director %></p>
+  <p>Language: <%= @language %></p>
+  <p>Awards: <%= @awards %></p>
+  <p>Metascore: <%= @metascore %></p>
+  <p>imdb Rating: <%= @imdbRating %></p>
+  <p>imdb Votes: <%= @imdbVotes %></p>
+  <p>imdb ID: <%= @imdbID %></p>
+
+</div>
+
+<div class="clear_div">
+
+</div>
+
+<div class="detail">
+  <h3>Plot</h3>
+   <p><%= @plot %></p>
+  <h3>Writer</h3>
+   <p><%= @writer %></p>
+
+</div>
+
+<footer>
+
+  <p>
+    <a href="<%= @return = request.referer  %>">Back to search results...</a>
+  </p>
+
+</footer>

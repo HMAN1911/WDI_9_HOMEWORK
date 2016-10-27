@@ -1,0 +1,12 @@
+<h2>EDIT RECORD</h2>
+
+<form class="" action="/crates/<%= @record['id'] %>" method="post">
+  <!-- action destination. method = function. see main rb -->
+  <label for="">Record Title</label>
+  <input type="text" name="title" value="<%= @record['title'] %>" placeholder="title">
+  <label for="">Artist</label>
+  <input type="text" name="artist" value="<%= @record['artist'] %>" placeholder="artist">
+  <label for="">Image URL</label>
+  <textarea name="image_url" rows="8" cols="40"><%= @record['image_url'] %></textarea>
+  <button>UPDATE RECORD</button>
+</form>

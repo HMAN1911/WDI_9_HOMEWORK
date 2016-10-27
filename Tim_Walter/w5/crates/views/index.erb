@@ -1,0 +1,12 @@
+<h2>ALL RECORDS</h2>
+
+<% @crates.each do |record| %>
+  <div class="the-record">
+    <h3 class="fade"><span>
+    <a href="/crates/<%= record['id'] %>"><%= record['artist'] %></a>
+    <a href="/crates/<%= record['id'] %>"><%= record['title'] %></a>
+    </span> </h3>
+    <img class="image_list" src="<%= record['image_url'] %>" alt="" />
+  </div>
+
+<% end %>
