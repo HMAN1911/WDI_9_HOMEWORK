@@ -1,0 +1,5 @@
+<% @galaxies.each do |galaxy| %>
+<p><a href="galaxies/<%= galaxy['id'] %>"><%= galaxy['name'] %></a></p>
+<p><%= galaxy['description'] %></p>
+<img src="<%= galaxy['image_url'] %>" alt="">
+<% end %>
