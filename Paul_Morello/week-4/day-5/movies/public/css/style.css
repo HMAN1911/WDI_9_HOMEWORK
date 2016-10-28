@@ -171,3 +171,31 @@ footer a {
 footer a:hover {
   color: rgba(255, 188, 32, 0.8);
 }
+
+.list {
+  width: 500px;
+  margin: 0 auto;
+  border-bottom: 2px solid grey;
+  height: 200px;
+}
+
+.list img {
+  display: inline-block;
+  float: right;
+  height: 150px;
+  width: 20%;
+}
+
+.list a {
+  display: block;
+  float: left;
+  text-decoration: none;
+  color: #333;
+  font-size: 2em;
+  width: 60%;
+  margin-top: 20px;
+}
+
+.list a:hover {
+  color: #FFBC20;
+}
