@@ -2,9 +2,11 @@
 <h2>Browsing all videos</h2>
 <% @videos.each do |video| %>
   <div class="video">
-    <div><%= video.title %></div>
+    <div>
+      <a href="/videos/<%= video.id %>"><%= video.title %></a>
+    </div>
     <div><%= video.description %></div>
     <div><%= video.genre %></div>
-    <div><%= video.url %></div>
+    <div><a href="<%= video.url %>" target="_blank"><%= video.url %></a></div>
   </div>
 <% end %>

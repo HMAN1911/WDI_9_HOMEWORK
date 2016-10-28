@@ -10,6 +10,15 @@ get '/' do
 end
 
 # Show a single video
+get '/videos/:id' do
+  @video = Video.find_by(id: params[:id])
+  if !@video
+    @error = 'Video not found'
+    erb :error
+  else
+    erb :video_details
+  end
+end
 
 # Show add video form
 get '/videos/new' do
