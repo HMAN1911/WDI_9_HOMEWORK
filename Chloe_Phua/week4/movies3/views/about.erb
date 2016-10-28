@@ -6,18 +6,30 @@
 </header>
 
 <div class="about">
-
-  <img class="main" src="<%= @poster %>">
-
-  <table>
-
-    @title = @info["Title"]
-
-      <tr>
-        <th><%= @info.keys[0] %><s/th><br>
-        <td><%= value %></td>
-      </tr>
+  <% if @movie == @cached %>
+    <img class="main" src="<%= @film["poster"] %>">
+    <table>
+      <% @film.each do |key, value| %>
+        <% if key != "poster" && key != "id" && key != "type_" && key != "episode" && key != "season" && key != "metascore" && key != "seriesid"%>
+          <tr>
+            <th><%= key %></th>
+            <td><%= value %></td>
+          </tr>
+          <% end %>
+        <% end %>
+        </table>
+    <% else %>
+    <table>
+      <% @info.each do |key, value| %>
+      <img class="main" src="<%= @poster %>">
+        <% if key != "Poster" %>
+        <tr>
+          <th><%= key %></th>
+          <td><%= value %></td>
+        </tr>
+        <% end %>
       <% end %>
-    <% end %>
-  </table>
+    </table>
+  <% end %>
+
 </div>

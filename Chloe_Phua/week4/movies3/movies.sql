@@ -4,19 +4,25 @@ CREATE TABLE movies (
   id SERIAL4 PRIMARY KEY,
   title VARCHAR(50),
   year VARCHAR(10),
-  plot TEXT,
-  director VARCHAR(50),
+  type_ VARCHAR(20),
   actors TEXT,
-  rating VARCHAR(10)
+  awards TEXT,
+  country TEXT,
+  director VARCHAR(20),
+  genre VARCHAR(50),
+  episode TEXT,
+  season TEXT,
+  seriesid TEXT,
+  language TEXT,
+  metascore VARCHAR(10),
+  plot TEXT,
+  poster TEXT,
+  rated TEXT,
+  released VARCHAR(20),
+  response VARCHAR(10),
+  runtime VARCHAR(20),
+  writer VARCHAR(30),
+  imdbid VARCHAR(30),
+  imdbrating VARCHAR(30),
+  imdbvotes VARCHAR(20)
 );
-
-post '/dishes' do
-  @movies = Movies.new
-  @movies.name = params[:name]
-  @dishes.image_url = params[:image_url]
-  @dishes.dish_type_id = params[:dish_type_id]
-
-  if @dishes.save
-    redirect to '/'
-  else erb :dishes
-  end
