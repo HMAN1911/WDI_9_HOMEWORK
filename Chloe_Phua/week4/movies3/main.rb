@@ -4,6 +4,7 @@ require 'sinatra/reloader'
 require 'httparty'
 
 require_relative 'db_config'
+require_relative 'models/movie'
 
 get '/' do
   erb :index
@@ -27,15 +28,35 @@ post '/search' do
 end
 
 get '/about' do
-  @info = HTTParty.get('http://omdbapi.com/?t=' + params[:title])
-  @title = @info["Title"]
-  @poster = @info["Poster"]
-
   open('search_history.txt', 'a') do |f|
     f.puts "#{@title}"
   end
 
+  @cached = Movie.find_by(title: params[:title])
 
+  @film = {}
+  @cached.attributes.each do |key, value|
+    @film[key] = value
+    # @film[value] = Movie.value
+  end
+
+  if @cached == nil
+    @info = HTTParty.get('http://omdbapi.com/?t=' + params[:title])
+    @title = @info["Title"]
+    @poster = @info["Poster"]
+    @movie = Movie.new
+
+    @info.each do |key, value|
+      if key != "Type"
+        @movie[key.downcase] = value
+      else
+        @movie["type_"] = value
+      end
+    end
+    @movie.save
+  else
+    @movie = @cached
+  end
   erb :about
 end
 
