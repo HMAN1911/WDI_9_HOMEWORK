@@ -1,0 +1,18 @@
+<section class="my-movies">
+  <ul class="all-movies">
+    <% @movies.each do | movie | %>
+    <li>
+      <a href="/edit-movie/<%= movie['id'] %>">
+        <figure>
+          <img src="<%= movie['image_url'] %>" alt="">
+          <figcaption>
+            <p><%= movie['title'] %></p>
+          </figcaption>
+        </figure>
+      </a>
+      <p class="stars"><%= movie['stars'] %> Stars</p>
+      <p><%= movie['review']%></p>
+    </li>
+    <% end %>
+  </ul>
+</section>
