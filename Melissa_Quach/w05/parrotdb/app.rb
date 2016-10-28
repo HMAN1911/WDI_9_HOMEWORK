@@ -8,7 +8,7 @@ require_relative 'models/post'
 # GET /
 get '/' do
   # Fetch posts from DB
-  @posts = Post.all
+  @posts = Post.all.sort{ |a, b| a.id <=> b.id }
 
   erb :index
 end
