@@ -44,7 +44,7 @@ end
 
 post '/dishes/:id/edit' do
 
-  @tree = run_sql("DELETE FROM trees WHERE id = #{ params[:id]}").first
+  @tree = run_sql("SELECT * FROM trees WHERE id = #{ params[:id]}").first
 
   redirect to '/'
 

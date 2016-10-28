@@ -1,13 +1,16 @@
 
 <h3>Edit Tree</h3>
 
-<form action="/trees" method="post">
+<form action="/trees/<%= @tree['id'] %>" method="post">
 
   <label>Tree Name</label>
-  <input type="text" name="name" value="">
+  <input type="text" name="name"
+  value="<%= @tree['name'] %>">
 
   <label>Image url</label>
-  <textarea name="image_url" rows="8" cols="40"></textarea>
+  <textarea name="image_url" rows="8" cols="40">
+    <%= @tree['image_url'] %>
+  </textarea>
 
   <button>Edit</button>
 
