@@ -1,0 +1,5 @@
+<h2> all art </h2>
+
+<% @arts.each do |artwork| %>
+  <a href="art/artwork['id']"><img src="<%= artwork['image_url'] %>"></a>
+<% end %>

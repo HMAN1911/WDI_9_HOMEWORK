@@ -1,0 +1,19 @@
+<header class="slideUp">
+  <h1> FIND ME THAT MOVIE </h1>
+  <form action="/search" method="post">
+    <input name="search" type="text" placeholder="search movie title..."><button></button>
+  </form>
+</header>
+
+
+  <h2>The following titles exist for your searched entry:</h2>
+  <br><br>
+    <% @all_results.each do |result| %>
+      <tr>
+        <td>
+          <tr>
+            <a href="/about?title=<%= result["Title"] %>"><img class="thumbnail" src="<%= result["Poster"] %>"></a>
+          </tr>
+        </td>
+      </tr>
+      <% end %>

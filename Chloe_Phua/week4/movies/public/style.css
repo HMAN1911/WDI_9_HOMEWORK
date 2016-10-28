@@ -1,0 +1,194 @@
+body {
+  background-color: #ffe377;
+  font-size: 12px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
+th {
+  text-align: left;
+  text-transform: uppercase;
+  padding: 0.5em;
+}
+
+.about {
+  background: url('http://www.clipartkid.com/images/338/movie-film-reel-border-movie-film-bor-CeVGOY-clipart.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 10%;
+}
+
+
+.main {
+  width: 40%;
+  padding-top: 10%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+a {
+  display: inline-block;
+  width: 10%;
+  position: relative;
+}
+
+a:hover, .thumbnail:hover {
+  z-index: 9999;
+}
+
+table {
+  width: 50%;
+  margin: 5% auto;
+  padding: 5% 10%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.entrance {
+  margin-top: 20%;
+}
+
+header {
+  visibility: hidden;
+}
+
+header, .entrance {
+  text-align: center;
+  background-color: #ffffff;
+  letter-spacing: 2em;
+  padding: 3%;
+}
+
+form, input, button {
+  display: inline-block;
+}
+
+input {
+  text-align: center;
+}
+
+button {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  background-image: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698956-icon-111-search-128.png');
+  border: none;
+  background-repeat: no-repeat;
+  background-size: 20px;
+  vertical-align:middle;
+  margin-left: 5px;
+}
+
+h2 {
+  margin: 5% 5% 0;
+  text-align: left;
+  display: block;
+  height: 5%;
+
+}
+
+.slideUp{
+	animation-name: slideUp;
+	-webkit-animation-name: slideUp;
+
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(100%);
+	}
+	50%{
+		transform: translateY(-8%);
+	}
+	65%{
+		transform: translateY(4%);
+	}
+	80%{
+		transform: translateY(-4%);
+	}
+	95%{
+		transform: translateY(2%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
+}
+
+@-webkit-keyframes slideUp {
+	0% {
+		-webkit-transform: translateY(100%);
+	}
+	50%{
+		-webkit-transform: translateY(-8%);
+	}
+	65%{
+		-webkit-transform: translateY(4%);
+	}
+	80%{
+		-webkit-transform: translateY(-4%);
+	}
+	95%{
+		-webkit-transform: translateY(2%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+	}
+}
+
+
+@media screen and (max-width: 900px) {
+  .about {
+    background: none;
+    padding: 5% 5%;
+    display: -webkit-inline-flex;
+    flex-wrap: nowrap;
+  }
+
+  table {
+    margin: 50px auto;
+    padding: 0;
+    display: block;
+    order: 2;
+  }
+
+  img .main {
+    padding: 0;
+    order: 1;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  .about {
+    background: none;
+    padding: 5% 0;
+    display: -webkit-inline-flex;
+    flex-wrap: nowrap;
+  }
+
+  table {
+    display: block;
+    order: 2;
+  }
+
+  img .main {
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    display: block;
+    order: 1;
+  }
+
+}
