@@ -1,8 +1,8 @@
 require 'active_record'
 
 options= {
-  adpter: 'postgresql'
-  database: 'movieshunting'
+  adapter: 'postgresql',
+  database: 'movieshunting',
 }
 
 ActiveRecord::Base.establish_connection(options)

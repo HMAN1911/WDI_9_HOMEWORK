@@ -2,6 +2,8 @@ require 'httparty'
 require 'sinatra'
 require 'sinatra/reloader'
 require 'pry'
+require_relative 'db_config'
+require_relative 'models/search'
 
 
 get '/' do
@@ -26,6 +28,9 @@ get '/result' do
 
   title = params['title']
 
+  @movie = Search.find_by(title: title)
+  if @movie == nil
+
   result1 = HTTParty.get('http://omdbapi.com/?t=' + title)
 
 
@@ -43,7 +48,23 @@ get '/result' do
 
   @image = result1["Poster"]
 
+  @movie = Search.new(title: @movie_title, year: @year, runtime: @runtime, genre: @genre, director: @director, actors: @actors, image: @image)
 
+  @movie.save
   erb :result
 
+  else
+
+
+    @movie_title = @movie.title
+    @year = @movie.year
+    @runtime = @movie.runtime
+    @genre = @movie.genre
+    @director = @movie.director
+    @actors = @movie.actors
+    @image = @movie.image
+
+    erb :result_database
+
+  end
 end
