@@ -1,18 +1,19 @@
-require 'httparty'
-
 class Movie < ActiveRecord::Base
-  after_initialize do |movie|
-    if !movie.title
-      info = HTTParty.get "http://omdbapi.com/?i=#{ movie.imdb_id }"
-      movie.title = info["Title"]
-      movie.year = info["Year"]
-      movie.runtime = info["Runtime"]
-      movie.genre = info["Genre"]
-      movie.director = info["Director"]
-      movie.actors = info["Actors"]
-      movie.plot = info["Plot"]
-      movie.poster = info["Poster"]
-      movie.imdb_rating = info["imdbRating"]
-    end
+  def new_record?
+    !self.title
+  end
+
+  def update_info
+    info = HTTParty.get "http://omdbapi.com/?i=#{ self.imdb_id }"
+    self.title = info["Title"]
+    self.year = info["Year"]
+    self.runtime = info["Runtime"]
+    self.genre = info["Genre"]
+    self.director = info["Director"]
+    self.actors = info["Actors"]
+    self.plot = info["Plot"]
+    self.poster = info["Poster"]
+    self.imdb_rating = info["imdbRating"]
+    self.save
   end
 end
