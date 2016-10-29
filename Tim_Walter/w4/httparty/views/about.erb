@@ -17,6 +17,10 @@
   <p>imdb Votes: <%= @imdbVotes %></p>
   <p>imdb ID: <%= @imdbID %></p>
 
+  <% if @cached %>
+    <p>Source: Movie Finder DB</p>
+  <% end %>
+
 </div>
 
 <div class="clear_div">
