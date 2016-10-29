@@ -1,0 +1,13 @@
+<h2>Edit video</h2>
+<form action="/videos/<%= @video.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="">Title</label>
+  <input name="title" type="text" value="<%= @video.title %>" required>
+  <label for="">URL</label>
+  <input name="url" type="text" value="<%= @video.url %>"required>
+  <label for="">Description</label>
+  <input name="description" type="text" value="<%= @video.description %>">
+  <label for="">Genre</label>
+  <input name="genre" type="text" value="<%= @video.genre %>">
+  <button>Submit</button>
+</form>

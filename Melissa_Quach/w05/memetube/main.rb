@@ -9,17 +9,6 @@ get '/' do
   erb :index
 end
 
-# Show a single video
-get '/videos/:id' do
-  @video = Video.find_by(id: params[:id])
-  if !@video
-    @error = 'Video not found'
-    erb :error
-  else
-    erb :video_details
-  end
-end
-
 # Show add video form
 get '/videos/new' do
   erb :video_new
@@ -37,8 +26,48 @@ post '/videos' do
   redirect to '/'
 end
 
+# Show a single video
+get '/videos/:id' do
+  @video = Video.find_by(id: params[:id])
+  if !@video
+    @error = 'Video not found'
+    erb :error
+  else
+    erb :video_details
+  end
+end
+
 # Show edit form
+get '/videos/:id/edit' do
+  @video = Video.find_by(id: params[:id])
+
+  if !@video
+    @error = 'Video not found'
+    erb :error
+  else
+    erb :video_edit
+  end
+end
 
 # Update video details
+put '/videos/:id' do
+  @video = Video.find_by(id: params[:id])
+
+  if !@video
+    @error = 'Video not found'
+    erb :error
+  else
+    @video.title = params[:title]
+    @video.url = params[:url]
+    @video.description = params[:description]
+    @video.genre = params[:genre]
+
+    if @video.save
+      redirect to "/videos/#{@video.id}"
+    else
+      erb :video_edit
+    end
+  end
+end
 
 # Delete video
