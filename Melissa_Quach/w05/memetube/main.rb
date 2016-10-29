@@ -71,3 +71,10 @@ put '/videos/:id' do
 end
 
 # Delete video
+delete '/videos/:id' do
+  @video = Video.find_by(id: params[:id])
+  if @video
+    @video.destroy
+  end
+  redirect to '/'
+end
