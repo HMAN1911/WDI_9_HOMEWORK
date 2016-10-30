@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <a href="/"><h1>the art of art</h1></a>
+  <h2>a safe space for everyone's art</h2>
+  <a href="/collection/new"><p>share your art</p></a>
+
+  <p>session</p><%= session[:user_id] %>
+
+  <% if logged_in? %>
+  logged in as <%= current_user.email %>
+  <form action="/session" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <button>logout</button>
+  </form>
+  <% else %>
+    <a href="/session/new">login</a> or <a href="/session/register">register</a>
+  <% end %>
+
+  <%= yield %>
+
+
+</body>
+</html>
