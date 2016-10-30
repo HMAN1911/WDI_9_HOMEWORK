@@ -72,32 +72,36 @@ post '/characters' do
   character.name = params[:name]
   character.gender = params[:gender]
   character.age = params[:age]
+  character.user_id = session[:user_id]
   character.save
   redirect to '/'
 end
 
 # Show character details
 get '/characters/:id' do
-  results = run_sql("SELECT * FROM characters WHERE id=#{params[:id]};")
-  @character = results[0]
+  @character = Character.find(params[:id])
   erb :show_character
 end
 
 # Edit character form
 get '/characters/:id/edit' do
-  @character = run_sql("SELECT * FROM characters WHERE id=#{params[:id]};")[0]
+  @character = Character.find(params[:id])
   erb :edit_character
 end
 
 # Update existing character
 post '/characters/:id' do
-  run_sql("UPDATE characters SET name='#{params['name']}', gender='#{params[:gender]}',
-  age= #{params[:age]} WHERE id=#{params[:id]};")
+  character = Character.find(params[:id])
+  character.name = params[:name]
+  character.gender = params[:gender]
+  character.age = params[:age]
+  character.save
   redirect to "/characters/#{params[:id]}"
 end
 
 # Kill chracter
 post '/characters/:id/delete' do
-  run_sql("DELETE FROM characters WHERE id=#{params[:id]};")
+  character = Character.find(params[:id])
+  character.destroy
   redirect to '/'
 end
