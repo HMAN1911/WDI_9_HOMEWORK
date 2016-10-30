@@ -63,45 +63,65 @@ end
 
 # Get new character page
 get '/characters/new' do
-  erb :new_character
+  if logged_in?
+    erb :new_character
+  else
+    redirect to '/'
+  end
 end
 
 # Save character
 post '/characters' do
-  character = Character.new
-  character.name = params[:name]
-  character.gender = params[:gender]
-  character.age = params[:age]
-  character.user_id = session[:user_id]
-  character.save
+  if logged_in?
+    character = Character.new
+    character.name = params[:name]
+    character.gender = params[:gender]
+    character.age = params[:age]
+    character.user_id = session[:user_id]
+    character.save
+  end
   redirect to '/'
 end
 
 # Show character details
 get '/characters/:id' do
-  @character = Character.find(params[:id])
-  erb :show_character
+  if logged_in?
+    @character = Character.find(params[:id])
+    erb :show_character
+  else
+    redirect to '/'
+  end
 end
 
 # Edit character form
 get '/characters/:id/edit' do
-  @character = Character.find(params[:id])
-  erb :edit_character
+  if logged_in?
+    @character = Character.find(params[:id])
+    erb :edit_character
+  else
+    redirect to '/'
+  end
 end
 
 # Update existing character
 post '/characters/:id' do
-  character = Character.find(params[:id])
-  character.name = params[:name]
-  character.gender = params[:gender]
-  character.age = params[:age]
-  character.save
-  redirect to "/characters/#{params[:id]}"
+  if logged_in?
+    character = Character.find(params[:id])
+    character.name = params[:name]
+    character.gender = params[:gender]
+    character.age = params[:age]
+    character.save
+    redirect to "/characters/#{params[:id]}"
+  else
+    redirect to '/'
+  end
 end
 
 # Kill chracter
 post '/characters/:id/delete' do
-  character = Character.find(params[:id])
-  character.destroy
+  if logged_in?
+    character = Character.find(params[:id])
+    character.destroy
+  end
   redirect to '/'
 end
