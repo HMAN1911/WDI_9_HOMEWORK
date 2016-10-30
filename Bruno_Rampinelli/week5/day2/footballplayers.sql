@@ -19,3 +19,24 @@ INSERT INTO players (name, image_url, position, nationality) VALUES
 
 INSERT INTO players (name, image_url, position, nationality) VALUES
 ('Gilberto Martinez', 'http://www.tuttocalciatori.net/fotocalciatori/Gilberto%20Martinez%20Vidal.jpg', 'Right Back', 'Costa Rica');
+
+CREATE TABLE player_positions(
+  id SERIAL4 PRIMARY KEY,
+  name VARCHAR(100) NOT NULL
+);
+
+ALTER TABLE players ADD player_position_id INTEGER;
+
+INSERT INTO player_positions (name) VALUES ('goalkeeper');
+INSERT INTO player_positions (name) VALUES ('number 10');
+INSERT INTO player_positions (name) VALUES ('midfielder');
+INSERT INTO player_positions (name) VALUES ('striker');
+INSERT INTO player_positions (name) VALUES ('defender');
+
+CREATE TABLE teams (  id SERIAL4 PRIMARY KEY,
+  name TEXT,
+  team_id INTEGER
+);
+
+INSERT INTO teams (name) VALUES ('Brescia');
+INSERT INTO player_positions (name) VALUES ('Milan');
