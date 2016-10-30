@@ -7,8 +7,28 @@
   </head>
   <body>
     <h1>Character Maker</h1>
-    <a href="/">Home</a>
-    <a href="/characters/new">New</a>
+
+    <% if logged_in? %>
+      Welcome, <%= current_user.username %>
+      <a href="/">Home</a>
+      <a href="/character/new">New Character</a>
+      <form action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Log Out</button>
+      </form>
+    <% else %>
+      <a href="/">Home</a>
+      <form action="/session" method="post">
+        <label for="">Username:</label>
+        <input type="text" name="username">
+
+        <label for="">Password:</label>
+        <input name="password" type="password">
+
+        <button>Log in</button>
+      </form>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>
