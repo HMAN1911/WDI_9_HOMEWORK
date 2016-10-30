@@ -87,7 +87,11 @@ end
 get '/characters/:id' do
   if logged_in?
     @character = Character.find(params[:id])
-    erb :show_character
+    if @character.user_id == session[:user_id]
+      erb :show_character
+    else
+      redirect to '/'
+    end
   else
     redirect to '/'
   end
@@ -97,7 +101,11 @@ end
 get '/characters/:id/edit' do
   if logged_in?
     @character = Character.find(params[:id])
-    erb :edit_character
+    if @character.user_id == session[:user_id]
+      erb :edit_character
+    else
+      redirect to '/'
+    end
   else
     redirect to '/'
   end
@@ -107,11 +115,15 @@ end
 post '/characters/:id' do
   if logged_in?
     character = Character.find(params[:id])
-    character.name = params[:name]
-    character.gender = params[:gender]
-    character.age = params[:age]
-    character.save
-    redirect to "/characters/#{params[:id]}"
+    if @character.user_id == session[:user_id]
+      character.name = params[:name]
+      character.gender = params[:gender]
+      character.age = params[:age]
+      character.save
+      redirect to "/characters/#{params[:id]}"
+    else
+      redirect to '/'
+    end
   else
     redirect to '/'
   end
@@ -121,7 +133,11 @@ end
 post '/characters/:id/delete' do
   if logged_in?
     character = Character.find(params[:id])
-    character.destroy
+    if @character.user_id == session[:user_id]
+      character.destroy
+    else
+      redirect to '/'
+    end
   end
   redirect to '/'
 end
