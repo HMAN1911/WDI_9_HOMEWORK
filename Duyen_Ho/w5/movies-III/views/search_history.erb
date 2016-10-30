@@ -1,0 +1,11 @@
+<h2>Search History</h2>
+
+<div class="search-history-wrapper">
+
+  <% @search_words.each do |word| %>
+    <div class="search-history">
+      <a href="/search_results?title=<%= word.title %>"><%= word.title %></a>
+    </div>
+  <% end %>
+
+</div>

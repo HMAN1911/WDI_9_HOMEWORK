@@ -1,12 +1,47 @@
-<div class="movie info">
-  <div class="poster">
-    <%= @poster %>
+<h2>Selected Movie</h2>
+
+<div class="movie-wrapper">
+
+  <div class="movie-poster">
+    <% if @result['Poster'] == 'N/A' %>
+      <p>No movie poster available</p>
+    <% else %>
+      <img src="<%= @result['Poster'] %>" alt="<%= @result['Title'] %> movie poster">
+    <% end %>
   </div>
-  <p> <%= @title %> </p>
-  <p> <%= @year %> </p>
-  <p> <%= @director %> </p>
-  <p> <%= @actors %> </p>
-  <p> <%= @plot %> </p>
+
+  <div class="movie-text-wrapper">
+    <div>
+      <h3>Title <span class="movie-info"><%= @result['Title'] %></span></h3>
+    </div>
+    <div>
+      <h3>Year <span class="movie-info"><%= @result['Year'] %></span></h3>
+    </div>
+    <div>
+      <h3>Director <span class="movie-info"><%= @result['Director'] %></span></h3>
+    </div>
+    <div>
+      <h3>Writer/s <span class="movie-info"><%= @result['Writer'] %></span></h3>
+    </div>
+    <div>
+      <h3>Actors <span class="movie-info"><%= @result['Actors'] %></span></h3>
+    </div>
+    <div>
+      <h3>Plot <span class="movie-info"><%= @result['Plot'] %></span></h3>
+    </div>
+    <div>
+      <h3>Rating <span class="movie-info"><%= @result['imdbRating'] %></span></h3>
+    </div>
+    <div>
+      <h3>Runtime <span class="movie-info"><%= @result['Runtime'] %></span></h3>
+    </div>
+  </div>
+
 </div>
 
-<a href="/index">Back to Search</a>
+<div class="clearfix">
+</div>
+
+<div class="back-btn">
+  <a href="/">Back to Search</a>
+</div>

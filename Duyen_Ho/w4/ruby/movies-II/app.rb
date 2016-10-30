@@ -9,27 +9,31 @@ get '/' do
 end
 
 get '/search_results' do
+  @user_input = params[:title]
+  @results = HTTParty.get("http://omdbapi.com/?s=#{@user_input}")
+  # binding.pry
 
-    if params.length != 0
-      @user_input = params[:title]
-      @result = HTTParty.get('http://omdbapi.com/?s=' + @user_input)
-      # binding.pry
-
+  if @results['Response'] == 'False'
+    redirect to "/error"
   end
-erb :search_results
+
+  if @results['totalResults'] == '1'
+    # binding.pry
+    @imdb_id = @results['Search'][0]['imdbID']
+    redirect to "/about?movie=#{@imdb_id}"
+  end
+
+  erb :search_results
+end
+
+get '/error' do
+  erb :error
 end
 
 get '/about' do
-
-  # result_link =
-  # @result = HTTParty.get('http://omdbapi.com/?t=' + result_link)
-
-  # @poster = @result['Poster']
-  # @title = @result['Title']
-  # @year = @result['Year']
-  # @director = @result['Director']
-  # @actors = @result['Actors']
-  # @plot = @result['Plot']
-
+  # get params from anchor tag query string
+  @imdb_id = params[:movie]
+  @result = HTTParty.get("http://omdbapi.com/?i=#{@imdb_id}")
+  # binding.pry
   erb :about
 end

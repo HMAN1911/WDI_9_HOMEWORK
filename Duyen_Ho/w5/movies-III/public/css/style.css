@@ -95,7 +95,7 @@ a:hover {
 
 .search-movie {
   margin: 0 0.2em;
-  width: 24%;
+  width: 24%; /* check this */
   height: 650px;
   display: inline-block;
   vertical-align: top;
@@ -146,6 +146,7 @@ a:hover {
 .movie-text-wrapper h3 {
   margin-top: 0;
 }
+
 .movie-text-wrapper h3 {
   color: #7ccfaf;
   font-size: 1.2em;
@@ -171,6 +172,26 @@ a:hover {
   margin-top: 10em;
 }
 
+/* Search History */
+.search-history-wrapper {
+  text-align: center;
+}
+
+.search-history {
+  display: block;
+  margin: 2em auto;
+}
+
+/* quick fix: refactor later */
+.heading-homepage {
+  margin: 7em 0;
+  font-size: 1em;
+}
+
+.heading-homepage a {
+  letter-spacing: 0.2em;
+}
+
 /* Footer */
 footer {
   margin: 20em 0 2em;
@@ -182,7 +203,13 @@ footer {
 footer p a {
   font-size: 1em;
 }
+
 footer a {
   color: #c99;
   text-decoration: none;
 }
+
+/* To do: */
+/* Fix issues with font-size inheritance for h tags */
+/* Fine tune a tags */
+/* Write no-poster display rules on about page */
