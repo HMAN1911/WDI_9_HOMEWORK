@@ -4,7 +4,7 @@
   <a href="/videos/<%= @video.id %>/edit">Edit</a>
   <form action="/videos/<%= @video.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
-    <button>Delete</button>
+    <button class="link">Delete</button>
   </form>
 </div>
 <h2><a href="<%= @video.url %>" target="_blank"><%= @video.title %></a></h2>

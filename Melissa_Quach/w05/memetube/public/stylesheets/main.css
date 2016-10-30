@@ -17,8 +17,9 @@ header {
   color: #FFF;
 }
 
+header a,
 header a:hover {
-  color: #444;
+  color: #FFF;
 }
 
 a {
@@ -34,4 +35,34 @@ a:hover {
 label {
   display: block;
   font-weight: bold;
+}
+
+.video {
+  padding: 5px;
+  margin: 1px 0;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+}
+
+.video:hover {
+  border-color: #900;
+}
+
+dl dt {
+  font-weight: bold;
+}
+
+.link {
+  border: none;
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  font-size: inherit;
+  cursor: pointer;
+  color: #444;
+}
+
+.link:hover {
+  color: #900;
+  text-decoration: underline;
 }
