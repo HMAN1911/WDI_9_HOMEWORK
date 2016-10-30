@@ -1,0 +1,20 @@
+<h2>Edit Video</h2>
+<form class="" action="/videos/<%= @video['id'] %>" method="post">
+  <label for="">Video title</label>
+  <input type="text" name="title" value="<%= @video['title'] %>">
+
+  <label for="">image url</label>
+  <textarea name="image_url" rows="10" cols="30" ><%= @video['image_url'] %></textarea>
+
+  <label for="">video type</label>
+  <select class="" name="video_genre_id">
+    <% @video_genres.each do |video_genre| %>
+      <% if @video.video_genre_id == video_genre.id %>
+        <option selcted value="<%= video_genre.id %>"><%= video_genre.name %></option>
+      <% else %>
+        <option value="<%= video_genre.id %>"><%= video_genre.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+  <button >Save</button>
+</form>

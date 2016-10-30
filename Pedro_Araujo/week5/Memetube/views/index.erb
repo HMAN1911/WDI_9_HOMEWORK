@@ -1,0 +1,10 @@
+<h1>Videossss</h1>
+
+<% if logged_in? %>
+  <a href="/videos/new">Add Video</a>
+<% end %>
+<% @videos.each do |video| %>
+  <h2><%= video.title %></h2>
+  <a href="/videos/<%= video['id'] %>">Show video</a>
+    <video src="<%= video['url'] %>" alt="" />
+<% end %>

@@ -1,0 +1,15 @@
+<form class="" action="/videos" method="post">
+  <label for="">Video title</label>
+  <input type="text" name="title" value="">
+
+  <label for="">Video url</label>
+  <textarea name="url" rows="10" cols="30"></textarea>
+
+
+  <select class="" name="video_genre_id">
+    <% @video_genres.each do |video_genre| %>
+      <option value="<%= video_genre.id %>"><%= video_genre.name.capitalize %></option>
+    <% end %>
+  </select>
+  <button >Create</button>
+</form>
