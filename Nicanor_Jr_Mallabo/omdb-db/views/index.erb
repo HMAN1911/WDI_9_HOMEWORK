@@ -1,0 +1,11 @@
+<h3>New Movies</h3>
+<div class="div-result">
+    <% @result.each do |r| %>
+        <table>
+            <tr>
+                <td class="td-image"><img src="<%= @r = r['Poster'] %>"></td>  
+                <td id="td-info">Title: <%= @r = r['Title'] %><br>Year: <%= @r = r['Year'] %><br>Type: <%= @r = r['Type'] %></td>
+            </tr>
+        </table>
+    <% end %>
+</div>
