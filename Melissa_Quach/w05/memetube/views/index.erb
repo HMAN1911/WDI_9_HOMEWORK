@@ -1,0 +1,10 @@
+<a href="/videos/new">Add video</a>
+<h2>Browsing all videos</h2>
+<% @videos.each do |video| %>
+  <div class="video">
+    <div>
+      <a href="/videos/<%= video.id %>"><%= video.title %></a>
+    </div>
+    <div><%= video.description %></div>
+  </div>
+<% end %>

@@ -48,20 +48,25 @@ get '/info' do
   # and save to local database
   if !@movie
     result = HTTParty.get("http://omdbapi.com/?t=#{@query}")
-    @movie = Movie.new
-    @movie.title = result['Title']
-    @movie.plot = result['Plot']
-    @movie.director = result['Director']
-    @movie.writer = result['Writer']
-    @movie.actor = result['Actors']
-    @movie.awards = result['Awards']
-    @movie.metascore = result['Metascore']
-    @movie.imdb_rating = result['imdbRating']
-    @movie.poster = result['Poster']
-    @movie.released = result['Released']
-    @movie.genre = result['Genre']
-    @movie.runtime = result['Runtime']
-    @movie.save
+    if (result['Response'] == 'True')
+      @movie = Movie.new
+      @movie.title = result['Title']
+      @movie.plot = result['Plot']
+      @movie.director = result['Director']
+      @movie.writer = result['Writer']
+      @movie.actor = result['Actors']
+      @movie.awards = result['Awards']
+      @movie.metascore = result['Metascore']
+      @movie.imdb_rating = result['imdbRating']
+      @movie.poster = result['Poster']
+      @movie.released = result['Released']
+      @movie.genre = result['Genre']
+      @movie.runtime = result['Runtime']
+      @movie.save
+    else
+      @error = result['Error']
+      return erb :error
+    end
   end
 
   erb :about

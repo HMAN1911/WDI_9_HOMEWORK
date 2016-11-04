@@ -1,26 +1,14 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pg'
 require 'pry'
-
-DBNAME = 'parrotdb'
-
-def run_sql(sql)
-  db = PG.connect(dbname: DBNAME)
-  result = db.exec(sql)
-  db.close
-  return result
-end
+require_relative 'db_config'
+require_relative 'models/post'
 
 # display all submissions
 # GET /
 get '/' do
   # Fetch posts from DB
-  @posts = run_sql("
-    SELECT *
-    FROM posts
-    ORDER BY id
-  ")
+  @posts = Post.all.sort{ |a, b| a.id <=> b.id }
 
   erb :index
 end
@@ -33,49 +21,45 @@ end
 
 # create new post
 post '/posts' do
-  run_sql("
-    INSERT INTO posts (image_url, caption)
-    VALUES ('#{params[:image_url]}', '#{params[:caption]}')
-  ")
-  redirect to '/'
+  post = Post.new
+  post.caption = params[:caption]
+  post.image_url = params[:image_url]
+
+  if post.save
+    redirect to '/'
+  else
+    erb :post_new
+  end
 end
 
 # display post
 get '/posts/:id' do
-  @post = run_sql("
-    SELECT *
-    FROM posts
-    WHERE id = #{params[:id]}
-  ").first
+  @post = Post.find(params[:id])
   erb :post_show
 end
 
 # display edit form
 get '/posts/:id/edit' do
-  @post = run_sql("
-    SELECT *
-    FROM posts
-    WHERE id = #{params[:id]}
-  ").first
+  @post = Post.find(params[:id])
   erb :post_edit
 end
 
 # save changes to post
 put '/posts/:id' do
-  run_sql("
-    UPDATE posts
-    SET image_url = '#{params[:image_url]}',
-      caption = '#{params[:caption]}'
-    WHERE id = #{params[:id]}
-  ")
-  redirect to "/posts/#{params[:id]}"
+  post = Post.find(params[:id])
+  post.image_url = params[:image_url]
+  post.caption = params[:caption]
+
+  if post.save
+    redirect to "/posts/#{params[:id]}"
+  else
+    erb :post_edit
+  end
 end
 
 # delete post
 delete '/posts/:id' do
-  run_sql("
-    DELETE FROM posts
-    WHERE id = #{params[:id]}
-  ")
+  post = Post.find(params[:id])
+  post.destroy
   redirect to '/'
 end
