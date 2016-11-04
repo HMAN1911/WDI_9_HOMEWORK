@@ -1,0 +1,15 @@
+<h2> edit submission </h2>
+
+<form action="/collection/<%= @art.id %>" method="post">
+  <label for="">artwork title</label>
+  <input name="title" type="text" value="<%= @art.name%>">
+
+  <label for="">artist name</label>
+  <input name="artist" type="text" value="<%= @art.artist%>">
+
+  <label for="">image url</label>
+  <textarea name="image_url" id="" cols="30" rows="10"><%=@art.image_url%></textarea>
+
+  <button>re-art real art</button>
+
+</form>

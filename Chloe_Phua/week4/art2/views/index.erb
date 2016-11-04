@@ -1,0 +1,5 @@
+<% @arts.each do |artwork| %>
+  <h3><a href='/collection/<%= artwork.id %>'>
+    <%= artwork.name %></a></h3>
+  <img src="<%= artwork.image_url %>" alt="">
+<% end %>
