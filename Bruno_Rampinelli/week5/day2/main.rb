@@ -1,31 +1,52 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pg'
-require 'pry'
 
+require 'pry'
+require_relative 'db_config'
+require_relative 'models/player'
+require_relative 'models/player_position'
+require_relative 'models/team'
 #create a function to make the code DRY
 
-def run_sql(sql)
-  db = PG.connect(dbname: 'footballplayers')
-  result = db.exec(sql)
-  db.close
-  return result
-end
+
 
 #show all players
 
 get '/' do
-  @players = run_sql("SELECT * from players;")
+  @players = Player.all
   erb :index
 end
 
 get '/players/new' do
 
+  @player_positions = PlayerPosition.all
+  @teams = Team.all
+
   erb :players_new
+
 end
+
+get '/players/:id' do
+  @player = Player.find(params[:id])
+
+  erb :players_show
+end
+
+
+#create a new player
 
 post '/players' do
 
-  @players  = run_sql("INSERT INTO players (name, image_url, position, nationality) VALUES ( '#{params[:name]}', '#{params[:image_url]}', '#{params[:position]}' , '#{params[:nationality]}');")
+  player = Player.new
+  player.name = params[:name]
+  player.image_url = params[:image_url]
+  player.player_position_id = params[:player_position_id]
+  player.nationality = params[:nationality]
+  player.team_id = params[:team_id]
+
+
+
+  player.save
+
   redirect '/'
 end

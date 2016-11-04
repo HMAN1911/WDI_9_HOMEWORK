@@ -7,7 +7,18 @@
   <textarea name="image_url" id="" cols="30" row="10"></textarea>
 
   <label for="">position</label>
-  <input type="text" name="position" >
+  <select name="player_position_id" id="">
+    <% @player_positions.each do |player_position| %>
+    <option value="<%= player_position.id %>"><%= player_position.name %> </option>
+    <% end %>
+  </select
+
+  <label for="">team</label>
+  <select name="team_id" id="">
+    <% @teams.each do |team| %>
+    <option value="<%= team.id %>"><%=team.name %> </option>
+    <% end %>
+  </select>
 
   <label for="">nationality</label>
   <input type="text" name="nationality" >
