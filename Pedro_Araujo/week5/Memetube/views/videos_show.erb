@@ -1,0 +1,23 @@
+<a href="/">go Back!</a>
+<h2><%= @video.title %> </h2>
+<% if @video.video_genre_id != nil %>
+  <h3>Video genre: <%= @video.video_genre_id %></h3>
+  <h3>Video genre: <%= @video.video_genre.title %></h3>
+<% end %>
+<img src="<%= @video['image_url'] %>" alt="" />
+
+<a href="/video/<%= @video['id'] %>/edit">edit</a>
+
+<form class="" action="/videos/<%= @video['id'] %>/delete" method="post">
+  <button>delete</button>
+</form>
+
+<% @comments.each do |comment| %>
+  <p><%= comment.body %></p>
+<% end %>
+
+<form  action="/comments" method="post">
+  <input type="hidden" name="video_id" value="<%= @video.id %>">
+  <textarea name="body" rows="10" cols="30"></textarea>
+  <button>post comment</button>
+</form>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+  </head>
+  <body>
+    <h1 class="header">Bar Code Videos</h1>
+
+    <% if logged_in? %>
+      Logged in as <%= current_user.email %>
+      <form class="" action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>logout</button>
+      </form>
+    <% end %>
+
+    <div class="col-2"></div>
+    <div class="col-8">
+      <%= yield %>
+
+    </div>
+    <div class="col-2">
+
+    </div>
+  </body>
+</html>
