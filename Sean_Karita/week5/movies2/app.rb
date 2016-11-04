@@ -12,7 +12,7 @@ get '/about' do
   @movie_name = params[:movie]
   if @movie_name != nil
     # if params[:movies].length != 0
-      @result = HTTParty.get('http://omdbapi.com/?t=' + @movie_name);
+      @result = HTTParty.get('http://omdbapi.com/?i=' + @movie_name);
       @title = @result['Title']
       @year = @result['Year']
       @rated = @result['Rated']
