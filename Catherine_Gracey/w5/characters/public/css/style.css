@@ -1,9 +1,62 @@
+html {
+    background-color: #3bd6d6;
+}
+
+body {
+    max-width: 40rem;
+    margin: 0 auto;
+    background-color: white;
+    height: 100%;
+    padding: 1em;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    padding: .5em;
+    margin: .2em;
+    border: 1px solid black;
+}
+
+nav form, .buttons form {
+    display: inline-block;
+}
+
 .btn, button {
-    background-color: aqua;
+    background-color: #3bd6d6;
     padding: .5em;
     display: inline-block;
     cursor: pointer;
     border: 1px solid black;
     font-size: 1em;
     margin:  .2em;
+}
+
+.character-form input{
+    width: 100%;
+    margin-bottom: .75rem;
+    font-size: 1.2rem;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.buttons {
+    text-align: center;
 }

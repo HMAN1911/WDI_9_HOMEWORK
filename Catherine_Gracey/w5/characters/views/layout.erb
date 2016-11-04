@@ -6,9 +6,38 @@
     <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
   </head>
   <body>
-    <h1>Character Maker</h1>
-    <a href="/">Home</a>
-    <a href="/characters/new">New</a>
+    <header>
+      <h1>Character Maker</h1>
+
+      <% if logged_in? %>
+        <p>Welcome, <%= current_user.username %></p>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/characters/new">New Character</a></li>
+          </ul>
+          <form action="/session" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button>Log Out</button>
+          </form>
+        </nav>
+      <% else %>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+          </ul>
+          <form action="/session" method="post">
+            <label for="">Username:</label>
+            <input type="text" name="username">
+
+            <label for="">Password:</label>
+            <input name="password" type="password">
+
+            <button>Log in</button>
+          </form>
+        </nav>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

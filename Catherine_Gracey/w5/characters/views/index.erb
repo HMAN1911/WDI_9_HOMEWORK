@@ -1,5 +1,20 @@
-<h2>All Characters</h2>
+<% if logged_in? %>
+  <h2>All Characters</h2>
+  <% @characters.each do |character| %>
+    <p><a href="characters/<%= character['id']%>"><%= character['name'] %></a></p>
+  <% end %>
+<% else %>
+  <h3>To create, save and edit characters, please log in or create an account.</h3>
+  <form action="/user/new" method="post">
+    <label for="">Username:</label>
+    <input type="text" name="username">
 
-<% @characters.each do |character| %>
-  <p><a href="characters/<%= character['id']%>"><%= character['name'] %></a></p>
+    <label for="">Email:</label>
+    <input type="email" name="email">
+
+    <label for="">Password:</label>
+    <input name="password" type="password">
+
+    <button>Sign Up</button>
+  </form>
 <% end %>
