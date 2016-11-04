@@ -1,0 +1,14 @@
+<h2>Deleting this car</h2>
+
+<form action="/cars/<%= @car['id'] %>" method='post'>
+  <label for="">Car name :</label>
+  <input name="name" value="<%= @car['name'] %>">
+  <input type="hidden" name="_method" value="delete">
+  <br><br>
+  <label for=""> image_url LINK : </label>
+  <textarea name="img_url" rows="4" cols="40"><%= @car['img_url'] %></textarea>
+  <p>If you are sure 'click' Delete</p><button>Delete</button>
+
+</form>
+
+<a class="home" href="/">Home</a>

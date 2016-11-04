@@ -1,0 +1,14 @@
+<h2>Editing car post</h2>
+
+<form action="/cars/<%= @car['id'] %>" method='post'>
+  <label for="">Car name :</label>
+  <input name="name" value="<%= @car['name'] %>">
+  <br><br>
+  <label for=""> image_url LINK : </label>
+  <textarea name="img_url" rows="4" cols="40"><%= @car['img_url'] %></textarea>
+    <br><br>
+  <button>Save</button>
+
+</form>
+
+<a class="home" href="/">Home</a>

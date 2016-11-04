@@ -1,0 +1,8 @@
+<h2> All Cars </h2>
+
+<a href="/cars/new">Add New car</a>
+
+<% @result.each do |result| %>
+  <h3><a href="/cars/<%= result['id'] %>"><%= result['name'] %></a></h3>
+  <img src="<%= result['img_url'] %>" />
+<% end %>
