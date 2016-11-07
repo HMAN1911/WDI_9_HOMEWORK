@@ -1,0 +1,14 @@
+<h1>SECRET NUMBER</h1>
+
+<form class="" action="/guess" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="num_to_guess" value="<%= @num_to_guess %>">
+
+<p>Guess a number between 0 and 10</p>
+
+<input type="text" placeholder="Your guess" name="guess" value="">
+
+<button>GUESS MY NUMBER</button>
+
+
+</form>

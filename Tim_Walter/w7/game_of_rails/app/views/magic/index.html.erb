@@ -1,0 +1,15 @@
+<h1>MAGIC 8 BALL</h1>
+
+<form class="" action="/get_answer" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+
+<p>Ask 8 Ball a question</p>
+
+<textarea placeholder="Your question"  name="question" rows="8" cols="40"></textarea>
+
+<button>ASK YOUR QUESTION</button>
+
+</form>
+
+<h3>Magic 8 Ball says... <%= @answer %></h3>
