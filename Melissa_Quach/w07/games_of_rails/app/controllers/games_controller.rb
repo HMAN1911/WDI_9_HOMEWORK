@@ -22,11 +22,28 @@ class GamesController < ApplicationController
     'Very doubtful'
   ]
 
+  # Generate 8-ball response to question
   def eight_ball
     @question = params[:question]
 
     if @question
       @response = @@eight_ball_responses.sample
+    end
+  end
+
+  # Get user's guess
+  # If guess received, check against computer's response
+  # and display result
+  def secret_number
+    guess = params[:guess]
+
+    if guess
+      @answer = Random.rand(10) + 1
+      if guess.to_i == @answer
+        render :secret_number_win
+      else
+        render :secret_number_lose
+      end
     end
   end
 end
