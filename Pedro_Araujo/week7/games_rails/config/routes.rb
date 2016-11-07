@@ -14,6 +14,7 @@ Rails.application.routes.draw do
  get '/secret/lose', to: 'secret#lose'
 
 # Rock Paper Scissors
+get  '/games/rock_paper_scissors/:throw', to: 'rock_paper_scissors#rock_paper_scissors_play'
 
 
 end
