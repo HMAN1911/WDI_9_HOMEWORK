@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+require_relative 'db_config'
+require_relative 'models/movie'
 
 get '/' do
   erb :index
@@ -46,4 +48,10 @@ get '/about' do
   @imdbID = result['imdbID']
   @type = result["Type"]
 erb :about
+end
+
+post '/movies' do
+  result = HTTParty.get('http://omdbapi.com/?t=' + title + "'")
+  movie = Movie.new
+  movie.title = result["Title"]
 end
