@@ -21,6 +21,21 @@ class GamesController <ApplicationController
   def secret_number
   end
 
+  def magic_number
+
+
+    magic_number = '8';
+
+    @user_number = params[:number]
+
+    if @user_number == magic_number
+
+      @result = "You win"
+    else
+      @result = "You lose"
+    end
+  end
+
   def rock_paper_scissor
   end
 
