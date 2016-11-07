@@ -21,6 +21,9 @@ class GamesController < ApplicationController
     'Outlook not so good',
     'Very doubtful'
   ]
+  @@rock_scissors_paper = [
+    'rock', 'scissors', 'paper'
+  ]
 
   # Generate 8-ball response to question
   def eight_ball
@@ -43,6 +46,28 @@ class GamesController < ApplicationController
         render :secret_number_win
       else
         render :secret_number_lose
+      end
+    end
+  end
+
+  def rock_paper_scissors
+  end
+
+  def rock_paper_scissors_play
+    @throw = params[:throw]
+
+    if @throw
+      @computer_throw = @@rock_scissors_paper.sample
+      @result = ''
+
+      if @throw == @computer_throw
+        @result = 'Draw'
+      elsif @throw == 'rock' && @computer_throw == 'scissors' \
+        || @throw == 'scissors' && @computer_throw == 'paper' \
+        || @throw == 'paper' &&  @computer_throw == 'rock'
+        @result = 'Player wins'
+      else
+        @result = 'Computer wins'
       end
     end
   end
