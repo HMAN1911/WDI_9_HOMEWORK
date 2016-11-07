@@ -1,0 +1,10 @@
+<form action="/games/magic_ask" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Ask a question</label>
+  <input type="text" name="question">
+
+  <button>ask</button>
+</form>
+
+<h2><%= @return %></h2>
