@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  #get url to viewfoler / page
+  #get url to controller / method
   get '/', to: 'magic#index'
 
   get '/magic', to: 'magic#index'
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/win', to: 'secret_num#win'
 
   get '/rock_paper_scissors', to: 'rock_paper_scissors#index'
+  post '/play', to: 'rock_paper_scissors#play'
 
 
 end

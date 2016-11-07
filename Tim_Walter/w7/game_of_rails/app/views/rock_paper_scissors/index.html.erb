@@ -1,1 +1,19 @@
 <h1>ROCK PAPER SCISSORS</h1>
+
+
+<form class="" action="/play" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <select class="" name="user_choice">
+    <option value="rock">ROCK</option>
+    <option value="paper">PAPER</option>
+    <option value="scissors">SCISSORS</option>
+  </select>
+
+  <button>ROCK PAPER SCISSORS</button>
+
+
+  <p>User Chooses: <%= @user_choice %>  </p>
+  <p>Comp Chooses: <%= @computer_choice %>  </p>
+  <h3><%= @response %></h3>
+</form>
