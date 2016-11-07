@@ -1,0 +1,14 @@
+<h2>Magic Eight Ball</h2>
+
+<form action="/games/eight_ball">
+  <input name="question" type="text"
+    placeholder="Type a question here"
+    value="<%= @question %>">
+  <button>Ask Magic 8 Ball</button>
+</form>
+
+<% if @answer %>
+  <div>
+    Magic 8 ball: <%= answer %>
+  </div>
+<% end %>
