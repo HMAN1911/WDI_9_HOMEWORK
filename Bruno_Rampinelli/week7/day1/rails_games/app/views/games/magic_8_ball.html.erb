@@ -1,0 +1,12 @@
+<h1>Magic 8 ball</h1>
+
+<form action="/games/magic_8_ball" method= "post">
+
+  <input type="hidden" name= "authenticity_token" value="<%= form_authenticity_token%>" />
+
+  <label for="">question</label>
+  <input name="question" type="text" />
+
+  <button>Ask</button>
+
+</form>
