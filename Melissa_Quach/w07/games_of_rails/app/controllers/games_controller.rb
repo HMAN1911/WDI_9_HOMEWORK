@@ -25,6 +25,10 @@ class GamesController < ApplicationController
     'rock', 'scissors', 'paper'
   ]
 
+  # Show game list
+  def index
+  end
+
   # Generate 8-ball response to question
   def eight_ball
     @question = params[:question]
@@ -50,9 +54,11 @@ class GamesController < ApplicationController
     end
   end
 
+  # Render rock paper scissors entry screen
   def rock_paper_scissors
   end
 
+  # Display rock paper scissors result
   def rock_paper_scissors_play
     @throw = params[:throw]
 
