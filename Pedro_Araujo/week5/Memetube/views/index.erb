@@ -6,5 +6,6 @@
 <% @videos.each do |video| %>
   <h2><%= video.title %></h2>
   <a href="/videos/<%= video['id'] %>">Show video</a>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/RXJb5n3h8rg" frameborder="0" allowfullscreen></iframe>
     <video src="<%= video['url'] %>" alt="" />
 <% end %>
