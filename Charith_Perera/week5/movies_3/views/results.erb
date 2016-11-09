@@ -1,0 +1,8 @@
+<section class="list">
+  <ul>
+    <% @search_results.each do |result|  %>
+      <li><a href="/movie/<%= result['Title'] %><%= result['Year'] %>"><%= result["Title"] %> : <%= result["Year"] %></a></li>
+    <% end %>
+    <li></li>
+  </ul>
+</section>

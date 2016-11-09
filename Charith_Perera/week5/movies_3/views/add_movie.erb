@@ -1,0 +1,32 @@
+<section class="add-movie">
+  <h1><%= @result['Title'] %></h1>
+  <h2><%= @result['Year'] %></h2>
+  <img src="<%= @posterSrc %>" alt="">
+  <form action="/add-movie" method="post">
+    <ul>
+      <input type="hidden" name="image-url" value="<%= @result['Poster'] %>">
+      <input type="hidden" name="title" value="<%= @result['Title'] %>">
+      <input type="hidden" name="year" value="<%= @result['Year'] %>">
+      <li>
+        <label for="">
+          Review
+          <!-- <textarea name="review" id="" cols="30" rows="5">Your review here..</textarea> -->
+          <input type="text" name="review" maxlength="40">
+        </label>
+      </li>
+      <li>
+        <label for="">
+          Rating
+          <select name="stars" id="">
+            <% 1.upto(5) do |count|  %>
+            <option value="<%= count %>"><%= count %></option>
+            <% end %>
+          </select>
+        </label>
+      </li>
+      <li>
+        <button>Finish</button>
+      </li>
+    </ul>
+  </form>
+</section>

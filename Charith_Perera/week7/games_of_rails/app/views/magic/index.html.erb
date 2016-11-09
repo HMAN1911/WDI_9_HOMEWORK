@@ -1,0 +1,8 @@
+<h1>MAGIC</h1>
+<form action="/magic/answer" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="text" placeholder="What is your question?" name="question">
+  <button>Get Answer</button>
+</form>
+
+<h2><%= @answer %></h2>
