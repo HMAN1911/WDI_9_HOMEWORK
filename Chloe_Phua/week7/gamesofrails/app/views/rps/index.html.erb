@@ -1,0 +1,7 @@
+<p> rock paper scissors?</p>
+<form action="/rps/<%=params[:throw]%>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button name="throw" value="rock">rock</button>
+  <button name="throw" value="paper">paper</button>
+  <button name="throw" value="scissors">scissors</button>
+</form>

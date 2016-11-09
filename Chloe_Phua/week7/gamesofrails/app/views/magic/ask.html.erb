@@ -1,0 +1,9 @@
+<form action="/magic8ball" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input name="question" type="text" value="<%=@question%>">
+  <button>ask</button>
+
+<p><%= @response %></p>
+
+
+</form>
