@@ -76,10 +76,6 @@ img {
   padding-right: 32px;
 }
 
-.search-field button {
-  margin-left: -32px;
-}
-
 .error {
   background-color: #FAA;
   color: #600;

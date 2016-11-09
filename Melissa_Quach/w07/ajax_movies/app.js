@@ -20,7 +20,10 @@ $input.keypress(function(e) {
       if (res.Response == "True") {
         res.Search.forEach(function(movie) {
           var $movieItem = $('<h2>');
-          $movieItem.text(movie.Title);
+          var $infoLink = $('<a>')
+            .attr('href', '/info.html?title=' + movie.Title)
+            .text(movie.Title)
+          $movieItem.append($infoLink);
           $resultList.append($movieItem);
         });
       }

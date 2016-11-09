@@ -14,12 +14,19 @@
         <h1>OMDb API Search</h1>
       </header>
       <main class="content">
-        <div class="error content"></div>
-        <div class="search-field">
-          <input id="query" type="text" placeholder="Movie title">
-        </div>
-        <div id="search-results">
-        </div>
+        <a href="/">Back to list</a>
+        <h2></h2>
+        <img id="poster" alt="poster" />
+        <dl>
+          <dt>Plot</dt>
+          <dd id="plot"></dd>
+          <dt>Released</dt>
+          <dd id="released"></dd>
+          <dt>Genre</dt>
+          <dd id="genre"></dd>
+          <dt>Runtime</dt>
+          <dd id="runtime"></dd>
+        </dl>
       </main>
       <footer class="content">
         Powered by <a href="https://www.omdbapi.com/" target="_blank">OMDb API</a>
@@ -29,6 +36,6 @@
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
-    <script src="app.js"></script>
+    <script src="info.js"></script>
   </body>
 </html>
