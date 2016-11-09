@@ -1,11 +1,11 @@
 <div class="center">
   <h3>Artworks</h3>
-  <h4><%= @artwork['title'] %> by <%= @artwork['artist'] %></h4>
-  <img src="<%= @artwork['image_url'] %>" alt="">
+  <h4><%= @artwork.title %> by <%= @artwork.artist %></h4>
+  <img src="<%= @artwork.image_url %>" alt="">
   <div class="link-btn">
-    <a href="/artworks/<%= @artwork['id'] %>/edit">Edit</a>
+    <a href="/artworks/<%= @artwork.id %>/edit">Edit</a>
   </div>
-  <form action="/artworks/<%= @artwork['id'] %>/delete" method="post">
+  <form action="/artworks/<%= @artwork.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <button>Delete</button>
   </form>
