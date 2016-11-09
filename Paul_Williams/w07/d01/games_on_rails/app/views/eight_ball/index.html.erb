@@ -1,0 +1,9 @@
+<h1>Magic 8 Ball</h1>
+<a href="/">home</a>
+
+<form action="/8ball" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>Enter your question</label>
+  <input type="text" name="question">
+  <button>submit</button>
+</form>

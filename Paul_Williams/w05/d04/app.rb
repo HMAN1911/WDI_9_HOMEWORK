@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'httparty'
+
 require_relative 'db_config'
 require_relative 'models/movie'
 
@@ -15,6 +16,7 @@ post '/result' do
     erb :not_found
   elsif @search["Search"].length == 1
     @info = Movie.find_or_create_by imdb_id: @search["Search"][0]["imdbID"]
+    @info.update_info if @info.new_record?
     erb :movie_info
   else
     @results = @search["Search"].delete_if { |x| x["Poster"] == "N/A" }
@@ -24,6 +26,7 @@ end
 
 get '/movie_info' do
   @info = Movie.find_or_create_by imdb_id: params[:id]
+  @info.update_info if @info.new_record?
   erb :movie_info
 end
 
