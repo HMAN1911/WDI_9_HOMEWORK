@@ -1,0 +1,124 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+}
+
+a,
+button {
+  color: inherit;
+  transition: 0.3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input,
+button {
+  font-size: inherit;
+  border-radius: 5px;
+  border: 1px solid #EEE;
+  padding: 0.5em;
+}
+
+img {
+  max-width: 100%;
+  border: 0;
+  height: auto;
+}
+
+#wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.content {
+  padding: 1em;
+}
+
+.search-field input {
+  padding-right: 32px;
+}
+
+.error {
+  background-color: #FAA;
+  color: #600;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.error:empty {
+  padding: 0;
+  border: none;
+}
+
+#search-results {
+  margin: 1em 0;
+  list-style-type: none;
+}
+
+#search-results h2 {
+  padding: 0.5em;
+}
+
+#search-results a {
+  display: block;
+}
+
+.fa-spinner {
+  transition: 1s;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.fa.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

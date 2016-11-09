@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OMDb API Search</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header class="content">
+        <h1>OMDb API Search</h1>
+      </header>
+      <main class="content">
+        <div class="error content"></div>
+        <div class="search-field">
+          <input id="query" type="text" placeholder="Movie title">
+          <i class="fa fa-spinner hidden" aria-hidden="true"></i>
+        </div>
+        <div id="search-results">
+        </div>
+      </main>
+      <footer class="content">
+        Powered by <a href="https://www.omdbapi.com/" target="_blank">OMDb API</a>
+      </footer>
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
