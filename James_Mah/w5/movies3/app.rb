@@ -54,20 +54,15 @@ get '/about' do
   if @param == ''
     @result = 'No movie found'
   else 
-    # binding.pry
     if Movie.find_by(imdbid: @param) != nil
       @movie = Movie.find_by(imdbid: @param).attributes
     else
       @movie = HTTParty.get('http://omdbapi.com/?i=' + @param)
       @movie.downcase_key.delete('type')
-      # binding.pry
       if @movie['response'] == 'True'
-        Movie.new(@movie).save
-        # symbolize_keys
-        # binding.pry
+        Movie.create(@movie)
       end
     end
-    # binding.pry
     if @movie['response'] == 'False'
       @result = 'No movie found'
     end
