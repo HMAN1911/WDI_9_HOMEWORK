@@ -1,0 +1,91 @@
+body {
+  font-family: arial;
+}
+
+.frame_container {
+  height: 330px;
+  width: 200px;
+  background-color: pink;
+  margin: 10px;
+  box-shadow: 2px 2px 1px #b3b3b3;
+  display: inline-block;
+}
+
+.my_circle_icon {
+  border-radius: 25px;
+  background-color: #e6e6e6;
+  height: 10px;
+  width: 10px;
+  padding: 5px;
+  padding-top: 5px;
+  display: inline-block;
+  margin-left:10px;
+  margin-top: 10px;
+  text-align: center;
+  color: #b3b3b3;
+}
+
+.dish_image {
+  height: 200px;
+  width: 200px;
+}
+
+.like_button {
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  font-size: 25px;
+  position: relative;
+  top: 45px;
+  left: 65px;
+  opacity: 0.01;
+}
+
+.like_button:hover {
+  opacity:inherit;
+  cursor: pointer;
+}
+
+.user_name {
+  height: 2em;
+  display: inline-block;
+  padding: 5px;
+  padding-top: 0px;
+  margin-top: 5px;
+  font-size: .7em;
+  position: relative;
+  top: -5px;
+}
+
+.hours_ago {
+  height: 2em;
+  display: inline-block;
+  padding: 5px;
+  margin-right: 10px;
+  margin-top: 15px;
+  font-size: .7em;
+  float: right;
+  position: relative;
+  top: -5px;
+}
+
+.dish_title {
+  font-size: 0.7em;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.by_DT {
+  font-size: 0.7em;
+  padding: 10px;
+  float: left;
+  margin-top: 0px;
+}
+
+.stars {
+  font-size: 0.7em;
+  padding: 10px;
+  float: right;
+  margin-right: 10px;
+  margin-top: 0px;
+}

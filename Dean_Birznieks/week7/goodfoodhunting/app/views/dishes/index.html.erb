@@ -1,0 +1,24 @@
+
+
+
+<% @dishes.each do |dish| %>
+
+
+
+    <div class = 'frame_container'>
+      <%= form_tag '/likes', method: 'post' do %>
+      <input type='hidden' name="dish_id" value="<%= dish.id %>"/>
+
+      <div class = 'hours_ago'>14h</div>
+
+      <div class = 'my_circle_icon'>-</div>
+      <div class = 'user_name'><%= dish.user.email %></div>
+      <button class = 'like_button'>★</button>
+      <img src="<%=dish.image_url%>" alt="food" class = "dish_image">
+      <p class ='dish_title'> <%= dish.title %><br> at werwer</p>
+      <p class = "by_DT">by DT</p>
+      <p class = "stars"><%= dish.likes.count %> stars</p>
+
+    </div>
+      <% end %>
+<% end %>
