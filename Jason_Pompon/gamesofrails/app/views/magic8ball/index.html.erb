@@ -1,0 +1,10 @@
+<form action="/magic8ball" method='post'>
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Type a question</label>
+  <input name='name'>
+  <button>submit</button>
+</form>
+
+<%= @answers %>
