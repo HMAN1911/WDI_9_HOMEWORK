@@ -65,6 +65,7 @@ def blend(smoothie_ingredients)
   smoothie_ingredients.keys.join.gsub(" ","").split("").shuffle.join
 end
 
+# DT alternative >>> smoothie_ingredients.keys.join('').chars.shuffle.gsub(' ','')
 
 # create a class called Blender
 # It should have a method that takes an array of ingredients and returns a mixed string of characters.
@@ -74,7 +75,7 @@ end
 
 class Blender
    def initialize
-     @switched_on = false  #
+     @switched_on = false  # DT just used on
    end
 
   def blend(smoothie_ingredients)
@@ -83,14 +84,17 @@ class Blender
     # array - grab keys - make string - subst. spaces - re-create array (single chrs) - shuffle it - return to string
       smoothie_ingredients.keys.join.gsub(" ","").split("").shuffle.join
 
+      # DT alternative >>> smoothie_ingredients.keys.join('').chars.shuffle.gsub(' ','')
+
     else
       return 'The blender is switched off'
     end
   end
 
   def turn_switch
-    @switched_on = !@switched_on  # ! refers to not to toggle
+    @switched_on = !@switched_on  # ! refers to not    to toggle
   end
+
 
 end
 

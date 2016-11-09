@@ -1,0 +1,18 @@
+
+
+<a id="new_diagram" href="/diagrams/new">Create a new Matrix</a>
+<br>
+<br>
+    <!-- List of diagrams -->
+    <ul>
+
+      <li><a class="active" href="#">Select a saved Matrix</a></li>
+
+        <% if logged_in? %> <% @diagrams.each do |diagram| %>
+
+      <li><a href="/diagrams/show/<%=diagram.id%>"><%= diagram.diagram_name %></a></li>
+
+          <% end %>
+    </ul>
+
+      <% end %>

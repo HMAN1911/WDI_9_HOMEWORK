@@ -1,0 +1,44 @@
+<h2>Specification</h2>
+<p>Build a search form that lets the user enter a movie name. The Sinatra app will use HTTParty to fetch the data for the chosen movie from OMDB and display it on the page.</p>
+<p>Build a Sinatra application</p>
+<p>Include:</p>
+<ul>
+  <li>app.rb</li>
+  <li>views/layout.erb</li>
+  <li>views/index.erb</li>
+  <li>views/about.erb</li>
+  <li>public/css/style.css</li>
+</ul>
+<p>example httparty usage</p>
+<pre>require 'httparty'
+result = HTTParty.get('http://omdbapi.com/?t=once')</pre>
+
+
+
+
+<!-- <div> </div>
+
+<div class = 'title'><%= @title %></div>
+<h3>directed by</h3>
+<div class = 'director'><%= @director %></div>
+
+<div class = "wrapper">
+
+<div class = "posterContainer">
+  <img class = "poster" src= <%= @poster %> alt="poster for movie">
+  </div>
+  <div> </div>
+
+  <div class = 'container' class = 'rows' >
+
+    <div class = 'row'>Year: <%= @year %>  Rated: <%= @rated %>  Genre: <%= @genre %></div>
+    <div class = 'row'> Runtime: <%= @runtime %></div>
+    <div class = 'row'>Starring: <br> <%= @actors %></div>
+    <div class = 'row'>Awards:  <br> <%= @awards %></div>
+    <div class = 'row'>Written by:  <br> <%= @writer %></div>
+    <div class = 'row'>Language: <%= @language %> Country: <%= @country %>  Released: <%= @released %></div>
+    <div class = 'row'>imdb rating: <%= @imdbRating %>  Metascore: <%= @metascore %>  imdb ID: <%= @imdbID %></div>
+    <div class = 'row'>The Plot:  <br> <%= @plot %></div>
+
+  </div>
+</div> -->

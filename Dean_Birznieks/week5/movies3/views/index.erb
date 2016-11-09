@@ -1,0 +1,51 @@
+<form action="/" method="get">
+  <input type="text" name="search" placeholder="Type your movie here">
+  <button>Find It</button>
+</form>
+<% if @result %>
+  <div class="movie">
+    <% if @result["Response"] == "True" %>
+      <!-- Multiple movies have been found, so display the search options. -->
+      <form action="/" method="get">
+      <% @result["Search"].each do |movie| %>
+
+      <label class="search-result" for=<%= movie["imdbID"] %>>
+        <% unless movie["Poster"] == "N/A"%>
+          <img src= <%= movie["Poster"]%> class="thumbnail">
+        <% end %>
+          <h2><input type="radio" name="title" value=<%= movie["imdbID"] %> id=<%= movie["imdbID"] %>> <%= movie["Title"]%></h2>
+          <p>Year: <%= movie["Year"]%></p>
+          <p>Type: <%= movie["Type"]%></p>
+        </label>
+      <% end %>
+      <button>Details</button>
+    </form>
+    <% elsif @result.response == "True"%>
+      <!-- A single movie has been found, so display the entire entry -->
+      <h2><%= @result.title%></h2>
+      <img src= "<%= @result.poster %>" >
+      <p>Released <%= @result.released %> and rated <%= @result.rated %>, <%= @result.title %> is an <%= @result.genre.downcase %> that tells the story of <%= @result.plot %></p>
+
+      <p>This <%= @result.filmtype %> runs for <%= @result.runtime %> and is written in <%= @result.language %>. Directed in <%= @result.country %> by <%= @result.director %> and written by <%= @result.writer %>, it starred <%= @result.actors %> and <%= @result.awards %></p>
+
+      <p>IMdb gives this movie a score of <%= @result.imdbrating %> based on <%= @result.imdbvotes %> votes. It has a meta score of <%= @result.metascore %>.</p>
+    <% else %>
+      <!-- No movies have been found, so display the error message -->
+      <p><%= @result["Error"]%></p>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel = 'stylesheet' href = 'style.css'>
+  <title>Index</title>
+</head>
+<body>
+
+</body>
+</html> -->
