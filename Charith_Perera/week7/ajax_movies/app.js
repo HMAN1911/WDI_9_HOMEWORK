@@ -35,7 +35,7 @@ $(document).ready(function() {
 
   function showMovie(result) {
       $(".movie").empty();
-      $(".movie").append("<h2>" + result.Title +"</h2");
+      $(".movie").append("<h2><a target='_blank' href='http://www.imdb.com/title/" + result.imdbID + "/'>" + result.Title +"</a></h2");
       if (result.Poster !== "N/A") {
         $(".movie").append("<img src='" + result.Poster + "'>");
       }
