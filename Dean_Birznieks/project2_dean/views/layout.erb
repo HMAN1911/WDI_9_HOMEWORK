@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/style.css" media="screen" title="no title">
+  <!-- <title>Matrix</title> -->
+
+</head>
+<body>
+  <h1>Welcome to the Matrix Revolution for your business</h1>
+
+  <h2>Understand popular 2 x 2 matrices and create your own</h2>
+
+  <!-- Member Number: <%= session[:user_id]%> -->
+
+  <% if logged_in? %>
+
+  <p class="username_label"><%= User.find(session[:user_id]).username %></p>
+
+
+  <form action="/session" method="post">
+
+    <input type="hidden" name="_method" value="delete">
+
+    <button class="logout_button" >logout</button>
+
+  </form>
+
+  <!-- <p class = 'customer' <%= User.find(session[:user_id]).username %> ></p> -->
+
+  <% else %>
+
+    <a class="logout_button" href="/session/new">login</a>
+
+  <% end %>
+
+  <%= yield %>
+</body>
+</html>

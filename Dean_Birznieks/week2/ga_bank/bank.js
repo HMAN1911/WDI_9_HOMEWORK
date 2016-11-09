@@ -1,4 +1,111 @@
-console.log('not working - trouble getting buttons working properly - see logic in comments');
+// var helloFunc = function() {
+//   console.log('hi there');
+// }
+
+// console.log('not working - trouble getting buttons working properly - see logic in comments');
+// var withdrawBtn = document.getElementsByClassName('withdrawBtnChecking')[0];
+// withdrawBtn.addEventListener('click', helloFunc);
+//
+// ======================================
+
+// DT Revision
+// ==================================
+
+// Function Factory example - simple one that creates objects with existing functions as properties of that object
+// var savingsAccount = {
+//   balance: 0,
+//   deposit: function() {
+//
+//   }
+// }
+
+// Function Factory (Module Pattern) example - better way to create objects with existing functions as properties of that object
+// Note - not required - just a nice to have if you need to create a lot of accounts
+
+// var makeAccount = function() {
+//
+//   var balance = 0;
+//
+//   return {
+//     deposit: function(amount) {
+//       balance = balance + amount;
+//     },
+//
+//     getBalance: function() {
+//         return balance;
+//     }
+//   }
+// }
+
+
+
+
+
+var accountBalance = 0;
+
+
+function deposit(amount) {
+  accountBalance += amount;
+}
+
+
+function withdraw(amount) {
+  if (amount <= accountBalance) {
+    // Note - line below means assign the value of accountBalance minus amount to accountBalance
+    accountBalance -= amount;
+    return true;
+  } else {
+    // clear input box
+    amountInput.value = '';
+    alert("You don't have sufficient funds for that withdrawal");
+    return false;
+
+  }
+  }
+
+// =============================
+
+var balanceDiv = document.getElementById('balanceDiv');
+var amountInput = document.getElementById('amount');
+var depositBtn = document.getElementById('depositBtn');
+
+function updateBalance() {
+  balanceDiv.innerHTML = accountBalance;
+}
+updateBalance();
+
+depositBtn.addEventListener('click',function(){
+  // get value from the input
+  var amount = parseInt(amountInput.value);
+
+  // deposit that amount
+  deposit(amount);
+
+  // update balance
+  updateBalance();
+
+  // clear input box
+  amountInput.value = '';
+});
+
+
+withdrawBtn.addEventListener('click',function(){
+  // get value from the input
+  var amount = parseInt(amountInput.value);
+
+  // withdraw that amount
+  if (withdraw(amount)) {
+
+  // update balance
+  updateBalance();
+
+  // clear input box
+  amountInput.value = '';
+
+  }
+});
+
+
 
 
 // ** Key Requirements **
@@ -62,9 +169,5 @@ console.log('not working - trouble getting buttons working properly - see logic 
 //   depositBtnSavings.addEventListener('click',processDeposit);
 
 
-
-
-
-
-
-/
+// Kasun
+// document.getElementById('balanceSavings').textContent = '1000'

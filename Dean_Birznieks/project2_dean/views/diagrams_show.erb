@@ -1,0 +1,49 @@
+
+
+<div class = "wrapper">
+
+  <div class = 'diag_heading' id = 'diagram_name'><%= @diagram.diagram_name %></div>
+  <div class = 'diag_subheading' id = 'diagram_type'><%= @diagram.diagram_type %></div>
+
+
+
+  <div class='quadrants'>
+    <div class = 'diag_subheading' id = 'axis_label_left'><%= @diagram.axis_label_left %></div>
+    <div class = 'q1_and_q2'>
+      <div class = 'q1'>
+        <div class = 'diag_content' id = 'q1_content'><%= @diagram.q1_content %></div>
+        <div class = 'diag_quadrant_label' id = 'q1_label_side'><%= @diagram.q1_label_side %></div>
+      </div>
+
+      <div class = 'q2'>
+        <div class = 'diag_content' id = 'q2_content'><%= @diagram.q2_content %></div>
+      </div>
+    </div>
+
+    <div class = 'q3_and_q4'>
+      <div class = 'q3'>
+        <div class = 'diag_content' id = 'q3_content'><%= @diagram.q3_content %></div>
+        <div class = 'diag_quadrant_label' id = 'q3_label_side'><%= @diagram.q3_label_side %></div>
+        <div class = 'diag_quadrant_label' id = 'q3_label_bottom'><%= @diagram.q3_label_bottom %></div>
+      </div>
+
+      <div class = 'q4'>
+        <div class = 'diag_content' id = 'q4_content'><%= @diagram.q4_content %></div>
+        <div class = 'diag_subheading' id = 'q4_label_bottom'><%= @diagram.q4_label_bottom %></div>
+      </div>
+    </div>
+    <div class = 'diag_subheading' id = 'axis_label_bottom'><%= @diagram.axis_label_bottom %></div>
+  </div>
+
+  <div class = 'clear'></div>
+
+
+  <div class = 'diag_heading' id = 'diagram_oview_title'>"<%= @diagram.diagram_oview_title %>"</div>
+  <div id ='diagram_oview_text'>"<%= @diagram.diagram_oview_text %>"</div>
+
+
+    <!-- <div class = 'diag_corner_label' id = 'q3_label_corner'><%= @diagram.q3_label_corner %></div> -->
+    <!-- <div class = 'diag_corner_label' id = 'q4_label_corner'><%= @diagram.q4_label_corner %></div> -->
+    <!-- <div class = 'diag_corner_label' id = 'q1_label_corner'><%= @diagram.q1_label_corner %></div> -->
+    <!-- <div class = 'diag_quadrant_label' id = 'q2_label_side'><%= @diagram.q2_label_side %></div> -->
+</div>

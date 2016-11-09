@@ -1,4 +1,4 @@
-
+var goRight = true;
 var movePixels = 10;
 var delayMs = 50;
 var catTimer = null;
@@ -16,7 +16,7 @@ if (currentLeft > (window.innerWidth-img.width)) {
 // Q1. - Start Button
 
 function startCatWalk() {
-  catTimer = window.setInterval(catWalk, delayMs);
+  catTimer = window.setInterval(catWalk, delayMs)
 }
 
 var startBtn = document.getElementById('start-button');
@@ -44,5 +44,27 @@ var speedBtn = document.getElementById('speed-button');
 
 
 // Q4. - Return from edge of page
+
+function catWalk() {
+  var img = document.getElementsByTagName('img')[0];
+  var currentLeft = parseInt(img.style.left);
+  if (goRight) {
+    img.style.left = (currentLeft + movePixels) + 'px';
+  } else {
+    img.style.left = (currentLeft - movePixels) + 'px';
+  }
+  if(currentLeft > (window.innerWidth-img.width)) {
+    // flip my cat
+    img.style.transform = 'scaleX(-1)';
+    goRight = false;
+  } else if (currentLeft < 0) {
+    img.style.transform = 'scaleX(1)';
+    goRight = true;
+  }
+}
+
+
+
+
 
 // Note - tried a couple of things but didn't work - time for bed will try again in the morning

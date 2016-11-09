@@ -1,0 +1,25 @@
+<form action="/diagrams/<%= @diagram.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <label for="">name</label>
+  <input name="name" type="text" value="<%= @diagram.name %>">
+
+  <!-- <label for="">image_url</label> -->
+  <!-- <textarea name="image_url" id="" cols="30" rows="10"><%= @dish.image_url %></textarea> -->
+
+  <label for="">diagram type</label>
+  <select name="diagram_type" id="">
+    <% @diagram_types.each do |dish_type| %>
+
+    <% if @diagram.diagram_type_id == diagram_type %>
+    <option selected value="<%= diagram_type %>"><%= diagram.name %></option>
+    <% else %>
+    <option value="<%= diagram.type %>"><%= diagram.name %></option>
+    <% end %>
+
+    <% end %>
+  </select>
+
+  <button>update</button>
+
+</form>
