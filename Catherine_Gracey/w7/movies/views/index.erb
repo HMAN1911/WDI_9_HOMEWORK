@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>Movies 4</title>
+</head>
+<body>
+  <h1>Movie Finder</h1>
+  <form action="/search" method="get">
+    <input type="text" name="search" id="search-input" placeholder="Type your movie here">
+    <button id="search-btn">Find It</button>
+  </form>
+  <main>
+  </main>
+  <script>
+    //Search handler
+    $('#search-btn').on("click", function(event){
+      event.preventDefault();
+      var search = {
+        url: '/search',
+        method: 'get',
+        data: {search: $("#search-input").val()}
+      }
+      $.ajax(search).done(function(data){
+        if (data.results.Search.length == 0){
+          $('main')[0].innerHTML = "<p>No movies were found. Please enter a new search term.</p>";
+        } else {
+          $('main')[0].innerHTML = "";
+          for (var i = 0; i < data.results.Search.length; i++){
+            $('main')[0].innerHTML += '<div data-imdbID="' + data.results.Search[i].imdbID + '" ><a class="movie-link" href="/movie/' + data.results.Search[i].imdbID + '"><h2>' + data.results.Search[i].Title + '</h2></a></div>';
+          }
+        }
+      });
+    });
+    // $('.movie-link').on("click", function(event){
+    //   event.preventDefault();
+    //   var $movie = $(event.target).closest('div');
+    //   var imdb = $movie.data('imdbID');
+    //   var search = {
+    //     url: '/movie',
+    //     method: 'get',
+    //     data: {imdb: imdb}
+    //   }
+    //   $.ajax(search).done(function(data){
+    //     if (data.results.Search.length == 0){
+    //       $('main')[0].innerHTML = "<p>No movies were found. Please enter a new search term.</p>";
+    //     } else {
+    //       $('main')[0].innerHTML = "";
+    //       for (var i = 0; i < data.results.Search.length; i++){
+    //         $('main')[0].innerHTML += '<div data-imdbID="' + data.results.Search[i].imdbID + '" ><a class="movie-link" href="/movie/' + data.results.Search[i].imdbID + '"><h2>' + data.results.Search[i].Title + '</h2></a></div>';
+    //       }
+    //     }
+    //   });
+    // });
+  </script>
+</body>
+</html>
