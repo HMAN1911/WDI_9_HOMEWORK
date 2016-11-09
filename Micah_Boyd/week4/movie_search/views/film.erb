@@ -1,0 +1,55 @@
+
+
+<div class="result-box" class="clearfix" id="shadow">
+
+  <div class="poster">
+
+    <h2><%= @title %></h2>
+    <img src="<%= @poster %>"/>
+    <h3><%="Metascore: #{@meta_score}"%></h3>
+
+    <% if @meta_score != false %>
+
+      <% i = 70 %><% j = 60 %>
+      <% loop do %>
+
+        <% if @meta_score >= i || @meta_score <= j %>
+          <img class='thumb' src="<%= @meta_thumb%>"/>
+        <% end %>
+        <% i += 10 %><% j -= 10 %>
+        <% break if i > 99 %>
+
+      <% end %>
+
+    <% end %>
+
+    <h3><%="IMDB Rating: #{@imdb_score}"%></h3>
+
+    <% if @imdb_score != false %>
+
+      <% k = 7 %> <% l = 6 %>
+
+      <% loop do %>
+      <% if @imdb_score >= k || @imdb_score <= l %>
+        <img class='thumb' src="<%= @imdb_thumb%>"/>
+      <% end %>
+        <% i += 1 %> <% j -= 1 %>
+        <% break if i > 10 %>
+
+      <% end %>
+
+    <% end %>
+
+  </div>
+
+  <div class="movie-description">
+
+    <% @film_details.each do |key, value| %>
+
+      <p><b><%= key.to_s%></b>: <%= value%></p>
+
+    <% end %>
+
+  </div>
+
+</div>

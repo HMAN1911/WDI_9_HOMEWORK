@@ -5,7 +5,7 @@
   <% @movies.each do |movie|   %>
 
     <p>
-      <a href='/detail?imdbID=<%=movie['imdbID']
+      <a href='/film?imdbID=<%=movie['imdbID']
       %>' title="<%= movie['imdbID'] %>">
         <%= movie['Title']%></a>
         (<%= movie['Year']%>)

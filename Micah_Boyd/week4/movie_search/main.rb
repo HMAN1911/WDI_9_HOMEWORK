@@ -3,13 +3,13 @@ require 'sinatra/reloader'
 require 'httparty'
 require 'pry'
 require 'active_record'
+require 'pg'
 
 require_relative 'models/movie.rb'
 
 get '/' do
   erb :search
 end
-
 
 get '/result' do
 
@@ -20,45 +20,97 @@ get '/result' do
 
 end
 
-get '/detail' do
+get '/film' do
 
-  @imdbID = params[:imdbID]
-  @detail = HTTParty.get("http://omdbapi.com/?i=#{@imdbID}")
+  if Movie.find_by(imdbid: params[:imdbID])
+binding.pry
+    movie = Movie.find_by(imdbid: params[:imdbID])
+
+    @meta_score = movie.metascore.to_i
+    @imdb_score = movie.imdbRating.to_f
+    @imdbID     = movie.imdbid
+    @poster     = movie.poster
+    @title      = movie.title
+
+    @film_details = {
+      'Year'     => movie.year,
+      'Rated'    => movie.rated,
+      'Released' => movie.released,
+      'Runtime'  => movie.runtime,
+      'Genre'    => movie.genre,
+      'Director' => movie.director,
+      'Writer'   => movie.writer,
+      'Actors'   => movie.actors,
+      'Plot'     => movie.plot,
+      'Language' => movie.language,
+      'Country'  => movie.country,
+      'Awards'   => movie.awards
+    }
+
+  else
+
+    film = HTTParty.get("http://omdbapi.com/?i=#{params[:imdbID]}")
+
+    @meta_score = film['Metascore'].to_i
+    @imdb_score = film['imdbRating'].to_f
+    @imdbID     = film['imdbID']
+    @poster     = film['Poster']
+    @title      = film['Title']
+
+    @film_details = {
+      'Year'     => film['Year'],
+      'Rated'    => film['Rated'],
+      'Released' => film['Released'],
+      'Runtime'  => film['Runtime'],
+      'Genre'    => film['Genre'],
+      'Director' => film['Director'],
+      'Writer'   => film['Writer'],
+      'Actors'   => film['Actors'],
+      'Plot'     => film['Plot'],
+      'Language' => film['Language'],
+      'Country'  => film['Country'],
+      'Awards'   => film['Awards']
+    }
+
+    new_movie = Movie.new
+
+    new_movie.each do |key|
+      if key == 'imdbid'
+        value = @imdbID
+      elsif key == 'imdbrating'
+        value = @imdbRating
+      else
+        value = @film["#{key.capitalize}"]
+      end
+    end
+
+    new_movie.save
+
+    # @new_movie.title      =
+    # @new_movie.imdbid     =
+    # @new_movie.year       =
+    # @new_movie.rated      =
+    # @new_movie.released   =
+    # @new_movie.runtime    =
+    # @new_movie.genre      =
+    # @new_movie.director   =
+    # @new_movie.writer     =
+    # @new_movie.actors     =
+    # @new_movie.plot       =
+    # @new_movie.language   =
+    # @new_movie.country    =
+    # @new_movie.awards     =
+    # @new_movie.imdbrating =
+    # @new_movie.metascore  =
+    # @new_movie.poster     =
+
+
+  end
 
   @meta_thumb = false
   @imdb_thumb = false
-  @meta_score = @detail['Metascore'].to_i
-  @imdb_score = @detail['imdbRating'].to_f
   @thumb_up = 'Hands-Thumb-Up-icon.png'
   @thumb_down = 'Hands-Thumb-Down-icon.png'
-
-  @poster = @detail['Poster']
-  @title = @detail['Title']
-  @imdbID = @detail['imdbID']
-  @year = @detail['Year']
-  @rated = @detail['Rated']
-  @released = @detail['Released']
-  @runtime = @detail['Runtime']
-  @director = @detail['Director']
-  @writer = @detail['Writer']
-  @actors = @detail['Actors']
-  @plot = @detail['Plot']
-  @language = @detail['Language']
-  @country = @detail['Country']
-  @awards = @detail['Awards']
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   if @meta_score >= 70
     @meta_thumb = @thumb_up.to_s
@@ -81,8 +133,5 @@ get '/detail' do
     @imdb_score = false
   end
 
-
-
-
-  erb :detail
+  erb :film
 end
