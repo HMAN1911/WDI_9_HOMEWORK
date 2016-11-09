@@ -1,10 +1,12 @@
 var $input = $('#query');
 var $resultList = $('#search-results');
 var $error = $('.error');
+var $spinner = $('.fa-spinner');
 
 var searchRequestID = 0;
 
 $input.keypress(function(e) {
+  $spinner.removeClass('hidden');
   clearTimeout(searchRequestID);
   // Delay search until user done typing
   searchRequestID = setTimeout(function() {
@@ -30,6 +32,8 @@ $input.keypress(function(e) {
       else {
         $error.html('Could not load response. Please try again.');
       }
+      $spinner.addClass('hidden');
     });
+
   }, 1000);
 });

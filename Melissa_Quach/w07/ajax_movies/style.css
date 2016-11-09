@@ -96,3 +96,29 @@ img {
 #search-results h2 {
   padding: 0.5em;
 }
+
+#search-results a {
+  display: block;
+}
+
+.fa-spinner {
+  transition: 1s;
+  animation-name: spin;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.fa.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
