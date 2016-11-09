@@ -1,0 +1,39 @@
+body {
+  width:100%
+}
+img{
+  float:left;
+  padding-top: 4.6%;
+
+}
+
+#top-block{
+  display: inline-block;
+}
+
+img {
+  float:left
+}
+
+.list {
+  float:left;
+}
+
+ul{
+  list-style-type:none;
+}
+
+#big-title {
+  color:#6c6654;
+  font-size: 5em;
+  padding-bottom: 9%;
+}
+
+li{
+  margin-bottom: 2%
+}
+
+footer {
+  position:absolute;
+  left: 50%;
+}
