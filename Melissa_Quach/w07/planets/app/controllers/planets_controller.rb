@@ -60,5 +60,12 @@ class PlanetsController < ApplicationController
   end
 
   def destroy
+    planet = Planet.find_by(id: params[:id])
+
+    if planet
+      planet.destroy
+    end
+
+    redirect_to '/planets'
   end
 end

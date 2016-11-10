@@ -1,5 +1,8 @@
 <div>
   <a href="/planets/<%= @planet.id %>/edit">Edit</a>
+  <%= form_tag "/planets/#{@planet.id}", method: 'delete' do %>
+    <button>Delete</button>
+  <% end %>
 </div>
 <h2><%= @planet.name %></h2>
 <p>Submitted by <%= @planet.user.email %></p>
