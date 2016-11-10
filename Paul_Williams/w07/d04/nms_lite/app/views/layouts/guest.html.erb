@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NMS Lite</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <header>
+      <h3>NMS Lite</h3>
+      <p><a href="/login">Log In</a></p>
+    </header>
+    <%= yield %>
+  </body>
+</html>
