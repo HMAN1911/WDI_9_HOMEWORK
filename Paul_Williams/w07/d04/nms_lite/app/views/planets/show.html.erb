@@ -2,3 +2,10 @@
 <p>Submitted by: <%= @planet.user.username %></p>
 <p>Radius: <%= @planet.radius %>km</p>
 <img src="<%= @planet.image_url %>" alt="<%= @planet.name %>">
+
+<p>Moons:</p>
+<% @moons.each do |moon| %>
+  <p>Name: <%= moon.name %></p>
+  <p>Submitted by: <%= moon.user.username %></p>
+  <p>Radius: <%= moon.radius %>km</p>
+<% end %>

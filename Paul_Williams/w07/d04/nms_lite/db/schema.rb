@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110054010) do
+ActiveRecord::Schema.define(version: 20161110070440) do
+
+  create_table "moons", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "planet_id"
+    t.integer  "radius"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["planet_id"], name: "index_moons_on_planet_id"
+    t.index ["user_id"], name: "index_moons_on_user_id"
+  end
 
   create_table "planets", force: :cascade do |t|
     t.string   "name"
