@@ -1,0 +1,13 @@
+Title <h2> <%= @title %> </h2>
+
+<p> About </p>
+
+<% @result.each do |key, value| %>
+<% if key == "Poster" then %>
+  <img src='<%= value %>' alt="<%=@title%>" />
+  <% elsif !( key=="imdbID" || key=="Title" || key=="Type" || key=="Response" )%>
+  <p>
+    <%="#{key}: #{value}"%>
+  </p>
+<% end %>
+<% end %>

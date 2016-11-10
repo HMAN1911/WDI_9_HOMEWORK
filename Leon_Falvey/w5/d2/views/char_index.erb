@@ -1,8 +1,10 @@
 <h2>All Characters</h2>
-
+<p>
+  <a href="/char/create">Create Character</a>
+</p>
 <hr>
 <% @all_char.each do |char| %>
-<h3>Name: <%= char['name'] %></h3>
+<h3><a href="/char/<%=char['id']%>">Name: <%= char['name'] %></a></h3>
 <p>Race: <%= char['race'] %></p>
 <p>Class: <%= char['class'] %></p>
 <p>Favourite Hat: <%= char['fav_hat'] %></p>

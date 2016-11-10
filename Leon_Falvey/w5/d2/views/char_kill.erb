@@ -1,0 +1,13 @@
+<h2>Are you sure you wish to delete this characters?</h2>
+
+<img src="https://cdn.meme.am/instances/63517010.jpg" alt="" />
+
+<form action="/char/<%=params[:id]%>">
+  <button>Back</button>
+</form>
+
+
+<form action="/char/delete/<%=params[:id]%>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <button>Delete</button>
+</form>
