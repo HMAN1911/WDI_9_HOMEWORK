@@ -2,6 +2,7 @@
 <p>Submitted by: <%= @planet.user.username %></p>
 <p>Radius: <%= @planet.radius %>km</p>
 <img src="<%= @planet.image_url %>" alt="<%= @planet.name %>">
+<p>Added <%= get_time_elapsed @planet.created_at %> ago</p>
 
 <p>Moons:</p>
 <% @moons.each do |moon| %>
