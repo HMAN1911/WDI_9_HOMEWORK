@@ -16,6 +16,8 @@
           <%= form_tag '/logout', method: 'delete' do %>
             <button>Logout</button>
           <% end %>
+        <% else %>
+          <a href="/login">Login</a>
         <% end %>
       </div>
     </header>
