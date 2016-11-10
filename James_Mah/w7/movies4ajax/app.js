@@ -1,14 +1,16 @@
-$('button').on('click', function(event) {
+$('.input-box button').on('click', function(event) {
   event.preventDefault();
 
+  var title = $('.input-box input').val();
+
   var options = {
-    url: 'http://omdbapi.com?s=' + $(event.target).closest('.input-box').find('input').val(),
-    method: 'post',
+    url: 'http://omdbapi.com',
+    data: { s: title }
   };
 
   $.ajax(options).done(function(data){
 
-    $('.details > p').remove();
+    $('.details > h2').remove();
 
     data.Search.forEach(function(movie){
       

@@ -1,0 +1,13 @@
+<a href="/planets/new"><h2>new</h2></a>
+
+<% @planets.each do |planet| %>
+<div class="planet">
+  <a href="/planets/<%= planet.id %>">
+    <h3><%= planet.name %></h3>
+    <img src="<%= planet.photo_url %>">
+  </a>
+  <p>Distance from the Sun: <%= planet.distance_sun %></p>
+  <p>Volume: <%= planet.volume %></p>
+  <p>Density: <%= planet.density %></p>
+</div>
+<% end %>
