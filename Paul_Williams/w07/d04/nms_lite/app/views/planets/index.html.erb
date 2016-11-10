@@ -1,6 +1,4 @@
 <% @planets.each do |planet| %>
-  <p>Name: <%= planet.name %></p>
-  <p>Submitted by: <%= planet.user.username %></p>
-  <p>Radius: <%= planet.radius %>km</p>
+  <p><a href="/planets/<%= planet.id %>"><%= planet.name %></a></p>
   <img src="<%= planet.image_url %>" alt="<%= planet.name %>">
 <% end %>
