@@ -23,7 +23,8 @@ $input.keypress(function(e) {
         res.Search.forEach(function(movie) {
           var $movieItem = $('<h2>');
           var $infoLink = $('<a>')
-            .attr('href', '/info.html?title=' + movie.Title)
+            .attr('href', 'http://www.imdb.com/title/' + movie.imdbID)
+            .attr('target', '_blank')
             .text(movie.Title)
           $movieItem.append($infoLink);
           $resultList.append($movieItem);
