@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NmsLite</title>
+    <title>NMS Lite</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <header>
+      <h3>NMS Lite</h3>
+      <p>Hi, <%= current_user.username %></p>
+      <%= form_tag('/session', method: :delete) do %>
+        <button>Logout</button>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>

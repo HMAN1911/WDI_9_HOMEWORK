@@ -11,4 +11,9 @@ class SessionController < ApplicationController
       render :index
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/'
+  end
 end
