@@ -1,4 +1,5 @@
 <% @planets.each do |planet| %>
   <p><a href="/planets/<%= planet.id %>"><%= planet.name %></a></p>
+  <p>Moons: <%= planet.moons.count %></p>
   <img src="<%= planet.image_url %>" alt="<%= planet.name %>">
 <% end %>
