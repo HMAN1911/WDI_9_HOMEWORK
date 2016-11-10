@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Planets</title>
+</head>
+<body>
+
+  <h2>Planets</h2>
+
+  <form action="/planets/new">
+    <button>Add a Planet</button>
+  </form>
+
+  <% @planets.each do |planet| %>
+    <div class="wrapper">
+      <div class="top">
+        <h3><a href="/planets/<%= planet.id %>"><%= planet.title %></a></h3>
+      </div>
+      <div class="middle">
+        <img src="<%= planet.image_url %>" alt="">
+      </div>
+      <div class="bottom">
+        <p><%= planet.description %></p>
+        <form action="/planets/<%= planet.id %>/edit">
+          <button>Edit</button>
+        </form>
+      </div>
+    </div>
+  <% end %>
+
+</body>
+</html>
