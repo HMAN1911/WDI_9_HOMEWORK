@@ -20,6 +20,14 @@ class PlanetsController < ApplicationController
   end
 
   def show
+    @planet = Planet.find_by(id: params[:id])
+
+    if @planet
+      render :show
+    else
+      @error = 'Planet not found'
+      render :error
+    end
   end
 
   def edit

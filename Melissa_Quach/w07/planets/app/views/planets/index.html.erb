@@ -5,8 +5,8 @@
 <div>
   <% @planets.each do |planet| %>
     <div class="card">
-      <div class="planet"></div>
-      <div><%= planet.name %></div>
+      <div class="planet" style="background-color: <%= planet.color %>;"></div>
+      <div><a href="/planets/<%= planet.id %>"><%= planet.name %></a></div>
     </div>
   <% end %>
 </div>
