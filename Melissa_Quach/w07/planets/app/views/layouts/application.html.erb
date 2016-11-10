@@ -9,8 +9,8 @@
   </head>
 
   <body>
-    <header>
-      <h1>Planets</h1>
+    <header class="content">
+      <h1><a href="/">Planets</a></h1>
       <div class="user-links">
         <% if logged_in? %>
           <%= form_tag '/logout', method: 'delete' do %>
@@ -21,7 +21,7 @@
         <% end %>
       </div>
     </header>
-    <main>
+    <main class="content">
       <%= yield %>
     </main>
   </body>
