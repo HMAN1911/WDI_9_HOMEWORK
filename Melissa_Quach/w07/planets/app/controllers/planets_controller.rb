@@ -31,9 +31,32 @@ class PlanetsController < ApplicationController
   end
 
   def edit
+    @planet = Planet.find_by(id: params[:id])
+
+    if @planet
+      render :edit
+    else
+      @error = 'Planet not found'
+      render :error
+    end
   end
 
   def update
+    @planet = Planet.find_by(id: params[:id])
+
+    if @planet
+      @planet.name = params[:name]
+      @planet.color = params[:color]
+
+      if @planet.save
+        redirect_to "/planets/#{@planet.id}"
+      else
+        render :edit
+      end
+    else
+      @error = 'Planet not found'
+      render :error
+    end
   end
 
   def destroy

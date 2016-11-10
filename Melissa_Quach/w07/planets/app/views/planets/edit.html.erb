@@ -1,0 +1,7 @@
+<%= form_tag "/planets/#{@planet.id}", method: 'patch' do %>
+  <label for="">Name</label>
+  <input name="name" value="<%= @planet.name %>" type="text">
+  <label for="">Color</label>
+  <input name="color" value="<%= @planet.color %>" type="color">
+  <button>Save changes</button>
+<% end %>
