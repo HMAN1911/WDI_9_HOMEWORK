@@ -1,0 +1,18 @@
+<h2>Edit Trip</h2>
+
+
+<form action="/trips/<%= @trip['id'] %>" method="post" >
+  <label for="">Name</label>
+  <input name="name" type="text" value="<%= @trip['name'] %>">
+
+  <label for="">Continent</label>
+  <select class="" name="continent_id">
+    <% @continents.each do |continent| %>
+      <option value="<%= continent['id'] %>"><%= continent['name'] %></option>
+      <% end %>
+  </select>
+
+  <label for="">Image URL</label>
+  <textarea name="image_url" rows="8" cols="40"><%= @trip['image_url'] %></textarea>
+  <button>Update</button>
+</form>

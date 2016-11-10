@@ -1,0 +1,13 @@
+<form class="" action="/magic/answer" method="post">
+
+  <!-- prevent hacks -->
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <label for="">Ask the Magic 8 Ball a question</label>
+    <input type="text" name="question" value="">
+
+    <button>GO</button>
+</form>
+
+
+<a href="/">Game Menu</a>

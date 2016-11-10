@@ -11,7 +11,7 @@
 <!-- Movie Info -->
 <ul class="results">
   <% @movie_results.each do |eachMovie| %>
-    <li><a href="/about_single?banana=<%= eachMovie["imdbID"] %>"><%= @current = eachMovie["Title"] %></a></li>
+    <li><a href="/about_single?banana=<%= eachMovie["imdbID"] %>"><%= eachMovie["Title"] %></a></li>
   <%  end %>
     </ul>
 

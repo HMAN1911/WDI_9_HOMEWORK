@@ -1,0 +1,9 @@
+
+<div class="map">
+  <% @continents.each do |continent| %>
+      <p><a href="/?continent_id=<%= continent['id'] %>"><%= continent['name'] %></a></p>
+  <% end %>
+</div>
+
+
+<!-- http://localhost:4567/?dish_type_id=6 -->
