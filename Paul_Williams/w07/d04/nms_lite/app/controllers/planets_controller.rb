@@ -11,6 +11,15 @@ class PlanetsController < ApplicationController
     @moons = @planet.moons
   end
 
+  def edit
+    @planet = Planet.find params[:id]
+    if current_user && @planet.user.id == current_user.id
+      render :edit
+    else
+      redirect_to "/"
+    end
+  end
+
   def create
     planet = Planet.new
     planet.name = params[:name]

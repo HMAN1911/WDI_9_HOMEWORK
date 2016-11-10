@@ -1,0 +1,9 @@
+<%= form_tag('/planets', method: :post) do %>
+  <label>Name</label>
+  <input name="name" type="text" value="<%= @planet.name %>">
+  <label>Radius (km)</label>
+  <input name="radius" type="text" value="<%= @planet.radius %>">
+  <label>Image URL</label>
+  <input name="image_url" type="text" value="<%= @planet.image_url %>">
+  <input type="submit">
+<% end %>
