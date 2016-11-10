@@ -11,15 +11,6 @@ class PlanetsController < ApplicationController
     @moons = @planet.moons
   end
 
-  def edit
-    @planet = Planet.find params[:id]
-    if current_user && @planet.user.id == current_user.id
-      render :edit
-    else
-      redirect_to "/"
-    end
-  end
-
   def create
     planet = Planet.new
     planet.name = params[:name]
@@ -27,6 +18,21 @@ class PlanetsController < ApplicationController
     planet.image_url = params[:image_url]
     planet.user_id = current_user.id
     planet.save
+    redirect_to "/planets/#{ planet.id }"
+  end
+  
+  def edit
+    @planet = Planet.find params[:id]
+    if current_user && @planet.user.id == current_user.id
+      render :edit
+    else
+      redirect_to '/'
+    end
+  end
+
+  def update
+    planet = Planet.find params[:id]
+    planet.update(name: params[:name], radius: params[:radius], image_url: params[:image_url])
     redirect_to "/planets/#{ planet.id }"
   end
 end

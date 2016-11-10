@@ -1,4 +1,4 @@
-<%= form_tag('/planets', method: :post) do %>
+<%= form_tag("/planets/#{ @planet.id }", method: :patch) do %>
   <label>Name</label>
   <input name="name" type="text" value="<%= @planet.name %>">
   <label>Radius (km)</label>
