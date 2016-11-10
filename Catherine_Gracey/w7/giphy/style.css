@@ -1,0 +1,9 @@
+body {
+  text-align: center;
+}
+
+#gifs img {
+  display: block;
+  margin: 2px auto;
+  max-width: 100%;
+}
