@@ -1,0 +1,6 @@
+<p><%= @planet.name %></p>
+<img class="planet-img" src="<%= @planet.image_url %>" alt="">
+<a href="/planets/<%= @planet.id %>/edit">edit</a>
+<%= form_tag "/planets/#{ @planet.id }", method: "delete" do %>
+  <button>destroy planet</button>
+<% end %>

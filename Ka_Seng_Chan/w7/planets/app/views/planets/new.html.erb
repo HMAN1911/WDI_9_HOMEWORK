@@ -1,0 +1,7 @@
+<%= form_tag '/planets', method: "post" do %>
+  <label for="">Name</label>
+  <input type="text" name="name" placeholder="Enter planet name">
+  <label for="">Image Url</label>
+  <textarea name="image_url" rows="8" cols="40" placeholder="Enter image url"></textarea>
+  <button>create</button>
+<% end %>
