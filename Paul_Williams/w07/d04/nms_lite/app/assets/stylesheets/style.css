@@ -55,8 +55,12 @@ header button, header p a {
   cursor: pointer;
 }
 
-header button:hover, header p a:hover {
+header button:hover, header p a:hover, .edit a:hover, .edit button:hover {
   background: rgba(255, 255, 255, .5);
+}
+
+h3 a:hover {
+  color: grey;
 }
 
 main {
@@ -87,4 +91,47 @@ article p:first-child {
 
 article p:last-of-type {
   float: right;
+}
+
+.show {
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .5);
+  text-align: center;
+}
+
+.show img {
+  display: block;
+  margin: 0 auto;
+}
+
+.show > p:first-child {
+  font-size: 3em;
+  margin: .5em 0 0 0;
+}
+
+.show p:nth-child(2) {
+  margin: 0 0 1.5em 0;
+}
+
+.edit {
+  margin-left: 1em;
+}
+
+.show > p:last-of-type, .edit, .edit p, .edit form {
+  display: inline-block;
+}
+
+.edit a, .edit button {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-decoration: none;
+  background: none;
+  font-family: inherit;
+  color: white;
+  font-size: 1em;
+  padding: .25em;
+  cursor: pointer;
 }

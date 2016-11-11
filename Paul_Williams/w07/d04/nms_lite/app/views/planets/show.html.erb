@@ -1,15 +1,18 @@
-<p>Name: <%= @planet.name %></p>
-<p>Submitted by: <%= @planet.user.username %></p>
-<p>Radius: <%= @planet.radius %>km</p>
-<img src="<%= @planet.image_url %>" alt="<%= @planet.name %>">
-<p>Added <%= get_time_elapsed @planet.created_at %> ago</p>
+<div class="show">
+  <p><%= @planet.name %></p>
+  <p>(Radius: <%= @planet.radius %>km)</p>
+  <img src="<%= @planet.image_url %>" alt="<%= @planet.name %>">
+  <p>Submitted by: <%= @planet.user.username %>, <%= get_time_elapsed @planet.created_at %> ago</p>
 
-<% if current_user && current_user.id == @planet.user.id %>
-  <p><a href="/planets/<%= @planet.id %>/edit">Edit</a></p>
-  <%= form_tag("/planets/#{ @planet.id }", method: :delete) do %>
-    <button>Delete</button>
+  <% if current_user && current_user.id == @planet.user.id %>
+    <div class="edit">
+      <p><a href="/planets/<%= @planet.id %>/edit">Edit</a></p>
+      <%= form_tag("/planets/#{ @planet.id }", method: :delete) do %>
+        <button>Delete</button>
+      <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>
 
 <p>Moons:</p>
 <% @moons.each do |moon| %>

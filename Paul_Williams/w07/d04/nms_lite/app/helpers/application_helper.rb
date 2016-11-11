@@ -16,10 +16,9 @@ module ApplicationHelper
     minutes = (seconds / 60).to_i
     seconds -= minutes * 60
 
-    return "#{ days } day(s)" if days > 1
-    return "#{ hours } hour(s)" if hours > 1
-    return "#{ minutes } min(s)" if minutes > 1
+    return "#{ days } day(s)" if days >= 1
+    return "#{ hours } hour(s)" if hours >= 1
+    return "#{ minutes } min(s)" if minutes >= 1
     "#{ seconds.to_i } sec(s)"
   end
-
 end
