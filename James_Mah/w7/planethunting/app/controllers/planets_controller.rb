@@ -1,7 +1,7 @@
 class PlanetsController < ApplicationController
 
   def index
-    @planets = Planet.all
+    @planets = Planet.all.order('distance_sun ASC')
   end
 
   def new
@@ -14,9 +14,13 @@ class PlanetsController < ApplicationController
     planet.distance_sun = params[:distance_sun]
     planet.volume = params[:volume]
     planet.density = params[:density]
-    planet.save
-
-    redirect_to '/planets'
+    planet.user_id = session[:user_id]
+    
+    if planet.save
+      redirect_to '/planets'
+    else
+      render :new
+    end
   end
 
   def show
@@ -34,9 +38,13 @@ class PlanetsController < ApplicationController
     planet.distance_sun = params[:distance_sun]
     planet.volume = params[:volume]
     planet.density = params[:density]
-    planet.save
-
-    redirect_to "/planets/#{planet.id}"
+    
+    if planet.save
+      redirect_to "/planets/#{planet.id}"
+    else
+      render :new
+    end
+    
   end
 
   def destroy

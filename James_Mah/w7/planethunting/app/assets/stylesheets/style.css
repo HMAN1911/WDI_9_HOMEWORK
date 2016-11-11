@@ -1,18 +1,49 @@
-label {
-  display: block; 
+* {
+  box-sizing: border-box;
 }
 
-img {
-  width: 200px;
+body {
+  padding: .5em;
+  max-width: 1120px;
+  margin: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+.session {
+  float: right;
+  text-align: right;
+}
+
+.wrapper-planet {
+  text-align: center;
 }
 
 .planet {
-  float: left;
+  display: inline-block;
+  vertical-align: top;
   border: solid 1px black;
-  padding: 0 1em;
+  padding: 1em;
   margin: 1em;
+  width: 15em;
+}
+
+img {
+  margin: 1em 0;
+  width: 100%;
 }
 
 .delete-button {
   float: right;
+}
+
+label {
+  display: block; 
 }
