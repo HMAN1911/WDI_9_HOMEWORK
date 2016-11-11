@@ -14,3 +14,12 @@ body {
 .content {
   padding: 1em;
 }
+
+.grid-item img {
+  max-width: 25%;
+  float: left;
+}
+
+.grid:after {
+  clear: both;
+}
