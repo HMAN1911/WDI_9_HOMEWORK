@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: center/cover fixed url('http://www.ibackgroundwallpaper.com/wp-content/uploads/2014/02/colorful-space.jpg');
+  font-family: Helvetica, sans-serif;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+.page-wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+}
+
+header h3 {
+  float: left;
+  font-size: 2em;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+header p, header form {
+  float: right;
+  line-height: 4;
+  margin: 1em .3em;
+}
+
+header button, header p a {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-decoration: none;
+  background: none;
+  font-family: inherit;
+  color: white;
+  font-size: 1em;
+  padding: .5em;
+  cursor: pointer;
+}
+
+header button:hover, header p a:hover {
+  background: rgba(255, 255, 255, .5);
+}
+
+main {
+  clear: both;
+  padding-top: 2em;
+}
+
+article {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .5);
+}
+
+article img {
+  width: 100%;
+  padding: 1em;
+}
+
+article p {
+  margin: 1em 1em 0 1em;
+}
+
+article p:first-child {
+  float: left;
+}
+
+article p:last-of-type {
+  float: right;
+}

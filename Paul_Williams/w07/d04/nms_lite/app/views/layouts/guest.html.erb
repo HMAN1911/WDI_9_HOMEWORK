@@ -9,10 +9,14 @@
   </head>
 
   <body>
-    <header>
-      <h3><a href="/">NMS Lite</a></h3>
-      <p><a href="/login">Log In</a></p>
-    </header>
-    <%= yield %>
+    <div class="page-wrapper">
+      <header>
+        <h3><a href="/">NMS Lite</a></h3>
+        <p><a href="/login">Log In</a></p>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
