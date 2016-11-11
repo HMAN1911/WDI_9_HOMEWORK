@@ -35,4 +35,9 @@ class PlanetsController < ApplicationController
     planet.update(name: params[:name], radius: params[:radius], image_url: params[:image_url])
     redirect_to "/planets/#{ planet.id }"
   end
+
+  def destroy
+    Planet.find(params[:id]).destroy
+    redirect_to '/'
+  end
 end

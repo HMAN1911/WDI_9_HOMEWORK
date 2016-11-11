@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post '/planets', to: 'planets#create'
   get '/planets/:id/edit', to: 'planets#edit'
   patch '/planets/:id', to: 'planets#update'
+  delete '/planets/:id', to: 'planets#destroy'
 
   get '/login', to: 'session#new'
   post '/session', to: 'session#create'

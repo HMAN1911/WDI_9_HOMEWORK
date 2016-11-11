@@ -6,6 +6,9 @@
 
 <% if current_user && current_user.id == @planet.user.id %>
   <p><a href="/planets/<%= @planet.id %>/edit">Edit</a></p>
+  <%= form_tag("/planets/#{ @planet.id }", method: :delete) do %>
+    <button>Delete</button>
+  <% end %>
 <% end %>
 
 <p>Moons:</p>
