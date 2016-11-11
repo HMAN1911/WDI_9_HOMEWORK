@@ -23,6 +23,7 @@ class PlanetsController < ApplicationController
   
   def edit
     @planet = Planet.find params[:id]
+    @moons = @planet.moons
     if current_user && @planet.user.id == current_user.id
       render :edit
     else

@@ -8,4 +8,9 @@ class MoonsController < ApplicationController
     moon.save
     redirect_to "/planets/#{ params[:planet_id] }"
   end
+
+  def destroy
+    Moon.find(params[:id]).destroy
+    redirect_to "/planets/#{ params[:planet_id] }/edit"
+  end
 end

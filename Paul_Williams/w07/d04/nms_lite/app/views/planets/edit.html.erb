@@ -7,3 +7,13 @@
   <input name="image_url" type="text" value="<%= @planet.image_url %>">
   <input type="submit">
 <% end %>
+
+<p>Moons:</p>
+<% @moons.each do |moon| %>
+  <p>Name: <%= moon.name %></p>
+  <p>Radius: <%= moon.radius %>km</p>
+  <%= form_tag("/moons/#{ moon.id }", method: :delete) do %>
+    <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+    <button>Delete moon</button>
+  <% end %>
+<% end %>

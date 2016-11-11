@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete '/planets/:id', to: 'planets#destroy'
 
   post '/moons', to: 'moons#create'
+  delete '/moons/:id', to: 'moons#destroy'
 
   get '/login', to: 'session#new'
   post '/session', to: 'session#create'
