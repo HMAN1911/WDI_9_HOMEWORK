@@ -17,3 +17,15 @@
   <p>Submitted by: <%= moon.user.username %></p>
   <p>Radius: <%= moon.radius %>km</p>
 <% end %>
+
+<% if current_user %>
+  <p>Add moon:</p>
+  <%= form_tag('/moons', method: :post) do %>
+    <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+    <label>Name</label>
+    <input name="name" type="text">
+    <label>Radius</label>
+    <input name="radius" type="text">
+    <input type="submit">
+  <% end %>
+<% end %>

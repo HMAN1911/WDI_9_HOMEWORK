@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   patch '/planets/:id', to: 'planets#update'
   delete '/planets/:id', to: 'planets#destroy'
 
+  post '/moons', to: 'moons#create'
+
   get '/login', to: 'session#new'
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
