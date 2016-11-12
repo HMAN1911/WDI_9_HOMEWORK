@@ -1,0 +1,22 @@
+<h1>EDIT PLANET</h1>
+
+<div class="planets_container">
+  <%= form_tag "/planets/#{@planet.id}", method: 'post' do %>
+    <input type="hidden" name="_method" value="patch">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= @planet.name %>">
+    <label for="image_url">Image URL:</label>
+    <input type="text" name="image_url" value="<%= @planet.image_url %>">
+    <label for="distance">Distance:</label>
+    <input type="text" name="distance" value="<%= @planet.distance %>">
+    <label for="moons">Moons:</label>
+    <input type="text" name="moons" value="<%= @planet.moons %>">
+    <label for="rotation">Rotation:</label>
+    <input type="text" name="rotation" value="<%= @planet.rotation %>">
+    <label for="radius">Radius:</label>
+    <input type="text" name="radius" value="<%= @planet.radius %>">
+
+    <button class="delete_btn">UPDATE</button>
+  <% end %>
+
+</div>
