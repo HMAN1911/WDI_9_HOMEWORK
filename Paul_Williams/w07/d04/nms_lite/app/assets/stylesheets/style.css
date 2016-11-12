@@ -55,7 +55,7 @@ header button, header p a {
   cursor: pointer;
 }
 
-header button:hover, header p a:hover, .edit a:hover, .edit button:hover, .moon button:hover {
+header button:hover, header p a:hover, .edit a:hover, .edit button:hover, .moon button:hover, .user-details button:hover {
   background: rgba(255, 255, 255, .5);
 }
 
@@ -123,7 +123,7 @@ article p:last-of-type {
   display: inline-block;
 }
 
-.edit a, .edit button, .moon button {
+.edit a, .edit button, .moon button, .user-details button {
   outline: none;
   border: 1px solid grey;
   border-radius: 5px;
@@ -161,4 +161,10 @@ input {
   outline: none;
   color: white;
   padding: .25em;
+}
+
+.user-details {
+  padding-top: 3em;
+  width: 100%;
+  text-align: center;
 }

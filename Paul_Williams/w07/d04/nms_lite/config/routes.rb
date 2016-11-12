@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   post '/session', to: 'session#create'
   delete '/session', to: 'session#destroy'
 
+  get '/signup', to: 'users#new'
+  post '/users', to: 'users#create'
+
 end
