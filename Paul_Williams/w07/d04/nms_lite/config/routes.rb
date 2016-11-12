@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   post '/moons', to: 'moons#create'
   delete '/moons/:id', to: 'moons#destroy'
+  patch '/moons/:id', to: 'moons#update'
 
   get '/login', to: 'session#new'
   post '/session', to: 'session#create'

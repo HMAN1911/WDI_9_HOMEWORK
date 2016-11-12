@@ -1,19 +1,30 @@
-<%= form_tag("/planets/#{ @planet.id }", method: :patch) do %>
-  <label>Name</label>
-  <input name="name" type="text" value="<%= @planet.name %>">
-  <label>Radius (km)</label>
-  <input name="radius" type="text" value="<%= @planet.radius %>">
-  <label>Image URL</label>
-  <input name="image_url" type="text" value="<%= @planet.image_url %>">
-  <input type="submit">
-<% end %>
-
-<p>Moons:</p>
-<% @moons.each do |moon| %>
-  <p>Name: <%= moon.name %></p>
-  <p>Radius: <%= moon.radius %>km</p>
-  <%= form_tag("/moons/#{ moon.id }", method: :delete) do %>
-    <input type="hidden" name="planet_id" value="<%= @planet.id %>">
-    <button>Delete moon</button>
+<div class="user-details">
+  <h3>Edit Planet Details:</h3>
+  <%= form_tag("/planets/#{ @planet.id }", method: :patch) do %>
+    <label>Name</label>
+    <input name="name" type="text" value="<%= @planet.name %>">
+    <label>Radius (km)</label>
+    <input name="radius" type="text" value="<%= @planet.radius %>">
+    <label>Image URL</label>
+    <input name="image_url" type="text" value="<%= @planet.image_url %>">
+    <button>Submit</button>
   <% end %>
+</div>
+
+<% @moons.each_with_index do |moon, i| %>
+  <div class="moon">
+    <p>Moon <%= i + 1 %>:</p>
+    <%= form_tag("/moons/#{ moon.id }", method: :delete) do %>
+      <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+      <button>Delete Moon</button>
+    <% end %>
+    <%= form_tag("/moons/#{ moon.id }", method: :patch) do %>
+      <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+      <label>Name</label>
+      <input name="name" type="text" value="<%= moon.name %>">
+      <label>Radius</label>
+      <input name="radius" type="text" value="<%= moon.radius %>">
+      <button>Update Moon</button>
+    <% end %>
+  </div>
 <% end %>

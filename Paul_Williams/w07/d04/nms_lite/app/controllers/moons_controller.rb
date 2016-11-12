@@ -13,4 +13,10 @@ class MoonsController < ApplicationController
     Moon.find(params[:id]).destroy
     redirect_to "/planets/#{ params[:planet_id] }/edit"
   end
+
+  def update
+    moon = Moon.find params[:id]
+    moon.update(name: params[:name], radius: params[:radius])
+    redirect_to "/planets/#{ params[:planet_id] }/edit"
+  end
 end
