@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
+  <script
+  src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
   <title>Document</title>
 </head>
 <body>
@@ -12,11 +16,36 @@
     <form action="/movie" method="post">
 
       <h1>Discover more about your favorite movies</h1>
-      <input name="movie" type="text" placeholder="Search..">
+      <input class="input" name="movie" type="text" placeholder="Search..">
       <button>Search</button>
 
     </form>
+
+    <div class="display">
+      <h2></h2>
+    </div>
   </div>
+
+  <script>
+
+  $('button').on('click', function(event) {
+    event.preventDefault();
+
+    var options = {
+      url: '/movie',
+      method: 'post',
+      data: { title: $('.input').closest('.home-block').html() }
+    }
+
+    $.ajax(options).done(function(response) {
+      console.log('hello');
+      console.log(response);
+      var $target = $('.display').find('h2');
+      $target.text( movie.title );
+    });
+  });
+
+</script>
 
 </body>
 </html>
