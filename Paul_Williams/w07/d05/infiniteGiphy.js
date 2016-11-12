@@ -7,13 +7,13 @@ var offset = 0;
 var query = '';
 
 var clearResults = function() {
-  $('img').remove();
+  $('video').remove();
 }
 
 var drawResult = function(i, v) {
-  var url = v.images.fixed_height.url;
-  $img = $('<img src="' + url + '">');
-  $body.append($img);
+  var url = v.images.fixed_height.mp4;
+  var $video = $('<video src="' + url + '" autoplay loop>');
+  $body.append($video);
 }
 
 var getNextTenResults = function() {
@@ -24,7 +24,8 @@ var getNextTenResults = function() {
   });
 }
 
-var getInitialResults = function() {
+var getInitialResults = function(e) {
+  e.preventDefault();
   clearResults();
   offset = 0;
   query = $input.val();
