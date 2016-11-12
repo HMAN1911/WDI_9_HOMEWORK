@@ -1,0 +1,12 @@
+<a href="/planets/new">Add planet</a>
+<div>
+  <%= @planets.length %> planets
+</div>
+<div>
+  <% @planets.each do |planet| %>
+    <div class="card content">
+      <div class="planet" style="background-color: <%= planet.color %>;"></div>
+      <div><a href="/planets/<%= planet.id %>"><%= planet.name %></a></div>
+    </div>
+  <% end %>
+</div>

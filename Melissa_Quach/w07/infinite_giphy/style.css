@@ -1,0 +1,25 @@
+html {
+  box-sizing: border-box
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.content {
+  padding: 1em;
+}
+
+.grid-item img {
+  max-width: 25%;
+  float: left;
+}
+
+.grid:after {
+  clear: both;
+}

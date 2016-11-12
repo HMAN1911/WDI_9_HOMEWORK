@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #033;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  background-color: #033;
+  color: #FFF;
+}
+
+header a {
+  color: #FFF;
+}
+
+.content {
+  padding: 10px;
+}
+
+.user-links {
+  text-align: right;
+}
+
+.card {
+  width: 29%;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #EEE;
+  margin: 1%;
+}
+
+.planet {
+  width: 75%;
+  padding-bottom: 75%;
+  border-radius: 100%;
+  margin: 0 auto;
+}

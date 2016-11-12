@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planets</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header class="content">
+      <h1><a href="/">Planets</a></h1>
+      <div class="user-links">
+        <% if logged_in? %>
+          <%= form_tag '/logout', method: 'delete' do %>
+            <button>Logout</button>
+          <% end %>
+        <% else %>
+          <a href="/login">Login</a>
+        <% end %>
+      </div>
+    </header>
+    <main class="content">
+      <%= yield %>
+    </main>
+  </body>
+</html>
