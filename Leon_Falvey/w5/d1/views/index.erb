@@ -1,15 +1,6 @@
-<form action="/list">
-  <input name="title">
-  <button>Go</button>
-</form>
-
 <%= @result %>
 
-<form action="/select" id="form">
 
 <% @list.each do |item| %>
-<p><a href="javascript:{}" onclick="document.getElementById('form').submit()"><%= item["Title"] %></a></p>
+<p><a href="/select/<%=item['Title']%>"><%= item["Title"] %></a></p>
 <% end %>
-
-
-</form>

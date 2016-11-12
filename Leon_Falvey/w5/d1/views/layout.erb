@@ -2,10 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Groovy movies</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
   </head>
   <body>
-    <%= yield %>
+    <div id="wrapper">
+    <a href="/">
+      <div id="home">
+      </div></a>
+    <div id="search">
+      <form action="/list">
+        <input name="title">
+        <button>Go</button>
+      </form>
+    </div>
+      </div>
+
+
+    <div id="main">
+      <%= yield %>
+    </div>
     <footer>Some text at the bottom</footer>
   </body>
 </html>

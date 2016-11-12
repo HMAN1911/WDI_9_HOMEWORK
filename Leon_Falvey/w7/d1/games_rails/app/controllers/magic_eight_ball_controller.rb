@@ -1,0 +1,3 @@
+class MagicEightBallController < ApplicationController
+
+end

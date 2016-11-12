@@ -18,7 +18,7 @@ For example if you search on Jaws, you will get a list like the following:
 * Jaws Wired Shut
 
 Update your app to allow users to enter a search for movies, and to show the list as a set of links.
-Users should then be able to click on the link and go to the movie-etails page (like in your existing app).
+Users should then be able to click on the link and go to the movie-details page (like in your existing app).
 
 
 Extra cookies:

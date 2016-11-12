@@ -1,0 +1,34 @@
+body {
+  background-color: grey;
+  color: white;
+  font-size: 20px;
+}
+
+div {
+  display: inline-block;
+  border-radius: 10;
+  margin: 2%;
+  background-color: darkgrey;
+  border: 2px solid purple;
+}
+
+#wrapper {
+  width: 96%;
+  height: 2em;
+}
+
+#home {
+  width: 100px;
+  height: inherit;
+  margin: 0%;
+}
+
+#search {
+  height: inherit;;
+  width: auto;
+  margin: 0%;
+}
+
+#main {
+  display: block;
+}

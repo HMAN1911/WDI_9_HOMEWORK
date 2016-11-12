@@ -19,7 +19,15 @@ get '/list' do
 end
 
 
-get '/select' do
+get '/select/:title' do
+    @result = HTTParty.get("http://omdbapi.com/?t=#{params[:title]}&plot=full&r=json")
+
+    if @result[:Response] == "True"
+      @title = @result["Title"]
+      erb :display
+    end
+
+    erb :display
 end
 
 # get '/about' do

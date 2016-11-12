@@ -1,0 +1,13 @@
+<h2>Character Transmogrification</h2>
+
+<form action="/char/edit/<%=@char['id']%>" method="post">
+  <label for="name">Name</label>
+  <input name="name" value="<%=@char['name']%>">
+  <label for="race">Race</label>
+  <input name="race" value="<%=@char['race']%>">
+  <label for="class">Class</label>
+  <input name="class" value="<%=@char['class']%>">
+  <label for="fav_hat">Favourite Hat</label>
+  <input name="fav_hat" value="<%=@char['fav_hat']%>">
+  <button>Transmogrify</button>
+</form>

@@ -1,0 +1,17 @@
+<hr>
+<form action="/" method="get">
+  <button>Return</button>
+</form>
+<h3>Name: <%= @char['name'] %></h3>
+<p>Race: <%= @char['race'] %></p>
+<p>Class: <%= @char['class'] %></p>
+<p>Favourite Hat: <%= @char['fav_hat'] %></p>
+
+<form action="/char/edit/<%=@char['id']%>" method="get">
+  <button>Transmogrify</button>
+</form>
+
+<form action="/char/delete/<%=@char['id']%>" method="post">
+  <button>Annihilate</button>
+</form>
+<hr>
