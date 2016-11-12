@@ -1,0 +1,26 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <title>My Movie List</title>
+</head>
+<body>
+  <div class="header">
+    <h2>Search Matches for "<%= @movie_name %>"</h2>
+  </div>
+  <div class="matches">
+
+    <% if @result['Response'] == 'True' %>
+      <% @result['Search'].each do |match| %>
+        <p><a href="<%= "/about?movie_id=#{match['imdbID']}" %>"><%= match['Title'] %></a> (<%= match['Year']%>)</p>
+      <% end %>
+      <% elsif @result['Response'] == 'False' %>
+        <p><%= "#{@result['Error']}"%></p>
+    <% end %>
+  </div>
+
+</body>
+</html> -->
