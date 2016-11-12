@@ -1,0 +1,15 @@
+<div class="planet">
+  <h3><%= @planet.name %></h3>
+  <img src="<%= @planet.photo_url %>">
+  <p>Distance from the Sun: <%= @planet.distance_sun %> million km</p>
+  <p>Volume: <%= @planet.volume %> billion km^3</p>
+  <p>Density: <%= @planet.density %> g/cm^3</p>
+  <div class="delete-button">
+    <%= form_tag "/planets/#{@planet.id}", method: 'delete' do %>
+      <button>delete</button>
+    <% end %>
+  </div>
+  <%= form_tag "/planets/#{@planet.id}/edit", method: 'get' do %>
+    <button>edit</button>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+body {
+  margin: auto;
+  text-align: center;
+}
+
+.input-box {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 50vw;
+  padding: 10px;
+}
