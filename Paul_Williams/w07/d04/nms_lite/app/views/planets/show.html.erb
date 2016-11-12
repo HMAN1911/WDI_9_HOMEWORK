@@ -14,21 +14,23 @@
   <% end %>
 </div>
 
-<p>Moons:</p>
-<% @moons.each do |moon| %>
-  <p>Name: <%= moon.name %></p>
-  <p>Submitted by: <%= moon.user.username %></p>
-  <p>Radius: <%= moon.radius %>km</p>
+<% @moons.each_with_index do |moon, i| %>
+  <div class="moon">
+    <p>Moon <%= i + 1 %>: <%= moon.name %> (Radius: <%= moon.radius %>km)</p>
+    <p>Submitted by: <%= moon.user.username %></p>
+  </div>
 <% end %>
 
 <% if current_user %>
-  <p>Add moon:</p>
-  <%= form_tag('/moons', method: :post) do %>
-    <input type="hidden" name="planet_id" value="<%= @planet.id %>">
-    <label>Name</label>
-    <input name="name" type="text">
-    <label>Radius</label>
-    <input name="radius" type="text">
-    <input type="submit">
-  <% end %>
+  <div class="moon">
+    <p>Add moon:</p>
+    <%= form_tag('/moons', method: :post) do %>
+      <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+      <label>Name</label>
+      <input name="name" type="text">
+      <label>Radius</label>
+      <input name="radius" type="text">
+      <button>Submit</button>
+    <% end %>
+  </div>
 <% end %>
