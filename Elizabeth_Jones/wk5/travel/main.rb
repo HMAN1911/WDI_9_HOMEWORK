@@ -3,6 +3,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pg' #need this to connect to database
 
+
+
 #method that stores the common functionality related to the db
 #the reason you have to run this in every method is because
 #once the server makes a new request it forgets everything else

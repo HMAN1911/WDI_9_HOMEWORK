@@ -1,0 +1,28 @@
+<div class="index-wrapper">
+
+  <div class="post">
+    <img class="image" src="<%= @trip['image_url'] %>" alt="" />
+    <p class="location"><%= @trip['name'] %></p>
+  </div>
+
+  <a href="/trips/<%= @trip['id'] %>/edit">Edit</a>
+
+  <form action="/trips/<%= @trip['id'] %>/delete" method="post">
+    <button>Delete</button>
+  </form>
+
+
+<h3>Comments</h3>
+<ol>
+  <% @comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
+</ol>
+
+<form action="/comments" method="post">
+  <input type="hidden" name="trip_id" value="<%= @trip['id'] %>"> <!-- a hidden input that collects the id of current trip and attaches to the trip_id column in the comments table - but sit is the the post '/comments' method that stores it in the table-->
+  <textarea name="body" rows="8" cols="40"></textarea> <!-- sends comment to body column of table -->
+  <button>Post Comment</button>
+</form>
+
+</div>

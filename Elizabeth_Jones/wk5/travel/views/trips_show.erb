@@ -1,9 +1,14 @@
-<%= @dish['name'] %>
+<div class="index-wrapper">
 
-<img src="<%= @dish['image_url'] %>" alt="" />
+  <div class="post">
+    <img class="image" src="<%= @dish['image_url'] %>" alt="" />
+    <p class="location"><%= @dish['name'] %></p>
+  </div>
 
-<a href="/trips/<%= @dish['id'] %>/edit">Edit</a>
+  <a href="/trips/<%= @dish['id'] %>/edit">Edit</a>
 
-<form action="/trips/<%= @dish['id'] %>/delete" method="post">
-  <button>delete</button>
-</form>
+  <form action="/trips/<%= @dish['id'] %>/delete" method="post">
+    <button>delete</button>
+  </form>
+
+</div>

@@ -1,0 +1,9 @@
+<div class="index-wrapper">
+<% @trips.each do |trip| %>
+  <div class="post">
+    <img class="image" src="<%= trip['image_url'] %>" />
+    <p id="location"><a href="/trips/<%= trip['id'] %>"><%= trip['name'] %></a></p>
+  </div>
+<% end %>
+
+</div>
