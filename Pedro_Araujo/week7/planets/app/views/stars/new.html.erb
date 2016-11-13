@@ -1,0 +1,26 @@
+<div class="header">
+  <h1>New Star</h1>
+
+</div>
+
+<div class="content">
+
+    <%= form_tag '/stars' , method: 'post' , class:"pure-form pure-form-aligned" do %>
+      <fieldset>
+          <div class="pure-control-group">
+              <label for="name">Star Name</label>
+              <input id="name" name="name" type="text" placeholder="Star name">
+          </div>
+
+          <div class="pure-control-group">
+            <label for="email">Description</label>
+            <textarea id="description" name="description" placeholder="Star Description"></textarea>
+          </div>
+
+
+          <div class="pure-controls">
+              <button class="pure-button pure-button-primary">Submit</button>
+          </div>
+      </fieldset>
+    <% end %>
+</div>
