@@ -11,20 +11,24 @@ var showResults = function(response) {
   // append 10 giphy images to div
   var gifs = response.data;
   for (var i = 0; i < gifs.length; i++) {
-    var newImg = '<img src="' + gifs[i].url + '" alt="">'
+    var newImg = '<img src="' + gifs[i].images.original.url + '" alt="">'
     $('#search-results').append(newImg);
+    // console.log(gifs[i]);
   }
+  // console.log(response);
 }
 
 
 $('#search-btn').on('click', function(event) {
   event.preventDefault();
+  offset = 0;
+  $('#search-results').empty();
 
   var options = {
     url: 'http://api.giphy.com/v1/gifs/search',
     method: 'get',
-    // data_type: 'json',
-    data: { q: $q, limit: limit, offset: offset, api_key: apiKey }
+    dataType: 'json',
+    data: { q: $q.val(), limit: limit, offset: offset, api_key: apiKey }
   }
 
   $.ajax(options).done(showResults);
@@ -38,8 +42,8 @@ $(window).scroll( function() {
     var options = {
       url: 'http://api.giphy.com/v1/gifs/search',
       method: 'get',
-      // data_type: 'json',
-      data: { q: $q, limit: limit, offset: offset, api_key: apiKey }
+      dataType: 'json',
+      data: { q: $q.val(), limit: limit, offset: offset, api_key: apiKey }
     }
 
     $.ajax(options).done(showResults);
