@@ -1,0 +1,10 @@
+<div class="user-details">
+  <h3>Sign Up:</h3>
+  <%= form_tag('/users', method: :post) do %>
+    <label>username</label>
+    <input name="username" type="text">
+    <label>password</label>
+    <input name="password" type="password">
+    <button>Submit</button>
+  <% end %>
+</div>

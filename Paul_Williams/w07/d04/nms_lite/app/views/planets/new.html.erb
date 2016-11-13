@@ -1,0 +1,12 @@
+<div class="user-details">
+  <h3>Add New Planet:</h3>
+  <%= form_tag('/planets', method: :post) do %>
+    <label>Name</label>
+    <input name="name" type="text">
+    <label>Radius (km)</label>
+    <input name="radius" type="text">
+    <label>Image URL</label>
+    <input name="image_url" type="text">
+    <button>Submit</button>
+  <% end %>
+</div>

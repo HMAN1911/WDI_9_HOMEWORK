@@ -1,0 +1,36 @@
+<div class="show">
+  <p><%= @planet.name %></p>
+  <p>(Radius: <%= @planet.radius %>km)</p>
+  <img src="<%= @planet.image_url %>" alt="<%= @planet.name %>">
+  <p>Submitted by: <%= @planet.user.username %>, <%= get_time_elapsed @planet.created_at %> ago</p>
+
+  <% if current_user && current_user.id == @planet.user.id %>
+    <div class="edit">
+      <p><a href="/planets/<%= @planet.id %>/edit">Edit</a></p>
+      <%= form_tag("/planets/#{ @planet.id }", method: :delete) do %>
+        <button>Delete</button>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<% @moons.each_with_index do |moon, i| %>
+  <div class="moon">
+    <p>Moon <%= i + 1 %>: <%= moon.name %> (Radius: <%= moon.radius %>km)</p>
+    <p>Submitted by: <%= moon.user.username %></p>
+  </div>
+<% end %>
+
+<% if current_user %>
+  <div class="moon">
+    <p>Add moon:</p>
+    <%= form_tag('/moons', method: :post) do %>
+      <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+      <label>Name</label>
+      <input name="name" type="text">
+      <label>Radius</label>
+      <input name="radius" type="text">
+      <button>Submit</button>
+    <% end %>
+  </div>
+<% end %>

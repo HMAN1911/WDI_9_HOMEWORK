@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NMS Lite</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <div class="page-wrapper">
+      <header>
+        <h3><a href="/">NMS Lite</a></h3>
+        <%= form_tag('/session', method: :delete) do %>
+          <button>Logout</button>
+        <% end %>
+        <p><a href="/planets/new">Add planet</a></p>
+        <p>Hi, <%= current_user.username %></p>
+      </header>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: center/cover fixed url('http://www.ibackgroundwallpaper.com/wp-content/uploads/2014/02/colorful-space.jpg');
+  font-family: Helvetica, sans-serif;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+.page-wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+header {
+  width: 100%;
+}
+
+header h3 {
+  float: left;
+  font-size: 2em;
+}
+
+h3 a {
+  text-decoration: none;
+}
+
+header p, header form {
+  float: right;
+  line-height: 4;
+  margin: 1em .3em;
+}
+
+header button, header p a {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-decoration: none;
+  background: none;
+  font-family: inherit;
+  color: white;
+  font-size: 1em;
+  padding: .5em;
+  cursor: pointer;
+}
+
+header button:hover, header p a:hover, .edit a:hover, .edit button:hover, .moon button:hover, .user-details button:hover {
+  background: rgba(255, 255, 255, .5);
+}
+
+h3 a:hover {
+  color: grey;
+}
+
+main {
+  clear: both;
+  padding-top: 2em;
+  text-align: center;
+}
+
+article {
+  display: inline-block;
+  width: 30%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .5);
+  margin: .5em;
+}
+
+article img {
+  width: 100%;
+  padding: 1em;
+}
+
+article p {
+  margin: 1em 1em 0 1em;
+}
+
+article p:first-child {
+  float: left;
+}
+
+article p:last-of-type {
+  float: right;
+}
+
+.show {
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .5);
+  text-align: center;
+}
+
+.show img {
+  display: block;
+  margin: 0 auto;
+}
+
+.show > p:first-child {
+  font-size: 3em;
+  margin: .5em 0 0 0;
+}
+
+.show p:nth-child(2) {
+  margin: 0 0 1.5em 0;
+}
+
+.edit {
+  margin-left: 1em;
+}
+
+.show > p:last-of-type, .edit, .edit p, .edit form {
+  display: inline-block;
+}
+
+.edit a, .edit button, .moon button, .user-details button {
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+  text-decoration: none;
+  background: none;
+  font-family: inherit;
+  color: white;
+  font-size: 1em;
+  padding: .25em;
+  cursor: pointer;
+}
+
+.moon {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .5);
+  line-height: 1.5;
+  text-align: left;
+  clear: both;
+}
+
+.moon p, .moon form {
+  display: inline-block;
+  margin: .5em;
+}
+
+.moon p:last-child, .moon form {
+  float: right;
+}
+
+input {
+  border: 1px solid grey;
+  border-radius: 5px;
+  background: none;
+  outline: none;
+  color: white;
+  padding: .25em;
+  background: rgba(0, 0, 0, .5);
+}
+
+.user-details {
+  padding-top: 3em;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+main > img {
+  position: fixed;
+  bottom: 0;
+  right: 15%;
+}
