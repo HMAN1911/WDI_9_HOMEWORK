@@ -15,7 +15,3 @@ VALUES ('Robo Tokyo EP', 'Tim Panalley', 'http://images.junostatic.com/full/CS27
 
 
 SELECT * from records;
-
-
-ALTER TABLE records
-  ADD tracklist TEXT;

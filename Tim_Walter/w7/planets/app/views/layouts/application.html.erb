@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planets</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <% if logged_in? %>
+        <h3 class="message" id="<%= @type %>">
+          <a href="/session">Logged in as <%= current_user.email %></a>
+        </h3>
+      <% else %>
+        <a href="/session"><h3>Login</h3></a>
+      <% end %>
+      <h1><a href="/planets">PLANETS</a></h1>
+      <h2 id="add_new_planet"><a href="/planets/new">+</a></h2>
+    </header>
+
+          <%= yield %>
+
+
+
+
+
+  </body>
+</html>

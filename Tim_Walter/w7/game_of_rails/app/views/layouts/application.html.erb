@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GameOfRails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <ul>
+      <li><a href="/magic">Magic8</a></li>
+      <li><a href="/secret_num">Secret Number</a></li>
+      <li><a href="/rock_paper_scissors">Rock Paper Scissors</a></li>
+    </ul>
+    <%= yield %>
+  </body>
+</html>

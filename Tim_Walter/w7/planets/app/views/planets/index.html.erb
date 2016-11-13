@@ -1,0 +1,57 @@
+<div class="planets_container">
+
+  <% @planets.each do |planet| %>
+    <div class="planet_card">
+      <div class="planet_header">
+        <h1><%= planet.name %></h1>
+      </div>
+      <div class="planet_details">
+        <p>Distance from Sun: <%= planet.distance %> Million Kms</p>
+        <p>Moons: <%= planet.moons %></p>
+        <p>Rotation: <%= planet.rotation %> earth days</p>
+        <p>Radius: <%= planet.radius %> kms</p>
+        <p>ID: <%= planet.id %></p>
+      </div>
+
+      <div class="planet_middle">
+        <div class="planet_image">
+          <img src="<%= planet.image_url %>" alt="planet" />
+        </div>
+        <div class="comments">
+          <h1>COMMENTS</h1>
+          <%= form_tag "/comments/#{planet.id}", method: 'post' do %>
+            <textarea name="body" rows="8" cols="40"></textarea>
+            <button id="btn_add">ADD COMMENT</button>
+          <% end %>
+          <div class="new_comment" id="<%= "planet_#{planet.id}" %>">
+            
+          </div>
+          <hr id="comment_separator">
+          <% @comments.each do |comment| %>
+            <% if planet.id == comment.planet_id %>
+                <p><%= comment.body %></p>
+                <h3>Posted by User<%= comment.user_id %></h3>
+                <h5><%= comment.created_at %></h5>
+                <hr>
+            <% end %>
+          <% end %>
+
+        </div>
+      </div>
+      <div class="planet_footer">
+        <%= form_tag "/planets/#{planet.id}", method: 'post' do %>
+          <input type="hidden" name="_method" value="delete">
+          <button>DELETE</button>
+        <% end %>
+        <%= form_tag "/planets/#{planet.id}/edit", method: 'get' do %>
+          <button>EDIT</button>
+        <% end %>
+        <%= form_tag "/comments/#{planet.id}", method: 'get' do %>
+          <button id="btn_comment">COMMENT</button>
+        <% end %>
+
+      </div>
+
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,41 @@
+<div class="planets_container">
+
+  <div class="planet_card">
+    <div class="planet_header">
+      <h1><%= @planet.name %></h1>
+    </div>
+    <div class="planet_details">
+      <p>Distance from Sun: <%= @planet.distance %> Million Kms</p>
+      <p>Moons: <%= @planet.moons %></p>
+      <p>Rotation: <%= @planet.rotation %> earth days</p>
+      <p>Radius: <%= @planet.radius %> kms</p>
+      <p>ID: <%= @planet.id %></p>
+    </div>
+
+
+    <%= form_tag "/comments/#{@planet.id}", method: 'post' do %>
+      <textarea name="body" rows="8" cols="40"></textarea>
+      <button>ADD COMMENT</button>
+    <% end %>
+
+    <div class="planet_middle">
+      <div class="planet_image">
+        <img id="comment_img" src="<%= @planet.image_url %>" alt="planet" />
+      </div>
+    </div>
+
+
+  </div>
+
+<div class="comments_list">
+  <h1>COMMENTS</h1>
+  <% @comments.each do |comment| %>
+    <% if @planet.id == comment.planet_id %>
+        <p><%= comment.body %></p>
+        <h3>Posted by User<%= comment.user_id %></h3>
+        <h5><%= comment.created_at %></h5>
+        <hr>
+    <% end %>
+  <% end %>
+
+</div>
