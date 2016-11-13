@@ -1,13 +1,13 @@
 
 $('.search-btn').on('click', function() {
 
-  $movieTitle = $('.search-input').val();
+  movieTitle = $('.search-input').val();
   // console.log($movieTitle);
   event.preventDefault();
   var options = {
-    url: 'http://www.omdbapi.com/?s=' + $movieTitle,
-    method: 'post',
-    data: $movieTitle
+    url: 'http://www.omdbapi.com/',
+    method: 'get',
+    data: { s: movieTitle}
   }
   function updateSearchResults(response) {
     // console.log(response);

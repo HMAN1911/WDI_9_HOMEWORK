@@ -1,0 +1,7 @@
+<%= form_tag "/planets/#{ @planet.id }", method: "put" do %>
+  <label for="">Name</label>
+  <input type="text" name="name" placeholder="Enter planet name" value="<%= @planet.name %>">
+  <label for="">Image Url</label>
+  <textarea name="image_url" rows="8" cols="40" placeholder="Enter image url"><%= @planet.image_url %></textarea>
+  <button>update</button>
+<% end %>
