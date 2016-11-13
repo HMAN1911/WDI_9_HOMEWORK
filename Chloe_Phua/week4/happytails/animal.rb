@@ -29,7 +29,7 @@ class Animal
     @species = gets.chomp
     p "pet toys?"
     @toys = gets.chomp.split(' ')
-    save_animal
+    # save_animal
   end
 
   def save_animal
@@ -40,5 +40,11 @@ class Animal
       :toys_data => @toys
     }
   end
+  #probably don't need to save to shelter this way - different class
 
 end
+
+# a = Animal.new()
+# $shelter["bob"] = a
+#
+# puts 'pet name'

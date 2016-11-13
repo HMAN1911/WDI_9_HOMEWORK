@@ -1,0 +1,54 @@
+.ui-card {
+  background-color: mistyrose;
+  width: 40%;
+  font-family: sans-serif;
+  font-size: 9px;
+}
+
+.ui-card > header {
+  line-height: 2em;
+}
+.image > img {
+  width: 100%;
+}
+.avatar {
+  display: inline-block; /*reminder that it's an inline-block*/
+  vertical-align: middle;
+  width: 30px;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.image {
+  position: relative;
+}
+
+.star {
+  user-select: none;
+  -webkit-user-select: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: .5s;
+}
+
+.star:hover {
+  color: yellow;
+}
+
+.image:hover .star {
+  display:block;
+  opacity: 1;
+}
+
+.right {
+  float: right;
+}
+
+.content {
+  padding: 1em;
+}

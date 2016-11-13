@@ -1,0 +1,25 @@
+
+
+
+<% @planets.each do |planet| %>
+  <div class="ui-card">
+
+    <header class="content">
+      <h1><%= planet.title %></h1>
+
+    </header>
+
+    <div class="image">
+      <span class="star">&#9733;</span>
+      <img src="<%= planet.image_url %>" alt="">
+    </div>
+
+    <div class="content">
+      <h4>Description</h4>
+      <p><%= planet.description %></p>
+      <h4>Species</h4>
+      <p><%= planet.species %></p>
+    </div>
+
+  </div>
+<% end %>
