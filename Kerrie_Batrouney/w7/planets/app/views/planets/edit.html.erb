@@ -1,0 +1,20 @@
+<form action="/planets/<%= @planet.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Name</label>
+  <input name="name" type="text" value="<%= @planet.name %>">
+
+  <label for="">Picture url</label>
+  <textarea name="image_url" id="" cols="30" rows="10"><%= @planet.image_url %></textarea>
+
+  <label for="">Picture of Planet</label>
+  <img src="<%= @planet.image_url %>" alt="" />
+
+  <label for="">Distance from Earth</label>
+  <input name="distance" type="text" value="<%= @planet.distance %>">
+
+  <button>Update</button>
+
+</form>

@@ -1,0 +1,14 @@
+<form action="/planets" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Name</label>
+  <input name="name" type="text">
+
+  <label for="">Photo of Planet</label>
+  <input name="image_url" type="text">
+
+  <label for="">Distance from Earth</label>
+  <input name="distance" type="text">
+
+  <button>Create</button>
+</form>

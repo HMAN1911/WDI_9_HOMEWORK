@@ -1,0 +1,33 @@
+img{
+  width : 50%;
+  display: inline-block;
+}
+.planet_card {
+border: 1px solid black;
+background-color: lightgrey;
+margin-left: 5%;
+width: 90%;
+}
+.info {
+display: inline-block;
+}
+#add {
+  margin-left: 5%;
+}
+h1 {
+  font-size: 28px;
+  margin-left: 5%;
+}
+h3 {
+  font-size: 20px;
+}
+a {
+  font-size: 20px;
+}
+button {
+  font-size: 20px;
+  background-color:transparent;
+  border: none;
+
+
+}

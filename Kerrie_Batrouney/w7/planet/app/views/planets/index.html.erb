@@ -1,0 +1,15 @@
+
+<form class="new_globe" action="/globes/new" method="get">
+  <button type="button" name="button">Add Planet</button>
+</form>
+
+<div class="pic">
+<img src="<%= globe.image_url %>" alt="" />
+</div>
+
+<div class="info">
+  <h3>Distance from earth - <%= globe.distance %>kms</h3>
+  <form class="edit_globe" action="/globes/:id/edit" method="get">
+    <button type="button" name="button">Edit</button>
+  </form>
+</div>

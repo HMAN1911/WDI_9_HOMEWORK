@@ -1,0 +1,93 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after{
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  padding:0
+  margin: 0;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+}
+a,
+button {
+  color: inherit;
+  transition: .3s;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  colour : pink;
+}
+
+form {
+  padding-bottom: 2%;
+}
+body {
+  background: lightgrey;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+h2 {
+  color: black;
+  font-size: 20px;
+}
+h1 {
+  font-size: 40px;
+}
+
+.top {
+
+}
+.clapper{
+  width: 20%;
+  height: auto;
+  float: right;
+}
+
+.btn {
+  background: darkgrey;
+  background-image: linear-gradient(top, lightgrey, darkgrey);
+  border-radius: 5px;
+  color: black;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: lightgrey;
+  background-image: linear-gradient(to bottom, darkgrey, lightgrey);
+  text-decoration: none;
+  color: white;
+}
+
+input {
+  background: darkgrey;
+  background-image: linear-gradient(to bottom, darkgrey, lightgrey);
+  border-radius: 5px;
+  width: 300px;
+  color: black;
+  font-size: 20px;
+  padding: 10px ;
+  text-decoration: none;
+}

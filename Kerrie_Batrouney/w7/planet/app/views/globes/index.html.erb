@@ -1,0 +1,77 @@
+
+
+<% @dishes.each do |dish| %>
+  <div class="dishcard" data-dish-id = "<%= dish.id %>">
+    <div class="userinfo">
+      <h2><%= dish.user.email %></h2>
+ <!-- if users table has an entry that has current user and current dish , make star solid -->
+    <% if Like.find_by(dish_id: dish.id) %>
+      <% @likes.each do |like| %>
+
+          <% if like.user_id == session[:user_id] && like.dish_id == dish.id %>
+            <h2>&#9733;</h2>
+          <% end %>
+
+      <% end %>
+      <% else %>
+        <h2>&#9734;</h2>
+
+    <% end %>
+    </div>
+
+    <div class='image'>
+      <img src = "<%= dish.image_url %>"></img>
+    </div>
+
+
+        <div class="dishinfo">
+          <h2><%= dish.title %></h2>
+          <h2 > <div class = 'count'> <%= dish.likes.count %> </div> stars </h2>
+        </div>
+
+        <%= form_tag '/likes', method: 'post' do %>
+          <input class="dish_id" type="hidden" name = 'dish_id' value="<%= dish.id %>">
+          <h3>Like me<button>&#9734;</button></h3>
+        <% end%>
+
+      </div>
+
+    <% end %>
+
+
+    <script>
+
+    $('button').on('click', function(event) {
+      event.preventDefault();
+
+      // from the target we need to traverse the dom to find the dearest div with the class count
+      //to use closest and find which are jQuery functions
+      // I need to turn even.target from a simple dom element to a jQuery object
+      // look up for .dishcard
+      var $dish = $(event.target).closest('.dishcard');
+        // from $dish look down for .count
+      var $count = $dish.find('.count');
+
+      var dish_id = $dish.data('dish-id');
+
+      var options = {
+        url: '/api/likes',
+        method: 'post',
+        data: {dish_id: dish_id}
+      }
+
+
+
+      var updateCount = function(response) {
+        console.log('yay');
+        console.log(response);
+
+        // $count.text(parseInt($count.text())+1);
+        $count.text(response.like_count);
+      }
+
+      $.ajax(options).done(updateCount); //does function updateCount
+
+    });
+
+    </script>

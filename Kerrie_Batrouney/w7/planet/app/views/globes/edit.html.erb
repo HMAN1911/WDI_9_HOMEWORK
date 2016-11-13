@@ -1,0 +1,15 @@
+<form action="/planets/<%= @globe.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Name</label>
+  <input name="name" type="text" value="<%= @globe.name %>">
+
+  <label for="">image_url</label>
+  <textarea name="image_url" id="" cols="30" rows="10"><%= @globe.image_url %></textarea>
+
+
+  <button>Update</button>
+
+</form>
