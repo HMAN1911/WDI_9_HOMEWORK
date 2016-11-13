@@ -1,7 +1,6 @@
-class CommentsController < ApplicationController
+class Api::CommentsController < ApplicationController
+
   def index
-    @planet = Planet.find_by(id: params[:id])
-    @comments = Comment.all
   end
 
   def add
@@ -14,7 +13,7 @@ class CommentsController < ApplicationController
       comment.planet_id = params[:id]
       comment.user_id = 2
       comment.save
-      redirect_to '/planets'
+      render json: comment.to_json
     end
   end
 

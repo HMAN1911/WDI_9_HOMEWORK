@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   get '/comments/:id', to: 'comments#index'
   post '/comments/:id', to: 'comments#add'
 
+  post '/api/comments/:id', to: 'api/comments#add'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

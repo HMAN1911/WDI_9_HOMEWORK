@@ -23,7 +23,10 @@
             <textarea name="body" rows="8" cols="40"></textarea>
             <button id="btn_add">ADD COMMENT</button>
           <% end %>
-          <hr>
+          <div class="new_comment" id="<%= "planet_#{planet.id}" %>">
+            
+          </div>
+          <hr id="comment_separator">
           <% @comments.each do |comment| %>
             <% if planet.id == comment.planet_id %>
                 <p><%= comment.body %></p>
