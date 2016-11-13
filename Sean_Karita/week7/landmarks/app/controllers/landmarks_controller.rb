@@ -10,7 +10,7 @@ class LandmarksController < ApplicationController
     landmark.photo_url = params[:photo_url]
     landmark.country = params[:country]
     landmark.city = params[:city]
-    planet.user_id = session[:user_id]
+    landmark.user_id = session[:user_id]
 
     if landmark.save
       redirect_to '/landmarks'
