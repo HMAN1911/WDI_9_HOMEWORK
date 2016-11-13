@@ -1,0 +1,26 @@
+<div class="header">
+  <h1>Log in</h1>
+  <h2>Type your detals below</h2>
+</div>
+
+<div class="content">
+                            <!-- LOG IN PAGE -->
+  <div class="pure-u-2-10"></div>
+  <div class="pure-u-8-10">
+    <%= form_tag '/session' , method: 'post' , class:"pure-form" do %>
+      <fieldset>
+          <legend>Log in</legend>
+
+          <input type="email" name='email' placeholder="Email">
+          <input type="password" name="password" placeholder="Password">
+
+          <!-- <label for="remember">
+              <input id="remember" type="checkbox"> Remember me
+          </label> -->
+
+          <button class="pure-button pure-button-primary">Sign in</button>
+      </fieldset>
+    <% end %>
+  </div>
+  <div class="pure-u-2-10"></div>
+</div>

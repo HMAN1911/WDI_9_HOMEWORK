@@ -1,0 +1,110 @@
+/* natural box layout model to all elements button
+   allowing components to change easier */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.ui-card  h1,
+          h2,
+          h3,
+          h4,
+          p,
+          blockquote,
+          figure,
+          ol,
+          ul {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: block;
+}
+
+.ui-card  h1,
+          h2,
+          h3,
+          h4 {
+  font-size: inherit;
+}
+
+.ui-card a,button{
+  color: inherit;
+  transition: .3s;
+}
+
+.ui-card a {
+  text-decoration: none;
+}
+
+.image img {
+  width: 90%; /* scale image(stretching) */
+ /* max-width = 100% if don't want it to stretch */
+  border: 0;
+  height: auto;
+
+}
+
+
+
+.ui-card {
+  background-color: #333333;
+  width: 35%;
+  margin: 0.5%;
+  display: inline-block;
+}
+
+.ui-card > header {
+  line-height: 2em;
+}
+
+.avatar {
+  display: inline-block; /* reminder, can use vertical-align */
+  vertical-align: middle;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+
+.image {
+  position: relative;
+  margin-left: 10%;
+}
+
+.star {
+  user-select: none;
+  -webkit-user-select: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: .5s;
+}
+
+.image:hover .star{
+  opacity: 1;
+}
+
+.star:hover {
+  color: yellow;
+}
+
+.right {
+  float: right;
+}
+
+.ui-content {
+  padding: 1em;
+}
+
+.btn-card {
+  width: 20%;
+}

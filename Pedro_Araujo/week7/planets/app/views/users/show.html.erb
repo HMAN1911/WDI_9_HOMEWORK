@@ -1,0 +1,26 @@
+<div class="header">
+  <h1>My Account</h1>
+  <h2>Select an option of your choice</h2>
+</div>
+
+<div class="content">
+  <style>
+  .custom-restricted-width {
+      /* To limit the menu width to the content of the menu: */
+      display: inline-block;
+      /* Or set the width explicitly: */
+      /* width: 10em; */
+  }
+  </style>
+  <div class="pure-menu custom-restricted-width">
+    <span class="pure-menu-heading"><%= @user.name %></span>
+
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link">Edit my details</a></li>
+      <li class="pure-menu-item"><a href="/stars/new" class="pure-menu-link">Create new Star</a></li>
+      <li class="pure-menu-item"><a href="/planets/new" class="pure-menu-link">Create new Planet</a></li>
+      <li class="pure-menu-item"><a href="/satellites/new" class="pure-menu-link">Create new Natural Satellite</a></li>
+    </ul>
+
+  </div>
+</div>

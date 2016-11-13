@@ -5,7 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email
       t.integer :planets_id
       t.integer :stars_id
-
+      t.integer :satellite_id
+      
       t.timestamps
     end
   end

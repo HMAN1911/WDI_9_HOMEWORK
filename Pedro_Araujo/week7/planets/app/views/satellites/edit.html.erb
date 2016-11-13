@@ -1,0 +1,42 @@
+<div class="header">
+  <h1>Edit Satellite</h1>
+
+</div>
+
+<div class="content">
+  <%= form_tag satellite_path , method: 'patch' , class:"pure-form pure-form-aligned" do %>
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Natural Satellite Name" value="<%= @satellite.name %>">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="img_url">Image URL</label>
+            <input name="img_url" type="text" placeholder="Image URL" value="<%= @satellite.img_url %>">
+        </div>
+
+        <div class="pure-control-group">
+          <label>Planet</label>
+          <select name="planet" class="pure-input-1-2">
+            <% @planets.each do |planet| %>
+              <% if @satellite.planet_id == planet.id %>
+                <option selected><%= planet.name %></option>
+              <% else %>
+                <option><%= planet.name %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </div>
+
+        <div class="pure-control-group">
+            <label>Description</label>
+            <textarea name="description" rows="8" cols="40"><%= @satellite.description %></textarea>
+        </div>
+
+        <div class="pure-controls">
+            <button class="pure-button pure-button-primary">Submit</button>
+        </div>
+    </fieldset>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<div class="header">
+  <h1>Stars</h1>
+
+</div>
+
+<div class="content">
+
+  <% @stars.each do |star| %>
+
+    <div class="ui-card">
+      <header class="content">
+        <span class="right"><%= time_ago_in_words(star.created_at) %></span>
+      </header>
+
+      <div class="image">
+        <img src="http://cdn.phys.org/newman/gfx/news/hires/sun.jpg" alt="" />
+        <span class="star">&#9733;</span>
+      </div>
+
+      <div class="ui-content">
+        <h3><%= star.name %></h3>
+        <span><%= truncate(star.description, length: 100) { link_to "(See more)", "#" } %></span>
+      </div>
+
+      <div class="ui-content">
+        <span alt="Edit"> <a href="#"><%= image_tag("edit.png",class: "btn-card", alt: 'Edit') %></a></span>
+        <span alt="Edit"> <a href="#"><%= image_tag("delete.png",class: "btn-card right", alt: 'Edit') %></a></span>
+      </div>
+    </div>
+
+  <% end %>
+</div>

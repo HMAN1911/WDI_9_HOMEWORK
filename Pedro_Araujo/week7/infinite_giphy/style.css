@@ -1,0 +1,29 @@
+header {
+  background-color: #4a0b04;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.search-box {
+  height: 30px;
+  width: 40%;
+  background-color: #c6dfff;
+  border-radius: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  display: inline-block;
+}
+
+.search-btn {
+  display: inline-block;
+  height: 35px;
+
+  border-radius: 5px;
+  vertical-align: bottom;
+}
+.empty {
+  height: 15%;
+
+}
