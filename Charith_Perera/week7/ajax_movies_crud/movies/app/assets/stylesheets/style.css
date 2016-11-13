@@ -1,0 +1,63 @@
+body {
+  background: black;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding-top: 50px;
+}
+
+main {
+  padding-top: 50px;
+}
+
+li:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.movie {
+  text-align: center;
+}
+
+.movie button {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.add-movie {
+  display: none;
+  text-align: center;
+}
+
+.my-movies {
+  text-align: center;
+}
+
+.my_movies ul {
+  padding: 0;
+  margin: 0;
+}
+
+.my-movies li {
+  display: inline-block;
+}
+
+.single-movie  {
+  text-align: center;
+  width: 300px;
+  margin: 20px;
+}
+
+.single-movie img{
+  width: 100%;
+  height: 400px;
+}
+
+.delete-btn {
+  display: none;
+}

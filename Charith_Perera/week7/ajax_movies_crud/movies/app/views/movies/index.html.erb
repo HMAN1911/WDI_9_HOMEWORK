@@ -1,0 +1,35 @@
+<section class="movies">
+  <div class="search">
+    <input type="search" class="search-term" name="search" placeholder="Search For" value="the matrix">
+    <button class="btn-search" type="button">Search</button>
+  </div>
+  <div class="movie-results">
+    <h2>Results</h2>
+    <ul class="results"></ul>
+    <div class="movie"></div>
+  </div>
+  <div class="add-movie">
+    <textarea name="review" class="review" rows="8" cols="40">Your review</textarea>
+    <select class="stars">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <button class="btn-review">Add</button>
+    <button class="btn-delete">Delete</button>
+  </div>
+  <div class="my-movies">
+    <ul class="movies-list">
+      <% @user_reviews.each do |review| %>
+        <li class="single-movie" data-id='<%= review.id %>'>
+          <h3><%= Movie.find(review.movie_id).title %></h3>
+          <img src="<%= Movie.find(review.movie_id).image_url %>" alt="" />
+          <p class="single-review"><%= review.content %></p>
+          <p class="single-stars"><%= review.stars %> Stars</p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>
