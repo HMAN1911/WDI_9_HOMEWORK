@@ -1,0 +1,20 @@
+<form action="/planets/<%=@planet.id%>" method="post">
+<input type="hidden" name="_method" value="patch">
+  <!-- <%= hidden_field_tag :authenticity_token, form_authenticity_token %> -->
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Title</label>
+  <input name="title" type="text" value="<%=@planet.title%>">
+
+  <label for="">Image URL</label>
+  <textarea name="image_url" id="" cols="30" rows="10"><%=@planet.image_url%></textarea>
+
+  <label for="">Description</label>
+  <textarea name="description" id="" cols="30" rows="10"><%=@planet.description%></textarea>
+
+  <label for="">Species</label>
+  <textarea name="species" id="" cols="30" rows="10"><%=@planet.species%></textarea>
+
+
+  <button>update</button>
+</form>

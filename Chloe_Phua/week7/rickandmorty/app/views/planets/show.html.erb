@@ -1,0 +1,13 @@
+<h2><%= @planet.title %></h2>
+
+<img src='<%= @planet.image_url %>' width="80%">
+<h3>Description</h3>
+<p><%= @planet.description %></p>
+<h3>Species</h3>
+<p><%= @planet.species %></p>
+<a href='/planets/<%= @planet.id %>/edit'>edit</a>
+<form action="/planets/<%= @planet.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <button>delete</button>
+</form>

@@ -25,7 +25,7 @@ $('.searchBtn').click(function(event) {
       var output = $("<img>", {
           src: gif.images.fixed_width.url
         });
-      $results = $('.results').append($("<tr>")).append($(output));
+      $('.results').append($("<tr>")).append($(output));
       }
     )
   }

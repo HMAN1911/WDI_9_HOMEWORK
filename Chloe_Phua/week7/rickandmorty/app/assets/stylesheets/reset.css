@@ -1,0 +1,59 @@
+/*natural box layout model to all elements
+but allowing components to change more easily*/
+
+html {
+  box-sizing: border-box;
+
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+
+}
+/*the following helps for readability*/
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/*for IE*/
+main {
+  display: block;
+}
+
+/*typically, the following do not inherit*/
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+}
+
+a,
+button {
+  color: inherit;
+  transition: .3s;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  bored: 0;
+  height: auto;
+  outline: none;
+}
