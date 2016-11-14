@@ -1,0 +1,47 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.search_box {
+  margin: 0 auto;
+  width: 60%;
+}
+
+form {
+  text-align: center;
+  font-size: 2em;
+}
+
+input {
+  display: inline-block;
+  width: 70%;
+  height: 50px;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+}
+
+button {
+  display: inline-block;
+  width: 10%;
+  height: 50px;
+  color: #cccccc;
+  border: none;
+  background-color: white;
+  font-size: 1.0em;
+  font-weight: lighter;
+  vertical-align: bottom;
+}
+
+button:hover {
+  color: #72a7e0;
+}
+
+button a {
+  text-decoration: none;
+  color: black;
+}
