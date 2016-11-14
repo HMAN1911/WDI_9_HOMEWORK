@@ -28,6 +28,13 @@ var wdi = {
       }
       return samples;
     }
+  },
+
+  each: function(list, callback) {
+    for (var i = 0; i < list.length; i++) {
+      callback(i, list[i]);
+    }
+    return list;
   }
 
 }
