@@ -63,18 +63,7 @@ get '/get_movie' do
       movie_to_store.actors = @cast
 
       movie_to_store.save
-      # redirect to '/'
-      # else
-      # erb :dishes_new
-      # # lays it out better and can specify or change entries easier
-      #
-      #
-      # redirect to '/'
-      # end
-
-
-
-
+  
     end
   end
   erb :index
