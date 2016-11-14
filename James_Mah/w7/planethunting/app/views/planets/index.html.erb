@@ -2,17 +2,15 @@
   <a href="/planets/new"><h4>Add Planet</h4></a>
 <% end %>
 
-<div class="wrapper-planet">
-  <% @planets.each do |planet| %>
-  <div class="planet">
-    <a href="/planets/<%= planet.id %>">
-      <h3><%= planet.name %></h3>
-      <img src="<%= planet.photo_url %>">
-    </a>
-    <p>Distance from the Sun: <%= planet.distance_sun %>  million km</p>
-    <p>Volume: <%= planet.volume %> billion km^3</p>
-    <p>Density: <%= planet.density %> g/cm^3</p>
-    <p>Added by: <%= User.find(planet.user_id).email %></p>
-  </div>
-  <% end %>
+<% @planets.each do |planet| %>
+<div class="planet">
+  <a href="/planets/<%= planet.id %>">
+    <h3><%= planet.name %></h3>
+    <img src="<%= planet.photo_url %>">
+  </a>
+  <p>Distance from the Sun: <%= planet.distance_sun %>  million km</p>
+  <p>Volume: <%= planet.volume %> billion km^3</p>
+  <p>Density: <%= planet.density %> g/cm^3</p>
+  <p>Added by: <%= User.find(planet.user_id).email %></p>
 </div>
+<% end %>
