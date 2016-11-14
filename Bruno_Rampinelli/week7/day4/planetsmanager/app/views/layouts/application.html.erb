@@ -10,6 +10,11 @@
 
   <body>
 
+
+    logged in as:<%= User.find(session[:user_id]).email %>
+
+
+
     <%= flash[:notice] %>
     <%= yield %>
   </body>

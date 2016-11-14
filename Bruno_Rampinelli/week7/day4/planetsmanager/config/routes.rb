@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
 
   resources :planets
+  resources :users
+
+  get '/session/new', to:'session#new'
+  post '/session/', to:'session#create'
+  delete '/logout', to: 'session#destroy'
 
 
 end
