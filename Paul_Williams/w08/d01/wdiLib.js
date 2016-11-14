@@ -38,11 +38,21 @@ var wdi = {
   },
 
   map: function(list, callback) {
-    var map = [];
+    var mapped = [];
     for (var i = 0; i < list.length; i++) {
-      map.push(callback(list[i]));
+      mapped.push(callback(list[i]));
     }
-    return map;
+    return mapped;
+  },
+
+  filter: function(list, callback) {
+    var filtered = [];
+    for (var i = 0; i < list.length; i++) {
+      if (callback(list[i])) {
+        filtered.push(list[i]);
+      }
+    }
+    return filtered;
   }
 
 }

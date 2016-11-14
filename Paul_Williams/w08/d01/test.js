@@ -16,3 +16,17 @@ var testMapCallbackStrings = function(v) {
   v = v + ' mapped';
   return v;
 }
+
+var testFilterCallbackNums = function(v) {
+  if (v % 2 === 0) {
+    return true;
+  }
+  return false;
+}
+
+var testFilterCallbackStrings = function(v) {
+  if (v.slice(-1) === 'e') {
+    return true;
+  }
+  return false;
+}
