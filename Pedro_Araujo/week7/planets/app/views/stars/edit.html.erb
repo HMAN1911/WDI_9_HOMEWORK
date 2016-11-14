@@ -1,19 +1,19 @@
 <div class="header">
   <h1>Edit Star</h1>
-
+  <h2><%= @star.name %></h2>
 </div>
-
+<div class="space"></div>
 <div class="content">
-  <%= form_tag star_path , method: 'post' , class:"pure-form pure-form-aligned" do %>
+  <%= form_tag star_path , method: 'patch' , class:"pure-form pure-form-aligned" do %>
     <fieldset>
         <div class="pure-control-group">
             <label for="name">Star Name</label>
-            <input id="name" name="name" type="text" placeholder="Star name" value="<%= star.name %>">
+            <input id="name" name="name" type="text" placeholder="Star name" value="<%= @star.name %>">
         </div>
 
         <div class="pure-control-group">
           <label for="email">Description</label>
-          <textarea id="description" name="description" placeholder="Star Description">value="<%= star.description %>"</textarea>
+          <textarea id="description" name="description" placeholder="Star Description" rows="8" cols="40" ><%= @star.description %></textarea>
         </div>
 
 

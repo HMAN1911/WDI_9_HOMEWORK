@@ -2,18 +2,18 @@
   <h1>Edit User</h1>
   <h2>Update the details below</h2>
 </div>
-
+<div class="space"></div>
 <div class="content">
-  <%= form_tag user_path , method: 'post' , class:"pure-form pure-form-aligned" do %>
+  <%= form_tag user_path , method: 'patch' , class:"pure-form pure-form-aligned" do %>
     <fieldset>
         <div class="pure-control-group">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" placeholder="Username" value="<%= user.name %>">
+            <input id="name" name="name" type="text" placeholder="Username" value="<%= @user.name %>">
         </div>
 
         <div class="pure-control-group">
           <label for="email">Email Address</label>
-          <input id="email" name="email" type="email" placeholder="Email Address" value="<%= user.email %>">
+          <input id="email" name="email" type="email" placeholder="Email Address" value="<%= @user.email %>">
         </div>
 
         <div class="pure-control-group">

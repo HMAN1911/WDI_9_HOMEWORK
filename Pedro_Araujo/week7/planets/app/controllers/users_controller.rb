@@ -26,9 +26,9 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
+    user.email = params[:email]
     user.name = params[:name]
-    user.description = params[:description]
-
+    user.password = params[:password]
     if user.save
       redirect_to "/users/#{session[:user_id]}"
     else

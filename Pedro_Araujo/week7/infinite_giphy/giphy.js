@@ -1,34 +1,39 @@
 
-console.log('test');
-
-$('.search-btn').on('click', function() {
+$('.search-btn').on('click', function(event) {
 
   $('.results').empty();
 
   var search = $('.search-box').val();
-  var search_url = "http://api.giphy.com/v1/gifs/search?q="
-  var api_key = "&api_key=dc6zaTOxFJmzC"
+
   var settings = {
-    url: search_url + search + api_key,
-    data: {s: search},
+    url: 'http://api.giphy.com/v1/gifs/search',
     method: 'get',
-    dataType: 'json'
+    data: {q: search,
+          api_key: 'dc6zaTOxFJmzC',
+          offset: 0,
+          limit: 10},
+    dataType: 'json',
   }
 
-  $.ajax(settings).done(function(res) {
+  var displayResults = function(res) {
     var items = res.data;
 
     items.forEach(function(item) {
-      var $newItem = $("<li>");
-      var itemId = item.id;
-      var img = "<img src='http://media4.giphy.com/media/" + itemId + "/giphy-downsized-medium.gif' />";
+      var newItem = $("<img>", {
+            src: item.images.fixed_width.url
+      });
+      $results = $('#list-results').append($("<tr>")).append($(newItem));
+    })
+  }
 
-      debugger
-      $newItem.append(img);
-      $('#list-results').append($newItem);
+  $.ajax(settings).done(displayResults);
 
-
-    });
+  $(window).scroll(function() {
+     if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        options.data.offset += 10;
+        $.ajax(options).done(displayResults);
+     }
   });
+
 
 });

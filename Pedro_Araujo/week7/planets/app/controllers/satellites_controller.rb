@@ -38,6 +38,7 @@ class SatellitesController < ApplicationController
     satellite.planet_id = params[:planet]
     satellite.description = params[:description]
     satellite.user_id = session[:user_id]
+
     if satellite.save
       redirect_to "/users/#{session[:user_id]}"
     else
