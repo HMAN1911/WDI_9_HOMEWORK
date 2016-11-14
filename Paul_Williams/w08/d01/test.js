@@ -8,25 +8,17 @@ var testEachCallback = function(i, v) {
 }
 
 var testMapCallbackNums = function(v) {
-  v *= 2;
-  return v;
+  return v *= 2;
 }
 
 var testMapCallbackStrings = function(v) {
-  v = v + ' mapped';
-  return v;
+  return v + ' mapped';
 }
 
 var testFilterCallbackNums = function(v) {
-  if (v % 2 === 0) {
-    return true;
-  }
-  return false;
+  return v % 2 === 0;
 }
 
 var testFilterCallbackStrings = function(v) {
-  if (v.slice(-1) === 'e') {
-    return true;
-  }
-  return false;
+  return v.slice(-1) === 'e';
 }
