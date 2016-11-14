@@ -35,6 +35,14 @@ var wdi = {
       callback(i, list[i]);
     }
     return list;
+  },
+
+  map: function(list, callback) {
+    var map = [];
+    for (var i = 0; i < list.length; i++) {
+      map.push(callback(list[i]));
+    }
+    return map;
   }
 
 }
