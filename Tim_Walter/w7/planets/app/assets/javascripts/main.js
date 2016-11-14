@@ -34,31 +34,42 @@ $( document ).ready(function() {
       },
       type: "POST"
     }
-    $.ajax(options).done(addComment).fail(callFail);
 
+    // Normally....
+    // $.ajax(options).done(addComment).fail(callFail);
+
+    // modify .done to pass a function which has the callback response passed in (comment). The function then calls addCOmment with two parameters comment and e=event.target
+    $.ajax(options).done(function(comment) {
+      addComment(comment, e)
+    }).fail(callFail);
   });
 
 });
 
 
-function addComment(comment) {
+function addComment(comment, e) {
   user = "Posted by User" + comment.user_id;
-  update_comment = "#planet_" + comment.planet_id;
-  $(update_comment).append("<p></p>");
-  $(update_comment).append("<h3></h3>");
-  $(update_comment).append("<h5></h5>");
-  $(update_comment).find("p").append(comment.body);
-  $(update_comment).find("h3").append(user);
-  $(update_comment).find("h5").append(comment.created_at);
-  $(update_comment).prepend('<hr />');
-  $(update_comment).closest('.planet_card').find('textarea').val('');
-  $(update_comment).closest('.planet_card').find('#btn_add').hide();
-  console.log('YAAY ITS DONE!!!!');
-  console.log(comment.body);
-  console.log(update_comment);
-  console.log(user);
-  console.log(comment.created_at);
-  console.log(comment.planet_id);
+  // create comment elements and assign text
+  $p = $("<p></p>").text(comment.body);
+  $h3 = $("<h3></h3>").text(user);
+  $h5 = $("<h5></h5>").text(comment.created_at);
+  // create new div with comment_cont class
+  $comment_div = $("<div>", {
+        "class": 'comment_cont'
+  });
+  // append elements to comment div
+  $comment_div.append($p);
+  $comment_div.append($h3);
+  $comment_div.append($h5);
+
+  // append div with comment to comment_list
+  $(e.target).closest('.planet_card').find('.comment_list').prepend($comment_div);
+
+  // clear text area after submit
+  $(e.target).closest('.planet_card').find('textarea').val('');
+  // hide add comment button after submit
+  $(e.target).closest('.planet_card').find('#btn_add').hide();
+
 };
 
 
