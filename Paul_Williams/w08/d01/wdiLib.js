@@ -13,6 +13,23 @@ var wdi = {
     return shuffled;
   },
 
+  sample: function(list, num) {
+    num = num || 1;
+    if (num > list.length) {
+      throw 'num exceeds list length';
+    } else if (num === 1) {
+      return list[Math.floor(Math.random() * list.length)];
+    } else {
+      var listCopy = list.slice(0)
+      var samples = [];
+      for (var i = 0; i < num; i++) {
+        var j = Math.floor(Math.random() * listCopy.length);
+        samples.push(listCopy.splice(j, 1)[0]);
+      }
+      return samples;
+    }
+  }
+
 }
 
 /*
