@@ -2,6 +2,7 @@
 
 var wdi = {
   shuffle: function(arr) {
+    if (typeof arr !== 'object') { throw 'first argument should be an array'; }
     var newArr = arr.slice();
     var currentIndex = newArr.length;
     var randomIndex;
@@ -17,9 +18,14 @@ var wdi = {
   },
 
   sample: function(arr, num) {
+    if (typeof arr !== 'object') { throw 'first argument should be an array'; }
     if (typeof num === 'undefined') { num = 1; }
     var shuffledArr = wdi.shuffle(arr);
-    return shuffledArr.slice(0,num);
+    if (num === 1) {
+      return shuffledArr[0];
+    } else {
+      return shuffledArr.slice(0,num);
+    }
   },
 
   each: function(arr, callback) {
