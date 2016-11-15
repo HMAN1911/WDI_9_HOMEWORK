@@ -1,0 +1,13 @@
+<%= form_tag "/planets/#{@planet.id}", method: 'patch' do %>
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= @planet.name %>">
+  <label for="">Photo URL</label>
+  <input type="text" name="photo_url" value="<%= @planet.photo_url %>">
+  <label for="">Distance from the Sun</label>
+  <input type="text" name="distance_sun" value="<%= @planet.distance_sun %>">
+  <label for="">Volume</label>
+  <input type="text" name="volume" value="<%= @planet.volume %>">
+  <label for="">Density</label>
+  <input type="text" name="density" value="<%= @planet.density %>">
+  <button>Submit</button>
+<% end %>

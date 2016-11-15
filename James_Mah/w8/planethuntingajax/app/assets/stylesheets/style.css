@@ -17,12 +17,12 @@ p {
   margin: 0;
 }
 
-.session {
+div.session {
   float: right;
   text-align: right;
 }
 
-.planet {
+div.planet {
   display: inline-block;
   vertical-align: top;
   border: solid 1px black;
@@ -36,10 +36,14 @@ img {
   width: 100%;
 }
 
-.delete-button {
+div.delete-button {
   float: right;
 }
 
 label {
   display: block; 
+}
+
+.show-page, .new-page, .edit-page {
+  display: none;
 }

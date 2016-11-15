@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planethunting</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="session">
+      <% if session[:user_id] %>
+        <h5>Logged in as: <%= User.find(session[:user_id]).email %></h5>
+        <%= form_tag '/session', method: 'delete' do %>
+          <button>Log out</button>
+        <% end %>
+      <% else %>
+        <a href='/session'><button>Log in</button></a>
+        <a href='/users/new'><button>Sign up</button></a>
+      <% end %>
+    </div>
+    <a class="home-btn" href="/planets"><h1>Planets</h1></a>
+    
+    <div class="content-wrapper">
+      <%= yield %>
+    </div>
+    <!-- <script src="/main.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<div class="index-page">
+  <% if session[:user_id] %>
+    <a href="/planets/new"><h4>Add Planet</h4></a>
+  <% end %>
+
+  <% @planets.each do |planet| %>
+  <div class="planet">
+    <input type="hidden" name="id" value="<%= planet.id %>">
+    <a class="show-btn" href="">
+      <h3><%= planet.name %></h3>
+      <img src="<%= planet.photo_url %>">
+    </a>
+    <p>Distance from the Sun: <%= planet.distance_sun %>  million km</p>
+    <p>Volume: <%= planet.volume %> billion km^3</p>
+    <p>Density: <%= planet.density %> g/cm^3</p>
+    <p>Added by: <%= User.find(planet.user_id).email %></p>
+  </div>
+  <% end %>
+</div>
+
+
+<div class="show-page">
+  <div class="planet">
+    <input type="hidden" name="id">
+    <h3></h3>
+    <img src="">
+    <p>Distance from the Sun: <span></span> million km</p>
+    <p>Volume: <span></span> billion km^3</p>
+    <p>Density: <span></span> g/cm^3</p>
+    <div class="delete-button">
+      <%= form_tag "", method: 'delete' do %>
+        <button>delete</button>
+      <% end %>
+    </div>
+    <%= form_tag "", method: 'get' do %>
+      <button>edit</button>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="new-page">
+  <%= form_tag '/planets', method: 'post' do %>
+    <label for="">Name</label>
+    <input type="text" name="name">
+    <label for="">Photo URL</label>
+    <input type="text" name="photo_url">
+    <label for="">Distance from the Sun</label>
+    <input type="text" name="distance_sun">
+    <label for="">Volume</label>
+    <input type="text" name="volume">
+    <label for="">Density</label>
+    <input type="text" name="density">
+    <button>Submit</button>
+  <% end %>
+</div>
+
+
+<div class="edit-page">
+  <%= form_tag "", method: 'patch' do %>
+    <label for="">Name</label>
+    <input type="text" name="name" value="">
+    <label for="">Photo URL</label>
+    <input type="text" name="photo_url" value="">
+    <label for="">Distance from the Sun</label>
+    <input type="text" name="distance_sun" value="">
+    <label for="">Volume</label>
+    <input type="text" name="volume" value="">
+    <label for="">Density</label>
+    <input type="text" name="density" value="">
+    <button>Submit</button>
+  <% end %>
+</div>
