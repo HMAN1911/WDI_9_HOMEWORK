@@ -11,6 +11,19 @@ h1 {
   width: 60%;
 }
 
+.giphy_results {
+  width: 80%;
+  margin: 0 auto;
+}
+
+video {
+  margin: 0 auto;
+  width: 40%;
+  height: 40%;
+
+  display: block;
+  padding: 20px;
+}
 form {
   text-align: center;
   font-size: 2em;
@@ -21,7 +34,10 @@ input {
   width: 70%;
   height: 50px;
   text-align: center;
+  color: #9e9e9e;
   border: none;
+  font-size: .6em;
+  font-weight: lighter;
   border-bottom: 1px solid #cccccc;
 }
 
