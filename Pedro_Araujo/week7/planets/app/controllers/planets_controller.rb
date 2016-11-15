@@ -38,7 +38,6 @@ class PlanetsController < ApplicationController
     planet.star_id = params[:star]
     planet.description = params[:description]
     planet.user_id = session[:user_id]
-
     if planet.save
       redirect_to "/users/#{session[:user_id]}"
     else

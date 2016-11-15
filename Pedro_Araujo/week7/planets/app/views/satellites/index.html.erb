@@ -2,7 +2,7 @@
   <h1>Natural Satellites</h1>
 
 </div>
-
+<div class="space"></div>
 <div class="content">
 
   <% @satellites.each do |satellite| %>
@@ -24,9 +24,9 @@
 
       <div class="ui-content">
         <span alt="Edit"> <a href="#"><%=  %></a></span>
-        <%= link_to image_tag("edit.png",class: "btn-card", alt: 'Edit') , edit_satellite_path(satellite) %> |
-         <%= link_to "Delete", satellite, method: :delete, data: { confirm: "Are you sure you want to delete this item?"} %>
-        <span alt="Delete"> <a href="#"><%= image_tag("delete.png",class: "btn-card right", alt: 'Edit') %></a></span>
+        <%= link_to image_tag("edit.png",class: "btn-card", alt: 'Edit') , edit_satellite_path(satellite) %>
+         <%= link_to image_tag("delete.png",class: "btn-card right", alt: 'Edit'), satellite, method: :delete, data: { confirm: "Are you sure you want to delete this item?"} %>
+
       </div>
     </div>
 

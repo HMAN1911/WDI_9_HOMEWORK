@@ -1,8 +1,8 @@
 <div class="header">
   <h1>Edit Satellite</h1>
-
+  <h2><%= @satellite.name %></h2>
 </div>
-
+<div class="space"></div>
 <div class="content">
   <%= form_tag satellite_path , method: 'patch' , class:"pure-form pure-form-aligned" do %>
     <fieldset>
@@ -21,9 +21,9 @@
           <select name="planet" class="pure-input-1-2">
             <% @planets.each do |planet| %>
               <% if @satellite.planet_id == planet.id %>
-                <option selected><%= planet.name %></option>
+                <option value="<%= planet.id %>" selected><%= planet.name %></option>
               <% else %>
-                <option><%= planet.name %></option>
+                <option value="<%= planet.id %>"><%= planet.name %></option>
               <% end %>
             <% end %>
           </select>
