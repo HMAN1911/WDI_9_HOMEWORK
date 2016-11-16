@@ -17,6 +17,7 @@ var isEven = function(num){
   }
 }
 
+
 var wdi = {
 
   shuffle : function(array, num){
@@ -53,25 +54,23 @@ var wdi = {
   },
 
   map : function(array, func){
-    var copy = array.slice();
-    var map = [];
+    var map = array.slice();
 
-    for (var i = 0; i < copy.length; i++) {
-      copy[i] = func(copy[i]);
-      map.push(copy[i]);
+    for (var i = 0; i < map.length; i++) {
+      map[i] = func(map[i]);
     }
     return map;
   },
 
   filter : function(array, func){
-    var map = [];
+    var filter = [];
 
     for (var i = 0; i < array.length; i++) {
       if (func(array[i])) {
-        map.push(array[i]);
+        filter.push(array[i]);
       }
     }
-    return map;
+    return filter;
 
   }
 
