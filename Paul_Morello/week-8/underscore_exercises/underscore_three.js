@@ -32,6 +32,6 @@ _.findIndex(numbers, function(number) {
   return number > 7 && number % 2 === 0;
 });
 
-// Turn ` arrToTransform ` into an object that looks like this - ` { age: NaN, location: undefined } `
+// Turn `arrToTransform ` into an object that looks like this - ` { age: NaN, location: undefined } `
 
-_.object(arrToTransform[0], arrToTransform[1]);
+_.object(arrToTransform[0], arrToTransform[1]):
