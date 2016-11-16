@@ -1,0 +1,46 @@
+
+
+
+<% @planets.each do |planet| %>
+  <div class="ui-card">
+
+    <header class="content">
+      <h1><%= planet.title %></h1>
+
+    </header>
+
+    <div class="image">
+      <button class="likeBtn"><span class="star">&#9733;</span></button>
+      <img src="<%= planet.image_url %>" alt="">
+    </div>
+
+    <div class="content">
+      <h4>Description</h4>
+      <p><%= truncate(planet.description,length: 200) {link_to "(Read More...)", "/planets/#{planet.id}"} %></p>
+      <h4>Species</h4>
+      <p><%= truncate(planet.species,length: 200) {link_to "(Read More...)", "/planets/#{planet.id}"} %></p>
+    </div>
+
+  </div>
+<% end %>
+
+<script>
+  $('.likeBtn').click(function(event) {
+  event.preventDefault();
+
+  // console.log(event.target);
+  var $box = $(event.target).closest('.box')
+
+  var options = {
+    url: '/likes',
+    method: 'post',
+    data: { dish_id: $box.data("id") }
+  }
+
+  var updateCount = function(response) {
+    console.log('yay');
+    var $count = $box.find('.count')
+    $count.text( response.like_count );
+  }
+
+  $.ajax(options).done(updateCount);
