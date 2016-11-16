@@ -1,0 +1,23 @@
+<h1>Rock Paper Scissors</h1>
+
+<% if @compThrow %>
+  <p>You threw: <%= @playerThrow %></p>
+  <p>The computer threw: <%= @compThrow %></p>
+  <% if @result == "win" %>
+    <p>You win!</p>
+  <% elsif @result == "draw" %>
+    <p>It's a draw.</p>
+  <% else %>
+    <p>You lose.</p>
+  <% end %>
+<% end %>
+
+<form action="/games/rock_paper_scissors" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+
+  <input type="radio" name="throw" value="rock"><label>Rock</label>
+  <input type="radio" name="throw" value="paper"><label>Paper</label>
+  <input type="radio" name="throw" value="scissors"><label>Scissors</label>
+
+  <button>Throw</button>
+</form>
