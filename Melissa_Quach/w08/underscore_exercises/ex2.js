@@ -13,18 +13,40 @@ var words = [
   "attoparsec", "batch", "Cinderalla Book", "Dr. Fred Mbogo", "eat flaming death", "fandango on core", "Foonly", "goat file", "Halloween Documents", "I see no X here", "Imminent Death Of The Net Predicted!", "jibble", "kilogoogle", "larval stage", "maximum Maytag mode", "nybble", "octal forty", "pico-", "quantum bogodynamics", "rubber-hose cryptanalysis", "sigmonster", "tail recursion", "unswizzle", "VAXen", "webmaster", "XEROX PARC", "yak shaving", "Zero-One-Infinity Rule"
 ];
 
+console.log('Exercise 2');
+
 // Sort the people by 'uid'
+console.log(_.sortBy(people, function(person) {
+  return person.uid;
+}));
 
 // Group the random words by the lower case version of their first letter
+console.log(_.groupBy(words, function(word) {
+  return word[0].toLowerCase();
+}));
 
 // Check to see if all the words have more than 3 characters
+console.log(_.every(words, function(word) {
+  return word.length > 3;
+}));
 
 // Check if some words are over twenty characters long
+console.log(_.some(words, function(word) {
+  return word.length > 20;
+}));
 
 // Get an array of all of the uids in people
+console.log(_.pluck(people, 'uid'));
 
 // Find the person with the highest uid
+console.log(_.max(people, function(person) {
+  return person.uid;
+}));
 
 // Return an object that says how many even numbers and how many odd numbers there are in numbers
+console.log(_.countBy(numbers, function(number) {
+  return number % 2 === 0 ? 'even' : 'odd';
+}));
 
 // Get three random numbers out of numbers
+console.log(_.sample(numbers, 3));
