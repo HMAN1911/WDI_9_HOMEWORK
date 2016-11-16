@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+body {
+  background-color: #3a3e4d;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  /*font-size: 16px;*/
+}
+
+h1 {
+  margin: 3em 0;
+  text-align: center;
+  font-size: 2em;
+}
+
+h2 {
+  margin-bottom: 4em;
+  color: #c99;
+  font-size: 1em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-align: center;;
+  text-transform: uppercase;
+}
+
+a {
+  color: #c99;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+
+.search-form {
+  text-align: center;
+}
+
+input {
+  padding: 5px 10px;
+  font-size: 1.7em;
+}
+
+button {
+  padding: 5px 15px;
+  background-color: #7ccfaf;
+  color: #fff;
+  font-size: 1.7em;
+  font-weight: 100;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.site-heading {
+  color: #fff;
+  font-size: 3em;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.site-heading:visited {
+  color: #fff;
+}
+
+.back-btn {
+  display: block;
+  text-align: center;
+}
+
+.back-btn a {
+  font-weight: 400;
+}
+
+a:hover {
+  color: #fc9;
+}
+
+/* Search Results */
+.search-results {
+  margin-top: 5em;
+}
+
+.search-results > ul {
+
+  list-style: none;
+}
+
+.search-wrapper {
+  margin: 0 auto;
+  width: 80%;
+  /*border: 1px solid pink;*/
+}
+
+.search-movie {
+  margin: 0 0.2em;
+  width: 24%; /* check this */
+  height: 650px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.search-poster,
+.no-poster-wrapper {
+  width: 300px;
+  height: 446px;
+}
+
+.no-poster-wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.no-poster {
+  margin: 1em;
+  padding: 100px 0;
+  height: 445px;
+  font-weight: 100;
+  text-align: center;
+}
+
+.search-info {
+  padding: 2em 0;
+}
+
+/* About */
+.movie-wrapper {
+  margin: 0 auto;
+  width: 60%;
+  overflow: hidden;
+}
+
+.movie-poster img{
+  float: left;
+  width: 40%;
+}
+
+.movie-text-wrapper {
+  margin-bottom: 4em;
+  padding: 0 4em;
+  display: inline-block;
+  float: left;
+  width: 60%;
+}
+
+.movie-text-wrapper h3 {
+  margin-top: 0;
+}
+
+.movie-text-wrapper h3 {
+  color: #7ccfaf;
+  font-size: 1.2em;
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: 2;
+}
+
+.movie-text-wrapper h3 span {
+  color: white;
+  font-weight: 100;
+  text-transform: none;
+  padding-left: 0.5em;
+}
+
+.movie-text-wrapper h4 {
+  font-size: 1.5em;
+  font-weight: 100;
+}
+
+.clearfix {
+  clear: left;
+  margin-top: 10em;
+}
+
+/* Search History */
+.search-history-wrapper {
+  text-align: center;
+}
+
+.search-history {
+  display: block;
+  margin: 2em auto;
+}
+
+/* quick fix: refactor later */
+.heading-homepage {
+  margin: 7em 0;
+  font-size: 1em;
+}
+
+.heading-homepage a {
+  letter-spacing: 0.2em;
+}
+
+/* Footer */
+footer {
+  margin: 20em 0 2em;
+  font-size: 1.5em;
+  font-weight: 300;
+  text-align: center;
+}
+
+footer p a {
+  font-size: 1em;
+}
+
+footer a {
+  color: #c99;
+  text-decoration: none;
+}
+
+/* To do: */
+/* Fix issues with font-size inheritance for h tags */
+/* Fine tune a tags */
+/* Write no-poster display rules on about page */

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planets</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <header>
+      <% if logged_in? %>
+
+      <div class="login">
+        <p>Welcome <%= current_user.name.capitalize %>!</p>
+        <%= link_to "Log Out", session_path(current_user), method: :delete %>
+      </div>
+
+      <% end %>
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+
+    <footer>
+    </footer>
+
+  </body>
+</html>
