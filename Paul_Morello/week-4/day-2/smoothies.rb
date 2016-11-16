@@ -44,14 +44,14 @@ class Blender
     @on_off = false
   end
 
-  def turn_on on_off
+  def switch on_off
     @on_off = on_off
   end
 
   def blend smoothie_ingredients
 
     if @on_off == true
-      smoothie_ingredients.keys.join.gsub(/\s+/, "").split('').shuffle.join
+      smoothie_ingredients.keys.join.gsub(' ', '').split('').shuffle.join
     else
       return 'The blender is not on'
     end
@@ -60,7 +60,17 @@ end
 
 binding.pry
 
-# all_nums = []
+# class Blender
+# 
+#   def initialize
+#     @on = false
+#   end
 #
-# users.each { |key,val| all_nums.concat(val[:favorite_numbers])}
-# all_nums.uniq.sort
+#   def on?
+#     @on
+#   end
+#
+#   def toggle
+#     @on = !@on
+#   end
+# end

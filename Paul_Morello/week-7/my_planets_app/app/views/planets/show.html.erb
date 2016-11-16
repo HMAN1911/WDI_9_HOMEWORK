@@ -1,0 +1,26 @@
+<h2><%= @planet.title %></h2>
+
+<img src="<%= @planet.image_url %>" alt="">
+
+<h3><%= @planet.description %></h3>
+
+<% @comments.each do |comment| %>
+<p><%= comment.body %></p>
+<% end %>
+
+<form action="/comments" method="post">
+  <input type="hidden" name="planet_id" value="<%= @planet.id %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <textarea name="body" rows="8" cols="40" placeholder="Post Comment"></textarea>
+  <button>Post Comment</button>
+</form>
+
+<form action="/planets/<%= @planet.id %>/edit">
+  <button>Edit</button>
+</form>
+
+<form action="/planets/<%= @planet.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="delete">
+  <button>Delete</button>
+</form>

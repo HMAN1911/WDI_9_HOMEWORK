@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+.header-index {
+  width: 100%;
+  background-color: #A3A1AD;
+  padding: 1em;
+}
+
+.header-index h2 {
+  font-size: 2em;
+  font-family: 'Russo One', sans-serif;
+  color: #205B75;
+  margin: .3em;
+}

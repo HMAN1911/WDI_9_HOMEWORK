@@ -24,8 +24,6 @@ post '/movie' do
       redirect to "/list_search?movie=#{@movie}"
   end
 
-  binding.pry
-
   Movie.create(title: params['movie'], year: params['Year'], released_year: params['Released'], genre: result["Genre"], director: result["Director"], plot: result["Plot"], poster: result["Poster"], rating: result["imdbRating"], actors: result["Actors"])
 
   redirect to "/search?movie=#{@movie}"

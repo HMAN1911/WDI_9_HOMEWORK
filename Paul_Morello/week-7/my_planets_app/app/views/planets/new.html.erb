@@ -1,0 +1,18 @@
+<form action="/planets" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="">Title</label>
+  <input name="title" type="text">
+
+  <label for="">Image Url</label>
+  <input name="image_url" type="text">
+
+  <label for="">Description</label>
+  <textarea name="description" rows="8" cols="40"></textarea>
+
+  <button>Create</button>
+</form>
+
+<!-- <%= form_for :planets do |f| %>
+<%= f.text_field :title %>
+<% end %> -->

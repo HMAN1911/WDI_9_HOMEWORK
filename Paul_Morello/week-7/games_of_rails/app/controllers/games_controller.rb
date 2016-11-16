@@ -33,23 +33,20 @@ class GamesController < ApplicationController
   def rock_paper_scissors_result
 
     computer = ['rock', 'paper', 'scissors']
-    computer_guess = computer.sample
     user = params[:play].downcase
 
-    if computer_guess == user
+    if computer.sample == user
       @game = 'Draw'
-    elsif computer_guess == 'rock' && user == 'paper'
-      @game = 'You Lose'
-    elsif computer_guess == 'paper' && user == 'rock'
+    elsif user == 'paper' && computer.sample == 'rock'
       @game = 'You Win'
-    elsif computer_guess == 'scissors' && user == 'rock'
-      @game = 'You Win'
-    elsif computer_guess == 'rock' && user == 'scissors'
+    elsif computer.sample == 'paper' && user == 'rock'
       @game = 'You Lose'
-    elsif computer_guess == 'paper' && user == 'scissors'
+    elsif computer.sample == 'scissors' && user == 'rock'
       @game = 'You Win'
-    else
+    elsif user == 'scissors' && computer.sample == 'rock'
       @game = 'You Lose'
+    elsif computer.sample == 'paper' && user == 'scissors'
+      @game = 'You Win'
     end
 
   end
