@@ -54,16 +54,47 @@ var wdi = {
   },
 
   each : function (list, func) {
+    for (var i = 0; i < list.length; i++) {
+      func(list[i]);
+    }
+  },
 
-    for (var i = array.length; i; i--) {
-      console.log(i)
+  map : function (list, func) {
+
+    for (var i = 0; i < list.length; i++) {
+      func(list[i]);
+
     }
 
 
+  },
+
+  filter : function (list,func) {
+
+    result=[];
+
+    for (var i = 0; i < list.length; i++) {
+
+      // result =func(list[i])
+          if (func(list[i])===true) {
+
+            result.push(list[i]);
+
+      }
+    }
+    return result;
   }
 
-
-
-
-
 }
+
+
+function timesTwo(i) { console.log(i*2) };
+
+function passingTest(num) {
+
+
+      return num % 2 ==0 
+      // console.log(num);
+
+
+  }
