@@ -14,17 +14,33 @@ var words = [
 ];
 
 // Sort the people by 'uid'
+var sort = _.sortBy(people, 'uid');
+console.log(sort);
 
 // Group the random words by the lower case version of their first letter
+var group = _.groupBy(words, function(word){return word[0].toLowerCase()});
+console.log(group);
 
 // Check to see if all the words have more than 3 characters
+var morethan3 = _.every(words, function(word){return word.length >= 3 });
+console.log(morethan3);
 
 // Check if some words are over twenty characters long
+var morethan20 = _.some(words, function(word){return word.length>20});
+console.log(morethan20);
 
 // Get an array of all of the uids in people
+var uids = _.pluck(people, 'uid');
+console.log(uids);
 
 // Find the person with the highest uid
+var highestuid = _.max(people, function(person){return person.uid});
+console.log(highestuid);
 
 // Return an object that says how many even numbers and how many odd numbers there are in numbers
+var evensandodds = _.countBy(numbers, function(num){return num%2 === 0 ? 'even' : 'odd'});
+console.log(evensandodds);
 
 // Get three random numbers out of numbers
+var rand = _.sample(numbers, 3);
+console.log(rand);
