@@ -23,19 +23,17 @@
             <textarea name="body" rows="8" cols="40"></textarea>
             <button id="btn_add">ADD COMMENT</button>
           <% end %>
-          <div class="new_comment" id="<%= "planet_#{planet.id}" %>">
-            
-          </div>
-          <hr id="comment_separator">
-          <% @comments.each do |comment| %>
-            <% if planet.id == comment.planet_id %>
-                <p><%= comment.body %></p>
-                <h3>Posted by User<%= comment.user_id %></h3>
-                <h5><%= comment.created_at %></h5>
-                <hr>
+          <div class="comment_list">
+            <% @comments.each do |comment| %>
+              <% if planet.id == comment.planet_id %>
+                <div class="comment_cont">
+                  <p><%= comment.body %></p>
+                  <h3>Posted by User<%= comment.user_id %></h3>
+                  <h5><%= comment.created_at %></h5>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
-
+          </div>
         </div>
       </div>
       <div class="planet_footer">
