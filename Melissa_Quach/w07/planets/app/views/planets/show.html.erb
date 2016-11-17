@@ -7,3 +7,42 @@
 <h2><%= @planet.name %></h2>
 <p>Submitted by <%= @planet.user.email %></p>
 <div class="planet" style="background-color: <%= @planet.color %>;"></div>
+
+<%= form_tag '/api/comments', method: 'post', id: 'comment_form' do %>
+  <input id="planet_id" type="hidden" name="planet_id" value="<%= @planet.id %>">
+  <textarea id="content" name="content" id="" cols="30" rows="10"></textarea>
+  <button>Add comment</button>
+<% end %>
+
+<section class="comment-list">
+  <% @planet.comments.each do |comment| %>
+  <div class="comment">
+    <%= comment.content %>
+  </div>
+  <% end %>
+</section>
+
+<script>
+  $('#comment_form').submit(function(e) {
+    e.preventDefault();
+
+    $.ajax({
+      url: '/api/comments',
+      method: 'post',
+      data: {
+        authenticity_token: '<%= form_authenticity_token %>',
+        planet_id: $('#planet_id').val(),
+        content: $('#content').val()
+      }
+    })
+    .done(function(res) {
+      if (res.success) {
+        var comment = JSON.parse(res.comment);
+        var $newComment = $('<div>')
+          .addClass('comment')
+          .text(comment.content);
+        $('.comment-list').append($newComment);
+      }
+    });
+  });
+</script>
