@@ -1,0 +1,15 @@
+<% provide(:title, "The " + @planet.name) %>
+
+<h1>THE <%= @planet.name.upcase %></h1>
+
+<div id="planet">
+    <img id="planet-image" src="<%= @planet.image_url %>" alt="">
+    <p id="planet-paragraph"><%= @planet.description %></p><br><p>Location: <%= @planet.location %></p>
+</div>
+<br class="clearfix">
+<div id="edit-delete">
+    <%= link_to "Edit", edit_planet_path(@planet.id), class: "btn btn-primary" %>
+    <%= link_to "Delete", @planet, method: :delete, class: "btn btn-primary", data: {confirm: "You sure?"} %>
+</div>
+<br class="clearfix">
+
