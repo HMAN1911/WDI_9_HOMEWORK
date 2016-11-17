@@ -1,0 +1,15 @@
+<div class="form">
+<%= form_for(@planet) do |p| %>
+
+    <div class="form-for label-name"><%= p.label :Name %></div>
+    <div class="form input-name"><%= p.text_field :name %></div>
+    <div class="form-for label-image_url"><%= p.label :Image_URL   %></div>
+    <div class="form input-image_url"><%= p.text_area :image_url %></div>
+    <div class="form-for label-description"><%= p.label :Description %></div>
+    <div class="form input-description"><%= p.text_area :description %></div>
+    <div class="form-for label-location"><%= p.label :Location %></div>
+    <div class="form input-location"><%= p.text_area :location %></div>
+
+    <%= p.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
+</div>
