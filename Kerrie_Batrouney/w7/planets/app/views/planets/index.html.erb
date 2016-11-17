@@ -1,0 +1,23 @@
+
+  <a href="/planets/new" id="add">Add Planet</a>
+  <% @planets.each do |planet| %>
+<div class="planet_card">
+
+    <a href="/planets/<%= planet.id %>/edit" >Edit Planet</a>
+
+      <img src="<%= planet.image_url %>" alt="" />
+
+
+    <div class="info">
+      <h3>Planet : <%= planet.name %></h3>
+      <h3>Distance from earth - <%= planet.distance %>kms</h3>
+
+      <form class="delete_planet" action="/planets/<%= planet.id %>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <button>Delete</button>
+      </form>
+    </div>
+
+</div>
+<%end%>

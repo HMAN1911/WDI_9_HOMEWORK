@@ -1,0 +1,13 @@
+<h1>Magic 8 Ball</h1>
+
+<% if @answer %>
+  <p>You asked: <%= @question %></p>
+  <p>The magic 8 ball says: <%= @answer %>
+<% end %>
+
+<form action="/games/8_ball" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <label>Enter Your Question:</label>
+  <input type="text" name="question">
+  <button>Ask</button>
+</form>
