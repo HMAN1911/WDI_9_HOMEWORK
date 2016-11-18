@@ -44,8 +44,8 @@ h2 {
 }
 
 p {
-    font-size: 1.1em;
-    line-height: 1.7em;
+    font-size: 1em;
+    line-height: 1.5em;
 }
 
 #logo {
@@ -93,60 +93,36 @@ footer ul li {
   margin-left: 15px;
 }
 
-.form {
+.col-sm-4 {
+    background-color: black;
+    padding-right: 5px;
 }
 
-.form-for {
-}
-
-.planets {
-    /*border: 1px solid blue;*/
+.col-sm-8 {
+    /*background-color: mistyrose;*/
     margin: 0;
-    padding: 0;
 }
 
-.planets.wrap.image {
-    float: left;
-    width: 50%;
+.row {
+    margin-bottom: 20px;
 }
 
-.planets.wrap.image.source {
-    width: 100%;
-    height: 100%;
+h4 {
+    margin-top: 0;
 }
 
-.planets.wrap.info {
-    float: left;    
-    width: 50%;
-    border-left: 1em solid white;
+.img-responsive {
+    max-height: 150px;
 }
-
-.clearfix {
-    clear: left;
-}
-
-/*.planets.wrap.info.controls {
-    text-align: center;
-    width: 100%;
-}*/
 
 #planet-image {
     float: left;
-    margin-right: 10px;
-}
-
-#planet-paragraph {
-    /*line-height: 1.3em;*/
+    padding-right: 5px;
 }
 
 .clearfix {
-    clear: left;
+    clear: both;
 }
 
-#edit-delete {
-    text-align: right;
-    width: 100%;
-    /*margin-top: 2em;*/
-}
 
 

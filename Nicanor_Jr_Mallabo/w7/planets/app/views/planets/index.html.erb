@@ -1,19 +1,20 @@
 <% provide(:title, "The " + @planets.name) %>
     
-
-<%= link_to "Add New Planet", new_planet_path %> 
-<br>
-
-<div class="planets">
+<br class="clearfix">
+<div class="container-fluid">
+    <h3><%= link_to "ADD NEW PLANET", new_planet_path %> </h3>
+    <!--<p>Resize the browser window to see the effect.</p>-->
     <% @planets.each do |planet| %>
-        <div class="planets wrap">
-            <div class="planets wrap image"><img class="planets wrap image source" src="<%= planet.image_url %>" alt=""></div>
-            <div class="planets wrap info">
-                <h2>Name: <%= planet.name %></h2>
-                <p>Description: <%= planet.description[0..250] %> ...<%= link_to "Read", planet_path(planet.id) %></p>
-                <p>Location: <%= planet.location[0..150] %> ...<%= link_to "Read", planet_path(planet.id) %></p>
-            </div>
+    <div class="row">
+        <div class="col-sm-4";">
+            <img class="img-responsive" src="<%= planet.image_url %>" alt="">
         </div>
+
+        <div class="col-sm-8">
+            <h4>Name: <%= planet.name %></h4>
+            <p>Description: <%= planet.description[0..250] %> ...<%= link_to "Read", planet_path(planet.id) %></p>
+            <p>Location: <%= planet.location[0..150] %> ...<%= link_to "Read", planet_path(planet.id) %></p>
+        </div>
+    </div>
     <% end %>
 </div>
-<br class="clearfix">
