@@ -1,0 +1,13 @@
+.main-image {
+  width: 300px;
+}
+
+#title {
+  font-size: 2.5em;
+  padding: 20px 0;
+}
+
+#subtitle {
+  font-size: 1.5em;
+  padding: 10px 0;
+}

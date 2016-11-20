@@ -1,0 +1,10 @@
+<h1>Planets</h1>
+
+<% @planets.each do |planet| %>
+
+<div class="planet-card">
+<p><%= link_to "#{planet.title}", planet_path(planet.id) %></p>
+<img src="<%= planet.image_url %>" alt="">
+</div>
+
+<% end %>

@@ -1,0 +1,18 @@
+<h1><%= @planet.title %></h1>
+<img src="<%= @planet.image_url %>" alt="">
+
+<%= form_tag("/planets/#{@planet.id}", method: 'delete') do %>
+  <%= submit_tag("DESTROY this planet") %>
+<% end %>
+
+<%= form_tag("/comments", method: 'post') do %>
+  <%= label_tag(:name, "Name") %>
+  <br>
+  <%= text_field_tag(:name) %>
+  <br>
+  <%= label_tag(:description, "Description") %>
+  <br>
+  <%= text_area_tag(:description) %>
+  <br>
+  <%= submit_tag("Add Comment") %>
+<% end %>
