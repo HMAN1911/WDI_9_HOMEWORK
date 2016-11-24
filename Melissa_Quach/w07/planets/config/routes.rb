@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/login', to: 'session#new'
   post '/session', to: 'session#create'
   delete '/logout', to: 'session#destroy'
+  post '/api/comments', to: 'api/comments#create'
 end

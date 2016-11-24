@@ -48,8 +48,12 @@ header a {
 }
 
 .planet {
-  width: 75%;
-  padding-bottom: 75%;
+  width: 200px;
+  padding-bottom: 200px;
   border-radius: 100%;
-  margin: 0 auto;
+}
+
+.comment {
+  padding: 10px;
+  border-top: 1px solid #AAA;
 }
