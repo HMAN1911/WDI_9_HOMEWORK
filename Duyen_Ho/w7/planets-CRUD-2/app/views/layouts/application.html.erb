@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planets Crud 2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <header>
+
+    <% if logged_in? %>
+
+    <div class="login">
+      <p>Welcome <%= current_user.username.capitalize %>!</p>
+      <form action="/logout" method="post">
+        <input name="authenticity_token" type="hidden" value="token_value">
+        <input type="hidden" name="_method" value="delete">
+        <button class="logout-btn">Log Out</button>
+      </form>
+    </div>
+
+    <% end %>
+
+  </header>
+
+  <main>
+    <%= yield %>
+  </main>
+
+  </body>
+</html>

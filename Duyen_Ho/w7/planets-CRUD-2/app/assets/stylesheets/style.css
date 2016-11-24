@@ -1,0 +1,65 @@
+body {
+  background-color: #fafafa;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.planet-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ui-card {
+  background-color: #fff;
+  width: 25%;
+  margin: 2em;
+  border: 1px solid #efefef;
+}
+
+.ui-card > header {
+  line-height: 2em;
+
+}
+
+.profile-pic {
+  display: inline-block; /* reminder */
+  vertical-align: middle;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.image {
+  position: relative;
+}
+
+.image img {
+  width: 100%;
+}
+.star {
+  user-select: none;
+  -webkit-user-select: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 3em;
+  color: white;
+  cursor: pointer;
+  opacity: 0;
+  transition: .5s;
+}
+
+.star:hover {
+  color: yellow;
+}
+
+.image:hover .star {
+  opacity: 1;
+}
+
+.right {
+  float: right;
+}
+
+.content {
+  padding: 1em;
+}

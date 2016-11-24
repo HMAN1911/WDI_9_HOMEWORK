@@ -1,0 +1,63 @@
+<h2>Planets</h2>
+
+<div class="planet-list">
+
+<% @planets.each do |planet| %>
+  <div class="ui-card" data-planet-id="<%= planet.id %>">
+    <header class="content">
+      <span class="right"><%= ((Time.now - planet.created_at) / 3600).round %>h</span>
+
+      <img class="profile-pic" src="https://placeholdit.imgix.net/~text?txtsize=75&txt=800%C3%97800&w=800&h=800"> <%= User.find(planet.user_id).username %>
+    </header>
+
+    <div class="image">
+      <img src="<%= planet.image_url %>">
+      <span class="star">&#9733;</span>
+    </div>
+
+    <div class="content">
+      <h2><%= planet.title %></h2>
+    </div>
+
+    <div class="content">
+      <span class="right count"><%= planet.likes.count %> likes</span>
+    </div>
+  </div>
+<% end %>
+
+</div>
+
+
+<script>
+
+  // clicking on any button
+  $('.star').on('click', function(event) {
+    event.preventDefault();
+
+    // make a request to the server
+    var options = {
+      url: '/api/likes',
+      method: 'POST',
+      data: {
+        planet_id: $(event.target).closest('.ui-card').data('planet-id')
+      }
+    }
+
+    var updateCount = function(response) {
+      // from the target we need to traverse the dom to find
+      // the nearest div with the class count
+      // to use closest and find which are jquery functions
+      // i need to turn event.target from a simple dom elem
+      // to a jquery object
+      // look up for .planet
+      var $planet = $(event.target).closest('.ui-card');
+      // from $planet, look down for .count
+      var $count = $planet.find('.count');
+      $count.text( response.like_count + ' likes');
+    }
+
+    $.ajax(options).done(updateCount);
+
+  });
+
+</script>
