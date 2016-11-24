@@ -1,0 +1,13 @@
+<h2>Create a new planet</h2>
+
+<%= form_tag('/planets', method: 'post') do %>
+  <%= label_tag(:title, 'Title') %>
+  <br>
+  <%= text_field_tag(:title) %>
+  <br>
+  <%= label_tag(:image_url, 'Image url') %>
+  <br>
+  <%= text_field_tag(:image_url) %>
+  <br>
+  <%= submit_tag("Create") %>
+<% end %>

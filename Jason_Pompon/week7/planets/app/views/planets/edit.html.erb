@@ -1,0 +1,9 @@
+<h1>Edit <%= @planet.title %></h1>
+
+<%= form_tag("/planets/#{@planet.id}", method: 'patch') do %>
+  <%= label_tag(:title, 'Title') %>
+  <%= text_field_tag(:title, @planet.title) %>
+  <%= label_tag(:image_url, 'Image url') %>
+  <%= text_field_tag(:image_url, @planet.image_url) %>
+  <%= submit_tag("Update") %>
+<% end %>
