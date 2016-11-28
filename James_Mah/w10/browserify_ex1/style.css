@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+p,h1,h2,h3,h4,h5 {
+  margin: 0;
+}
+
+body {
+  margin: auto 0;
+  text-align: center;
+}
+
+h1 {
+  margin: 50px auto;
+}
+
+h3 {
+  margin: 10px;
+}
+
+.input-wrapper {
+  margin: auto;
+  width: 180px;
+  height: 80px;
+}
+
+.input-box {
+  float: left;
+  width: 60px;
+  padding: 5px;
+}
+
+.input-box input {
+  width: 100%;
+  text-align: center;
+}
+
+.result-wrapper {
+  height: 50px;
+}
+
+.result-color {
+  margin: auto;
+  border: solid 1px black;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
