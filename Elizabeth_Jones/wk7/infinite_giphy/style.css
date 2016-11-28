@@ -1,0 +1,17 @@
+.gif{
+  display:block;
+}
+
+.wrapper, #results{
+  margin:0 auto;
+  text-align: center;
+  max-width: 500px;
+}
+
+body{
+  font-family: roboto;
+}
+
+input{
+  margin-bottom: 30px;
+}
