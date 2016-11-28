@@ -1,0 +1,14 @@
+<h1>Edit Planet</h1>
+
+
+<h3><%= @planet.title %></h3>
+
+<img class="planet" src="<%= @planet.image_url %>" alt="<%= @planet.title %>">
+
+<%= render 'form', planet: @planet %>  <!-- renders the _form.html.erb file -->
+
+<!-- sets up a local variable called planet and passes through the current planet object -->
+
+<div class="">
+  <%= link_to 'Home', planets_path %> <!-- helper that quickly makes path -->
+</div>

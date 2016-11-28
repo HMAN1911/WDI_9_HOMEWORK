@@ -1,0 +1,11 @@
+<h1>Planets</h1>
+
+<a href="/planets/new">Add Planet</a>
+
+<% @planets.each do |planet| %>
+
+  <!-- create link on planet name, and direct to current planet-->
+  <h3><%= link_to planet.title, planet %></h3>   <!-- This is a helper that create a tags and links to id of that planet  -->
+  <img class="planet" src="<%= planet.image_url%>" alt="" />
+
+<% end %>

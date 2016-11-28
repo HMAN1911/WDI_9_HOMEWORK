@@ -1,0 +1,77 @@
+<h1>Show single planet</h1>
+<div class="">
+  <h3><%= @planet.title %></h3>
+  <%= link_to '<<<Home', planets_path %> <!-- helper that quickly makes path -->
+</div>
+
+<img class="planet" src="<%= @planet.image_url %>" alt="<%= @planet.title %>">
+
+<div class="">
+  <%= link_to 'Edit Planet', edit_planet_path(@planet) %> <!-- helper that quickly makes path - passes in current planet  -->
+</div>
+
+<div class="">
+  <%= link_to 'Delete', @page, method: :delete %> <!-- helper that quickly makes path -->
+</div>
+
+
+
+<!-- LIKE BUTTON w helper -->
+<!-- this is instead of authenticity token and patch/hidden inputs -->
+<%= form_tag '/comments', method: 'post' do %>
+<input id="planet_id" class="planet_id" type="hidden" name="planet_id" value="<%= @planet.id %>">   <!-- pass through hidden dish id to comments controller -->
+  <textarea id="text-area" name="body" rows="8" cols="40"></textarea>
+    <button id="post">Post</button>
+<% end %>
+
+
+<h3 id="comments">Comments</h3>
+
+  <% @comments.each do |comment| %>
+
+    <p><%= comment.user.email %> said: <%= comment.body %></p>
+  <% end %>
+
+<ul id="list">
+
+</ul>
+
+<!-- AJAX COMMENTS SCRIPT -->
+
+  <script type="text/javascript">
+
+    $("#post").on('click', function(event) {
+      event.preventDefault();
+      // console.log(event.target);
+
+      var user; //how to get the user?
+      var comment = $('#text-area').val(); //not jquery because .val() is not a jquery object - important cause call wrong method eg. innerHTML vs .html
+      var id = $("#planet_id").val()
+      // console.log(comment);
+
+      var options = {
+        url: '/comments',
+        method: 'post',
+        dataType: 'json',
+        data: {
+          mango: id,
+          apricot: comment
+        }
+      };
+                            //ajax object that is returned
+      var showComment = function(response){  //can change data paramater to anything - always will give you the response from the server
+        // console.log('response: ' + response);
+        // console.log('comment: ' + comment);
+        console.log('hi');
+        console.log(response);
+        //from the target we need to traverse the dom to find
+        //the nearest div with the class count
+        var $listItem = $('<li>').text(response.comment_object)
+        $('#list').append($listItem);
+      }
+
+                      //when the request is done run another fucntion
+      $.ajax(options).done(showComment);  //do another function when response is done
+
+      });
+  </script>

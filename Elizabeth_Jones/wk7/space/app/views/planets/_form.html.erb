@@ -1,0 +1,20 @@
+  <!-- automatically knows to 'post' to '/planets/create' and '/planets/update'  -->
+
+  <!-- instead of passing form_for(@planet) - pass in the local variable form_for(planet)  -->
+  <!-- because we are using the partial method  -->
+
+<%= form_for(planet) do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, id: "title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image_url %>
+    <%= f.text_area :image_url, size: "50x5", id: "image" %>
+  </div>
+
+  <div class="">
+    <%= f.submit "Create/Update", id: "button" %>
+  </div>
+<% end %>
