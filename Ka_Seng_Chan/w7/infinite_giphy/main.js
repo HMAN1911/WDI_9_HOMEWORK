@@ -5,13 +5,14 @@ var $resultsDIv = $('#search-results');
 var limit = 10;
 var offset = 0;
 var apiKey = 'dc6zaTOxFJmzC';
+var query;
 
 // function to show 10 results
 var showResults = function(response) {
   // append 10 giphy images to div
   var gifs = response.data;
   for (var i = 0; i < gifs.length; i++) {
-    var newImg = '<img src="' + gifs[i].images.original.url + '" alt="">'
+    var newImg = '<img src="' + gifs[i].images.fixed_height.url + '" alt="">'
     $('#search-results').append(newImg);
     // console.log(gifs[i]);
   }
@@ -21,6 +22,7 @@ var showResults = function(response) {
 
 $('#search-btn').on('click', function(event) {
   event.preventDefault();
+  query = $q.val();
   offset = 0;
   $('#search-results').empty();
 
@@ -28,7 +30,7 @@ $('#search-btn').on('click', function(event) {
     url: 'http://api.giphy.com/v1/gifs/search',
     method: 'get',
     dataType: 'json',
-    data: { q: $q.val(), limit: limit, offset: offset, api_key: apiKey }
+    data: { q: query, limit: limit, offset: offset, api_key: apiKey }
   }
 
   $.ajax(options).done(showResults);
@@ -43,7 +45,7 @@ $(window).scroll( function() {
       url: 'http://api.giphy.com/v1/gifs/search',
       method: 'get',
       dataType: 'json',
-      data: { q: $q.val(), limit: limit, offset: offset, api_key: apiKey }
+      data: { q: query, limit: limit, offset: offset, api_key: apiKey }
     }
 
     $.ajax(options).done(showResults);
