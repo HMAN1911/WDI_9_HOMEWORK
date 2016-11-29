@@ -14,18 +14,24 @@ var server = require('http').createServer(function(req, res) {
   console.log(uri);
   switch (uri) {
     case '/':
-      res.write('<h1>Hello World</h2>')
+      res.writeHead(200, { 'Content-Type': 'text/html' });
+      res.write('<h1>Hello Charith</h2>')
       res.end();
       break;
     case '/about':
-      var fileStream = fs.createReadStream('about.html');
-      fileStream.pipe(res);
+      // var fileStream = fs.createReadStream('about.html');
+      // fileStream.pipe(res);
+      fs.readFile(__dirname + '/about.html', function(err, data) {
+        res.write(data.toString());
+        res.end();
+      });
       break;
     case '/donate':
       res.write('<h1>Please Donate</h2>');
       res.end();
       break;
     default:
+      res.writeHead(404);
       res.write('<h1>Not Found</h2>');
       res.end();
   }
