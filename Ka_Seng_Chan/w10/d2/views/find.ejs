@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Movie App</title>
+  </head>
+  <body>
+
+    <h1>Movie App</h1>
+    <% Search.forEach(function(movie) { %>
+      <p><a href="/about/<%= movie.imdbID %>"><%= movie.Title %> (<%= movie.Year %>)</a></p>
+    <% }) %>
+  </body>
+</html>
