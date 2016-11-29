@@ -16,17 +16,35 @@ var words = [
 ];
 
 // Sort the people by 'uid'
+var people_by_uid = _.sortBy(people, function(person){
+  return person.uid;
+});
 
 // Group the random words by the lower case version of their first letter
-
+var word_by_first_letter = _.groupBy(words, function(word) {
+  return word[0].toLowerCase();
+});
 // Check to see if all the words have more than 3 characters
-
+var words_greater_than_three = _.findIndex(words, function(word){
+  return word.length > 3;
+});
 // Check if some words are over twenty characters long
-
+var words_over_twenty = _.groupBy(words, function(word){
+  return word.length > 20;
+});
 // Get an array of all of the uids in people
-
+var people_all_uids = _.pluck(people, function(person){
+  return person.uid;
+});
 // Find the person with the highest uid
-
+var highest_uid = _.max(people, function(person){
+  return person.uid;
+});
 // Return an object that says how many even numbers and how many odd numbers there are in numbers
-
+var count_even_odd = _.countBy(numbers, function(num){
+  return num % 2 === 0 ? 'even': 'odd';
+});
 // Get three random numbers out of numbers
+var three_random = _.sample(numbers, function(num) {
+  return num;
+});
