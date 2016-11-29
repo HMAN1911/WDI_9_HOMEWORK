@@ -1,0 +1,15 @@
+<dib class="landmark">
+  <h2><%= @landmark.name %></h2>
+  <img src="<% @landmark.photo_url %>" alt="">
+  <p>Country: <%= @landmark.country %> </p>
+  <p>City: <%= @landmark.city %> </p>
+  <p>Description <% @landmark.description %> </p>
+  <div class="delete-btn"</div>
+    <%= form_tag "/landmarks/#{@landmark.id}", method: 'delete' do %>
+    <button>Delete</button>
+    <% end %>
+  </div>
+  <%= form_tag "/landmarks/#{@landmark.id}/edit" method: 'get' do %>
+  <button>Edit</button>
+  <% end %>
+</div>

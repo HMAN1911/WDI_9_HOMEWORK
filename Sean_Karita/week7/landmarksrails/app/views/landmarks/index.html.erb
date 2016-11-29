@@ -1,0 +1,19 @@
+<% if session[:user_id] %>
+<a href="/landmarks/new"><h3>Add Landmark</h3></a>
+<% end %>
+
+<div class="wrapper-landmark">
+  <% @landmarks.each do |landmark| %>
+  <div class="landmark">
+    <a href="/landmarks/<%= landmark.id %>">
+      <h2><%= landmark.name %></h2>
+      <img src="<%= landmark.photo_url %>" alt="">
+    </a>
+    <p>Country: <%= landmark.country %> </p>
+    <p>City: <%= landmark.city %> </p>
+    <p>Description: <%= landmark.description %> </p>
+    <p>Uploaded by: <%= User.find(landmark.user_id).email %></p>
+  </div>
+  <% end %>
+
+</div>

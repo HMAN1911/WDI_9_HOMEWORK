@@ -1,0 +1,13 @@
+<%= form_tag "/landmarks/#{@landmark.id}", method: 'patch' do %>
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= @landmark.name %>">
+  <label for="">Photo URL</label>
+  <input type="text" name="photo_url" value="<%= @landmark.photo_url %>">
+  <label for="">Country</label>
+  <input type="text" name="country" value="<%= landmark.country %>">
+  <label for="">City</label>
+  <input type="text" name="city" value="<%= landmark.city %>">
+  <label for="">Description</label>
+  <input type="text" name="description" value="<%= landmark.description %>">
+  <button>Submit</button>
+<% end %>

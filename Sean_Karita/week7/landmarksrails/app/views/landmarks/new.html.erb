@@ -1,0 +1,13 @@
+<%= form_tag '/landmarks', method: 'post' do %>
+  <label for="">Name</label>
+  <input type="text" name="name">
+  <label for="">Photo URL</label>
+  <input type="text" name="photo_url">
+  <label for="">Country</label>
+  <input type="text" name="country">
+  <label for="">City</label>
+  <input type="text" name="city">
+  <label for="">Description</label>
+  <input type="text" name="description">
+  <button>Submit</button>
+<% end %>
