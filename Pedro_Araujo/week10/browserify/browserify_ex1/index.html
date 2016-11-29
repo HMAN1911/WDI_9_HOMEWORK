@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+  </head>
+  <body>
+
+    <h1>RGB to Hex</h1>
+
+ <div class="input-wrapper">
+   <form class="input-form">
+     <div class="input-box">
+       <label for="r">R</label>
+       <input name="r" type="number" min="0" max="255" value="0">
+     </div>
+     <div class="input-box">
+       <label for="g">G</label>
+       <input name="g" type="number" min="0" max="255" value="0">
+     </div>
+     <div class="input-box">
+       <label for="b">B</label>
+       <input name="b" type="number" min="0" max="255" value="0">
+     </div>
+     <button>Convert</button>
+   </form>
+ </div>
+
+ <div class="result-wrapper">
+   <h3>Hex</h3>
+   <p class="result-text">#<span>000000</span></p>
+   <div class="result-color"></div>
+ </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="bundle.js" charset="utf-8"></script>
+  </body>
+</html>
