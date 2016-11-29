@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-html(lang="en")
-head
-  meta(charset="UTF-8")
-  title Movies
-body
+extends layout
+block content
+
   h2 movie info...
   h3= Title
-  img(src=Poster, alt=Title, style="width: 300px")
+  img(src=Poster, alt=Title)
   p Released: #{Year}
   p Rating: #{imdbRating}
   p Director: #{Director}
