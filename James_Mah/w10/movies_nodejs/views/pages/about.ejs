@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head.ejs %>
+</head>
+<body>
+  <% include ../partials/header.ejs %>
+
+  <% if (movie.Response === "False") { %>
+    <p>No movie found</p>
+  <% } else { %>
+    <div class="about">
+      <div class='img'>
+        <img src=<%= movie.Poster %>>
+      </div>
+      <div class='details'>
+        <p><%= movie.Title %></p>
+        <p><%= movie.Year %></p>
+        <p>Rating: <%= movie.Rated %></p>
+        <p>Released: <%= movie.Released %></p>
+        <p>Genre: <%= movie.Genre %></p>
+        <p>Language: <%= movie.Language %></p>
+        <p>Metascore: <%= movie.Metascore %></p>
+        <p>imdbRating: <%= movie.imdbRating %></p>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  <% } %>
+
+
+  <% include ../partials/footer.ejs %>
+  <% include ../partials/scripts.ejs %>
+</body>
+</html>

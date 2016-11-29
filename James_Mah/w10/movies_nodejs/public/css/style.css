@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: auto 0;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
+
+.results {
+  margin: auto;
+  width: 800px;
+}
+
+.result {
+  width: 200px;
+  height: 360px;
+  float: left;
+  padding: 5px;
+  border: solid 1px black;
+}
+
+.about {
+  margin: auto;
+  width: 600px;
+  /*height: 500px;*/
+  border: solid 1px black;
+}
+
+.about .img {
+  float: left;
+  border: solid 1px black;
+}
+
+.about .details {
+  float: left;
+  text-align: left;
+  padding: 10px;
+}
+
+
+

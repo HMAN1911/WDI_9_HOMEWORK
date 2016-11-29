@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head.ejs %>
+</head>
+<body>
+  <% include ../partials/header.ejs %>
+  
+  <form action="/results" method="get">
+    <div class='input-box'>
+      <input name="s" type="text">
+      <button>Movie search</button>
+    </div>
+  </form>
+  
+  <% include ../partials/footer.ejs %>
+  <% include ../partials/scripts.ejs %>
+</body>
+</html>
